@@ -1,3 +1,14 @@
 import { Routes } from '@angular/router';
+import { LoginComponent } from './components/login-section/login/login.component';
+import { SignupComponent } from './components/login-section/signup/signup.component';
 
-export const routes: Routes = [];
+import { MainComponent } from './components/main-section/main/main.component';
+
+
+export const routes: Routes = [
+    { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirect to login as main page
+    { path: 'login', component: LoginComponent },
+    { path: 'signup', component: SignupComponent },
+  
+    { path: 'main', component: MainComponent, children: [] },
+];
