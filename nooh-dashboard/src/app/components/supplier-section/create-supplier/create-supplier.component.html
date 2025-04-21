@@ -1,0 +1,136 @@
+<div class="create-supplier">
+    <div class="space-between">
+        <h2>supplier</h2>
+        <button class="btn-create" (click)="submitSupplier()">Save Supplier</button>
+    </div>
+    <form [formGroup]="supplierForm">
+        <div class="supplier-profile">
+            <!-- Clickable Profile Image (NO EXTRA ICONS ADDED) -->
+            <img [src]="profileImageBase64 || 'Image/profile.png'" alt="profile" (click)="triggerFileInput()">
+            <!-- Hidden file input -->
+            <input type="file" #fileInput (change)="onProfileImageSelect($event)" hidden>
+
+            <!-- Supplier Details Form -->
+            <div class="supplier-profile-content">
+                <table>
+                    <tr>
+                        <td>
+                            <label>Supplier Name:</label>
+                            <input type="text" formControlName="name">
+                        </td>
+                        <td>
+                            <label>Key Person:</label>
+                            <input type="text" formControlName="key_person">
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td style="width:250px">
+                            <label>Contact 1:</label>
+                            <input type="text" formControlName="contact1">
+                        </td>
+                        <td style="width:250px">
+                            <label>Contact 2:</label>
+                            <input type="text" formControlName="contact2">
+                        </td>
+                        <td>
+                            <label>Email:</label>
+                            <input type="email" formControlName="email">
+                        </td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>
+                            <label>Address:</label>
+                            <input type="text" formControlName="address">
+                        </td>
+                        <td>
+                            <label>Website:</label>
+                            <input type="text" formControlName="website">
+                        </td>
+                        <td>
+                            <label>Instagram:</label>
+                            <input type="text" formControlName="instagram">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </form>
+
+    <div class="supplier-order">
+        <h2>Orders</h2>
+        <div class="butt">
+            <button class="btn-create" (click)="navigateToCreateOrder() ">Create New Order</button>
+            <button style="background-color:orange;" class="btn-create" (click)="navigateToCreateProduct() ">Create New Product</button>
+        </div>
+    </div>
+
+     <!-- orders table -->
+  <div class="supplier-content-table">
+    <h2>Filter</h2>
+    <div class="space-between">
+      <!-- filter date -->
+      <ul class="filter-date">
+        <li>
+          <label for="">From</label>
+          <input type="date">
+        </li>
+        <li>
+          <label for="">to</label>
+          <input type="date">
+        </li>
+        <li>
+          <button class="btn-filter">Filter</button>
+          <button class="btn-filter" style="background-color: orange;">Clear</button>
+        </li>
+      </ul>
+      <div class="delete-btn">
+        <button (click)="deleteAllOrders()">Delete All</button>
+      </div>
+    </div>
+    <div class="supplier-table">
+      <table>
+        <tr>
+          <th>Select</th>
+          <th>Date Created</th>
+          <th>Date Received</th>
+          <th>Product Name</th>
+          <th>Type of Pet</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Delivery Charges</th>
+          <th>Actions</th>
+        </tr>
+        <tr *ngFor="let order of orders">
+          <td><input type="checkbox"></td>
+          <td>{{ order.date_created }}</td>
+          <td>{{ order.date_received }}</td>
+          <td>{{ order.product_name }}</td>
+          <td>{{ order.pet_type }}</td>
+          <td>{{ order.quantity }}</td>
+          <td>{{ order.price }}</td>
+          <td>{{ order.delivery_charges }}</td>
+          <td>
+            <div class="action-btn">
+              <img src="edit-pic.png" alt="edit" (click)="navigateToEditOrder(order)">
+              <img src="biin.png" alt="delete" (click)="deleteOrder(order.id)">
+            </div>
+          </td>
+        </tr>
+      </table>
+        </div>
+        <!-- navigation -->
+        <ul class="navigation">
+            <li>Previous</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>Next</li>
+        </ul>
+    </div>
+</div>

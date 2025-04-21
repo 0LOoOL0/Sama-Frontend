@@ -1,0 +1,79 @@
+<div class="invoice">
+  <img src="Image/invoice-header.PNG" alt="Invoice Header">
+  <div class="content">
+    <div class="date">
+      <ul>
+        <li>Invoice Date: {{ invoice?.invoice_date | date:'d / M / y' }}</li>
+        <li>Invoice No: {{ invoice?.id }}</li>
+      </ul>
+      <div class="to-right">
+        <p>Total Due: {{ totalDue }}</p>
+      </div>
+      <ul>
+        <li><b>Invoice</b></li>
+        <li>{{ invoice?.customer_name }}</li>
+        <li>{{ invoice?.address }}</li>
+        <li>Mobile: {{ invoice?.contact_no }}</li>
+        <li>Email: {{ invoice?.email }}</li>
+      </ul>
+      <table>
+        <tr>
+          <ng-container *ngIf="invoiceMode === 'order'; else membershipHeader">
+            <th>Description</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>After %</th>
+            <th>Total</th>
+          </ng-container>
+          <ng-template #membershipHeader>
+            <th>Pet Name</th>
+            <th>Membership Type</th>
+            <th>Price Paid</th>
+          </ng-template>
+        </tr>
+        <tr *ngFor="let item of invoice?.order_products">
+          <ng-container *ngIf="invoiceMode === 'order'; else membershipRows">
+            <td>{{ item.product_name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.unit_price }} BHD</td>
+            <td>{{ item.discount_percentage }}%</td>
+            <td>{{ item.total_price }} BHD</td>
+          </ng-container>
+          <ng-template #membershipRows>
+            <td>{{ item.pet_name }}</td>
+            <td>{{ item.package_type }}</td>
+            <td>{{ item.price }} BHD</td>
+          </ng-template>
+        </tr>
+      </table>
+      <hr>
+      <div class="to-right-table">
+        <table>
+          <tr>
+            <td>Sub-total</td>
+            <td>{{ invoice?.total_amount - invoice?.delivery }} BHD</td>
+          </tr>
+          <tr>
+            <td>Delivery</td>
+            <td>{{ invoice?.delivery }} BHD</td>
+          </tr>
+          <tr class="total">
+            <td>Total:</td>
+            <td>{{ invoice?.total_amount }} BHD</td>
+          </tr>
+        </table>
+        <ul style="text-align: left;">
+          <li><b>Payment Method</b></li>
+          <li>Benefit</li>
+        </ul>
+      </div>
+      <ul>
+        <li>Account Manager</li>
+        <li>70000</li>
+      </ul>
+      <div style="text-align: center;">
+        <a href="">WWW.SamaPet.Com</a>
+      </div>
+    </div>
+  </div>
+</div>

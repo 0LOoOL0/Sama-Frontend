@@ -1,0 +1,70 @@
+<div class="orders">
+  <div class="container">
+    <form [formGroup]="orderForm" (ngSubmit)="submitOrder()">
+      <!-- header -->
+      <div class="space-between">
+        <h2>Add New Order</h2>
+        <label class="toggle-label">
+          <input type="checkbox" class="toggle-input" formControlName="status" (change)="onStatusChange($event)" />
+          <div class="toggle-switch">
+            <span class="toggle-circle"></span>
+          </div>
+        </label>
+      </div>
+      <img src="Image/cat.png" alt="">
+      <!-- input details -->
+      <div class="details">
+        <ul class="inputs-inline">
+          <li>
+            <label for=""> Start Date</label>
+            <input type="date" formControlName="start_date">
+          </li>
+          <li>
+            <label for=""> Received Date</label>
+            <input type="date" formControlName="received_date">
+          </li>
+        </ul>
+        <ul class="inputs">
+          <li>
+            <label for="">Type of Pet</label>
+            <select formControlName="pet_type">
+              <option value="" selected>Choose option...</option>
+              <option value="Cat">Cat</option>
+              <option value="Dog">Dog</option>
+              <option value="Bird">Bird</option>
+            </select>
+          </li>
+          <li>
+            <label for="">Product Name (EN)</label>
+            <input type="text" formControlName="product_name_en">
+          </li>
+          <li>
+            <label for="">Product Name (AR)</label>
+            <textarea formControlName="product_name_ar"></textarea>
+          </li>
+        </ul>
+        <ul class="inputs-inline">
+          <li>
+            <label for=""> Amount</label>
+            <input type="number" formControlName="quantity">
+          </li>
+          <li>
+            <label for=""> Delivery charge</label>
+            <input type="number" formControlName="delivery_price">
+          </li>
+        </ul>
+        <ul class="inputs-inline">
+          <li>
+            <label for="">Price</label>
+            <input type="number" formControlName="price">
+          </li>
+        </ul>
+      </div>
+      
+      <div class="buttons">
+        <button type="submit">Submit</button>
+        <button type="button" style="background-color:orange">Add More</button>
+      </div>
+    </form>
+  </div>
+</div>

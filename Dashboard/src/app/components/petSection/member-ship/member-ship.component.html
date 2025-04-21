@@ -1,0 +1,970 @@
+
+<!-- dashContent -->
+<div class="w-full xl:col-span-9 col-span-12">
+
+<!-- tabs -->
+
+<!-- tabsContent -->
+<div class="tabsContainer bg-white p-4 mt-2 rounded-[30px]">
+  <!-- Membership  -->
+  <div class="tabContent" id="Membership">
+    <!-- btn -->
+    <div
+      class="flex items-center justify-end md:gap-3 gap-2 flex-wrap"
+    >
+    <button
+    (click)="navigateToAddPet()"
+    class="md:py-3 md:px-10 py-1 px-3 bg-[#80CD66] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]"
+  >
+    Add Pet
+  </button>
+  
+      <button
+        class="md:py-3 md:px-10 py-1 px-3 bg-[#80CD66] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]"
+      >
+        Add Member
+      </button>
+      <button
+        class="md:py-3 md:px-10 py-1 px-3 bg-[#80CD66] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]"
+      >
+        Print Info
+      </button>
+    </div>
+
+    <!-- card container -->
+    <div class="grid grid-cols-12 gap-4 my-6">
+      <div class="lg:col-span-2 col-span-6">
+        <div class="text-center">
+          <label
+            class="relative inline-block w-5 h-5 bg-[#5E17EB] rounded-full cursor-pointer mx-auto"
+          >
+            <input type="checkbox" class="sr-only peer" checked />
+            <!-- Visual Box -->
+            <span
+              class="absolute inset-0 flex items-center justify-center bg-[#5E17EB] rounded-full peer-checked:after:content-['✓'] peer-checked:after:text-white peer-checked:after:font-bold peer-checked:after:text-xs"
+            ></span>
+          </label>
+
+          <img
+            src="Image/car-img.png"
+            alt="cat imge"
+            class=" w-custom-small mx-auto h-auto rounded-2xl my-4"
+          />
+
+          <h1
+            class="font-normal text-[#232323] text-[14px] inter mt-5"
+          >
+            Bator
+          </h1>
+          <p class="font-normal text-xs text-[#718EBF] mt-0 mb-5">
+            25 January 2023
+          </p>
+
+          <div class="mb-2">
+            <h1 class="font-normal text-[#232323] text-16 inter">
+              Collar Code
+            </h1>
+            <input
+              class="bg-[#fff] w-20 outline-none text-center border-2 border-[#DFEAF2] py-1 px-2 text-black rounded-[15px] btn-shadow font-normal text-xs]"
+              placeholder="100"
+              type="number"
+            />
+          </div>
+
+          <div
+            class="rate flex flex-row-reverse items-center justify-center gap-1 text-gray-300 mb-2"
+          >
+            <input
+              type="radio"
+              id="star5"
+              name="rate"
+              value="5"
+              class="hidden peer"
+            />
+            <label
+              for="star5"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star4"
+              name="rate"
+              value="4"
+              class="hidden peer"
+            />
+            <label
+              for="star4"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star3"
+              name="rate"
+              value="3"
+              class="hidden peer"
+            />
+            <label
+              for="star3"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star2"
+              name="rate"
+              value="2"
+              class="hidden peer"
+            />
+            <label
+              for="star2"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star1"
+              name="rate"
+              value="1"
+              class="hidden peer"
+            />
+            <label
+              for="star1"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+          </div>
+
+          <span
+            class="bg-[#BABACE] confirmBtn py-2 px-6 text-white rounded-[50px] btn-shadow font-normal text-[15px]"
+          >
+            confirm
+          </span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 col-span-6">
+        <div class="text-center">
+          <label
+            class="relative inline-block w-5 h-5 bg-[#5E17EB] rounded-full cursor-pointer mx-auto"
+          >
+            <input type="checkbox" class="sr-only peer" checked />
+            <!-- Visual Box -->
+            <span
+              class="absolute inset-0 flex items-center justify-center bg-[#5E17EB] rounded-full peer-checked:after:content-['✓'] peer-checked:after:text-white peer-checked:after:font-bold peer-checked:after:text-xs"
+            ></span>
+          </label>
+
+          <img
+            src="Image/car-img.png"
+            alt="cat imge"
+            class=" w-custom-small mx-auto h-auto rounded-2xl my-4"
+          />
+
+          <h1 class="font-normal text-[#232323] text-16 inter mt-5">
+            Bator
+          </h1>
+          <p class="font-normal text-xs text-[#718EBF] mt-0 mb-5">
+            25 January 2023
+          </p>
+
+          <div class="mb-2">
+            <h1 class="font-normal text-[#232323] text-16 inter">
+              Collar Code
+            </h1>
+            <input
+              class="bg-[#fff] w-20 outline-none text-center border-2 border-[#DFEAF2] py-1 px-2 text-black rounded-[15px] btn-shadow font-normal text-xs]"
+              placeholder="101"
+              type="number"
+            />
+          </div>
+
+          <div
+            class="rate flex flex-row-reverse items-center justify-center gap-1 text-gray-300 mb-2"
+          >
+            <input
+              type="radio"
+              id="star6"
+              name="rate"
+              value="5"
+              class="hidden peer"
+            />
+            <label
+              for="star6"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star7"
+              name="rate"
+              value="4"
+              class="hidden peer"
+            />
+            <label
+              for="star7"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star8"
+              name="rate"
+              value="3"
+              class="hidden peer"
+            />
+            <label
+              for="star8"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star9"
+              name="rate"
+              value="2"
+              class="hidden peer"
+            />
+            <label
+              for="star9"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star10"
+              name="rate"
+              value="1"
+              class="hidden peer"
+            />
+            <label
+              for="star10"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+          </div>
+          <span
+            class="bg-[#BABACE] confirmBtn py-2 px-6 text-white rounded-[50px] btn-shadow font-normal text-[15px]"
+          >
+            confirm
+          </span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 col-span-6">
+        <div class="text-center">
+          <label
+            class="relative inline-block w-5 h-5 bg-[#5E17EB] rounded-full cursor-pointer mx-auto"
+          >
+            <input type="checkbox" class="sr-only peer" />
+            <!-- Visual Box -->
+            <span
+              class="absolute inset-0 flex items-center justify-center bg-[#5E17EB] rounded-full peer-checked:after:content-['✓'] peer-checked:after:text-white peer-checked:after:font-bold peer-checked:after:text-xs"
+            ></span>
+          </label>
+
+          <img
+          src="Image/car-img.png"
+          alt="cat imge"
+          class=" w-custom-small mx-auto h-auto rounded-2xl my-4"
+        />
+
+          <h1 class="font-normal text-[#232323] text-16 inter mt-5">
+            Bator
+          </h1>
+          <p class="font-normal text-xs text-[#718EBF] mt-0 mb-5">
+            25 January 2023
+          </p>
+
+          <div class="mb-2">
+            <h1 class="font-normal text-[#232323] text-16 inter">
+              Collar Code
+            </h1>
+            <input
+              class="bg-[#fff] w-20 outline-none text-center border-2 border-[#DFEAF2] py-1 px-2 text-black rounded-[15px] btn-shadow font-normal text-xs]"
+              placeholder="102"
+              type="number"
+            />
+          </div>
+
+          <div
+            class="rate flex flex-row-reverse items-center justify-center gap-1 text-gray-300 mb-2"
+          >
+            <input
+              type="radio"
+              id="star11"
+              name="rate"
+              value="5"
+              class="hidden peer"
+            />
+            <label
+              for="star11"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star12"
+              name="rate"
+              value="4"
+              class="hidden peer"
+            />
+            <label
+              for="star12"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star13"
+              name="rate"
+              value="3"
+              class="hidden peer"
+            />
+            <label
+              for="star13"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star14"
+              name="rate"
+              value="2"
+              class="hidden peer"
+            />
+            <label
+              for="star14"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star15"
+              name="rate"
+              value="1"
+              class="hidden peer"
+            />
+            <label
+              for="star15"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+          </div>
+
+          <span
+            class="bg-[#BABACE] confirmBtn py-2 px-6 text-white rounded-[50px] btn-shadow font-normal text-[15px]"
+          >
+            confirm
+          </span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 col-span-6">
+        <div class="text-center">
+          <label
+            class="relative inline-block w-5 h-5 bg-[#5E17EB] rounded-full cursor-pointer mx-auto"
+          >
+            <input type="checkbox" class="sr-only peer" />
+            <!-- Visual Box -->
+            <span
+              class="absolute inset-0 flex items-center justify-center bg-[#5E17EB] rounded-full peer-checked:after:content-['✓'] peer-checked:after:text-white peer-checked:after:font-bold peer-checked:after:text-xs"
+            ></span>
+          </label>
+
+          <img
+            src="Image/car-img.png"
+            alt="cat imge"
+            class=" w-custom-small mx-auto h-auto rounded-2xl my-4"
+          />
+          <h1 class="font-normal text-[#232323] text-16 inter mt-5">
+            Bator
+          </h1>
+          <p class="font-normal text-xs text-[#718EBF] mt-0 mb-5">
+            25 January 2023
+          </p>
+
+          <div class="mb-2">
+            <h1 class="font-normal text-[#232323] text-16 inter">
+              Collar Code
+            </h1>
+            <input
+              class="bg-[#fff] w-20 outline-none text-center border-2 border-[#DFEAF2] py-1 px-2 text-black rounded-[15px] btn-shadow font-normal text-xs]"
+              placeholder="103"
+              type="number"
+            />
+          </div>
+
+          <div
+            class="rate flex flex-row-reverse items-center justify-center gap-1 text-gray-300 mb-2"
+          >
+            <input
+              type="radio"
+              id="star18"
+              name="rate"
+              value="5"
+              class="hidden peer"
+            />
+            <label
+              for="star18"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star18"
+              name="rate"
+              value="4"
+              class="hidden peer"
+            />
+            <label
+              for="star18"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star18"
+              name="rate"
+              value="3"
+              class="hidden peer"
+            />
+            <label
+              for="star18"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star17"
+              name="rate"
+              value="2"
+              class="hidden peer"
+            />
+            <label
+              for="star17"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+
+            <input
+              type="radio"
+              id="star16"
+              name="rate"
+              value="1"
+              class="hidden peer"
+            />
+            <label
+              for="star16"
+              class="cursor-pointer text-sm hover:text-yellow-400 peer-checked:text-yellow-500"
+            >
+              ★
+            </label>
+          </div>
+
+          <span
+            class="bg-[#BABACE] confirmBtn py-2 px-6 text-white rounded-[50px] btn-shadow font-normal text-[15px]"
+          >
+            confirm
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Membership & Invoices -->
+    <div class="bg-[#F5F5F9] p-4 rounded-[20px] w-full">
+      <div class="flex justify-between py-2 flex-wrap">
+        <h1 class="font-medium md:text-2xl text-[16px] text-black">
+          Membership & Invoices
+        </h1>
+
+        <div
+          class="flex items-center justify-end md:gap-1 gap-2 flex-wrap"
+        >
+          <a
+            class="md:py-3 md:px-10 py-1 px-3 bg-[#5E17EB] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]"
+          >
+            Print invoice
+          </a>
+          <a
+            class="md:py-3 md:px-10 py-1 px-3 bg-[#5E17EB] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]"
+            href="../petProfile/petProfile.html"
+          >
+            Print Card
+          </a>
+        </div>
+      </div>
+
+      <!-- table -->
+      <div
+        class="tableWrperr lg:w-full lg:overflow-visible overflow-x-scroll"
+      >
+        <table class="lg:w-full w-[1000px]">
+          <thead>
+            <tr>
+              <th
+                class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB] rounded-l-2xl"
+              ></th>
+              <th
+                class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+              >
+                Pc
+              </th>
+              <th
+                class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+              >
+                Pet name
+              </th>
+              <th
+                class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+              >
+                Issue Date
+              </th>
+              <th
+                class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+              >
+                Expiry Date
+              </th>
+              <th
+                class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+              >
+                Type of user
+              </th>
+              <th
+                class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+              >
+                Status
+              </th>
+              <th
+                class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+              >
+                Period
+              </th>
+              <th
+                class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+              >
+                Package
+              </th>
+              <th
+                class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+              >
+                Amount
+              </th>
+              <th
+                class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB] rounded-r-2xl"
+              >
+                Delivery total
+              </th>
+            </tr>
+          </thead>
+
+          <tbody class="text-center">
+            <tr class="py-3 px-1">
+              <td>
+                <label
+                  class="relative inline-block w-5 h-5 mx-auto bg-white border-[#718EBF] border-2 rounded-full cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    class="sr-only peer"
+                    checked
+                  />
+                  <!-- Visual Box -->
+                  <span
+                    class="absolute inset-0 flex items-center justify-center bg-[#fff] rounded-full peer-checked:after:content-['✓'] peer-checked:after:text-[#718EBF] peer-checked:after:font-bold peer-checked:after:text-xs"
+                  ></span>
+                </label>
+              </td>
+              <td class="py-3">
+                <img
+                  src="Image/car-img.png"
+                  alt="cat img"
+                  class="w-12 h-auto mx-auto"
+                />
+              </td>
+              <td class="font-medium text-black text-[1rem]">Cat</td>
+              <td class="font-normal text-sm text-[#718EBF]">
+                <input type="date" class="bg-transparent" />
+              </td>
+              <td class="font-normal text-sm text-[#718EBF]">
+                <input type="date" class="bg-transparent" />
+              </td>
+              <td class="px-2">
+                <div
+                  class="px-2 py-2 border-[1px] border-[#CED1D5] rounded-[20px]"
+                >
+                  <select
+                    class="w-full bg-transparent outline-none text-[13px] text-[#718EBF]"
+                  >
+                    <option value="Member">Member</option>
+                    <option value="Non-Member">Non Member</option>
+                    <option value="Free-Trial">Free Trial</option>
+                  </select>
+                </div>
+              </td>
+              <td class="px-2">
+                <div
+                  class="px-2 py-2 border-[1px] border-[#CED1D5] rounded-[20px]"
+                >
+                  <select
+                    class="w-full bg-transparent outline-none text-[13px] text-[#718EBF]"
+                  >
+                    <option value="Active">draft</option>
+                    <option value="Non-Active">pending</option>
+                    <option value="Non-Active">done</option>
+                    <option value="Non-Active">paid</option>
+                    <option value="Non-Active">Renewle</option>
+                    <option value="Non-Active">expired</option>
+                    <option value="Non-Active">cancelled</option>
+                  </select>
+                </div>
+              </td>
+              <td class="px-2">
+                <div
+                  class="px-2   mx-auto py-2 border-[1px] border-[#CED1D5] rounded-[20px]"
+                > 
+                  <select
+                  class="w-full bg-transparent outline-none text-[13px] text-[#718EBF]"
+                >
+                  <option value="Active">Period</option> 
+                  <option value="Active">Period</option> 
+                </select>
+                </div>
+              </td>
+              <td class="px-2">
+                <div
+                  class="px-2   mx-auto py-2 border-[1px] border-[#CED1D5] rounded-[20px]"
+                > 
+                  <select
+                  class="w-full bg-transparent outline-none text-[13px] text-[#718EBF]"
+                >
+                  <option value="Active">Package</option> 
+                  <option value="Active">Package</option> 
+                </select>
+                </div>
+              </td>
+              <td>
+                <input
+                  type="text"
+                  class="w-20 bg-transparent font-normal text-sm text-[#232323] outline-none text-center placeholder:text-[#232323]"
+                  placeholder=" Bd 10"
+                />
+              </td>
+              <td class="font-normal text-sm text-[#232323]">
+                <input
+                  type="text"
+                  class="w-20 bg-transparent font-normal text-sm text-[#232323] outline-none text-center placeholder:text-[#232323]"
+                  placeholder=" Bd 1"
+                />
+              </td>
+            </tr>
+
+            <tr class="py-3 px-1">
+              <td>
+                <label
+                  class="relative inline-block w-5 h-5 mx-auto bg-white border-[#718EBF] border-2 rounded-full cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    class="sr-only peer"
+                    checked
+                  />
+                  <!-- Visual Box -->
+                  <span
+                    class="absolute inset-0 flex items-center justify-center bg-[#fff] rounded-full peer-checked:after:content-['✓'] peer-checked:after:text-[#718EBF] peer-checked:after:font-bold peer-checked:after:text-xs"
+                  ></span>
+                </label>
+              </td>
+              <td class="py-3">
+                <img
+                  src="Image/car-img.png"
+                  alt="cat img"
+                  class="w-12 h-auto mx-auto"
+                />
+              </td>
+              <td class="font-medium text-black text-[1rem]">Dog</td>
+              <td class="font-normal text-sm text-[#718EBF]">
+                <input type="date" class="bg-transparent" />
+              </td>
+              <td class="font-normal text-sm text-[#718EBF]">
+                <input type="date" class="bg-transparent" />
+              </td>
+              <td class="px-2">
+                <div
+                  class="px-2 py-2 border-[1px] border-[#CED1D5] rounded-[20px]"
+                >
+                  <select
+                    class="w-full bg-transparent outline-none text-[13px] text-[#718EBF]"
+                  >
+                    <option value="Member">Member</option>
+                    <option value="Non-Member">Non Member</option>
+                    <option value="Free-Trial">Free Trial</option>
+                  </select>
+                </div>
+              </td>
+              <td class="px-2">
+                <div
+                  class="px-2 py-2 border-[1px] border-[#CED1D5] rounded-[20px]"
+                >
+                  <select
+                    class="w-full bg-transparent outline-none text-[13px] text-[#718EBF]"
+                  >
+                    <option value="Active">draft</option>
+                    <option value="Non-Active">pending</option>
+                    <option value="Non-Active">done</option>
+                    <option value="Non-Active">paid</option>
+                    <option value="Non-Active">Renewle</option>
+                    <option value="Non-Active">expired</option>
+                    <option value="Non-Active">cancelled</option>
+                  </select>
+                </div>
+              </td>
+              <td class="px-2">
+                <div
+                  class="px-2   mx-auto py-2 border-[1px] border-[#CED1D5] rounded-[20px]"
+                > 
+                  <select
+                  class="w-full bg-transparent outline-none text-[13px] text-[#718EBF]"
+                >
+                  <option value="Active">Period	</option> 
+                  <option value="Active">Period	</option> 
+                </select>
+                </div>
+              </td>
+              <td class="px-2">
+                <div
+                  class="px-2   mx-auto py-2 border-[1px] border-[#CED1D5] rounded-[20px]"
+                > 
+                  <select
+                  class="w-full bg-transparent outline-none text-[13px] text-[#718EBF]"
+                >
+                  <option value="Active">Package</option> 
+                  <option value="Active">Package</option> 
+                </select>
+                </div>
+              </td>
+              <td class="font-normal text-sm text-[#232323]">
+                <input
+                  type="text"
+                  class="w-20 bg-transparent font-normal text-sm text-[#232323] outline-none text-center placeholder:text-[#232323]"
+                  placeholder=" Bd 10"
+                />
+              </td>
+              <td class="font-normal text-sm text-[#232323]">
+                <input
+                  type="text"
+                  class="w-20 bg-transparent font-normal text-sm text-[#232323] outline-none text-center placeholder:text-[#232323]"
+                  placeholder=" Bd 1"
+                />
+              </td>
+            </tr>
+
+            <tr class="py-3 px-1">
+              <td>
+                <label
+                  class="relative inline-block w-5 h-5 mx-auto bg-white border-[#718EBF] border-2 rounded-full cursor-pointer"
+                >
+                  <input
+                    type="checkbox"
+                    class="sr-only peer"
+                    checked
+                  />
+                  <!-- Visual Box -->
+                  <span
+                    class="absolute inset-0 flex items-center justify-center bg-[#fff] rounded-full peer-checked:after:content-['✓'] peer-checked:after:text-[#718EBF] peer-checked:after:font-bold peer-checked:after:text-xs"
+                  ></span>
+                </label>
+              </td>
+              <td class="py-3">
+                <img
+                  src="Image/car-img.png"
+                  alt="cat img"
+                  class="w-12 h-auto mx-auto"
+                />
+              </td>
+              <td class="font-medium text-black text-[1rem]">
+                Rabit
+              </td>
+              <td class="font-normal text-sm text-[#718EBF]">
+                <input type="date" class="bg-transparent" />
+              </td>
+              <td class="font-normal text-sm text-[#718EBF]">
+                <input type="date" class="bg-transparent" />
+              </td>
+              <td class="px-2">
+                <div
+                  class="px-2 py-2 border-[1px] border-[#CED1D5] rounded-[20px]"
+                >
+                  <select
+                    class="w-full bg-transparent outline-none text-[13px] text-[#718EBF]"
+                  >
+                    <option value="Member">Member</option>
+                    <option value="Non-Member">Non Member</option>
+                    <option value="Free-Trial">Free Trial</option>
+                  </select>
+                </div>
+              </td>
+              <td class="px-2">
+                <div
+                  class="px-2 py-2 border-[1px] border-[#CED1D5] rounded-[20px]"
+                >
+                  <select
+                    class="w-full bg-transparent outline-none text-[13px] text-[#718EBF]"
+                  >
+                    <option value="Active">draft</option>
+                    <option value="Non-Active">pending</option>
+                    <option value="Non-Active">done</option>
+                    <option value="Non-Active">paid</option>
+                    <option value="Non-Active">Renewle</option>
+                    <option value="Non-Active">expired</option>
+                    <option value="Non-Active">cancelled</option>
+                  </select>
+                </div>
+              </td>
+              <td class="px-2">
+                <div
+                  class="px-2   mx-auto py-2 border-[1px] border-[#CED1D5] rounded-[20px]"
+                > 
+                  <select
+                  class="w-full bg-transparent outline-none text-[13px] text-[#718EBF]"
+                >
+                  <option value="Active">Period	</option> 
+                  <option value="Active">Period	</option> 
+                </select>
+                </div>
+              </td>
+              <td class="px-2">
+                <div
+                  class="px-2   mx-auto py-2 border-[1px] border-[#CED1D5] rounded-[20px]"
+                > 
+                  <select
+                  class="w-full bg-transparent outline-none text-[13px] text-[#718EBF]"
+                >
+                  <option value="Active">Package</option> 
+                  <option value="Active">Package</option> 
+                </select>
+                </div>
+              </td>
+              <td class="font-normal text-sm text-[#232323]">
+                <input
+                  type="text"
+                  class="w-20 bg-transparent font-normal text-sm text-[#232323] outline-none text-center placeholder:text-[#232323]"
+                  placeholder=" Bd 10"
+                />
+              </td>
+              <td class="font-normal text-sm text-[#232323]">
+                <input
+                  type="text"
+                  class="w-20 bg-transparent font-normal text-sm text-[#232323] outline-none text-center placeholder:text-[#232323]"
+                  placeholder=" Bd 1"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div
+        class="flex items-center justify-end md:gap-1 gap-2 flex-wrap mt-6"
+      >
+        <button
+          class="md:py-3 md:px-10 py-2 px-5 bg-[#5E17EB] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]"
+        >
+          Total price: <span class="ms-3 font-bold">Bd 11</span>
+        </button>
+      </div>
+    </div>
+    <!-- Membership  -->
+
+    <div class="mt-12 flex justify-between flex-wrap gap-3">
+      <a
+       
+        class="sm:px-8 sm:py-3 py-2 px-6 rounded-[40px] bg-[#FF0206] duration-300 hover:bg-[#fd2d30] inline-block text-white inter text-xs font-normal"
+      >
+        Update
+      </a>
+
+      <div
+        class="flex items-center sm:justify-end sm:gap-6 gap-3 px-5 justify-center"
+      >
+        <button
+          class="flex items-center justify-center gap-2 cursor-pointer text-[#5E17EB] text-xs font-normal hover:text-black duration-500"
+        >
+          <img src="Image/left-arrow.svg" alt="arrow left" />
+          Previous
+        </button>
+
+        <!-- painagation -->
+        <div class="flex items-center">
+          <button
+            class="sm:py-3 sm:px-4 px-2 py-1 rounded-lg text-white font-normal text-xs bg-[#5E17EB] hover:bg-[#5E17EB] hover:text-white duration-1000"
+          >
+            1
+          </button>
+          <button
+            class="sm:py-3 sm:px-4 px-2 py-1 rounded-lg text-black font-normal text-xs hover:bg-[#5E17EB] hover:text-white duration-1000"
+          >
+            2
+          </button>
+          <button
+            class="sm:py-3 sm:px-4 px-2 py-1 rounded-lg text-black font-normal text-xs hover:bg-[#5E17EB] hover:text-white duration-1000"
+          >
+            3
+          </button>
+          <button
+            class="sm:py-3 sm:px-4 px-2 py-1 rounded-lg text-black font-normal text-xs hover:bg-[#5E17EB] hover:text-white duration-1000"
+          >
+            4
+          </button>
+        </div>
+
+        <button
+          class="flex items-center justify-center gap-2 cursor-pointer text-[#5E17EB] text-xs font-normal hover:text-black duration-500"
+        >
+          Next
+          <img src="Image/right-arrow.svg" alt="arrow right" />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabContent hidden" id="Usage">Discount Usage</div>
+  <div class="tabContent hidden" id="History">History</div>
+  <div class="tabContent hidden" id="Other">Other</div>
+</div>
+</div>

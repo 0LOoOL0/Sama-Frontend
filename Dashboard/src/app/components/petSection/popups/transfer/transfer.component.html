@@ -1,0 +1,23 @@
+<div class="overlay">
+  <div class="form-pet">
+    <h2>Transfer Form</h2>
+    <form class="transfer">
+      <ul>
+        <li>
+          <label for="name">Name:</label>
+          <input type="text" id="name" placeholder="(ignored)">
+        </li>
+        <li>
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="Enter owner's email">
+        </li>
+        <li>
+          <label for="number">Contact Number:</label>
+          <input type="number" id="phone" placeholder="(ignored)">
+        </li>
+      </ul>
+    </form>
+    <button class="btn-save" (click)="onSave()">Save</button>
+    <button class="btn-delete" (click)="closeForm.emit()">Close</button>
+  </div>
+</div>
