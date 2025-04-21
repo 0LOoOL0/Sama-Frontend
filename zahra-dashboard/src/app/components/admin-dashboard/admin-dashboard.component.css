@@ -1,0 +1,158 @@
+.container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  margin: 20px;
+}
+
+.card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid #ddd;
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card-header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.card-header i {
+  margin-right: 10px;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.subcard {
+  background-color: #f1f1f1;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.subcard-header {
+  background-color: #e9ecef;
+  padding: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.subcard-header i {
+  margin-right: 10px;
+}
+
+.subcard-body {
+  padding: 10px;
+}
+
+.subcard-body ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.subcard-body ul li {
+  margin-bottom: 5px;
+}
+
+.subcard-body ul li a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.subcard-body ul li a:hover {
+  text-decoration: underline;
+}
+
+.side-cards-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 20px;
+  grid-column: span 2; /* Span across 2 columns */
+  margin-top: 20px;
+}
+
+.side-card {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 1px solid #ddd;
+  transition: transform 0.3s;
+  padding: 15px;
+  text-align: center;
+}
+
+.side-card i {
+  font-size: 30px;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.side-card .card-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.side-card .card-body ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.side-card .card-body ul li {
+  margin-bottom: 5px;
+}
+
+.side-card .card-body ul li a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.side-card .card-body ul li a:hover {
+  text-decoration: underline;
+}
+
+.scroll-container {
+  overflow-x: scroll;  /* Enables horizontal scrolling */
+  width: 100%;  /* Ensures the container spans the full width */
+  -ms-overflow-style: none; /* Hides the scrollbar in Internet Explorer */
+  scrollbar-width: none;    /* Hides the scrollbar in Firefox */
+  position: relative;  /* Keeps the container position for scrolling */
+}
+
+/* Hides the scrollbar for Webkit-based browsers like Chrome and Safari */
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Ensures the container still scrolls smoothly without the scrollbar */
+.scroll-container {
+  -webkit-overflow-scrolling: touch;  /* Enables smooth scrolling for touch devices */
+}
+.dashboard-item {
+  color: black;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 5px;
+}
+.dashboard-item a {
+  text-decoration: none;
+  color: inherit;
+}

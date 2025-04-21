@@ -1,0 +1,15 @@
+.relative:hover .dropdown-list {
+    display: block;
+  }
+  @keyframes gradientWave {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .animated-gradient {
+    background: linear-gradient(270deg, #c4a8e0, #9979d4);
+    /* background: linear-gradient(270deg, #c4a8e0, #9e80d7); */
+    background-size: 400% 400%;
+    animation: gradientWave 3s ease infinite;
+  }
