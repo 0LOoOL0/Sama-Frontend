@@ -1,0 +1,100 @@
+<body>
+
+    <section class="header-profile">
+        <div class="header-content">
+            <h2>List of Packages</h2>
+            <div class="profile-search">
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search...">
+                </div>
+                <div class="button-container">
+                    <ul>
+                        <li><img src="Image/setting-icon.svg" alt="bell"></li>
+                        <li><img src="Image/bell.png" alt="notification"></li>
+                        <li><img src="Image/profile-img.png" alt="Profile picture"></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="all-packages">
+
+        <button class="add-btn" (click)="navigateToCreatePackage()">Add New Package</button>
+
+        <div class="package-types">
+          <!-- Loop through active packages -->
+          <div class="package-content" *ngFor="let pkg of activePackages">
+            <div>
+              <label class="toggle-label">
+                <input type="checkbox" class="toggle-input" 
+                       [checked]="pkg.status_user" 
+                       (change)="toggleStatus(pkg, 'status_user', $any($event.target).checked)" />
+                <div class="toggle-switch">
+                  <span class="toggle-circle"></span>
+                </div>
+              </label>
+              <!-- Display the package title in the middle -->
+              <h1>{{ pkg.title }}</h1>
+              <!-- For now, show 1 Month as fixed text -->
+              <h2>1 Month</h2>
+            </div>
+            <button (click)="editPackage(pkg)">Edit</button>
+          </div>
+        </div>
+        
+
+        <table class="packages-table">
+            <thead>
+              <tr>
+                <th>NO</th>
+                <th>Package Name</th>
+                <th>Status User</th>
+                <th>Status Staff</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let pkg of packages; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td>{{ pkg.title }}</td>
+                <td>
+                  <label class="toggle-label">
+                    <input type="checkbox" class="toggle-input" [checked]="pkg.status_user" (change)="toggleStatus(pkg, 'status_user', $any($event.target).checked)"/>
+                    <div class="toggle-switch">
+                      <span class="toggle-circle"></span>
+                    </div>
+                  </label>
+                </td>
+                <td>
+                  <label class="toggle-label">
+                    <input type="checkbox" class="toggle-input" [checked]="pkg.status_staff" (change)="toggleStatus(pkg, 'status_staff', $any($event.target).checked)"/>
+                    <div class="toggle-switch">
+                      <span class="toggle-circle"></span>
+                    </div>
+                  </label>
+                </td>
+                <td>
+                  <div class="action-btn">
+                    <img src="edit-pic.png" alt="edit"  (click)="editPackage(pkg)"/>
+                    <img src="biin.png" alt="delete"  (click)="deletePackage(pkg)"/>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          
+
+        <ul class="navigation">
+            <li>Previous</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>Next</li>
+        </ul>
+
+    </section>
+</body>
