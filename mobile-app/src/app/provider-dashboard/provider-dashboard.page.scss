@@ -1,0 +1,69 @@
+.cards-container {
+    display: flex;
+    justify-content: space-between; /* Space out the cards */
+    padding: 10px;
+  }
+  
+  .booking, .services {
+    flex: 1; /* Ensure cards take up equal space */
+    margin: 0 5px; /* Add space between cards */
+  }
+  
+  ion-card {
+    background-color: #f4f4f4; /* Light background color for cards */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  }
+  
+  ion-card-header, ion-card-footer {
+    background-color: #e0e0e0; /* Different background color for header/footer */
+    padding: 10px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  /* Chart container styling */
+  .chart-container {
+    margin-top: 20px;
+  }
+  
+  canvas {
+    width: 100% !important; /* Ensures canvas takes full width */
+    height: auto !important; /* Keeps aspect ratio */
+  }
+  .progress-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+  }
+  
+  .circular-chart {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .circle-bg {
+    fill: none;
+    stroke: #e6e6e6;
+    stroke-width: 4;
+  }
+  
+  .circle {
+    fill: none;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke: #3cba54;
+    transition: stroke-dasharray 1s;
+  }
+  
+  .percentage {
+    font-size: 0.5em;
+    dominant-baseline: middle;
+    text-anchor: middle;
+    fill: #333;
+    font-weight: bold;
+  }

@@ -1,0 +1,51 @@
+ion-card {
+    margin-bottom: 20px;
+  }
+  
+  .doctor-profile-card {
+    text-align: center;
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+  }
+  
+  .rating ion-icon {
+    margin-right: 5px;
+  }
+  
+  .reviews {
+    margin-left: 10px;
+    color: var(--ion-color-medium);
+  }
+  
+  .availability {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .clinic-partners {
+    display: flex;
+  }
+  
+  .clinic-partners ion-item {
+    flex: 0 0 auto;
+  }
+  
+  .price {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    color: var(--ion-color-medium);
+  }
+  
+  .new-price {
+    color: var(--ion-color-danger);
+  }
+  

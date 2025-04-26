@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Store</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card *ngFor="let product of products">
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="assets/pet.jpg" alt="Product Image">
+      </ion-avatar>
+      <ion-label>
+        <h2>Product Name</h2>
+        <p>Price</p>
+      </ion-label>
+      <ion-button fill="clear" slot="end">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-card>
+
+  <ion-button expand="block" fill="clear" class="add-product-btn" (click)="addProduct()">
+    + Add More Product
+  </ion-button>
+  <ion-button expand="block" color="primary" (click)="continue()">
+    Continue
+  </ion-button>
+</ion-content>

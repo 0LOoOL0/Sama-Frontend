@@ -1,0 +1,38 @@
+ion-header {
+    --background: #ffffff;
+  }
+  
+  ion-toolbar {
+    --background: #ffffff;
+    --border-color: #f1f1f1;
+  }
+  
+  ion-title {
+    color: #ff5e3a;
+  }
+  
+  ion-content {
+    --background: #f8f8f8;
+  }
+  
+  .total {
+    font-weight: bold;
+    color: #333333;
+    font-size: 1.2em;
+  }
+  
+  ion-button {
+    --border-radius: 20px;
+    margin-top: 20px;
+  }
+  
+  ion-list-header {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  
+  ion-note {
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  

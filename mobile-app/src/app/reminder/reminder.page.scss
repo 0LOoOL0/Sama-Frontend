@@ -1,0 +1,184 @@
+// header
+ion-buttons{
+  margin-top: 18px;
+}
+
+// select
+ion-select, ion-select-option{
+  font-weight: 600;
+}
+
+::ng-deep ion-select-popover {
+--background: white !important;
+}
+
+::ng-deep ion-select-popover ion-list {
+background-color: white !important;
+}
+
+::ng-deep ion-select-popover ion-list ion-item {
+--background: white !important;
+--color: black !important;
+}
+
+::ng-deep .select-interface-option {
+background-color: white !important;
+color: black !important;
+}
+
+.pfp{
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+}
+
+//calander
+.custom-datetime{
+  --background: var(--White);
+  border-radius: 16px;
+}
+
+.custom-datetime::part(active) {
+  background-color: var(--Main-Two);
+  color: var(--White);
+  border: 1px solid var(--Main-Two);
+}
+
+.ion-picker-column-option{
+  --highlight-background:var(--White);
+  --highlight-border-radius:var(--Main-Two);
+}
+
+.shadow{
+  max-width: 350px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  margin-top: 10px;
+}
+
+.ion-color-primary {
+  --ion-color-base: var(--Main-One) !important;
+}
+
+// reminders
+.card{
+  width: 100%;
+  border-radius: 16px;
+  padding: 16px;
+  background-color: var(--White);
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.icon{
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+
+
+#ev{
+    display: flex;
+    flex-direction: column;
+}
+
+ion-body {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-style: normal;
+  color: var(--Black) !important;
+}
+
+.pet img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 100px;
+}
+
+ion-modal {
+  --border-radius: 16px 16px 0 0;
+  --max-width: 100%;
+  --width: 100%;
+  --min-width: 100%;
+  --max-height: 90%;
+  --height: auto;
+}
+
+ion-content {
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+.content-container {
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  background: white;
+}
+
+.done-button {
+  display: flex;
+  font-size: 15px;
+  padding: 16px 32px;
+  --border-radius: 16px;
+  height: 80px;
+  width: auto;
+  --background: #ED5F1E;
+}
+
+ion-card {
+  background: none;
+}
+
+.styled-card-content {
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 13px 16px 13px 16px;
+}
+
+.date-time {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+
+.date-time io-item {
+  display: flex;
+  width: auto;
+  padding: 0;
+  margin: 0;
+  border: none;
+  justify-content: center;
+}
+
+.date-list, .time-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.separator {
+  width: 1px;
+  height: 100%;
+  background-color: #ddd;
+  margin: 0 16px;
+}
+
+.syringe-icon {
+  ion-badge{
+    background: var(--Main-Two);
+    border-radius: 16px;
+    padding: 9px;
+  }
+}
+
+.icons {
+  margin-right: 8px; 
+  width: 27px; 
+  height: 27px;
+}

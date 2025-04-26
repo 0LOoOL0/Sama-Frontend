@@ -1,0 +1,139 @@
+form {
+    margin: 0 16px;
+  }
+
+  ion-content{
+    --background-color: #ffffff;
+  }
+
+  ion-header{
+    --background-color: #e7e8e8;
+  }
+
+
+  ion-item {
+    margin-bottom: 12px;
+    margin-right: 12px;
+  }
+  
+  ion-chip {
+    margin-right: 8px;
+  }
+  
+  ion-button {
+    margin-top: 20px;
+  }
+  
+  ion-label {
+    font-weight: bold;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    margin-left: 10px;
+    margin-top: 20px;
+  }
+
+
+  ion-badge{
+    margin-right: 8px;
+   --background: #5b0afe;
+   --ion-color-secondary: #e37621;
+  }
+  
+  /* Custom Datetime Styles */
+  .custom-datetime {
+    --width: 100%;
+    --height: auto;
+    --ion-color-primary: #000;
+    --ion-color-secondary: #666;
+    --ion-color-light: #fff;
+    --ion-color-dark: #000;
+    --ion-font-family: inherit;
+    --ion-font-size: inherit;
+  }
+  
+  /* Custom Select Styles */
+  .custom-select {
+    --background: #f4ece8;
+    --border-radius: 12px;
+    --color: #000;
+    --padding: 10px;
+    --margin-bottom: 20px;
+  }
+  
+  .custom-select ion-select-option {
+    --background: #fff;
+    --color: #000;
+    --padding: 8px 16px;
+    --margin: 4px 0;
+  }
+  
+  .custom-select ion-select-option:first-child {
+    --background: #f4ece8;
+    --color: #000;
+    font-weight: bold;
+  }
+
+  .open-custom-dialog ion-button {
+    margin-top: 12px;
+  }
+
+  ion-select .select-placeholder {
+    display: none; /* Hide the placeholder text */
+  }
+  
+  ion-select .select-icon {
+    margin-left: 10px; /* Adjust spacing if needed */
+  }
+  
+  ion-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  ion-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  ion-modal#tag-modal {
+    --width: fit-content;
+    --min-width: 60vw;
+    --height: fit-content;
+    --border-radius: 6px;
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  }
+
+  ion-modal#example-modal {
+    --width: fit-content;
+    --min-width: 250px;
+    --height: fit-content;
+    --border-radius: 6px;
+    --box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+  }
+  .padded-item{
+   --padding-start: 16px;
+   --padding-end: 16px;
+  }
+
+  .label-margin {
+    margin-bottom: 16px;
+
+  }
+  .done{
+    --background:#e37621;
+  }
+
+  ion-checkbox {
+    --size: 20px;
+    --checkbox-background-checked: #e37621;
+  }
+  
+  ion-checkbox::part(container) {
+    border-radius: 3px;
+    --background:#e37621;
+    border: 1px solid ;
+  }
+
+
+

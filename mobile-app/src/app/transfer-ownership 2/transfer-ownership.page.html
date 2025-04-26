@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>TransferOwnership</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">TransferOwnership</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-label>New Owner Name</ion-label>
+  <ion-input class="bodyFont" [(ngModel)]="NewEmail"></ion-input>
+
+  <ion-button fill="clear" class="FilledButtons" (click)="transfer()">
+    Transfer
+  </ion-button>
+</ion-content>

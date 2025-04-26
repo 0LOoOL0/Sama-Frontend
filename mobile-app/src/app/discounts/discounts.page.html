@@ -1,0 +1,140 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Discounts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img src="assets/img/pet-card.png" alt="Pet Card" />
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>Breed:</ion-col>
+          <ion-col>{{ petDetails.breed }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Country:</ion-col>
+          <ion-col>{{ petDetails.country }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Gender:</ion-col>
+          <ion-col>{{ petDetails.gender }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Owner Name:</ion-col>
+          <ion-col>{{ petDetails.ownerName }}</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>Valid Date:</ion-col>
+          <ion-col>{{ petDetails.validDate }}</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-segment [(ngModel)]="segment" (ionChange)="segmentChanged()">
+    <ion-segment-button value="services">
+      <ion-label>Services</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="products">
+      <ion-label>Products</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-item>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="toggleSearchBar()">
+        <ion-icon name="search-outline"></ion-icon>
+      </ion-button>
+      <ion-button fill="clear" (click)="toggleFilter()">
+        <ion-icon name="filter-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-searchbar *ngIf="showSearchBar" [(ngModel)]="searchTerm" placeholder="Search"></ion-searchbar>
+    <ion-checkbox slot="end" [(ngModel)]="selectAll" (ionChange)="selectAllItems()"></ion-checkbox>
+    <ion-label>Select all</ion-label>
+  </ion-item>
+
+  <ion-list *ngIf="filteredDiscounts.length > 0">
+    <ion-item *ngFor="let discount of filteredDiscounts">
+      <ion-checkbox slot="start" [(ngModel)]="discount.selected"></ion-checkbox>
+      <ion-avatar slot="start">
+        <img src="assets/img/discount-icon.png" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ discount.title }}</h2>
+        <p>{{ discount.description }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="filteredDiscounts.length === 0" class="no-items">
+    <p>No {{ segment }} available.</p>
+  </div>
+
+  <ion-button expand="block" color="primary">Done</ion-button>
+
+  <!-- Filter Options -->
+  <ion-card *ngIf="showFilter">
+    <ion-item>
+      <ion-label>Layout</ion-label>
+      <ion-segment [(ngModel)]="layout">
+        <ion-segment-button value="list">
+          <ion-icon name="list-outline"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="grid">
+          <ion-icon name="grid-outline"></ion-icon>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Type of products</ion-label>
+      <ion-button fill="outline" size="small" (click)="toggleProductType('cleaning')"
+        [color]="selectedProductType === 'cleaning' ? 'primary' : 'medium'">Cleaning</ion-button>
+      <ion-button fill="outline" size="small" (click)="toggleProductType('food')"
+        [color]="selectedProductType === 'food' ? 'primary' : 'medium'">Food</ion-button>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Price Range</ion-label>
+      <ion-range dualKnobs="true" min="0" max="100" step="1" [(ngModel)]="priceRange">
+        <ion-label slot="start">{{ priceRange.lower }} BHD</ion-label>
+        <ion-label slot="end">{{ priceRange.upper }} BHD</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Pet Type</ion-label>
+      <ion-segment [(ngModel)]="petType">
+        <ion-segment-button value="cat">
+          <ion-icon name="paw-outline"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="dog">
+          <ion-icon name="paw-outline"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="fish">
+          <ion-icon name="fish-outline"></ion-icon>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Reviews</ion-label>
+      <ion-segment [(ngModel)]="reviews">
+        <ion-segment-button value="4">
+          <ion-icon name="star-outline"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="5">
+          <ion-icon name="star-outline"></ion-icon>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-item>
+
+    <ion-button expand="block" (click)="resetFilters()">Reset Filters</ion-button>
+  </ion-card>
+</ion-content>

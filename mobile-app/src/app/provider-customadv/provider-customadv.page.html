@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Custom Ad Design Promotion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card>
+    <ion-card-content>
+      <form (ngSubmit)="onSubmit()">
+        <div class="upload-section">
+          <label>High Quality Logo Image</label>
+          <div class="upload-box" (click)="uploadLogo()">
+            <ion-icon name="camera-outline"></ion-icon>
+            <span>Add logo image</span>
+          </div>
+          <p class="upload-info">Accepted File Types: JPG, PNG, PDF</p>
+          <p class="upload-info">Max size: 2 MB</p>
+        </div>
+        <div class="upload-section">
+          <label>Other Pictures Of The Business</label>
+          <div class="upload-box" (click)="uploadProduct()">
+            <ion-icon name="camera-outline"></ion-icon>
+            <span>Add Product image</span>
+          </div>
+          <p class="upload-info">Accepted File Types: JPG, PNG</p>
+          <p class="upload-info">Max size: 2 MB</p>
+        </div>
+        <ion-item>
+          <ion-label position="stacked">Business Name</ion-label>
+          <ion-input placeholder="Enter your Product" [(ngModel)]="formData.businessName" name="businessName" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Discount Description</ion-label>
+          <ion-textarea placeholder="Enter description" [(ngModel)]="formData.discountDescription" name="discountDescription" required></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Expiry Date</ion-label>
+          <ion-select [(ngModel)]="formData.expiryDay" name="expiryDay" placeholder="Day">
+            <ion-select-option *ngFor="let day of days" [value]="day">{{ day }}</ion-select-option>
+          </ion-select>
+          <ion-select [(ngModel)]="formData.expiryMonth" name="expiryMonth" placeholder="Month">
+            <ion-select-option *ngFor="let month of months" [value]="month">{{ month }}</ion-select-option>
+          </ion-select>
+          <ion-select [(ngModel)]="formData.expiryYear" name="expiryYear" placeholder="Year">
+            <ion-select-option *ngFor="let year of years" [value]="year">{{ year }}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-button expand="block" type="submit" color="tertiary">Upload</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

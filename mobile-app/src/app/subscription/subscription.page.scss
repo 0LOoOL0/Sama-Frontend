@@ -1,0 +1,136 @@
+// header
+.centered-title {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  ion-buttons{
+    margin-top: 16px;
+  }
+
+//body
+.empty-state{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+    flex-direction: column;
+}
+
+// mode 2
+.empty-state-bigScreen{
+    display: none;
+}
+
+// plan options
+.Plans{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 450px;
+
+    #free{
+        background-color: var(--Accent-One);
+    }
+
+    #oneYear{
+        background-color: var(--Accent-Two);
+    }
+
+    ion-card{
+        border-radius: 16px;
+    }
+
+    ion-card-header{
+        text-align: center;
+    }
+    ion-card-title{
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    ion-card-content{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+        p{
+            font-weight: 600;
+        }
+        img{
+            margin-bottom: 5px;
+        }
+        #price{
+            font-size: 1rem;
+        }
+    }
+}
+
+// Benefits and features 
+#BnF{
+    text-decoration: underline;
+}
+
+// Modal
+ion-modal{
+    --border-radius: 16px;
+    --background-color: var(--White);
+    .inoneline{
+        display: flex;
+        align-items: center !important;
+    }
+    ion-title{
+        color: var(--Black);
+        font-weight: 600;
+        padding-left: 0px;
+        font-size: 1rem;
+    }
+    .specialParagraph{
+        background-color: var(--Accent-One);
+        padding: 16px;
+        border-radius: 16px;
+    }
+    .titleFont{
+        color: var(--Black) !important;
+        font-size: 1rem;
+    }
+
+    // pet select modal
+    .pet-name {
+        margin-top: 20px;
+    }
+    ion-thumbnail {
+        display: flex;
+        justify-content: flex-end;
+        width: 20px;
+        height: auto;
+    }
+
+    .SelectButton {
+        opacity: 1;
+        filter: none;
+        margin-top: 10px;
+    }
+}
+
+// other screens
+@media screen and (orientation: portrait) and (min-height: 200vh) {
+    .empty-state{
+        display: none;
+    }
+    .empty-state-bigScreen, .middle{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        #pic{
+            width: 60%;
+            max-width: 300px;
+            height: auto;
+        }
+    }
+  }
+  

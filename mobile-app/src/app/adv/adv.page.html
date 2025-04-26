@@ -1,0 +1,59 @@
+<div class="empty-state">
+  <ion-header>
+    <ion-toolbar>
+      <div class="bodyFont toolbar-container">
+        <ion-title class="centered-title">{{ 'TITLE' | translate }}</ion-title>
+
+        <ion-buttons slot="end">
+          <ion-button
+            routerLink="/account-type"
+            class="bodyFont zeroPointSeven textGray"
+          >
+          {{ 'SKIP' | translate }}
+          </ion-button>
+        </ion-buttons>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <div class="text bodyFont middle">
+      <div>
+        <img class="img-dimentions" [src]="cards[currentIndex].img" />
+      </div>
+
+      <div class="content-container">
+        <div>
+          <ion-label>{{ cards[currentIndex].title }}</ion-label>
+        </div>
+
+        <div class="content">{{ cards[currentIndex].content }}</div>
+      </div>
+    </div>
+  </ion-content>
+
+  <ion-footer class="ion-padding bodyFont">
+    <!-- <div class="testDiv text">
+      <p>Test for icons later</p>
+    </div> -->
+
+    <ion-button
+      expand="full"
+      fill="clear"
+      class="FilledButtons"
+      *ngIf="currentIndex < cards.length - 1"
+      (click)="nextSlide()"
+    >
+      Next
+    </ion-button>
+    <ion-button
+      expand="full"
+      fill="clear"
+      class="FilledButtons"
+      *ngIf="currentIndex === cards.length - 1"
+      routerLink="/account-type"
+    >
+      Get Started
+    </ion-button>
+  </ion-footer>
+</div>

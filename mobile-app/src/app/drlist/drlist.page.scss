@@ -1,0 +1,203 @@
+// header
+ion-buttons{
+  margin-top: 20px;
+}
+
+.icon{
+  width: 24px;
+  height: auto;
+}
+
+// ion content replacement
+.ion-content-backup{
+  padding: 16px;
+}
+
+// grid
+.gridContainer{
+  max-width: 350px;
+}
+
+.singleCell{
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 16px;
+  background-color: var(--White);
+}
+
+.imgContainer{
+  width: 100%;
+  height: 50%;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  img{
+    width: 100%;
+    border-radius: 16px;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.titleContainer{
+  width: 100%;
+  margin-top: 10px;
+}
+
+.DrName{
+  margin-bottom: 3px;
+}
+
+.specialityName{
+  color: var(--Main-Two) !important;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+ion-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ion-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+ion-card-title.grid-title {
+  font-size: 14px;  
+}
+
+ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+}
+
+ion-thumbnail img {
+  width: 100%;
+  height: auto;
+}
+
+ion-chip[selected] {
+  --background: var(--ion-color-primary);
+  --color: #fff;
+}
+
+// filter section css
+
+.modal {
+  --border-radius: 16px;
+  --width: 100%;
+  --height: 50%;
+  position: flex;
+  padding: 0;
+  margin: 0;
+}
+
+ion-content {
+  --background: none;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: none;
+}
+
+.speciality-dropdown {
+  --width: 80px;
+  padding: 5px;
+  border-radius: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 8px;
+  margin-right: 8px;
+  border: 1px solid #ddd;
+}
+
+.speciality, .review-label {
+  padding: 16px;
+}
+
+.apply-button {
+  --border-radius: 16px;
+  --background: var(--Main-One);
+  color: white !important;
+  margin-left: 8px;
+  margin-right: 8px;
+  height: 45px;
+  font-size: large;
+}
+
+.review {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.review-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+ion-chip {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 16px;
+  background-color: var(--background-color);
+
+  .stars {
+    display: flex;
+    
+    img {
+      width: 25px; 
+      height: 25px;
+      margin-right: 2px;
+    }
+  }
+
+  span {
+    margin-left: 5px;
+    font-size: 14px;
+    color: #666;
+  }
+}

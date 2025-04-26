@@ -1,0 +1,48 @@
+
+<ion-header>
+  <ion-toolbar>
+
+ <div class="header-margin-Single-Line">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="" text=""></ion-back-button>
+      </ion-buttons>
+   
+        <ion-label class=" titleFont centered-title">Favorite</ion-label>
+          
+    
+    <ion-buttons slot="end">
+      <ion-select #filterSelect (ionChange)="updateFilter($event.detail.value)" placeholder="Select Filter" interface="popover">
+        <ion-select-option value="all">All</ion-select-option>
+        <ion-select-option value="provider">Providers</ion-select-option>
+        <ion-select-option value="product">Products</ion-select-option>
+        <ion-select-option value="service">Services</ion-select-option>
+        <ion-select-option value="pet">Pets</ion-select-option>
+      </ion-select>
+    </ion-buttons>
+      </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="MakeItCenter">
+    <div>
+      <div class="MakeItAGride favoriteContainer">
+        <div class="product-item" *ngFor="let item of Filtered" (click)="navigateToDetails(item)">
+          <div class="imgContainer">
+            <img [src]="item.image" alt="{{ item.name }}">
+          </div>
+          <div class="FlexSpaceInBetween">
+            <div class="titleContainer">
+              <ion-label class="bodyFont boldFont vetClinicTitle">{{ item.name }}</ion-label>
+            </div>
+
+            <img (click)="toggleFavorite(item); $event.stopPropagation();" class="icon" src="assets/heartr.svg">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</ion-content>

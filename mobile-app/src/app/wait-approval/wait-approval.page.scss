@@ -1,0 +1,96 @@
+.progress-bar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  background-color: #CCCCCC;
+}
+.all-div {
+  background-color: #CCCCCC;
+  border-radius: 15px; /* Adjust border-radius as needed */
+  padding: 20px; /* Adjust padding as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.progress-bar {
+  position: relative;
+  width: 30px;
+  height: 100%;
+  background-color: #CCCCCC;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.progress-bar-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #5E17EB;
+  border-radius: 5px;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-line-container {
+  position: relative;
+  width: 2px;
+  background-color: #CCCCCC;
+  height: 100%;
+}
+
+.step-line {
+  position: absolute;
+  width: 100%;
+  background-color: #e0e0e0;
+  height: 100%;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  position: relative;
+  --min-height: 40px; 
+ 
+  /* Adjust height as needed  */
+}
+.step-line-container ion-item{
+  color: #CCCCCC;
+}
+
+.step-point {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  border: 2px solid #5E17EB;
+  margin-right: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-point.active {
+  background-color: #5E17EB;
+}
+
+.step-description {
+  flex: 1;
+}
+
+.step-description ion-label {
+  color: red; 
+  
+}
+.step-description ion-text{
+color:#8396AC ;
+}
+ion-item {
+  --padding-start: 0;
+  --inner-padding-end: 0;
+}

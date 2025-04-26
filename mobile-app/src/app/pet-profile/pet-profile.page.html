@@ -1,0 +1,440 @@
+<ion-header>
+  <ion-toolbar>
+   
+    <div class="header-margin-Single-Line">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text=""></ion-back-button>
+      </ion-buttons>
+   
+        <ion-label class=" titleFont centered-title">Add a Pet</ion-label>
+          <ion-thumbnail><img src="assets/icons/trash.svg" /></ion-thumbnail>
+      </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="petForm" (ngSubmit)="savePetProfile()">
+    <!-- divs and ids here serve only to make it easier for coders to understand what goes where
+            it does not affect the design -->
+    <div id="profile-picture">
+      <!-- This is a basic div, it makes everything go in the middle -->
+      <div class="container">
+        <!-- This div contains everything related to the pfp itself -->
+        <div class="parent">
+          <!-- This is the input where you click and allows the user to put a picture-->
+          <input type="file" accept="image/*" (change)="displayImage($event)" />
+          <!-- This div shows up when there is no picture -->
+          <div *ngIf="!selectedImage" class="placeholder"></div>
+          <!-- This div shows up after you select the picture -->
+          <div
+            *ngIf="selectedImage"
+            class="circle"
+            [style.background-image]="'url(' + selectedImage + ')'"
+          >
+            <!-- This div relates to the delete button -->
+            <div *ngIf="selectedImage" class="icon">
+              <img
+                (click)="clearImage()"
+                src="/assets/icons/trash.svg"
+                alt="Icon"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="Pet-name">
+      <!-- This is an input field, make sure the input on top of the ion-item -->
+      <ion-label class="bodyFont">Pet Name</ion-label>
+      <ion-item class="roundedInput">
+        <!-- We add the class="bodyFont textGray" fill="solid" in the css
+              you may customize the placeholder if you need to. The rest has nothing to do with us-->
+        <ion-input
+          class="bodyFont textGray"
+          fill="solid"
+          type="text"
+          placeholder="Enter pet name"
+          formControlName="petName"
+        ></ion-input>
+      </ion-item>
+      <!-- we only add class="bodyFont smallFont" to customize it -->
+      <div
+        class="bodyFont smallFont"
+        *ngIf="petForm.get('petName')?.invalid && petForm.get('petName')?.touched"
+      >
+        <ion-text color="danger">Pet name is required</ion-text>
+      </div>
+    </div>
+
+    <br />
+
+    <div id="pet-type">
+      <!-- This is a select type of input -->
+      <ion-label class="bodyFont">Pet type</ion-label>
+      <ion-item class="roundedInput">
+        <!-- Only add class="bodyFont" to customize the font -->
+        <ion-select
+          class="bodyFont"
+          placeholder="Select Type"
+          slot="start"
+          interface="popover"
+          (ionChange)="onPetTypeChange($event)"
+          formControlName="selectedPetType"
+        >
+          <ion-select-option
+            class="bodyFont"
+            *ngFor="let type of petTypes"
+            [value]="type.value"
+          >
+            {{ type.label }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div
+        class="bodyFont smallFont"
+        *ngIf="petForm.get('selectedPetType')?.invalid && petForm.get('selectedPetType')?.touched"
+      >
+        <ion-text color="danger">Pet type is required</ion-text>
+      </div>
+
+      <!-- This is a new element that will only show up when you pick up "custom" option -->
+      <ion-item
+        *ngIf="petForm.get('selectedPetType')?.value === 'other'"
+        class="roundedInput"
+      >
+        <ion-input
+          class="bodyFont"
+          type="text"
+          placeholder="Enter pet type"
+          formControlName="customPetType"
+        ></ion-input>
+      </ion-item>
+
+      <div
+        class="bodyFont smallFont"
+        *ngIf="petForm.get('customPetType')?.invalid && petForm.get('customPetType')?.touched"
+      >
+        <ion-text color="danger">Custom pet type is required</ion-text>
+      </div>
+    </div>
+
+    <br />
+
+    <div id="breed">
+      <ion-label class="bodyFont">Breed/Type</ion-label>
+      <ion-item class="roundedInput">
+        <ion-select
+          class="bodyFont"
+          placeholder="Select Breed"
+          slot="start"
+          interface="popover"
+          formControlName="selectedBreed"
+        >
+          <ion-select-option
+            class="bodyFont"
+            *ngFor="let breed of filteredBreeds"
+            [value]="breed.value"
+          >
+            {{ breed.label }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div
+        class="bodyFont smallFont"
+        *ngIf="petForm.get('selectedBreed')?.invalid && petForm.get('selectedBreed')?.touched"
+      >
+        <ion-text color="danger">Breed is required</ion-text>
+      </div>
+
+      <ion-item
+        *ngIf="petForm.get('selectedBreed')?.value === 'other'"
+        class="roundedInput"
+      >
+        <ion-input
+          class="bodyFont"
+          type="text"
+          placeholder="Enter breed"
+          formControlName="customBreed"
+        ></ion-input>
+      </ion-item>
+
+      <div
+        class="bodyFont smallFont"
+        *ngIf="petForm.get('customBreed')?.invalid && petForm.get('customBreed')?.touched"
+      >
+        <ion-text color="danger">Custom breed is required</ion-text>
+      </div>
+    </div>
+
+    <br />
+
+    <div id="gender">
+      <ion-label class="bodyFont">Gender</ion-label>
+      <ion-radio-group formControlName="gender" mode="md">
+        <br />
+        <br />
+
+        <div class="options">
+          <div class="options">
+            <ion-radio value="Male"></ion-radio>
+            <ion-label class="bodyFont">Male</ion-label>
+          </div>
+
+          <div class="options">
+            <ion-radio value="Female"></ion-radio>
+            <ion-label class="bodyFont">Female</ion-label>
+          </div>
+        </div>
+      </ion-radio-group>
+
+      <div
+        class="bodyFont smallFont"
+        *ngIf="petForm.get('gender')?.invalid && petForm.get('gender')?.touched"
+      >
+        <ion-text color="danger">Gender is required</ion-text>
+      </div>
+    </div>
+
+    <br />
+
+    <div id="age">
+      <ion-label class="bodyFont">Date of birth</ion-label>
+      <ion-item class="roundedInput">
+        <ion-input
+          class="bodyFont textGray"
+          fill="solid"
+          placeholder="Enter age"
+          type="date"
+          formControlName="age"
+        ></ion-input>
+      </ion-item>
+
+      <div
+        class="bodyFont smallFont"
+        *ngIf="petForm.get('age')?.invalid && petForm.get('age')?.touched"
+      >
+        <ion-text color="danger">Age is required</ion-text>
+      </div>
+    </div>
+
+    <br />
+
+    <div id="size">
+      <div class="makeItOneLine">
+        <div class="makeItOneLine">
+          <ion-label class="bodyFont">Weight</ion-label>
+
+          <div>
+            <ion-item class="roundedInput">
+              <ion-input
+                class="bodyFont textGray"
+                fill="solid"
+                type="number"
+                formControlName="weight"
+              ></ion-input>
+            </ion-item>
+
+            <div
+              class="bodyFont smallFont"
+              *ngIf="petForm.get('weight')?.invalid && petForm.get('weight')?.touched"
+            >
+              <div>
+                <ion-text color="danger">Weight is required</ion-text>
+                <br />
+                <ion-text color="danger">
+                  and must be a positive number
+                </ion-text>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="makeItOneLine">
+          <ion-label class="bodyFont">Height</ion-label>
+
+          <div>
+            <ion-item class="roundedInput">
+              <ion-input
+                class="bodyFont textGray"
+                fill="solid"
+                type="number"
+                formControlName="height"
+              ></ion-input>
+            </ion-item>
+
+            <div
+              class="bodyFont smallFont"
+              *ngIf="petForm.get('height')?.invalid && petForm.get('height')?.touched"
+            >
+              <div>
+                <ion-text color="danger">Height is required</ion-text>
+                <br />
+                <ion-text color="danger">
+                  and must be a positive number
+                </ion-text>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+
+    <div id="color">
+      <ion-label class="bodyFont">Color</ion-label>
+      <ion-item class="roundedInput">
+        <ion-select
+          class="bodyFont"
+          placeholder="Select Color"
+          slot="start"
+          interface="popover"
+          formControlName="color"
+        >
+          <!-- I temporarily removed the formcontrol in this one-->
+          <ion-select-option class="bodyFont" value="Black">
+            Black
+          </ion-select-option>
+          <ion-select-option class="bodyFont" value="Orange">
+            Orange
+          </ion-select-option>
+          <ion-select-option class="bodyFont" value="Gray">
+            Gray
+          </ion-select-option>
+          <ion-select-option class="bodyFont" value="White">
+            White
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <div
+        class="bodyFont smallFont"
+        *ngIf="petForm.get('color')?.invalid && petForm.get('color')?.touched"
+      >
+        <ion-text color="danger">Color is required</ion-text>
+      </div>
+    </div>
+
+    <br />
+
+    <div id="vaccinated">
+      <ion-label class="bodyFont">Vaccinated</ion-label>
+      <ion-radio-group
+        formControlName="vaccinated"
+        class="radio-group"
+        mode="md"
+      >
+        <br />
+        <br />
+
+        <div class="options">
+          <div class="options">
+            <ion-radio slot="start" value="Yes"></ion-radio>
+            <ion-label class="bodyFont">Yes</ion-label>
+          </div>
+
+          <div class="options">
+            <ion-radio slot="start" value="No"></ion-radio>
+            <ion-label class="bodyFont">No</ion-label>
+          </div>
+
+          <div class="options">
+            <ion-radio slot="start" value="I don't know"></ion-radio>
+            <ion-label class="bodyFont">I don't know</ion-label>
+          </div>
+        </div>
+      </ion-radio-group>
+      <div
+        class="bodyFont smallFont"
+        *ngIf="petForm.get('vaccinated')?.invalid && petForm.get('vaccinated')?.touched"
+      >
+        <ion-text color="danger">Vaccinated status is required</ion-text>
+      </div>
+    </div>
+
+    <br />
+
+    <div id="microchipped">
+      <ion-label class="bodyFont">Microchipped</ion-label>
+      <ion-radio-group
+        formControlName="microchipped"
+        class="radio-group"
+        mode="md"
+      >
+        <br />
+        <br />
+
+        <div class="options">
+          <div class="options">
+            <ion-radio slot="start" value="Yes"></ion-radio>
+            <ion-label class="bodyFont">Yes</ion-label>
+          </div>
+
+          <div class="options">
+            <ion-radio slot="start" value="No"></ion-radio>
+            <ion-label class="bodyFont">No</ion-label>
+          </div>
+
+          <div class="options">
+            <ion-radio slot="start" value="I don't know"></ion-radio>
+            <ion-label class="bodyFont">I don't know</ion-label>
+          </div>
+        </div>
+      </ion-radio-group>
+      <div
+        class="bodyFont smallFont"
+        *ngIf="petForm.get('microchipped')?.invalid && petForm.get('microchipped')?.touched"
+      >
+        <ion-text color="danger">Microchipped status is required</ion-text>
+      </div>
+    </div>
+
+    <br />
+
+    <div id="neutered">
+      <ion-label class="bodyFont">Neutered</ion-label>
+      <ion-radio-group formControlName="neutered" class="radio-group" mode="md">
+        <br />
+        <br />
+
+        <div class="options">
+          <div class="options">
+            <ion-radio slot="start" value="Yes"></ion-radio>
+            <ion-label class="bodyFont">Yes</ion-label>
+          </div>
+
+          <div class="options">
+            <ion-radio slot="start" value="No"></ion-radio>
+            <ion-label class="bodyFont">No</ion-label>
+          </div>
+
+          <div class="options">
+            <ion-radio slot="start" value="I don't know"></ion-radio>
+            <ion-label class="bodyFont">I don't know</ion-label>
+          </div>
+        </div>
+      </ion-radio-group>
+
+      <div
+        class="bodyFont smallFont"
+        *ngIf="petForm.get('neutered')?.invalid && petForm.get('neutered')?.touched"
+      >
+        <ion-text color="danger">Neutered status is required</ion-text>
+      </div>
+    </div>
+
+    <br />
+    <ion-button
+      expand="full"
+      fill="clear"
+      class="FilledButtons"
+      [disabled]="petForm.invalid"
+      type="submit"
+    >
+      Next
+    </ion-button>
+  </form>
+</ion-content>

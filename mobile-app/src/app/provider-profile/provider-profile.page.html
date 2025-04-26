@@ -1,0 +1,98 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Profile Setup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Profile Setup</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="container">
+    <div class="container-circle">
+      <div class="circle main-circle">
+        <ion-input type="file" accept="image/*" (change)="displayImage($event, 'profile')" />
+        <div class="image-container ion-padding"
+          [style.background-image]="'url(' + (selectedImage || defaultImage) + ')'">
+        </div>
+      </div>
+      <div class="icon-circle">
+        <ion-img src="../../assets/camera.svg" alt="Icon"></ion-img>
+      </div>
+    </div>
+    <p class="ion-text-center" style="margin: auto; padding-bottom:10px ;">Add Profile Photo</p>
+    <ion-label position="floating" class="ion-padding">Commercial registration Number</ion-label>
+    <ion-item>
+      <ion-input type="text" class="ion-padding" placeholder="Enter your Commercial registration Number"></ion-input>
+    </ion-item>
+    <ion-label>Availability</ion-label>
+    <br>
+    <div id="day">
+      <ion-button *ngFor="let day of weekdays" [ngClass]="{'clicked-button': isSelected(day)}"
+        (click)="toggleDaySelection(day)">
+        {{ day }}
+      </ion-button>
+    </div>
+    <div id="hours">
+      <ion-label>Hours:</ion-label>
+      <div class="time-picker-container">
+        <ion-input type="time" [(ngModel)]="startTime" class="time-input" (change)="validateTimes()" />
+        -
+        <ion-input type="time" [(ngModel)]="endTime" class="time-input" (change)="validateTimes()" />
+      </div>
+      <br>
+
+    </div>
+
+    <ion-note *ngIf="isInvalidTime" color="danger">
+      End time must be greater than start time.
+    </ion-note>
+
+
+
+
+    <br>
+    <ion-label> Social Links</ion-label>
+    <ion-item>
+      <img src="../../assets/website.svg" alt="web">
+      <ion-input type="text" placeholder="Website link"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <img src="../../assets/insta.svg" alt="insta">
+      <ion-input type="text" placeholder="Instagram link"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <img src="../../assets/email.svg" alt="email">
+      <ion-input type="text" placeholder="Facebook link"></ion-input>
+    </ion-item>
+    <br>
+    <ion-item>
+      <img src="../../assets/other.svg" alt="other">
+      <ion-input type="text" placeholder="Phone number"></ion-input>
+    </ion-item>
+    <br>
+    <ion-label>Upload Business Contract</ion-label>
+    <br>
+    <div class="img-container ion-padding">
+      <div class="upload-box" [style.background-image]="'url(' + (selectedImage1 || defaultImagep) + ')'">
+        <ion-input type="file" accept="image/*" (change)="displayImage($event, 'contract')" />
+      </div>
+    </div>
+    <br>
+    <ion-label>Upload commercial registration Certificate</ion-label>
+    <br>
+    <div class="img-container ion-padding">
+      <div class="upload-box" [style.background-image]="'url(' + (selectedImage2 || defaultImagep) + ')'">
+        <ion-input type="file" accept="image/*" (change)="displayImage($event, 'certificate')" />
+      </div>
+    </div>
+    <br>
+    <div class="fixed-button">
+      <ion-button expand="block" class="ion-margin" (click)="navigateToProviderProfile1()">Next</ion-button>
+    </div>
+  </div>
+</ion-content>

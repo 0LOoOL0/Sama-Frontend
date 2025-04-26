@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>My Store</ion-title>
+    <ion-buttons slot="end">
+      <ion-avatar slot="icon-only">
+        <img src="assets/img/profile-pic.jpg" />
+      </ion-avatar>
+      <ion-button routerLink="/settings">
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" class="ion-text-center">
+        <ion-button expand="block" fill="clear">
+          <ion-icon name="storefront-outline"></ion-icon>
+          <ion-label>My Store</ion-label>
+        </ion-button>
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">
+        <ion-button expand="block" fill="clear">
+          <ion-icon name="bar-chart-outline"></ion-icon>
+          <ion-label>Analytics</ion-label>
+        </ion-button>
+      </ion-col>
+      <ion-col size="4" class="ion-text-center">
+        <ion-button expand="block" fill="clear">
+          <ion-icon name="person-outline"></ion-icon>
+          <ion-label>Authorized Contact</ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-card class="business-card">
+    <ion-card-header>
+      <ion-card-title>PETS CABANA</ion-card-title>
+      <ion-card-subtitle>2972 Westheimer Rd. Santa Ana, Illinois 85486</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="6">
+          <ion-icon name="star"></ion-icon> 230 reviews 4.8
+        </ion-col>
+        <ion-col size="6" class="ion-text-right">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-item-divider>
+    <ion-label>Contact</ion-label>
+  </ion-item-divider>
+  <ion-item>
+    <ion-label>Phone</ion-label>
+    <ion-note slot="end">079 1234 7777</ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-note slot="end">contactshinnyfur&#64;gmail.com</ion-note>
+  </ion-item>
+
+  <ion-item-divider>
+    <ion-label>Availability</ion-label>
+  </ion-item-divider>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-chip>M</ion-chip>
+      </ion-col>
+      <ion-col>
+        <ion-chip color="primary">T</ion-chip>
+      </ion-col>
+      <ion-col>
+        <ion-chip>W</ion-chip>
+      </ion-col>
+      <ion-col>
+        <ion-chip color="primary">T</ion-chip>
+      </ion-col>
+      <ion-col>
+        <ion-chip>F</ion-chip>
+      </ion-col>
+      <ion-col>
+        <ion-chip color="primary">S</ion-chip>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-item>
+    <ion-label>Hours:</ion-label>
+    <ion-note slot="end">10:00am - 2:00pm</ion-note>
+  </ion-item>
+
+  <ion-item-divider>
+    <ion-label>Upload Business Contract</ion-label>
+  </ion-item-divider>
+  <ion-card *ngIf="businessContract">
+    <img [src]="businessContract" />
+    <ion-button fill="clear" size="small" (click)="removeBusinessContract()">
+      <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-card>
+  <ion-item *ngIf="!businessContract">
+    <input type="file" (change)="uploadBusinessContract($event)" />
+  </ion-item>
+
+  <ion-item-divider>
+    <ion-label>Upload License Certificate</ion-label>
+  </ion-item-divider>
+  <ion-card *ngIf="licenseCertificate">
+    <img [src]="licenseCertificate" />
+    <ion-button fill="clear" size="small" (click)="removeLicenseCertificate()">
+      <ion-icon slot="icon-only" name="close-circle-outline"></ion-icon>
+    </ion-button>
+  </ion-card>
+  <ion-item *ngIf="!licenseCertificate">
+    <input type="file" (change)="uploadLicenseCertificate($event)" />
+  </ion-item>
+
+  <ion-item-divider>
+    <ion-label>Authorized contact Profile</ion-label>
+  </ion-item-divider>
+  <ion-button expand="block" fill="outline">
+    <ion-icon name="add-circle-outline"></ion-icon>
+    Add contact
+  </ion-button>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <h2>Brisbane Wonston</h2>
+        <p>Store manager</p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <h2>Sarah Newland</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

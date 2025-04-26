@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div class="header-margin-Single-Line">
+      <ion-label class="titleFont">Orders</ion-label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div *ngFor="let group of groupedOrders">
+    <div class="MakeItFlexAsAColumn">
+
+        <div class="full fiveMargin">
+          <ion-label class="bodyFont boldFont">{{ formatDate(group.date) }}</ion-label>
+        </div>
+    
+          <div class="card" *ngFor="let pay of group.orders">
+            <div class="FlexSpaceInBetween MakeItFlex" id="firstLine">
+              <ion-label class="bodyfont"> {{ pay.deliveryTime }} </ion-label>
+              <div class="status"
+              [ngClass]="{'delivered': pay.status === 'completed', 'not-delivered': pay.status !== 'completed'}">
+                <ion-label class="smallFont">{{ pay.status }}</ion-label>
+              </div>
+            </div>
+    
+            <div class="MakeItFlex full">
+  
+              <div class="square">
+                <div class="parent" *ngIf="provider">
+                  <img [src]="provider.profile_image" alt="{{ provider?.id }}" />
+                </div>
+              </div>
+    
+              <div class="SecondLine FlexSpaceInBetween">
+                <div class="MakeItFlexAsAColumnNoCenter details">
+                  <ion-label class="bodyFont boldFont smallFont">{{ pay.description }}</ion-label>
+                  <ion-label class="bodyFont smallFont" id="Total"> Total: ${{ pay.amount }} </ion-label>
+                  <ion-label class="bodyFont smallFont boldFont" id="YouPaid">You Paid: ${{ (pay.amount) - (pay?.discount_amount ?? 0) }}</ion-label>
+                  <ion-label class="bodyFont smallFont" id="viewDetails" (click)="toggleItems[pay.id] = !toggleItems[pay.id]">view details</ion-label>
+                </div>
+    
+    
+                <div class="MakeItFlexAsAColumnNoCenter buttons">
+                  <div>
+                    <!-- {{order.items.length}}  -->
+                    <ion-label class="bodyFont smallFont" id="items">{{ pay.quantity }} items</ion-label>
+                  </div>
+                  <!-- <ion-button fill="clear" (click)="reOrder(order.orderId)">Order again</ion-button> -->
+                </div>
+                
+              </div>
+            </div>
+    
+            <br>
+    
+            <div class="orders" *ngIf="toggleItems[pay.id]">
+              <div class="singleOrder" *ngFor="let item of orderProductsMap[pay.id]"> <!-- Use orderProductsMap -->
+                <ion-label class="bodyFont smallFont">{{ item.amount }}x {{ item.product_name }}</ion-label>
+                <ion-label class="bodyFont "> ${{ item.price }}</ion-label>
+              </div>
+            </div>
+    
+    
+    
+          </div>
+
+
+    </div>
+    
+  </div>
+</ion-content>

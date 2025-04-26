@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+      <div class="header-margin-Single-Line">
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/" text=""></ion-back-button>
+        </ion-buttons>
+     
+          <ion-label class=" titleFont centered-title">Explore Pets</ion-label>
+        </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding full-height">
+  <ion-searchbar placeholder="Search here..." [(ngModel)]="searchQuery"></ion-searchbar>
+
+  <div class="segments">
+    <ion-button
+      fill="clear" (click)="showAdoption()"
+      [ngClass]="{ 'segButtonClicked': petListType === 1, 'segButtonNotClicked': petListType !== 1 }">
+        Adoption
+    </ion-button>
+
+    <ion-button
+      fill="clear" (click)="showLostPet()"
+      [ngClass]="{ 'segButtonClicked': petListType === 2, 'segButtonNotClicked': petListType !== 2 }">
+      Lost Pets
+    </ion-button>
+  
+    <ion-button
+      fill="clear" (click)="showMating()"
+      [ngClass]="{ 'segButtonClicked': petListType === 3, 'segButtonNotClicked': petListType !== 3 }">
+      Mating
+    </ion-button>
+  </div>
+
+  <div class="contanier MakeItCenter MakeItFlex" *ngIf="petListType === 0">
+    <div class="MakeItCenter">
+      <div class="noPets MakeItFlexAsAColumn">
+        <img src="assets/mypet.svg" alt="No pets found">
+        <ion-label class="bodyFont boldFont textGray">Sorry, we couldn’t find what you are looking for!</ion-label>
+      </div>
+    </div>
+  </div>
+
+  <div class="contanier MakeItCenter MakeItFlex" *ngIf="petListType!=0 && getPets().length === 0">
+    <div class="MakeItCenter">
+      <div class="noPets MakeItFlexAsAColumn">
+        <img src="assets/mypet.svg" alt="No pets found">
+        <ion-label class="bodyFont boldFont textGray">Sorry, we couldn’t find what you are looking for!</ion-label>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="petListType != 0 && getPets().length > 0">
+    <div class="MakeItCenter">
+      <div>
+        <div class="MakeItAGride gridContainer">
+          <div class="singleCell" *ngFor="let pet of getPets()">
+            <ion-label class="bodyFont boldFont">{{ pet?.role || (petListType === 2 ? 'Owner' : '') }}</ion-label>
+            <div class="imgContainer" (click)="navigateToInfo(pet.id)">
+              <img [src]="pet.imageUrl" alt="Pet Image" (error)="pet.imageUrl = '/assets/icons/no-profile.svg'" >
+            </div>
+  
+            <div class="FlexSpaceInBetween">
+              <div>
+                <div class="titleContainer">
+                  <ion-label class="bodyFont boldFont">{{ pet.name }}</ion-label>
+                </div>
+                <div class="MakeItFlex location">
+                  <img class="iconSmall" id="location" src="assets/icons/location.svg">
+                  <ion-label class="bodyFont textGray loc">{{ pet.location ? pet.location : (ownerAddresses[pet.id] || 'Location not available') }}</ion-label>
+                </div>
+              </div>
+              <ion-img *ngIf="!pet.isFavorite" src="assets/icons/heart.svg" alt="Favorite Icon" class="icon" (click)="addToFavorites(pet)">
+              </ion-img>
+              <ion-img *ngIf="pet.isFavorite" src="assets/heartr.svg" alt="Favorite Icon" class="icon" (click)="addToFavorites(pet)">
+              </ion-img>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="petListType!=0">
+    <div class="FabButton">
+      <ion-fab-button fill="clear" (click)="showOptionsPopup()">
+        <img class="iconSmall" id="location" src="assets/icons/plus-white.svg">
+        <ion-label>{{ getFabLabel() }}</ion-label>
+      </ion-fab-button>
+    </div>
+  </ion-fab>
+
+</ion-content>

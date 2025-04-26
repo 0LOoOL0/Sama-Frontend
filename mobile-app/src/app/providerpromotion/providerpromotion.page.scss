@@ -1,0 +1,32 @@
+ion-segment {
+    margin: 20px 0;
+  }
+  
+  .promo-description {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  ion-card {
+    margin-bottom: 20px;
+  }
+  
+  ion-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  ion-card-title {
+    font-size: 1.2em;
+  }
+  
+  ion-card-subtitle {
+    font-size: 1em;
+    color: var(--ion-color-primary);
+  }
+  
+  ion-card-content ul {
+    padding-left: 20px;
+  }
+  

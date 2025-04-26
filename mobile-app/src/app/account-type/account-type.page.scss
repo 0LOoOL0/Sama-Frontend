@@ -1,0 +1,27 @@
+ion-label{
+    color: var(--Main-One);
+}
+
+
+p{
+    padding-top: 2px;
+    margin: 5px 32px 0px 0px;
+}
+  
+
+ion-item.custom-shadow::part(native) {
+    --background: var(--White);
+    position: relative;
+    --border-radius: 16px;
+  }
+  
+ion-item.custom-shadow:active::part(native) {
+    box-shadow: inset 0 0 8px var(--Main-Two-Shadow);
+}
+  
+
+h2{
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--Main-Two) !important;
+}

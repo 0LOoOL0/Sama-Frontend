@@ -1,0 +1,153 @@
+// header
+ion-buttons{
+  margin-top: 20px;
+}
+
+//body
+.empty-state{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  flex-direction: column;
+}
+
+// title
+ion-label{
+  font-weight: 600;
+}
+
+// add button
+.left{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.smallButton{
+    width: 50%;
+}
+
+// modal
+ion-modal{
+  --border-radius: 16px;
+
+  .yellow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: var(--Accent-One);
+    border-radius: 25px;
+    margin: 5px;
+    width: 100%;
+    height: 70%;
+
+    input{
+      position: absolute;
+      opacity: 0%;
+      width: 100%;
+      z-index: 2;
+    }
+
+    ion-label {
+      position: absolute;
+      z-index: 1;
+    }
+  }
+
+}
+
+//input fields
+ion-item{
+  margin-top:10px;
+}
+
+// documents
+.container {
+  width: 100%;
+
+  .document {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: var(--White);
+    border-radius: 50px;
+    margin-top: 10px;
+    border: 7px solid var(--GrayColor);
+  }
+
+  .notFullWidth{
+    width: 90%;
+  }
+  
+  .start {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .middle {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+
+  .objects{
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
+
+ion-list{
+  background-color: var(--background-color) !important;
+  width: 100% !important;
+}
+
+#title{
+  margin-left: 16px;
+}
+
+ion-thumbnail {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  img {
+    width: 50%;
+    height: auto;
+  }
+}
+
+.bottomIcons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.start{
+  display: flex;
+  align-items: center;
+
+  .bodyFont{
+    font-weight: 600;
+    margin-left: 5px;
+  }
+}
+
+.smaller{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+// error message
+.error{
+  text-align: center;
+  ion-label{
+    color: var(--Main-Two) !important;
+  }
+}
+
+

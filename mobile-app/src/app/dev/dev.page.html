@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>dev</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">dev</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngFor="let route of routes">
+    <ion-button
+      *ngIf="route.path"
+      [routerLink]="'/' + route.path"
+      expand="block"
+    >
+      /{{ route.path }}
+    </ion-button>
+  </div>
+</ion-content>

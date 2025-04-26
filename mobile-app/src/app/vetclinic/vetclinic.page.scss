@@ -1,0 +1,297 @@
+// header
+ion-buttons{
+  margin-top: 20px;
+}
+
+.icon{
+  width: 24px;
+  height: auto;
+}
+
+// grid
+.vetClinicsContainer{
+  max-width: 350px;
+}
+
+.vetClinic{
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 16px;
+  background-color: var(--White);
+}
+
+.imgContainer{
+  width: 100%;
+  height: 70%;
+  margin-bottom: 10px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  img{
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.titleContainer{
+  width: 80%;
+}
+
+.vetClinicTitle{
+  margin-bottom: 3px;
+}
+
+// ????
+.heart-icon {
+  margin-left: 10px; /* Add some margin to separate from the title */
+}
+
+//filter section\
+
+ion-content {
+  --inner-padding-start: 0;
+  --inner-padding-end: 0;
+}
+
+.modal {
+  --border-radius: 16px;
+  --width: 100%;
+  --height: 75%;
+  position: flex;
+}
+
+.apply-button {
+  display: flex;
+  font-size: 15px;
+  padding: 16px 32px;
+  --border-radius: 16px;
+  height: 80px;
+  width: auto;
+  --background: #ED5F1E;
+}
+
+.content-container {
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+  --background: white;
+  margin: 0;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.price-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.price-button {
+  --background: #dfe3e7;
+  border: none;
+  padding: 4px;
+  margin: 8px;
+  font-size: 14px;
+  color: black;
+  border-radius: 16px;
+}
+
+.price, .kilo, .rev {
+  --ion-item-border-width: 0;
+  --ion-item-border-color: transparent;
+  margin: 8px;
+}
+
+.price-range {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+}
+
+.input-wrapper {
+  position: relative;
+  flex: 1;
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+}
+
+.price-input {
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  text-align: center;
+  margin-right: 5px;
+  padding-right: 40px;
+  width: 100%;
+}
+
+.currency {
+  position: absolute;
+  right: 10px;
+  color: #666;
+  pointer-events: none;
+}
+
+.to-label {
+  margin: 0 10px;
+  white-space: nowrap;
+}
+
+.kilometer-range {
+  --height: 12px;
+  --background: transparent;
+  --bar-background-active: var(--Main-Two);
+  --bar-background: var(--Main-Two);
+  --knob-background: var(--Main-Two);
+  margin: 8px;
+}
+
+.kilo-label {
+  margin: 8px;
+}
+
+.slider-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 4px;
+  margin: 8px;
+}
+
+.slider-scale {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 55px;
+  margin-top: 10px;
+}
+
+.slider-scale span {
+  flex: 1;
+  text-align: center;
+}
+
+.review {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.review-label {
+  margin: 8px;
+}
+
+.review-options {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 8px;
+}
+
+ion-chip {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 16px;
+  background-color: var(--background-color);
+
+  .stars {
+    display: flex;
+
+    img {
+      width: 25px;
+      height: 25px;
+      margin-right: 2px;
+    }
+  }
+
+  span {
+    margin-left: 5px;
+    font-size: 14px;
+    color: #666;
+  }
+}
+
+ion-chip[selected] {
+  --background: var(--ion-color-primary);
+  --color: #fff;
+}
+
+// For products
+
+// grid
+.gridContainer{
+  max-width: 350px;
+}
+
+.singleCell{
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 16px;
+  background-color: var(--White);
+}
+
+.imgContainer{
+  width: auto;
+  height: auto;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  img{
+    width: 100%;
+    border-radius: 16px;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.textContainer{
+  height: 45%;
+}
+
+.titleAndPriceContainer{
+  margin-top: 10px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleContainer{
+  width: 100%;
+}
+
+.prices{
+  margin-top: auto;
+}
+
+.break-word {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+#add{
+  margin-left: 3px;
+}
+
+#old{
+  text-decoration: line-through;
+}
+
+#new{
+  color: var(--Main-One) !important;
+}

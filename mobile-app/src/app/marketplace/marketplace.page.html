@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div class="header-margin-Single-Line">
+      <ion-label class="titleFont">Marketplace</ion-label>
+    </div>
+
+
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleFilter()">
+        <img class="icon" src="assets/icons/filter.svg"/>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="applyFilters()"></ion-searchbar>
+      <div class="MakeItCenter">
+        <div>
+          <div class="MakeItAGride gridContainer">
+            <div class="singleCell" *ngFor="let item of sellingPets">
+              <div class="imgContainer" (click)="navigateToInfo(item.id)">
+                <img [src]="item.imageUrl" alt="{{item.name}}" (error)="item.imageUrl = '/assets/icons/no-profile.svg'" >
+              </div>
+  
+              <div class="FlexSpaceInBetween">
+                <div class="titleAndPriceContainer">
+                  <div class="titleContainer break-word">
+                    <ion-label class="bodyFont boldFont">{{ item.name }}</ion-label>
+                  </div>
+                  <ion-label class="bodyFont boldFont smallFont location"> {{item.price}}</ion-label>
+                  <br>
+                  <ion-label class="bodyFont boldFont smallFont location">{{ item.location ? item.location : (ownerAddresses[item.id] || 'Location not available') }}</ion-label>
+                </div>
+                <div class="MakeItFlex">
+                  <ion-img *ngIf="!item.isFavorite" src="assets/icons/heart.svg" alt="Favorite Icon" class="icon" (click)="addToFavorites(item)">
+                  </ion-img>
+                  <ion-img *ngIf="item.isFavorite" src="assets/heartr.svg" alt="Favorite Icon" class="icon" (click)="addToFavorites(item)">
+                  </ion-img>
+                  <!-- <img class="icon" id="add" src="/assets/icons/plus-filled.svg"> -->
+                </div>              
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+      
+  <ion-modal class="bodyFont modal"
+  [isOpen]="showFilterModal" 
+  (ionModalDidDismiss)="dismissFilter()"
+  [initialBreakpoint]="1"
+  [breakpoints]="[0, 1]">
+
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title class="titleFont">Filter</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="resetFilters()">Reset</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      
+      <ion-content class="content-container">
+        <div class="filter-container">
+          <div class="filter-content">
+            <br>
+            <ion-item class="price">
+              <ion-label class="bodyFont">Price</ion-label>
+              <ion-segment [(ngModel)]="filter.priceOrder">
+                <ion-segment-button value="low-to-high">
+                  <ion-label class="price">Lowest to Highest</ion-label>
+                </ion-segment-button>
+                <ion-segment-button value="high-to-low">
+                  <ion-label class="price">Highest to Lowest</ion-label>
+                </ion-segment-button>
+              </ion-segment>
+            </ion-item>
+      
+            <ion-item class="price">
+              <ion-label class="bodyFont">Price Range</ion-label>
+            </ion-item>
+            <ion-item class="price-range">
+              <div class="price-container">
+                <div class="input-wrapper">
+                  <ion-input [(ngModel)]="filter.priceRange.lower" placeholder="Min Price" class="price-input"></ion-input>
+                  <span class="currency">BHD</span>
+                </div>
+                to
+                <div class="input-wrapper">
+                  <ion-input [(ngModel)]="filter.priceRange.upper" placeholder="Max Price" class="price-input"></ion-input>
+                  <span class="currency">BHD</span>
+                </div>
+              </div>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label class="bodyFont">Pet Type</ion-label>
+              <ion-segment [(ngModel)]="filter.petType">
+                <ion-segment-button value="Cats" class="pet-button">
+                  <ion-icon src="assets/icons/cat-black.svg" name="paw-outline" class="icons"></ion-icon>
+                </ion-segment-button> 
+                <ion-segment-button value="Dogs" class="pet-button">
+                  <ion-icon src="assets/icons/dog-black.svg" name="paw-outline" class="icons"></ion-icon>
+                </ion-segment-button>
+                <ion-segment-button value="Fish" class="pet-button">
+                  <ion-icon src="assets/icons/fish-black.svg" name="fish-outline" class="icons"></ion-icon>
+                </ion-segment-button>
+              </ion-segment>
+            </ion-item>
+      
+            <ion-button expand="block" (click)="applyFilters()" class="buttonApply">Apply</ion-button>
+          </div>
+        </div>
+      </ion-content>      
+    </ng-template>
+  </ion-modal>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <div class="FabButton">
+      <ion-fab-button fill="clear" (click)="showOptionsPopup()">
+        <ion-label>sell your pet</ion-label>
+      </ion-fab-button>
+    </div>
+  </ion-fab>
+</ion-content>

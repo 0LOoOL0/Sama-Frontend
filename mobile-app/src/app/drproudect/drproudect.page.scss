@@ -1,0 +1,74 @@
+.service-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    color: var(--ion-color-medium);
+  }
+  
+  .new-price {
+    color: var(--ion-color-danger);
+  }
+  
+  .rating {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .rating ion-icon {
+    margin-right: 5px;
+  }
+  
+  .reviews {
+    margin-left: 10px;
+    color: var(--ion-color-medium);
+  }
+  
+  .review-summary {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .see-all {
+    font-size: 14px;
+    color: var(--ion-color-primary);
+  }
+  
+  .book-appointment-button {
+    margin-top: 20px;
+    background-color: #7209b7;   
+    color: #fff;
+    --background: #7209b7;  
+  }
+  
+  ion-footer {
+    --background: var(--ion-color-light);
+  }
+  
+  ion-footer ion-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  ion-footer ion-buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  ion-footer ion-button {
+    --background: var(--ion-color-light);
+  }
+  

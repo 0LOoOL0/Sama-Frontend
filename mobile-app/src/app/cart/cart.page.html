@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div class="header-margin-Single-Line">
+      <ion-label class="titleFont">My Cart</ion-label>
+    </div>
+
+    <ion-buttons slot="end">
+      <ion-checkbox (ionChange)="selectAllItems($event)" [checked]="selectAll" [disabled]="isCartEmpty">
+      </ion-checkbox>
+      <span id="select" class="bodyFont">{{ selectAll ? 'unselect all' : 'select all' }}</span>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+ <ion-content class="ion-padding">
+
+    <ion-item-sliding *ngFor="let item of items">
+      <ion-item class="FlexSpaceInBetween Itemsdesign2">
+        <div class="MakeItFlex">
+          <ion-checkbox slot="start" [(ngModel)]="item.selected" (ionChange)="updatePageInfo()"></ion-checkbox>
+          
+          <img class="Item-img" id="showImg" [src]="item.imageUrl" />
+          
+          <div class="MakeItFlexAsAColumnNoCenter">
+            <ion-label class="bodyFont boldFont">{{ item.label }}</ion-label>
+            <ion-label class="bodyFont price">{{ (item.price * item.quantity) | number:'1.2-2' }} BHD</ion-label>
+          <!-- Display pet selection for collar items -->
+          <div *ngIf="item.label.toLowerCase() === 'collar'">
+            <ion-select
+              [(ngModel)]="item.selectedPetId"
+              (ionChange)="selectPet(item)"
+              placeholder="Select Pet"
+            >
+              <ion-select-option *ngFor="let pet of pets" [value]="pet.id">
+                {{ pet.name }}
+              </ion-select-option>
+            </ion-select>
+          </div>
+          </div>
+        </div>
+
+        <ion-buttons slot="end" class="buttons"  *ngIf="item.label.toLowerCase() !== 'collar'">
+          <ion-button (click)="decrementQuantity(item)" [disabled]="item.quantity <= 1">
+            <img class="icon" src="/assets/icons/add-Minus.svg" alt="-">
+          </ion-button>
+          <ion-input class="bodyFont" type="number" [(ngModel)]="item.quantity"
+            (ionChange)="onQuantityChange(item, $event)" min="1" [max]="item.maxQuantity">
+          </ion-input>
+          <ion-button (click)="incrementQuantity(item)" [disabled]="item.quantity >= item.maxQuantity">
+            <img class="icon" src="/assets/icons/add-plus.svg" alt="+">
+          </ion-button>
+        </ion-buttons>
+
+      </ion-item>
+      
+      <ion-item-options side="end" >
+          <ion-item-option (click)="deleteCartItem(item)" fill="clear" class="Delete-items">
+            <img class="icon" src="../../assets/delete-trash.svg" />
+          </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  
+</ion-content>
+
+<div class="ion-padding FlexSpaceInBetween">
+  <div *ngIf="!isMember" class="MakeItFlexAsAColumnNoCenter">
+    <ion-label class="bodyFont boldFont">Total:</ion-label>
+    <ion-label class="bodyFont boldFont">{{ totalPrice | number:'1.2-2' }}BHD</ion-label>
+    <ion-label class="bodyFont price">Saved: BHD {{ savedPrice | number:'1.2-2' }}</ion-label>
+  </div>
+
+  <div *ngIf="isMember" class="notMemberTotal">
+    <div class="MakeItFlexAsAColumnNoCenter">
+      <ion-label class="bodyFont boldFont">Total:</ion-label>
+      <ion-label class="bodyFont boldFont">{{ totalPrice | number:'1.2-2' }}BHD</ion-label>
+    </div>
+  </div>
+
+  <div>
+    <ion-button class="FilledButtons" *ngIf="selectedItemsCount >= 2" fill="clear" (click)="confirmDeleteAll()">
+      <img class="icon" src="../../assets/delete-trash.svg"/>
+    </ion-button>
+    <ion-button fill="clear" (click)="checkout()" class="FilledButtons">
+      Checkout
+    </ion-button>
+  </div>
+
+</div>
+

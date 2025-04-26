@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+  
+
+    <div class="header-margin-Single-Line">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text=""></ion-back-button>
+      </ion-buttons>
+   
+        <ion-label class=" titleFont centered-title">Booking History</ion-label>
+      </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  class="ion-padding">
+  <ion-card *ngFor="let booking of bookingHistory" class="booking-card">
+    <ion-card-content>
+      <div class="header">
+        <div class="user-info">
+          <ion-avatar>
+            <img [src]="booking.user.image" alt="User Image">
+          </ion-avatar>
+          <div class="user-details">
+            <h2>{{ booking.user.name }}</h2>
+          </div>
+          <ion-icon name="chatbubble-outline"></ion-icon>
+        </div>
+        <div class="price">
+          <h2>{{ booking.price | currency: 'USD' : 'symbol' : '1.2-2' }}</h2>
+        </div>
+      </div>
+      <div class="service-info">
+        <h3>{{ booking.service }}</h3>
+        <div class="pet-info">
+          <ion-avatar>
+            <img [src]="booking.pet.image" alt="Pet Image">
+          </ion-avatar>
+          <span>{{ booking.pet.type }}</span>
+        </div>
+      </div>
+      <div class="date-time">
+        <ion-icon name="calendar-outline"></ion-icon>
+        <span>{{ booking.date | date: 'fullDate' }}</span>
+        <ion-icon name="time-outline"></ion-icon>
+        <span>{{ booking.time }}</span>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

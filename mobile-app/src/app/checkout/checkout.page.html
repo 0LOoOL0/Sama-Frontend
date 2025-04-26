@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Check OUT</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Pay with</ion-label>
+    </ion-list-header>
+    <ion-radio-group [(ngModel)]="paymentMethod" (ionChange)="onPaymentMethodChange($event)">
+      <ion-item (click)="selectCard('card')">
+        <ion-radio slot="start" value="card"></ion-radio>
+        <ion-avatar slot="start">
+          <img src="assets/img/mastercard.png" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ cardNumber }}</h2>
+          <p>Expiry date: {{ cardExpiry }}</p>
+        </ion-label>
+      </ion-item>
+      <ion-item (click)="selectCard('new-card')">
+        <ion-radio slot="start" value="new-card"></ion-radio>
+        <ion-icon name="card-outline" slot="start"></ion-icon>
+        <ion-label>Add a new debit/credit card</ion-label>
+      </ion-item>
+      <ion-item (click)="selectCard('cod')">
+        <ion-radio slot="start" value="cod"></ion-radio>
+        <ion-icon name="cash-outline" slot="start"></ion-icon>
+        <ion-label>Cash on delivery</ion-label>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <div *ngIf="paymentMethod === 'new-card' || paymentMethod === 'card'">
+    <ion-item>
+      <ion-label position="stacked">Card Number</ion-label>
+      <ion-input type="text" [(ngModel)]="newCardNumber" placeholder="Enter card number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Expiry Date</ion-label>
+      <ion-input type="text" [(ngModel)]="newCardExpiry" placeholder="MM/YY"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">CVV</ion-label>
+      <ion-input type="password" [(ngModel)]="newCardCVV" placeholder="Enter CVV"></ion-input>
+    </ion-item>
+  </div>
+
+  <ion-item-divider>
+    <ion-label>Coupon</ion-label>
+  </ion-item-divider>
+  <ion-item>
+    <ion-input placeholder="Enter Coupon code here" [(ngModel)]="couponCode"></ion-input>
+    <ion-button slot="end" (click)="applyCoupon()">Apply</ion-button>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label>Subtotal</ion-label>
+    <ion-note slot="end">{{ subtotal | currency }}</ion-note>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label>Tax & Fee</ion-label>
+    <ion-note slot="end">{{ tax | currency }}</ion-note>
+  </ion-item>
+  <ion-item lines="none">
+    <ion-label>Discount</ion-label>
+    <ion-note slot="end">{{ discount | currency }}</ion-note>
+  </ion-item>
+  <ion-item lines="none" class="total">
+    <ion-label>Total</ion-label>
+    <ion-note slot="end" color="primary">{{ total | currency }}</ion-note>
+  </ion-item>
+
+  <ion-button expand="block" color="primary" (click)="checkout()">Check OUT</ion-button>
+</ion-content>

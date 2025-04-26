@@ -1,0 +1,88 @@
+// header
+ion-buttons{
+  margin-top: 20px;
+}
+
+// general
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
+.icon{
+  width: 24px;
+  height: auto;
+}
+
+.Margin-Top{
+  margin-top: 10px;
+}
+
+// reviews
+.ReviewContainer{
+  width: 100%;
+  border-radius: 16px;
+  margin: 10px 0px 10px;
+  padding: 16px;
+  background-color: var(--White);
+}
+
+.square{
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+
+  .parent{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+}
+
+.stars-container {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 3px;
+}
+
+.star {
+  margin-right: 3px;
+}
+
+// form
+
+.Form{
+  margin: 0px 16px 0px;
+  padding-top: 10px;
+}
+
+.Rate, .comment{
+  background-color: var(--White);
+  border-radius: 16px;
+  
+  ion-label{
+    margin-left: 15px;
+  }
+
+  &.Rate{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 14px 16px 14px;
+  }
+
+  &.comment{
+    padding-left: 14px;
+    padding-top: 5px;
+    padding-right: 10px;
+  }
+}

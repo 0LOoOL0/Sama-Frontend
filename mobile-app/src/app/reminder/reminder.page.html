@@ -1,0 +1,167 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <div class="header-margin-Single-Line">
+      <ion-label class="titleFont">Reminders</ion-label>
+    </div>
+
+    <ion-buttons slot="end" class="selector bodyFont">
+      <ion-select
+      class="bodyFont"
+      [(ngModel)]="selectedPetId"
+      toggleIcon="assets/icons/expand.svg"
+      (ionChange)="selectPet($event.detail.value)"
+      interface="popover"
+      placeholder="Select Pet">
+
+      <img class="pfp" slot="start" *ngIf="!selectedPet" src="assets/mypet.svg" alt="no pet">
+      <img class="pfp" slot="start" *ngIf="selectedPet" [src]="selectedPet.image ? selectedPet.image : 'assets/mypet.svg'" alt="{{ selectedPet.name }}">
+
+      <ion-select-option class="bodyFont" *ngFor="let pet of pets" [value]="pet.id">
+        {{pet.name}}
+      </ion-select-option>
+
+      </ion-select>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <div class="ion-padding">
+    <div class="MakeItCenter">
+      <div class="shadow">
+        <ion-datetime
+          class="bodyFont custom-datetime"
+          display-format="yyyy-MM-dd"
+          picker-format="DD MMM YYYY"
+          presentation="date"
+          [highlightedDates]="highlightedDates">
+        </ion-datetime>
+      </div>
+    </div>
+
+    <br>
+
+    <ion-label class="blackTitleFont">Today</ion-label>
+    
+    <div class="card" *ngIf="todayEvents.length === 0">
+      <ion-label class="bodyFont">No events today</ion-label>
+    </div>
+
+    <div class="card" *ngFor="let remind of todayEvents">
+      <ion-label class="bodyFont boldFont">{{ remind.title }}</ion-label>
+      <br>
+      <br>
+      <div class="MakeItFlex">
+        <img class="icon" src="assets/icons/calendar.svg">
+        <ion-label class="bodyFont textGray">{{ remind.date }} | {{ remind.time }}</ion-label>
+      </div>
+    </div>
+
+    <div *ngFor="let group of groupedEvents; let i = index">
+    <br>
+      <ion-label class="blackTitleFont">{{ formatDate(group.date) }}</ion-label>
+
+      <div class="card"
+           *ngFor="let remind of group.events"
+           button=""
+           (click)="pop(i, remind.provider_id)">
+
+        <ion-label class="bodyFont boldFont">{{ remind.title }}</ion-label>
+        <br>
+        <br>
+        <div class="MakeItFlex">
+          <img class="icon" src="assets/icons/calendar.svg">
+          <ion-label class="bodyFont textGray">{{ remind.date }} | {{ remind.time }}</ion-label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!--This part shows the reminder details-->
+  <ion-modal class="bodyFont"
+    [isOpen]="isModalOpen"
+    (willDismiss)="setOpen(false)"
+    [initialBreakpoint]="1"
+    [breakpoints]="[0, 1]"
+  >
+    <ng-template>
+      <div class="content-container">
+        <ion-list *ngFor="let remind of groupedEvents[selectedIndex].events" class="content-container">
+          <div>
+            <ion-item>
+              <ion-label class="bodyFont">{{remind.title}}</ion-label>
+              <ion-buttons slot="end">
+                <ion-icon 
+                  *ngIf="tag!=='Booking'"
+                  src="assets/icons/edit.svg"
+                  name="edit"
+                  class="icons">
+                </ion-icon>
+                <ion-button (click)="remove(remind.id)">
+                  <ion-icon src="assets/icons/trash.svg"
+                    class="icons">
+                  </ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-item>
+            <ion-item class="syringe-icon">
+            <ion-badge color="primary" slot="start"
+            ><ion-icon src="assets/icons/Syringe.svg"></ion-icon>
+            {{tag}}
+            </ion-badge>
+            </ion-item>
+          </div>
+          <div class="date-time">
+            <ion-item> 
+              <ion-list slot="start">
+                <ion-label>Date</ion-label>
+                <br />
+                <ion-text>{{remind.date}}</ion-text>
+              </ion-list>
+  
+              <div class="separator"></div>
+  
+              <ion-list slot="end">
+                <ion-label>Time</ion-label>
+                <br />
+                <ion-text>{{remind.time}}</ion-text>
+              </ion-list>
+            </ion-item>
+          </div>
+          <div>
+            <ion-card>
+              <ion-card-title>Veterinarian</ion-card-title>
+              <br>
+              <ion-card-content class="styled-card-content">
+                <ion-item>
+                  <ion-thumbnail slot="start">
+                    <img [src]="provider?.profile_image" alt="img" />
+                  </ion-thumbnail>
+                  <ion-list>
+                    <ion-label>{{provider?.name}}</ion-label>
+                    <!-- <ion-text>Veterinary Specialist</ion-text> -->
+                  </ion-list>
+                </ion-item>
+              </ion-card-content>
+            </ion-card>
+          </div>
+          <div>
+            <ion-item>
+              <ion-list>
+                <ion-label>Notes</ion-label>
+                <ion-text>{{remind.note}}</ion-text>
+              </ion-list>
+            </ion-item>
+          </div>
+        </ion-list>
+          <ion-button class="done-button" (click)="setOpen(false)">Done</ion-button>
+      </div>
+    </ng-template>
+  </ion-modal>
+</ion-content>

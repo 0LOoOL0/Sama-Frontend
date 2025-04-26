@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div class="header-margin">
+      <ion-label class="titleFont">Transfer Ownership</ion-label>
+      <p class="textGray bodyFont">
+        Caring transfer of your beloved pet to their new loving home we make the
+        process easy and worry-free.
+      </p>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding content-container">
+  <br />
+
+  <ion-label class="bodyFont boldFont new-owner">New Owner Email</ion-label>
+  <div class="MakeItFlex">
+    <ion-item class="roundedInput Username">
+      <ion-input
+        class="bodyFont textGray"
+        fill="solid"
+        placeholder="Email"
+        [(ngModel)]="NewEmail"
+      ></ion-input>
+    </ion-item>
+  </div>
+</ion-content>
+
+<div class="ion-padding">
+  <ion-button
+    fill="clear"
+    expand="full"
+    class="FilledButtons"
+    (click)="transfer()"
+  >
+    Transfer
+  </ion-button>
+</div>

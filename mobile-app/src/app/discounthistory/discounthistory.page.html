@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-label class="centered-title titleFont"></ion-label>
+    <div class="header-margin-Single-Line">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text=""></ion-back-button>
+      </ion-buttons>
+   
+        <ion-label class=" titleFont centered-title">Discount History</ion-label>
+         <!-- Updated filter button -->
+    <ion-buttons slot="end">
+      <ion-button (click)="openFilterModal()">
+        <img class="filterImg" src="assets/filter.svg"/>
+      </ion-button>
+    </ion-buttons>
+
+      </div>
+   
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding bodyFont">
+  <div class="header-container">
+    <p class="total-amount">
+      This is a total amount you have saved using our app!
+    </p>
+    <p class="total-saved">{{ totalSaved }}</p>
+  </div>
+
+  <div *ngFor="let entry of filteredHistory">
+    <h2>{{ entry.date }}</h2>
+    <ion-card class="bodyFont discount-card">
+      <ion-card-content class="discount-entry bodyFont">
+        <ion-thumbnail slot="start">
+          <img
+            src="assets/discountPet.svg"
+            alt="Service Image"
+            class="pet-img"
+          />
+          <p>{{ entry.place }}</p>
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ entry.service }}</h2>
+
+          <div class="prices">
+            <div class="price-row">
+              <span>Original price</span>
+              <span>{{ entry.originalPrice }}</span>
+            </div>
+            <div class="price-row yousaved">
+              <span>You Saved</span>
+              <span>{{ entry.saved }}</span>
+            </div>
+            <div class="price-row youpaid">
+              <span>You Paid</span>
+              <span>{{ entry.paid }}</span>
+            </div>
+          </div>
+        </ion-label>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Modal for filtering -->
+  <ion-modal [isOpen]="isFilterModalOpen" (ionModalDidDismiss)="closeFilterModal()">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title class="titleFont">Filter</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="resetFilters()" class="bodyFont">Reset</ion-button>
+            <ion-button (click)="closeFilterModal()" class="bodyFont">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-label class="bodyFont">Transaction Type</ion-label>
+        <ion-segment [(ngModel)]="transactionType">
+          <ion-segment-button value="Product" class="transactions-type">
+            <ion-label class="transaction bodyFont">Product</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="Service" class="transactions-type">
+            <ion-label class="transaction bodyFont">Service</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+
+        <ion-label class="bodyFont">Date Range</ion-label>
+        <div class="date-range">
+          <div class="date-picker">
+            <ion-label (click)="toggleDatePicker('start')" class="bodyFont">
+              Select Date
+            </ion-label>
+            <ion-button fill="clear" (click)="toggleDatePicker('start')" class="date-button">
+              <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+            </ion-button>
+            <ion-datetime *ngIf="showStartDatePicker" [(ngModel)]="startDate" (ionChange)="onStartDateChange($event)" display-format="MM DD YYYY"></ion-datetime>
+          </div>
+
+          <span class="to-text">to</span>
+
+          <div class="date-picker">
+            <ion-label (click)="toggleDatePicker('end')" class="bodyFont">
+              Select Date
+            </ion-label>
+            <ion-button fill="clear" (click)="toggleDatePicker('end')" class="date-button">
+              <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+            </ion-button>
+            <ion-datetime *ngIf="showEndDatePicker" [(ngModel)]="endDate" (ionChange)="onEndDateChange($event)" display-format="MM DD YYYY"></ion-datetime>
+          </div>
+        </div>
+        <ion-button expand="block" (click)="applyFilters()" class="apply-button bodyFont">Apply</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

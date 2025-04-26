@@ -1,0 +1,46 @@
+.booking-card {
+    margin: 10px 0;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-details {
+    margin-left: 10px;
+  }
+  
+  .price {
+    color: green;
+    font-size: 1.5em;
+  }
+  
+  .service-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .pet-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .date-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  ion-icon {
+    margin: 0 5px;
+  }
+  

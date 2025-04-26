@@ -1,0 +1,178 @@
+<ion-header>
+  <ion-toolbar>
+    <div
+      class="profile-header FlexSpaceInBetween MakeItFlex"
+      id="pfp and username"
+    >
+      <div class="circle MakeItFlex">
+        <ion-button class="set" fill="clear" routerLink="/my">
+          <ion-avatar>
+            <img [src]="profile.profile_image" alt="Profile Picture" />
+          </ion-avatar>
+        </ion-button>
+
+        <ion-label class="blackTitleFont boldFont">
+          {{ profile.first_name }}
+        </ion-label>
+      </div>
+
+      <div class="MakeItFlex">
+        <div class="circle">
+          <ion-button class="lang" fill="clear" routerLink="/changelanguage">
+            <img
+              style="width: 24px; height: 24px"
+              src="assets/icons/language.svg"
+            />
+          </ion-button>
+        </div>
+        <div class="circle">
+          <ion-button class="set" fill="clear" routerLink="/settings">
+            <img
+              style="width: 24px; height: 24px"
+              src="assets/icons/settings.svg"
+            />
+          </ion-button>
+        </div>
+      </div>
+    </div>
+  </ion-toolbar>
+
+  <div class="MakeItFlex navigation">
+    <div class="MakeItFlex MakeItCenter path" (click)="goMyPetPage()">
+      <div class="MakeItFlexAsAColumn">
+        <img src="assets/icons/paw.svg" />
+        <ion-label class="bodyFont boldFont smallFont">My pet</ion-label>
+      </div>
+    </div>
+
+    <div
+      class="MakeItFlex MakeItCenter path-tracking"
+      (click)="goCartPage()"
+    >
+      <div class="MakeItFlexAsAColumn">
+        <img src="assets/icons/cart.svg" />
+        <ion-label class="bodyFont boldFont smallFont">Cart</ion-label>
+      </div>
+    </div>
+
+    <div class="MakeItFlex MakeItCenter path-My-Order" (click)="goOrdersPage()">
+      <div class="MakeItFlexAsAColumn">
+        <img src="assets/icons/file-05.svg" />
+        <ion-label class="bodyFont boldFont smallFont">My order</ion-label>
+      </div>
+    </div>
+
+    <div class="MakeItFlex MakeItCenter path" (click)="  goMyFavPage()">
+      <div class="MakeItFlexAsAColumn">
+        <img src="assets/icons/heartb.svg" />
+        <ion-label class="bodyFont boldFont smallFont">Favorites</ion-label>
+      </div>
+    </div>
+  </div>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="MakeItCenter" id="img">
+    <img src="assets/adv.svg" />
+  </div>
+
+  <!-- <br />
+
+  <div class="MakeItCenter">
+    <div class="subscribe" style="background-image: url('/assets/bg.svg')">
+      <ion-label class="bodyFont boldFont">Not a member?</ion-label>
+      <ion-button fill="clear">SUBSCRIBE</ion-button>
+    </div>
+  </div> -->
+
+  <br />
+
+  <div class="MakeItCenter">
+    <div id="blog">
+      <div class="FlexSpaceInBetween">
+        <ion-label class="blackTitleFont boldFont">Blogs</ion-label>
+        <ion-label class="bodyFont" button (click)="goBlogsPage()">See More</ion-label>
+      </div>
+        
+      <div class="MakeItCenter">
+        <div>
+          <div class="MakeItAGride blogContainer">
+            <div *ngFor="let item of blogs" class="blog">
+              <ion-label class="bodyFont boldFont blogTitle">#{{item.tag}}</ion-label>
+              <div class="imgContainer">
+                <img [src]="item.image">
+              </div>
+              <div class="more">
+                <ion-label class="bodyFont smallFont blogTitle">{{item.title}}</ion-label>
+                <ion-label class="bodyFont smallFont blogLink" (click)="showBlogDetails(item)">Learn more</ion-label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- Blog Details Modal -->
+  <ion-modal class="bodyFont modal header-toolbar" [isOpen]="showBlogModal" (ionModalDidDismiss)="closeBlogModal()"
+  [initialBreakpoint]="0.5" [breakpoints]="[0, 0.5, 1]">
+
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title class="titleFont">Blog Details</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeBlogModal()" class="bodyFont">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="ion-padding content-container MakeItCenter">
+        
+        <div class="imgdeteil MakeItCenter">
+          <img [src]="selectedBlog?.image" alt="Blog Image">
+        </div>
+
+        <div class="descriptions-blog ">
+          <div class=" bodyFont">
+            <br>
+            <ion-label class="boldFont blogTitle FlexSpaceInBetween ">{{selectedBlog?.title}}</ion-label>
+            <br>
+            <br>
+            <ion-label class="smallFont">{{selectedBlog?.description}}</ion-label>
+          </div>
+        </div>
+      </ion-content>
+    </ng-template>
+
+  </ion-modal>
+
+</ion-content>
+
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button routerLink="/mains">
+    <ion-icon src="assets/icons/home.svg"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button routerLink="/mypet">
+    <ion-icon src="assets/icons/my-pets.svg"></ion-icon>
+  </ion-tab-button>
+
+  <div class="orangeCircle">
+    <ion-tab-button routerLink="/qr-card">
+      <ion-icon src="assets/icons/navigation.svg"></ion-icon>
+    </ion-tab-button>
+  </div>
+
+  <ion-tab-button routerLink="/reminder">
+    <ion-icon src="assets/icons/book.svg"></ion-icon>
+  </ion-tab-button>
+
+  <ion-tab-button routerLink="/main">
+    <ion-icon src="assets/icons/profile.svg"></ion-icon>
+  </ion-tab-button>
+</ion-tab-bar>
+
+

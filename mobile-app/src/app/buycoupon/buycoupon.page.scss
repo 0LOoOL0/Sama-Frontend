@@ -1,0 +1,66 @@
+ion-header {
+    ion-toolbar {
+      background: transparent;
+    }
+  }
+  
+  .vet-image {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  
+  .shop-header {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+  }
+  
+  .shop-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  
+  .shop-details {
+    flex: 1;
+    margin-left: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .shop-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .discount {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: purple;
+  }
+  
+  .offer-title {
+    margin-top: 16px;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  
+  .offer-details {
+    margin-top: 16px;
+    padding-left: 20px;
+  }
+  
+  .redeem-date {
+    margin-top: 16px;
+    font-weight: bold;
+  }
+  
+  ion-button {
+    margin-top: 16px;
+    background-color: #d35400;
+    --background: #d35400;
+    color: white;
+  }
+  

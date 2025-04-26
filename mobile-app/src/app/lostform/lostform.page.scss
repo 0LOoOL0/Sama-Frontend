@@ -1,0 +1,120 @@
+ion-buttons{
+  margin-top: 20px;
+}
+
+
+.title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ion-thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 50%;
+    height: auto;
+  }
+}
+
+ion-item{
+  margin-top:10px;
+}
+
+ion-label{
+  font-weight: 600;
+  margin-left: 16px;
+}
+
+
+.photo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .options{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.round-picture-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;  /* Ensure the container has the same size as the image */
+  height: 100px; /* Ensure the container has the same size as the image */
+}
+
+.round-picture-container .round-image {
+  width: 100%;  /* Ensure the image fills the container */
+  height: 100%; /* Ensure the image fills the container */
+  border-radius: 50%; /* Makes the image round */
+  object-fit: cover;  /* Ensures the image covers the container evenly */
+}
+
+.file-button {
+  width: 80%; /* Adjust size as needed */
+  height: 80%; /* Adjust size as needed */
+  object-fit: contain; /* Ensure the image fits within the container */
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.camera-container {
+  position: absolute;
+  bottom: 0; /* Stick to the bottom of the image */
+  right: 1px; /* Stick to the right of the image */
+  width: 35px; /* Adjust size as needed */
+  height: 35px; /* Adjust size as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Main-One);
+  border-radius: 50%; /* Make the container round */
+}
+// ion-radio-group
+ion-radio-group{
+  .bodyFont{
+      font-weight: 400;
+  }
+
+  ion-radio {
+      --color: var(--GrayColor);
+      --color-checked: var(--Main-Two);
+  }
+}
+
+// This code is specifically for dark mode
+::ng-deep ion-select-popover {
+--background: white !important;
+}
+
+::ng-deep ion-select-popover ion-list {
+background-color: white !important;
+}
+
+::ng-deep ion-select-popover ion-list ion-item {
+--background: white !important;
+--color: black !important;
+}
+
+::ng-deep .select-interface-option {
+background-color: white !important;
+color: black !important;
+}

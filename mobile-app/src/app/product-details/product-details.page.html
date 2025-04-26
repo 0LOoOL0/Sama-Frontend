@@ -1,0 +1,163 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div class="header-margin-Single-Line">
+      <ion-title class="titleFont">Product Detail</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <img *ngIf="product?.images?.length" [src]="selectedImage ?? product?.images?.[0]" alt="Product Image"
+    class="Pimage" />
+
+  <div class="Scrollable">
+    <div class="MakeItFlexAtTheStart">
+      <div class="ProductImgs" *ngFor="let image of product?.images" (click)="changeMainImage(image)">
+        <img [src]="image">
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="FlexSpaceInBetween">
+
+    <ion-label class="blackTitleFont">{{product?.name}}</ion-label>
+
+    <div class="column">
+      <ion-label class="bodyFont" id="old-price">{{product?.old_price}}BHD</ion-label>
+      <ion-label class="bodyFont boldFont" id="new-price">{{product?.new_price}}BHD</ion-label>
+    </div>
+
+  </div>
+
+  <div class="Margin-Top">
+    <ion-label class="bodyFont">{{product?.description}}</ion-label>
+  </div>
+
+  <div class="FlexSpaceInBetween Margin-Top">
+    <div class="MakeItFlex">
+      <div class="stars-container">
+        <div *ngFor="let i of [1, 2, 3, 4, 5]" class="star">
+          <svg [attr.fill]="i <= averageRating ? '#F0A441' : '#9da4aa'" viewBox="0 0 1024 1024"
+            xmlns="http://www.w3.org/2000/svg" stroke="rgba(0, 0, 0, 0.3)" class="icon">
+            <path
+              d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z">
+            </path>
+          </svg>
+        </div>
+      </div>
+      <ion-label class="bodyFont Rating">{{ averageRating.toFixed(2) }} | {{ product?.quantity }} sold</ion-label>
+    </div>
+    <div class="MakeItCenter column qt-name">
+      <div class="MakeItCenter">
+        <ion-label class="bodyFont boldFont">Quantity</ion-label>
+      </div>
+      <!-- When this is not a member you only got the current price with no discounts -->
+      <div class="MakeItFlex MakeItCenter qt-buttons">
+        <img (click)="decreaseQuantity()" class="icon" src="/assets/icons/add-Minus.svg" alt="minus">
+        <ion-label class="bodyFont Middle"> {{ quantity }} </ion-label>
+        <img (click)="increaseQuantity()" class="icon" src="/assets/icons/add-plus.svg" alt="plus">
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <!-- This should only show up if you're not a member-->
+  <div class="MakeItCenter">
+    <div class="subscribe" style="background-image: url('/assets/bg.svg')">
+      <div>
+        <ion-label class="bodyFont boldFont">For exclusive discounts,</ion-label>
+        <br>
+        <ion-label class="bodyFont boldFont">Be a member?</ion-label>
+      </div>
+
+      <ion-button fill="clear" routerLink="/subscription">SUBSCRIBE</ion-button>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="FlexSpaceInBetween MakeItFlex">
+    <div class="MakeItFlex">
+      <ion-label class="bodyFont boldFont">Reviews</ion-label>
+      <img class="icon Middle" src="assets/icons/Star.svg" />
+      <div>
+        <ion-label class="bodyFont boldFont">{{ averageRating.toFixed(2) }}</ion-label>
+        <ion-label class="bodyFont boldFont countColour">({{ reviewCount }})</ion-label>
+      </div>
+    </div>
+    <ion-label class="bodyFont boldFont" (click)="navigateToReviews()">View All</ion-label>
+  </div>
+
+  <ng-template #noReview>
+    <div class="noReview Margin-Top">
+      <ion-label class="bodyFont">No review available</ion-label>
+    </div>
+  </ng-template>
+
+  <div *ngIf="reviews && reviews.length > 0; else noReview">
+    <div class="ReviewContainer">
+
+      <div class="FlexSpaceInBetween">
+        <div class="MakeItFlex">
+          <div class="square">
+            <div class="parent">
+              <img [src]="reviews[0].petOwner?.profile_image" alt="Avatar" />
+            </div>
+          </div>
+          <div class="column">
+            <ion-label class="bodyFont boldFont">{{ reviews[0].petOwner?.first_name }}</ion-label>
+            <div class="stars-container">
+              <div *ngFor="let i of [1, 2, 3, 4, 5]" class="star">
+                <svg [attr.fill]="i <= reviews[0].rate ? '#F0A441' : '#9da4aa'" viewBox="0 0 1024 1024"
+                  xmlns="http://www.w3.org/2000/svg" stroke="rgba(0, 0, 0, 0.3)" class="icon">
+                  <path
+                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z">
+                  </path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <ion-label class="bodyFont">{{ reviews[0].date }}</ion-label>
+
+      </div>
+
+      <div class="Margin-Top">
+        <ion-label class="bodyFont">{{ reviews[0].comment }}</ion-label>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<div class="footer FlexSpaceInBetween">
+  <div class="MakeItFlex">
+    <img class="icon" src="assets/icons/share1.svg">
+
+    <img class="icon Middle" src="assets/icons/bag.svg" [routerLink]="['/cart']">
+    <img class="icon" (click)="product && toggleFavorite(product)"
+      [src]="product?.isFavorite ? 'assets/icons/heart.svg' : 'assets/heartr.svg'" alt="Favorite Icon" />
+
+  </div>
+
+
+  <ion-button *ngIf="product" class="FilledButtons add-to-cart-button" fill="clear"
+    (click)="addToCart(product, quantity)">
+    Add to Cart
+  </ion-button>
+
+
+  <!-- <ion-button *ngIf="product && product.isInCart" class="FilledButtons remove-from-cart-button" fill="clear"
+    (click)="removeFromCart(product)">
+    Remove from Cart
+  </ion-button> -->
+
+</div>

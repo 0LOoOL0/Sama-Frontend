@@ -1,0 +1,138 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <div class="header-margin-Single-Line">
+      <div class="title">
+        <ion-label class="titleFont">Lost Pet Form</ion-label>
+        <ion-thumbnail><img src="assets/icons/trash.svg" /></ion-thumbnail>
+      </div>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="center-content">
+    <div class="round-picture-container">
+      <img [src]="petImagePreview || 'assets/mypet.svg'" class="round-image" />
+      <input type="file" #fileInput (change)="onFileSelected($event)" hidden>
+      <div class="camera-container" (click)="fileInput.click()">
+        <img class="file-button" src="assets/icons/pencil.svg" alt="pencil">
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="lostPetForm" (ngSubmit)="submitForm()" enctype="multipart/form-data">
+    <ion-label class="bodyFont">Pet Name</ion-label>
+    <ion-item class="roundedInput">
+      <ion-input
+        class="bodyFont"
+        formControlName="name"
+        type="text"
+        placeholder="Pet Name"
+      ></ion-input>
+    </ion-item>
+    <br />
+
+    <ion-label class="bodyFont">Pet Type</ion-label>
+    <ion-item class="roundedInput">
+      <ion-select
+        class="bodyFont"
+        formControlName="pet_type"
+        placeholder="Select Type"
+        interface="popover"
+      >
+        <ion-select-option
+          *ngFor="let type of petTypes"
+          [value]="type.value"
+          class="bodyFont"
+        >
+          {{ type.display }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br />
+
+    <ion-label class="bodyFont">Breed</ion-label>
+    <ion-item class="roundedInput">
+      <ion-input
+        class="bodyFont"
+        formControlName="breed"
+        type="text"
+        placeholder="Breed"
+      ></ion-input>
+    </ion-item>
+    <br />
+
+    <ion-label class="bodyFont">Color</ion-label>
+    <ion-item class="roundedInput">
+      <ion-input
+        class="bodyFont"
+        formControlName="color"
+        type="text"
+        placeholder="Color"
+      ></ion-input>
+    </ion-item>
+    <br />
+
+    <ion-label class="bodyFont">Gender</ion-label>
+    <ion-item class="roundedInput">
+      <ion-select
+        class="bodyFont"
+        formControlName="gender"
+        placeholder="Select Gender"
+        interface="popover"
+      >
+        <ion-select-option class="bodyFont" value="m">Male</ion-select-option>
+        <ion-select-option class="bodyFont" value="f">Female</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br />
+
+    <ion-label class="bodyFont">I'am the pet</ion-label>
+    <ion-item class="roundedInput">
+      <ion-select
+        class="bodyFont"
+        formControlName="role"
+        placeholder="Select role"
+        interface="popover"
+      >
+        <ion-select-option class="bodyFont" value="Founder">Founder</ion-select-option>
+        <ion-select-option class="bodyFont" value="Owner">Owner</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <br />
+
+    <ion-label class="bodyFont">where you found/lost it</ion-label>
+    <ion-item class="roundedInput">
+      <ion-textarea
+        class="bodyFont"
+        formControlName="location"
+        placeholder="location"
+      ></ion-textarea>
+    </ion-item>
+    <br />
+
+    <ion-label class="bodyFont">Description</ion-label>
+    <ion-item class="roundedInput">
+      <ion-textarea
+        class="bodyFont"
+        formControlName="description"
+        placeholder="Description"
+      ></ion-textarea>
+    </ion-item>
+    <br />
+
+    <ion-button
+      class="FilledButtons"
+      expand="block"
+      type="submit"
+      fill="clear"
+      [disabled]="lostPetForm.invalid"
+    >
+      Post
+    </ion-button>
+  </form>
+</ion-content>

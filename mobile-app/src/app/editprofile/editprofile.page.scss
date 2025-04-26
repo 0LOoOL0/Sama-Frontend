@@ -1,0 +1,110 @@
+ion-buttons{
+  // margin-top: 20px;
+}
+
+ion-item{
+  margin-top:10px;
+}
+
+ion-label{
+  font-weight: 600;
+  margin-left: 16px;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.round-picture-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;  /* Ensure the container has the same size as the image */
+  height: 100px; /* Ensure the container has the same size as the image */
+}
+
+.round-picture-container .round-image {
+  width: 100%;  /* Ensure the image fills the container */
+  height: 100%; /* Ensure the image fills the container */
+  border-radius: 50%; /* Makes the image round */
+  object-fit: cover;  /* Ensures the image covers the container evenly */
+}
+
+.camera-container {
+  position: absolute;
+  bottom: 0; /* Stick to the bottom of the image */
+  right: 1px; /* Stick to the right of the image */
+  width: 35px; /* Adjust size as needed */
+  height: 35px; /* Adjust size as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Main-One);
+  border-radius: 50%; /* Make the container round */
+}
+
+.file-button {
+  width: 80%; /* Adjust size as needed */
+  height: 80%; /* Adjust size as needed */
+  object-fit: contain; /* Ensure the image fits within the container */
+}
+
+// .edit-icon-button {
+//   position: absolute;
+//   bottom: 0;
+//   right: 0;
+//   background: var(--ion-color-primary);
+//   border-radius: 50%;
+//   padding: 5px;
+//   margin: 0;
+//   --ion-color-base: white;
+// }
+.redText{
+  color: red !important;
+}
+
+// this class has almost the same attributes as the Outlinedbuttons class
+//but adjusted it a bit to fit the screen with overlap
+.locbutton{
+  font-family: "Montserrat";
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-style: normal;
+
+  text-align: center;
+  border-radius: 16px;
+  margin-bottom: 10px;
+  height: 0.2vh;
+  width: 100%;
+  
+  border: 1px solid var(--Main-One);
+  color: var(--Main-One);
+}
+
+#date {
+  display: flex;
+  flex-direction: row;
+}
+
+// This code is specifically for dark mode
+::ng-deep ion-select-popover {
+  --background: white !important;
+}
+
+::ng-deep ion-select-popover ion-list {
+  background-color: white !important;
+}
+
+::ng-deep ion-select-popover ion-list ion-item {
+  --background: white !important;
+  --color: black !important;
+}
+
+::ng-deep .select-interface-option {
+  background-color: white !important;
+  color: black !important;
+}

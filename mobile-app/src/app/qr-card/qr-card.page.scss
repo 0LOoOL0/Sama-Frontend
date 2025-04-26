@@ -1,0 +1,297 @@
+// header
+.centered-title {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.backButton{
+  margin-top: 16px;
+}
+
+// card
+.card-content {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  max-width: 350px;
+  height: 206px;
+  
+  padding: 10px;
+  padding-top: 40px;
+  border-radius: 16px;
+
+  background: url('/assets/pet-card.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.MakeItFlexAtTheStart{
+  display: flex;
+}
+
+.subscribe{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 350px;
+  height: clamp(59px, 64px, 64px);
+  border-radius: 16px;
+  padding-right: 20px;
+  padding-left: 20px;
+  
+  .bodyFont{
+    color: var(--White) !important;
+  }
+
+  ion-button{
+    font-family: "Montserrat";
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    text-align: center;
+    border-radius: 16px;
+    background-color: var(--Main-One);
+    color: white;
+    padding: 0px 16px 0px;
+  }
+}
+
+.in-card-qr{
+  background-color: red;
+
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+// select
+ion-select, ion-select-option{
+  font-weight: 600;
+}
+
+::ng-deep ion-select-popover {
+--background: white !important;
+}
+
+::ng-deep ion-select-popover ion-list {
+background-color: white !important;
+}
+
+::ng-deep ion-select-popover ion-list ion-item {
+--background: white !important;
+--color: black !important;
+}
+
+::ng-deep .select-interface-option {
+background-color: white !important;
+color: black !important;
+}
+
+.pfp{
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+}
+
+.selector{
+  max-width: 160px;
+  margin: 0 auto;
+}
+
+.img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+// segments
+.segmentContainer{
+  width: 100%;
+  max-width: 350px;
+  background-color: var(--White);
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--GrayColor)
+}
+
+.contentContainer{
+  border-top: 1px solid var(--GrayColor);
+}
+
+ion-segment-button.md::part(native), ion-segment-button.ios::part(native){
+  color: var(--GrayColor);
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  padding:10px;
+}
+
+.segment-button-checked.md::part(native), .segment-button-checked.ios::part(native) {
+  background: none;
+  --indicator-box-shadow: none;
+  color: var(--Black);
+  border-bottom: 2px solid var(--Main-Two);
+  
+  padding:0;
+
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+
+  .purpleUnderline{
+    border-bottom: 1px solid var(--Main-Two);
+  }
+}
+
+ion-segment-button {
+  --indicator-color: none;
+  --indicator-box-shadow: none;
+}
+
+// coupons
+.button-container{
+  display: flex;
+  justify-content: end;
+}
+
+.Buttons{
+  background-color: var(--Main-Two);
+  color: var(--White);
+  width: 60%;
+  font-size: 0.7rem;
+}
+
+ion-list{
+  background-color: var(--White);
+}
+
+.coupon {
+  background-color: var(--background-color);
+  border-radius: 16px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+  .ListIcon{
+    display: flex;
+    align-items: center;
+    margin-right:10px;
+    border-right: 2px dashed var(--GrayColor);
+
+    ion-thumbnail img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  
+  .ListDetails{
+    width: 100%;
+    margin-right: 10px;
+  
+    ion-label{
+      h2 {
+        font-weight: 600;
+      }
+      p{
+        font-weight: 400;
+      }
+    }
+
+    .inOneLine{
+      display: flex;
+      justify-content: space-between;
+
+      p{
+        margin-top: auto;
+      }
+
+      #date{
+        text-align: end;
+      }
+      .titleFont{
+        color: var(--Main-Two)!important;
+        font-weight: 600;
+        font-size: 2rem !important;
+      }
+    }
+    
+    ion-button {
+      height: 4vh;
+      width: 55%;
+      margin-bottom: 0px;
+    }
+  
+  }
+
+  .used{
+    opacity: 50%;
+  }
+
+// Qr
+#qr{
+  position: relative;
+}
+
+.qr-code-container {
+  width: 90%;
+  margin-top: 20px;
+  border-radius: 16px;
+  border: 2px solid var(--Main-Two);
+
+  img{
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+}
+
+.blue-paw{
+  width: 50px;
+  height: 50px;
+  background: var(--White);
+  position: absolute;
+  top:30px;
+  right:-28px;
+
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.yellow-paw{
+  width: 50px;
+  height: 50px;
+  background: var(--White);
+  position: absolute;
+  bottom:30px;
+  left:-28px;
+
+  img{
+    width: 100%;
+    height: 100%;
+  }
+}
+
+#textGray{
+  margin-top: 10px;
+  color: var(--GrayColor) !important;
+  text-align: center;
+}

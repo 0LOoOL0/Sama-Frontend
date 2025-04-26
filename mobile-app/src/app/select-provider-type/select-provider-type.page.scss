@@ -1,0 +1,39 @@
+// For all option's labels
+ion-label{
+  color: var(--Main-One);
+}
+
+// For the p under the title
+p{
+  padding-top: 2px;
+  margin: 5px 32px 0px 0px;
+}
+
+  ion-item {
+    --margin: 10px 0;
+    background-color: var(--background-color);
+    padding: 10px;
+  }
+
+  ion-item.custom-shadow::part(native) {
+    --background: var(--White);
+    position: relative;
+    --border-radius: 16px;
+  }
+  
+ion-item.custom-shadow:active::part(native) {
+    box-shadow: inset 0 0 8px var(--Main-Two-Shadow);
+}
+
+// Changes the color of the background
+ion-list{
+  background-color: var(--background-color);
+}
+
+h2{
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--Main-One) !important;
+}
+
+  

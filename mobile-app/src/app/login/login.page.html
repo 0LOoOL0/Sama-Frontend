@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header-margin">
+      <ion-label class="titleFont">Log In</ion-label>
+      <p class="textGray bodyFont">Please provide the following credentials.</p>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="bodyFont SmallMargin">
+    <br />
+    <ion-label>Email</ion-label>
+    <ion-item class="roundedInput">
+      <ion-input
+        class="bodyFont textGray"
+        fill="solid"
+        type="email"
+        placeholder="Enter your email"
+        [(ngModel)]="email"
+      ></ion-input>
+    </ion-item>
+    <br />
+    <ion-label>Password</ion-label>
+    <ion-item class="roundedInput" id="SpecialMargin">
+      <ion-input
+        class="bodyFont textGray"
+        fill="solid"
+        [type]="showPassword ? 'text' : 'password'"
+        placeholder="Enter your password"
+        [(ngModel)]="password"
+      ></ion-input>
+      <ion-icon
+        [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"
+        slot="end"
+        (click)="togglePasswordVisibility()"
+      ></ion-icon>
+    </ion-item>
+
+    <!-- Display error message if any -->
+    <div *ngIf="errorMessage" class="error-message">
+      <ion-label color="danger">{{ errorMessage }}</ion-label>
+    </div>
+
+    <div class="bodyFont forgot-password">
+      <p class="textGray" routerLink="/forgotpass">Forgot Password?</p>
+    </div>
+  </div>
+  <br />
+  <ion-button expand="full" fill="clear" class="FilledButtons" (click)="login()">
+    Log In
+  </ion-button>
+  <ion-label class="textGray bodyFont">
+    No account?
+    <span class="logIn" routerLink="/create-your-account">Register now</span>
+  </ion-label>
+  <div class="logInButtons">
+    <br />
+    <br />
+    <ion-button expand="full" fill="clear" id="Facebook">
+      <ion-icon slot="icon-only" src="assets/icons/facebook.svg"></ion-icon>
+      Login with Facebook
+    </ion-button>
+    <ion-button expand="full" fill="clear" id="Google">
+      <ion-icon slot="icon-only" src="assets/icons/google.svg"></ion-icon>
+      Login with google
+    </ion-button>
+    <ion-button expand="full" fill="clear" id="Apple">
+      <ion-icon slot="icon-only" src="assets/icons/apple.svg"></ion-icon>
+      Login with apple
+    </ion-button>
+  </div>
+</ion-content>

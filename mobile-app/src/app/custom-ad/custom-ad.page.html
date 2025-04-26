@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Custom Ad Design Promotion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="adForm" (ngSubmit)="onSubmit()">
+    <ion-card>
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-label position="stacked">High Quality Logo Image</ion-label>
+        </ion-item>
+        <div class="upload-box">
+          <input type="file" (change)="onFileChange($event, 'logoImage')" accept="image/jpeg,image/png,application/pdf" />
+          <ion-icon name="camera-outline" size="large"></ion-icon>
+          <p>Add logo image</p>
+          <p class="file-types">Accepted File Types: JPG, PNG, PDF</p>
+          <p class="file-size">Max size: 2 MB</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-label position="stacked">Other Pictures Of The Business</ion-label>
+        </ion-item>
+        <div class="upload-box">
+          <input type="file" (change)="onFileChange($event, 'productImages')" multiple accept="image/jpeg,image/png" />
+          <ion-icon name="camera-outline" size="large"></ion-icon>
+          <p>Add Product image</p>
+          <p class="file-types">Accepted File Types: JPG, PNG</p>
+          <p class="file-size">Max size: 2 MB</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-item>
+      <ion-label position="stacked">Business Name</ion-label>
+      <ion-input formControlName="businessName" placeholder="Enter your Product"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Ad Description</ion-label>
+      <ion-textarea formControlName="adDescription" placeholder="Enter ad description"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Contact Number</ion-label>
+      <ion-input formControlName="contactNumber" placeholder="Enter your contact number"></ion-input>
+    </ion-item>
+
+    <ion-item-divider>
+      <ion-label>Socials Link</ion-label>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-icon slot="start" name="globe-outline"></ion-icon>
+      <ion-input formControlName="websiteLink" placeholder="Website link"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="logo-instagram"></ion-icon>
+      <ion-input formControlName="instagramLink" placeholder="Instagram link"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="mail-outline"></ion-icon>
+      <ion-input formControlName="emailLink" placeholder="Email link"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="link-outline"></ion-icon>
+      <ion-input formControlName="otherLinks" placeholder="Other links"></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" color="primary" type="submit" [disabled]="!adForm.valid">Upload</ion-button>
+  </form>
+</ion-content>

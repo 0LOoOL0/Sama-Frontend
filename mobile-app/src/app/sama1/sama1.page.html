@@ -1,0 +1,56 @@
+<ion-header>
+  <div class="header-image">
+    <img src="assets/collerframe.png" alt="Pet Collars Banner" />
+  </div>
+  <ion-toolbar>
+    <ion-title>Sama Pet Store</ion-title>
+    <ion-buttons slot="end">
+      <ion-button name="search">
+        <ion-icon
+          slot="icon-only"
+          src="/assets/search-outline.svg"
+          size="large"
+        ></ion-icon>
+      </ion-button>
+      <ion-button name="options">
+        <ion-icon
+          slot="icon-only"
+          src="/assets/filter-outline.svg"
+          size="large"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list class="product-list">
+    <ion-item *ngFor="let product of products" class="product-item">
+      <ion-thumbnail slot="start">
+        <img src="/assets/Framee.png" />
+      </ion-thumbnail>
+      <ion-label>
+        <h2>Pet Collar</h2>
+        <p>BHD 8</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button name="heart-outline" shape="round">
+          <ion-icon
+            src="/assets/heart-outline.svg"
+            name="heart-outline"
+            slot="icon-only"
+            size="large"
+          ></ion-icon>
+        </ion-button>
+
+        <ion-button name="add-circle-outline" shape="round">
+          <ion-icon
+            src="/assets/add-circle-outline.svg"
+            slot="icon-only"
+            size="large"
+          ></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
+</ion-content>

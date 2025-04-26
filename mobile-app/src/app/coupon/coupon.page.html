@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+
+    <div class="header-margin-Single-Line">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text=""></ion-back-button>
+      </ion-buttons>
+   
+        <ion-label class=" titleFont centered-title">Coupons</ion-label>
+      </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <div *ngFor="let coupon of coupons" class="coupon">
+      <div class="ListIcon">
+        <ion-thumbnail slot="start">
+          <img [src]="coupon.image" alt="Coupon Image">
+        </ion-thumbnail>
+      </div>
+
+      <div class="ListDetails">
+        <ion-label class="ion-text-wrap">
+          <h2 class="bodyFont">{{ coupon.title }}</h2>
+          <div class="inOneLine">
+            <p class="bodyFont smallFont">{{ coupon.description }}</p>
+            <p class="titleFont"> {{coupon.price}}</p>
+          </div>
+          <div class="inOneLine">
+            <ion-button (click)="checkout(coupon.id,coupon.price)"  expand="full" fill="clear" class="FilledButtons smallFont">Buy</ion-button>
+            <p class="textGray smallFont">{{ coupon.expiration_date }}</p>
+          </div>
+        </ion-label>
+      </div>
+    </div>
+  </ion-list>
+</ion-content>

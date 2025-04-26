@@ -1,0 +1,45 @@
+ion-item {
+  --background: white;
+  border-radius: 20px;
+  height: auto;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  margin-bottom: 1.5rem;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+// header
+.centered-title {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+ion-buttons{
+  margin-top: 16px;
+}
+
+ion-back-button {
+  --color: var(--Main-Two);
+}
+ion-list {
+  background: var(--background-color);
+}
+
+ion-thumbnail {
+  display: flex;
+  justify-content: flex-end;
+  width: 20px;
+  height: auto;
+}
+
+.fixedFooter{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--background-color);
+}

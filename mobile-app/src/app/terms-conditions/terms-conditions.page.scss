@@ -1,0 +1,39 @@
+.titleFont{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 1rem;
+  font-weight: 600;
+  // Use a value from 100 to 900
+  font-style: normal;
+  --color: var(--Main-One)
+}
+  .centered-title {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+ 
+ion-content {
+   
+  background-color: var(--background-color);
+  ul {
+   list-style-type: disc;
+   text-align: left; 
+   margin-left: 8px;   
+   padding-left: 8px; 
+ }
+ ion-button{
+   color:var(--White);
+   border-radius: 16px;
+   background-color: var(--Main-One);
+ }
+}
+        
+      title {
+        font-size: 1rem;
+      }
+      
+
+    

@@ -1,0 +1,210 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="MakeItFlexAsAColumn">
+    <ion-avatar class="profile-image">
+      <img [src]="provider?.profile_image">
+    </ion-avatar>
+
+    <br>
+
+    <div class="title MakeItFlexAsAColumn">
+      <ion-label class="blackTitleFont">{{ provider?.name }}</ion-label>
+      <div class="location">
+        <img class="icon" src="assets/icons/location.svg">
+        <ion-label class="bodyFont">{{provider?.address}} </ion-label>
+      </div>
+
+    </div>
+  </div>
+
+  <br>
+
+  <div class="FlexSpaceInBetween MakeItFlex">
+    <div class="MakeItFlex">
+      <ion-label class="bodyFont review">5.0</ion-label>
+      <img class="icon" src="assets/icons/Star.svg">
+      <img class="icon" src="assets/icons/Star.svg">
+      <img class="icon" src="assets/icons/Star.svg">
+      <img class="icon" src="assets/icons/Star.svg">
+      <img class="icon" src="assets/icons/Star.svg">
+    </div>
+  
+    <ion-label class="bodyFont">230 review</ion-label>
+  </div>
+
+  <br>
+
+  <div class="MakeItFlexAsAColumnNoCenter">
+    <ion-label class="blackTitleFont">
+      Contact
+    </ion-label>
+
+    <div class="MakeItFlex">
+      <ion-button class="whiteButton" fill="clear" (click)="callNumber(provider?.contact_no)">
+        <img class="icon" src="assets/icons/phone.svg">
+      </ion-button>
+      <ion-button class="whiteButton" fill="clear" (click)="openEmail(provider?.email)">
+        <img class="icon" src="assets/icons/paperPlane.svg">
+      </ion-button>
+    </div>
+
+  </div>
+
+  <br>
+
+
+  <div *ngIf="type !== 'pet stores' && type !== 'doctors'">
+    <ion-label class="blackTitleFont"> {{job}} </ion-label>
+        
+      <div class="Scrollable">
+        <div class="MakeItFlexAtTheStart">
+          <div class="Doctor" *ngFor="let veterinarian of veterinarians" (click)="navigateToDrProfile(veterinarian.id)" >
+            <div class="DRImgs">
+              <img [src]="veterinarian.picture" alt="Doctor Image" >
+            </div>
+
+                <div class="break-word">
+                  <ion-label id="drName" class="bodyFont boldFont">
+                    {{ veterinarian.name }}
+                  </ion-label>
+                </div>
+            
+          </div>
+        </div>
+      </div>
+     
+  </div>
+
+  <br>
+
+  <ion-label class="blackTitleFont"> Availability </ion-label>
+  <div class="MakeItFlex">
+    <div *ngFor="let day of days" class="MakeItFlex MakeItCenter" [class]="day.available ? 'DayAvailable' : 'DayNotAvailable'"> {{ day.name }} </div>
+  </div>
+  <br>
+  <div class="Hours">
+    <ion-label class="textGray">Hours: <span class="bodyFont">9:00am - 2:00pm</span></ion-label>
+  </div>
+
+  <br>
+
+   <ion-segment [(ngModel)]="segment" value="services">
+    <ion-segment-button value="services" *ngIf="type !== 'pet stores'">
+      <ion-label>Services</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="products" *ngIf="type !== 'doctors'">
+      <ion-label>Products</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="MakeItCenter fullWidth">
+    <div *ngIf="segment === 'services' && type !== 'pet stores'">
+
+      <br>
+  
+        <div class="Container MakeItFlexAtTheStart" *ngFor="let service of services" (click)="navigateToProviderService(service.id)">
+          <div class="ImgContainer">
+            <img [src]="service?.image" alt="Service Image">
+          </div>
+  
+          <div class="MakeItFlexAsAColumn">
+            <div class="info FlexSpaceInBetween">
+              <div>
+                <ion-label class="blackTitleFont">
+                  {{ service.title }}
+                </ion-label>
+                <br>
+              </div>
+    
+              <div class="discount">
+                <ion-label class="titleFont percent">{{ service?.percentage }}%</ion-label>
+                <br>
+                <ion-label class="titleFont">OFF</ion-label>
+              </div>
+    
+            </div>
+    
+            <div class="MakeItFlexAsAColumn">
+  
+              <div class="desc">
+                <ion-label class="bodyFont">
+                  {{ service.short_description}}
+                </ion-label>
+              </div>
+  
+              <div class="MakeItFlex prices">
+                <ion-label class="old-price bodyFont blackTitleFont">{{ service?.old_price | currency }}</ion-label>
+                <ion-label class="blackTitleFont boldFont" id="new-price">{{ service?.new_price | currency }}</ion-label>
+              </div>
+  
+            </div>
+  
+  
+          </div>
+          
+        </div>
+  
+    </div>
+  </div>
+
+
+  <div class="MakeItCenter fullWidth">
+
+    <div *ngIf="segment === 'products' && type !== 'doctors'" >
+      <br>
+
+      <div class="Container MakeItFlexAtTheStart" *ngFor="let product of products" (click)="navigateToProductDetails(product.id)">
+          <div class="ImgContainer">
+            <img [src]="product.images[0]" alt="Product Image">
+          </div>
+  
+          <div class="MakeItFlexAsAColumn">
+            <div class="info FlexSpaceInBetween">
+              <div>
+                <ion-label class="blackTitleFont">
+                  {{ product.name }}
+                </ion-label>
+                <br>
+              </div>
+    
+              <div class="discount">
+                <ion-label class="titleFont percent">{{ product?.percentage }}%</ion-label>
+                <br>
+                <ion-label class="titleFont">OFF</ion-label>
+              </div>
+    
+            </div>
+    
+            <div class="MakeItFlexAsAColumn">
+  
+              <div class="desc">
+                <ion-label class="bodyFont">
+                  {{ product.description }}
+                </ion-label>
+              </div>
+  
+              <div class="MakeItFlex prices">
+                <ion-label class="old-price bodyFont blackTitleFont">{{ product.old_price | currency }}</ion-label>
+                <ion-label class="blackTitleFont boldFont" id="new-price">{{ product?.new_price | currency }}</ion-label>
+              </div>
+  
+            </div>
+  
+  
+          </div>
+          
+      </div>
+  
+  
+    </div>
+  </div>
+
+</ion-content>

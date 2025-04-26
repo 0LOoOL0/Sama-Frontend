@@ -1,0 +1,121 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-select value="week" slot="start">
+      <ion-select-option value="clinic">Clinic 1</ion-select-option>
+      <ion-select-option value="doctor">Doctor</ion-select-option>
+      <ion-select-option value="store">Store</ion-select-option>
+    </ion-select>
+    <ion-title>Sama Pet Care</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <img src="../../assets/notification.svg" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-item>
+      <ion-label style="margin-right: 16px">Today's Sales</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-select value="week" slot="end">
+        <ion-select-option value="week">This Week</ion-select-option>
+        <ion-select-option value="month">This Month</ion-select-option>
+        <ion-select-option value="year">This Year</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-item>
+  <div class="cards-container">
+    <div class="booking">
+      <ion-card>
+        <ion-label>Booking</ion-label>
+        <ion-card-content>
+          <ion-label>$10K</ion-label>
+        </ion-card-content>
+        <ion-text>Today Sales</ion-text>
+      </ion-card>
+    </div>
+    <div class="services">
+      <ion-card>
+        <ion-label>Services</ion-label>
+        <ion-card-content>
+          <ion-label>$5K</ion-label>
+        </ion-card-content>
+        <ion-text>Today Sales</ion-text>
+      </ion-card>
+    </div>
+  </div>
+
+  <div class="totalsale">
+    <ion-card>
+      <ion-label>Total Sales</ion-label>
+      <ion-card-content>
+        <div class="container">
+          <div class="total-sale">
+            <ion-label>Total Sale {{ percentage }}%</ion-label>
+          </div>
+          <div class="progress-circle">
+            <svg class="circular-chart" viewBox="0 0 36 36">
+              <path
+                class="circle-bg"
+                d="M18 2.0845
+                   a 15.9155 15.9155 0 0 1 0 31.831
+                   a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path
+                [attr.stroke-dasharray]="getStrokeDashArray()"
+                class="circle"
+                d="M18 2.0845
+                   a 15.9155 15.9155 0 0 1 0 31.831
+                   a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <text x="50%" y="50%" class="percentage">{{ percentage }}%</text>
+            </svg>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <div class="chart-container">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Daily Progress by Day</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <canvas id="dailyLineChart"></canvas>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+</ion-content>
+<ion-footer class="no-padding" style="--background-color: #5e17eb">
+  <ion-toolbar class="no-padding">
+    <ion-buttons style="width: 100%; justify-content: space-between">
+      <ion-button><img src="../../assets/home.svg" alt="Home" /></ion-button>
+      <ion-button>
+        <img src="../../assets/discountsy.svg" alt="Discounts" />
+      </ion-button>
+      <ion-button>
+        <ion-avatar
+          style="
+            background-color: #ed5f1e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          "
+        >
+          <img
+            src="../../assets/scan.svg"
+            alt="Scan"
+            style="width: 50%; height: 50%"
+          />
+        </ion-avatar>
+      </ion-button>
+      <ion-button><img src="../../assets/store.svg" alt="Stores" /></ion-button>
+      <ion-button>
+        <img src="../../assets/profile.svg" alt="Profile" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

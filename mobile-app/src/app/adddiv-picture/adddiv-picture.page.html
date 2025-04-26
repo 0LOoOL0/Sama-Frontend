@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+  
+
+    <div class="header-margin-Single-Line">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text=""></ion-back-button>
+      </ion-buttons>
+   
+        
+      </div>
+   </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="upload-container">
+    <h2>Add Your Ad Picture</h2>
+    <div class="upload-box">
+      <ion-icon name="camera-outline"></ion-icon>
+      <p>Add Ad image</p>
+      <input type="file" accept="image/jpeg, image/png" (change)="onFileSelected($event)">
+    </div>
+    <div class="upload-details">
+      <span>Accepted File Types: JPG, PNG</span>
+      <span>Max size: 2 MB</span>
+    </div>
+    <ion-button expand="block" class="upload-button" (click)="uploadAdImage()">Upload</ion-button>
+  </div>
+</ion-content>

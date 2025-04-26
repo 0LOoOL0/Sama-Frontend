@@ -1,0 +1,248 @@
+// general
+
+// header
+ion-header{
+  padding: 16px 16px 0px;
+  --background:var(--background-color);
+}
+.header-toolbar{
+  --background:var(--background-color);
+}
+.profile-header {
+  ion-button{
+    ion-avatar{
+      width: 50px;
+      height: 50px;
+      margin-right: 5px;
+    }
+
+    .settings{
+      img{
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+.circle {
+  ion-button{
+    --border-radius: 50px;
+  }
+}
+
+.lang{
+  --padding-start: 0;
+  --padding-end: 5px;
+}
+
+.set{
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+// navigation
+.navigation{
+  width: 100%;
+  min-height: 75px;
+  
+  img{
+    margin-bottom: 5px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.path, .path-tracking, .path-My-Order{
+  width: 25%;
+  height: 80%;
+
+  &.path-tracking{
+    border-left:1px solid var(--GrayColor);
+    border-right:1px solid var(--GrayColor);
+  }
+
+  &.path-My-Order{
+    border-right:1px solid var(--GrayColor);
+  }
+}
+
+// subscribe
+.subscribe{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 350px;
+  height: clamp(59px, 64px, 64px);
+  border-radius: 16px;
+  padding-right: 20px;
+  padding-left: 20px;
+  
+  .bodyFont{
+    color: var(--White) !important;
+  }
+
+  ion-button{
+    font-family: "Montserrat";
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    text-align: center;
+    border-radius: 16px;
+    background-color: var(--Main-One);
+    color: var(--White);
+    padding: 0px 16px 0px;
+  }
+}
+
+// blog
+.blogContainer{
+  max-width: 350px;
+}
+
+#blog{
+  .FlexSpaceInBetween{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.blog{
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 16px;
+  background-color: var(--White);
+}
+
+.imgContainer{
+  width: 100%;
+  height: auto;
+  max-height: 100px;
+  margin-bottom: 10px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  object-position: center;
+  img{
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+.imgdeteil{
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+img{
+
+  width: 75%;
+  height: 75%;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center;
+}
+}
+
+.descriptions-blog{
+  margin-top: 0px;
+  margin-left:32px;
+  margin-right: 10px;
+  justify-content: space-between;
+  display: flex;
+  
+}
+.blogTitle{
+  margin-bottom: 3px;
+}
+
+.blogTag{
+  margin-bottom: 3px;
+}
+
+.blogLink{
+  text-decoration: none;
+  color: var(--Accent-Two) !important;
+}
+
+.more{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  height: 50%;
+}
+
+// footer
+ion-tab-bar{
+  --background: var(--Main-Two);
+  margin: 10px;
+  border-radius: 16px;
+}
+
+.orangeCircle{
+  background-color: var(--Main-One);
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+}
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  max-width: 90%;
+  width: 500px;
+  border-radius: 8px;
+}
+
+.popup-content {
+  padding: 20px;
+}
+
+ion-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+// modal
+ion-toolbar{
+  padding-left: 16px;
+}
+
+.imgdeteil{
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 16px;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+
+  img{
+    width: 75%;
+    height: 75%;
+    border-radius: 16px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+.description-blog{
+  margin-top: 10px;
+  margin-left:32px;
+  margin-right: 10px;
+}

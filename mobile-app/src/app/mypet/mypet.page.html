@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaulte='/' text=""></ion-back-button>
+    </ion-buttons>
+
+    <div class="header-margin-Single-Line">
+    <ion-label class="centered-title titleFont">My Pet</ion-label>
+  </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  class="ion-padding">
+  <ion-grid>
+    <div class="pets-container">
+      <div
+        *ngFor="let pet of pets"
+        class="pet-item"
+        (click)="goProfileDetails(pet.id)"
+      >
+        <ion-avatar class="pet-image">
+          <img [src]="pet.imageUrl" alt="{{ pet.name }}" (error)="pet.imageUrl = '/assets/icons/no-profile.svg'" />
+          <ion-icon
+            *ngIf="pet.isFavorite"
+            class="favorite-icon"
+            name="star"
+          ></ion-icon>
+        </ion-avatar>
+        <p class="pet-name bodyFont">{{ pet.name }}</p>
+      </div>
+      <div class="pet-item add-new" (click)="addNewPet()">
+        <div class="plus-container">
+          <ion-avatar class="add-pet-image">
+            <img src="assets\icons\Plus.svg" alt="plusicon" class="plusicon" />
+            <ion-icon name="add" class="add-icon"></ion-icon>
+          </ion-avatar>
+        </div>
+        <p class="add-pet-text bodyFont">Add New Pet</p>
+      </div>
+    </div>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header >
+  <ion-toolbar>
+ 
+
+    <div class="header-margin-Single-Line">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text=""></ion-back-button>
+      </ion-buttons>
+   
+        <ion-label class=" titleFont centered-title">My Booking</ion-label>
+      </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list>
+    <ion-item *ngFor="let booking of bookings" (click)="goToDetail(booking)">
+      <ion-thumbnail slot="start">
+        <img [src]="booking.trainerImage" alt="Trainer Image">
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ booking.trainer }}</h2>
+        <p>{{ booking.service }}</p>
+        <p>Date & Time</p>
+        <ion-icon name="calendar-outline"></ion-icon>
+        <span>{{ booking.date }}</span>
+        <ion-icon name="time-outline"></ion-icon>
+        <span>{{ booking.time }}</span>
+      </ion-label>
+      <ion-thumbnail slot="end">
+        <img [src]="booking.petImage" alt="Pet Image">
+      </ion-thumbnail>
+      <ion-button fill="clear" slot="end" color="success">{{ booking.fee }}</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,130 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div class="header-margin-Single-Line">
+      <ion-label class="titleFont">Marketplace</ion-label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding bodyFont">
+  <ion-card *ngIf="pet" class="market-info-card">
+    <img [src]="pet.imageUrl" alt="Item Image" class="main-image" (error)="pet.imageUrl = '/assets/icons/no-profile.svg'" >
+     <ion-card-content class="no-padding">
+      <div class="item-header">
+        <div class="item-info bodyFont">
+          <h2 class="item-name boldFont bodyFont ion-text-center">{{ pet.name }}</h2>
+          <h3 class="item-price bodyFont ion-text-center">{{ pet.price }}</h3>
+          <div class="pet-icon-container">
+            <ion-button fill="clear" class="icon-button">
+              <ion-icon src="assets/icons/purple-heart.svg" class="heart-icon"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear"  class="icon-button">
+              <ion-icon src="assets/icons/purple-share.svg" class="arrow-icon"></ion-icon>
+            </ion-button>
+          </div>
+        </div>
+      </div>
+      <!-- <p class="item-description bodyFont ion-text-center">{{ pet.description }}</p>  -->
+      <div class="item-location">
+        <ion-icon src="assets/icons/location.svg" name="location-outline" class="bodyFont loc-icon"></ion-icon>
+        <span class="bodyFont">{{ pet.location ? pet.location : (pet.petOwner?.city || 'Location not available') }}</span>
+      </div>
+      <hr>
+      <div class="details">
+          <ion-chip class="bg gender-chip">
+            <ion-label class="bodyFont boldFont gender pet-details"> 
+              <img src="assets/icons/orange-paw.svg" class="paw-icon">
+              Gender: {{ pet.gender }} 
+            </ion-label>
+          </ion-chip>
+
+          <ion-chip class="bg colour-chip">
+            <ion-label class="bodyFont boldFont colour pet-details"> 
+              <img src="assets/icons/purple-paw.svg" class="paw-icon">
+              Colour: {{ pet.color }} 
+            </ion-label>
+          </ion-chip>
+
+          <ion-chip class="bg breed-chip">
+            <ion-label class="bodyFont boldFont breed pet-details">
+              <img src="assets/icons/yellow-paw.svg" class="paw-icon"> 
+              Breed: {{ pet.breed }} 
+            </ion-label>
+          </ion-chip>
+
+          <ion-chip class="bg age-chip">
+            <ion-label class="bodyFont boldFont age pet-details">
+              <img src="assets/icons/turq-paw.svg" class="paw-icon">
+              Age: {{ pet.age }}
+            </ion-label>
+          </ion-chip>
+
+          <ion-chip class="bg weight-chip">
+            <ion-label class="bodyFont boldFont weight pet-details">
+              <img src="assets/icons/pink-paw.svg" class="paw-icon"> 
+              Weight: {{ pet.weight }} 
+            </ion-label>
+          </ion-chip>
+
+          <ion-chip class="bg height-chip">
+            <ion-label class="bodyFont boldFont height pet-details"> 
+              <img src="assets/icons/grey-paw.svg" class="paw-icon">
+              Height: {{ pet.height }} 
+            </ion-label>
+          </ion-chip>
+      </div>
+      <hr>
+      <ion-item class="owner-info">
+        <div class="row-container">
+          <div class="image-container">
+            <ion-avatar class="avt">
+              <img [src]="pet.petOwner.profile_image" alt="Owner Image" class="owner-img" (error)="pet.petOwner.profile_image = '/assets/icons/profile_default.png'" >
+            </ion-avatar>
+          </div>
+          <div class="text-container">
+            <h3 class="owner-name boldFont bodyFont">{{pet.petOwner.first_name}} {{pet.petOwner.last_name}}</h3>
+          </div>
+          <div class="icon-container">
+            <ion-button fill="clear">
+              <ion-icon name="chatbubble-ellipses-outline" src="assets/icons/phone.svg" class="phone-icon"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear">
+              <ion-icon name="call-outline" src="assets/icons/message.svg" class="message-icon"></ion-icon>
+            </ion-button>
+          </div>
+        </div>  
+      </ion-item>
+      <br>
+      <p class="owner-description bodyFont ion-text-center">{{ descriptionSnippet }}
+        <ion-button fill="clear" class="see-more" (click)="showDescription = true">See more...</ion-button><!--add a link to the owner profile-->
+      </p>
+    </ion-card-content>
+  </ion-card>
+ 
+  <!-- Modal -->
+  <ion-modal 
+    [isOpen]="showDescription" 
+    (didDismiss)="showDescription = false" 
+    swipeToClose="true" 
+    presentingElement="parent"
+  >
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="showDescription = false">
+            X
+          </ion-button>
+        </ion-buttons>
+        <ion-title>Pet Description</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+    <ion-content class="ion-padding modal-content">
+      <p *ngIf="pet && pet.description" class="modal-description">{{ pet.description }}</p>
+      <p *ngIf="!pet || !pet.description">No description available.</p>
+    </ion-content>
+  </ion-modal>
+</ion-content>

@@ -1,0 +1,52 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Choose how fast you want to sell your products on Sama Pet Store</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <p>
+    <strong>Choose how fast you want to sell your products on Sama Pet Store</strong>
+  </p>
+  <ion-segment [(ngModel)]="segmentModel" color="tertiary">
+    <ion-segment-button value="promo">
+      <ion-label>Product Promo</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="coupon">
+      <ion-label>Coupon Discount</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <p class="promo-description">{{ promoDescriptions[segmentModel] }}</p>
+
+  <div *ngIf="segmentModel === 'promo'">
+    <ion-card *ngFor="let promotion of promotions['promo']">
+      <ion-card-header>
+        <ion-card-title>{{ promotion.title }}</ion-card-title>
+        <ion-card-subtitle>{{ promotion.price }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ul>
+          <li *ngFor="let detail of promotion.details">{{ detail }}</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <div *ngIf="segmentModel === 'coupon'">
+    <ion-card *ngFor="let promotion of promotions['coupon']">
+      <ion-card-header>
+        <ion-card-title>{{ promotion.title }}</ion-card-title>
+        <ion-card-subtitle>{{ promotion.price }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ul>
+          <li *ngFor="let detail of promotion.details">{{ detail }}</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

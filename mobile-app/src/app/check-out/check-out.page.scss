@@ -1,0 +1,118 @@
+// header
+.centered-title {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  ion-buttons{
+    margin-top: 16px;
+  }
+
+//list
+ion-list{
+    background-color: var(--background-color);
+  }
+
+// thumbnails
+#edit, #loc{
+    display: flex;
+    justify-content: center;
+    img{
+        width: 50%;
+        height: auto;
+    }
+
+    &#edit{
+        align-items: end;
+    }
+
+    &#loc{
+        align-items: center;
+    }
+}
+
+// Delivery title bar
+.title{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    // align-items: center;
+
+    ion-label{
+        font-weight: 600;
+        margin-left: 10px;
+    }
+}
+
+#coupon{
+    ion-label{
+        font-weight: 600;
+        margin-left: 10px;
+    }
+
+    ion-item{
+        margin-top: 7px;
+    }
+}
+
+svg{
+    margin-right: 10px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    background-color: var(--White);
+    border-radius: 16px;
+    margin-bottom: 10px;
+
+    #titles{
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+    #details{
+        color: var(--Main-One);
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+}
+
+// coupon
+ion-item{
+    margin-bottom:10px;
+
+    ion-button{
+        color: var(--Main-One) !important;
+        font-weight: 600;
+    }
+}
+
+// pay with
+ion-radio-group{
+    .bodyFont{
+        font-weight: 400;
+    }
+
+    ion-radio {
+        --color: var(--GrayColor);
+        --color-checked: var(--Main-Two);
+    }
+}
+
+.calc{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
+    #orange{
+        color:var(--Main-One) !important;
+    }
+
+    #purple{
+        color:var(--Main-Two) !important;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+}

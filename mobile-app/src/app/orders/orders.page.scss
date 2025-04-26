@@ -1,0 +1,140 @@
+// header
+ion-buttons{
+  margin-top: 20px;
+}
+
+.icon{
+  width: 24px;
+  height: auto;
+}
+
+.fiveMargin{
+  text-align: start;
+  margin-bottom: 10px !important;
+}
+
+// general structures
+.full{
+  max-width: 350px;
+  width: 100%;
+}
+
+// cards
+.card{
+  width: 100%;
+  max-width: 350px;
+  background-color: var(--GrayColor);
+  border-radius: 16px;
+  padding: 16px 16px 5px;
+  margin-bottom: 20px;
+}
+
+// section 1
+#firstLine{
+  margin-bottom: 5px;
+}
+
+.status{
+  padding: 10px;
+  border-radius: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.delivered {
+  background-color: var(--GrayColor);
+  border: 1px solid var(--Black);
+}
+
+.not-delivered {
+  background-color: var(--Accent-One);
+  color: var(--GrayColor);
+}
+
+// section 2
+.square{
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+
+  .parent{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+  
+    img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+
+.SecondLine{
+  margin-left: 10px;
+  width: 100%;
+}
+
+.details{
+  ion-label{
+    margin-top: 3px;
+  }
+}
+
+.buttons{
+  align-items: end;
+
+  ion-button{
+    margin: 10px 0px 0px 0px;
+    width:70px;
+    font-family: "Montserrat";
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 0.7rem;
+    font-style: normal;
+    text-align: center;
+    border-radius: 16px;
+    background-color: var(--Main-Two);
+    color: var(--White);
+  }
+}
+
+#items{
+  margin-right: 15px;
+}
+
+#viewDetails{
+  text-decoration: underline;
+}
+
+#Total{
+  text-decoration: line-through;
+}
+
+#YouPaid{
+  color: var(--Main-Two) !important;
+}
+
+
+// toggleable menu
+.orders{
+  margin-bottom: 11px;
+  width: 100%;
+  background-color: var(--background-color);
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.singleOrder{
+  padding: 5px;
+}
+

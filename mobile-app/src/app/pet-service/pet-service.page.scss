@@ -1,0 +1,72 @@
+.blackTitleFont{
+  font-size: 1.1rem;
+}
+
+ion-buttons{
+  margin-top: 20px;
+}
+
+// toolbar
+
+ion-thumbnail {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  img {
+    width: 50%;
+    height: auto;
+  }
+}
+
+// body general structures
+.Container{
+  margin-top: 50px;
+  background-color: var(--White);
+  border-radius: 16px;
+  padding: 6px;
+  width: 100%;
+  max-width: 350px;
+}
+
+.Titles{
+  margin: 10px;
+}
+
+// Services
+.serviceSquare{
+  width: 100%;
+  padding: 5px;
+
+  .service{
+    width: 100%;
+    min-height: 120px;
+    border-radius: 16px;
+    padding: 10px;
+    background-color:  rgb(205, 219, 175);
+
+    img{
+      margin-right: 10px;
+      max-width: 70px;
+      width: 30%;
+    }
+
+    .desc{
+      opacity: 50%;
+    }
+  }
+}
+
+// differemt views
+
+@media screen and (max-width: 350px){
+  .serviceSquare{
+    .service{
+      .bodyFont{
+        font-size: 0.7rem !important;
+      }
+      word-break: break-word;
+      overflow-wrap: break-word;
+      white-space: normal;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+ion-header {
+    --background: #ffffff;
+    --color: #000000;
+  }
+  
+  ion-toolbar {
+    --background: #f8f8f8;
+    --border-color: #e0e0e0;
+  }
+  
+  ion-title {
+    font-size: 1.4rem;
+  }
+  
+  ion-content {
+    --background: #ffffff;
+  }
+  
+  .product-list {
+    padding: 0;
+  }
+  
+  .product-item {
+    --ion-item-background: #ffffff;
+    --ion-item-border-color: #e0e0e0;
+    --ion-item-border-width: 1px;
+  }
+  
+  ion-thumbnail {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #f8f8f8;
+  }
+  
+  ion-label h2 {
+    font-size: 1rem;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+  }
+  
+  ion-label p {
+    font-size: 0.8rem;
+    margin: 0;
+    padding: 0;
+    color: #666666;
+  }
+  
+  ion-buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  ion-button {
+    --background: #ffffff;
+    --color: #666666;
+  }
+  
+  ion-icon {
+    font-size: 1.2rem;
+  }

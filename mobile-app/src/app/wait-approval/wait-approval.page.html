@@ -1,0 +1,103 @@
+<ion-header [translucent]="true"></ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="all-div">
+    <!-- SVG is displayed only when currentStep is not 1 and not 4 -->
+    <div>
+      <ion-item
+        *ngIf="currentStep === 2 || currentStep === 3 || currentStep === 5"
+      >
+        <svg
+          width="187"
+          height="180"
+          viewBox="0 0 187 180"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="97.5" cy="90" r="70" fill="#D97C5E" />
+          <circle cx="20.5" cy="10" r="10" fill="#D97C5E" />
+          <circle cx="107" cy="4.5" r="2.5" fill="#D97C5E" />
+          <circle cx="10.5" cy="133" r="5" fill="#D97C5E" />
+          <circle cx="179" cy="27.5" r="7.5" fill="#D97C5E" />
+          <circle cx="166" cy="160.5" r="2.5" fill="#D97C5E" />
+          <circle cx="171" cy="110.5" r="2.5" fill="#D97C5E" />
+          <circle cx="122.5" cy="171" r="1" fill="#D97C5E" />
+          <circle cx="63" cy="176.5" r="3.5" fill="#D97C5E" />
+          <circle cx="1.5" cy="75" r="1" fill="#D97C5E" />
+          <path
+            d="M110.52 60C120.69 60 127.5 67.14 127.5 77.76V102.273C127.5 112.86 120.69 120 110.52 120H84.51C74.34 120 67.5 112.86 67.5 102.273V77.76C67.5 67.14 74.34 60 84.51 60H110.52ZM110.04 81C109.02 79.98 107.34 79.98 106.32 81L93.93 93.39L88.68 88.14C87.66 87.12 85.98 87.12 84.96 88.14C83.94 89.16 83.94 90.81 84.96 91.86L92.1 98.97C92.61 99.48 93.27 99.72 93.93 99.72C94.62 99.72 95.28 99.48 95.79 98.97L110.04 84.72C111.06 83.7 111.06 82.05 110.04 81Z"
+            fill="white"
+          />
+        </svg>
+      </ion-item>
+      <ion-item *ngIf="currentStep === 1 || currentStep === 4">
+        <svg
+          width="187"
+          height="180"
+          viewBox="0 0 187 180"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <circle cx="98.5" cy="88" r="70" fill="#D97C5E" />
+          <circle cx="20.5" cy="10" r="10" fill="#D97C5E" />
+          <circle cx="107" cy="4.5" r="2.5" fill="#D97C5E" />
+          <circle cx="10.5" cy="133" r="5" fill="#D97C5E" />
+          <circle cx="179" cy="27.5" r="7.5" fill="#D97C5E" />
+          <circle cx="166" cy="160.5" r="2.5" fill="#D97C5E" />
+          <circle cx="171" cy="110.5" r="2.5" fill="#D97C5E" />
+          <circle cx="122.5" cy="171" r="1" fill="#D97C5E" />
+          <circle cx="63" cy="176.5" r="3.5" fill="#D97C5E" />
+          <circle cx="1.5" cy="75" r="1" fill="#D97C5E" />
+          <path
+            d="M123.389 88C123.389 102.497 111.633 114.25 97.1318 114.25C82.6306 114.25 70.875 102.497 70.875 88C70.875 73.5025 82.6306 61.75 97.1318 61.75C106.851 61.75 115.336 67.0289 119.876 74.875M116.186 90.8807L122.75 84.3182L129.314 90.8807M106.969 95.1579L97.125 91.8766V78.1562"
+            stroke="white"
+            stroke-width="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </ion-item>
+    </div>
+
+    <!-- Progress Bar and Steps -->
+    <div class="progress-bar-container">
+      <div class="progress-bar">
+        <div
+          class="progress-bar-fill"
+          [style.height.%]="(currentStep / totalSteps) * 100"
+        ></div>
+      </div>
+      <div class="steps">
+        <ion-list>
+          <div class="step-line-container">
+            <div
+              class="step-line"
+              *ngFor="let step of [].constructor(totalSteps - 1); let i = index"
+            ></div>
+          </div>
+          <ion-item
+            *ngFor="let step of [].constructor(totalSteps); let i = index"
+            class="step-item"
+          >
+            <div
+              class="step-point"
+              [ngClass]="{'active': i < currentStep}"
+            ></div>
+            <div class="step-description">
+              <ion-label>{{titles[i]}}</ion-label>
+              <ion-text>{{description[i]}}</ion-text>
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+
+  <ion-button
+    (click)="nextStep()"
+    expand="block"
+    [disabled]="currentStep === totalSteps"
+  >
+    Next
+  </ion-button>
+</ion-content>

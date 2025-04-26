@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Create your account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <p class="subheading">Please provide the following credentials.</p>
+
+  <form (ngSubmit)="onRegister()">
+    <ion-item>
+      <ion-icon name="mail-outline" slot="start"></ion-icon>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+      <ion-label position="floating">Confirm Password</ion-label>
+      <ion-input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" required></ion-input>
+    </ion-item>
+
+    <ion-button expand="block" type="submit" class="register-button">Register</ion-button>
+  </form>
+
+  <p class="login-link">
+    Already have an account? <a routerLink="/login" class="login-now">Login Now</a>
+  </p>
+
+  <div class="social-login-container">
+    <ion-button expand="block" fill="outline" class="social-login facebook">
+      <ion-icon slot="start" name="logo-facebook"></ion-icon>
+      Login with Facebook
+    </ion-button>
+
+    <ion-button expand="block" fill="outline" class="social-login google">
+      <ion-icon slot="start" name="logo-google"></ion-icon>
+      Login with Google
+    </ion-button>
+
+    <ion-button expand="block" fill="outline" class="social-login apple">
+      <ion-icon slot="start" name="logo-apple"></ion-icon>
+      Login with Apple
+    </ion-button>
+  </div>
+</ion-content>

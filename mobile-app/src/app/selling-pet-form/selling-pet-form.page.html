@@ -1,0 +1,200 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Selling Pet Form</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="photo-container">
+    <ion-avatar class="profile-image">
+      <img src="../../assets/white-camera.svg" alt="" />
+    </ion-avatar>
+  </div>
+
+  <form (ngSubmit)="submitForm()">
+    <ion-card>
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="stacked">Pet Name</ion-label>
+          <ion-input
+            [(ngModel)]="pet.name"
+            name="name"
+            type="text"
+            placeholder="Type here"
+          ></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Pet Type</ion-label>
+          <ion-select
+            [(ngModel)]="pet.type"
+            name="type"
+            placeholder="Select Type"
+          >
+            <ion-select-option value="Dog">Dog</ion-select-option>
+            <ion-select-option value="Cat">Cat</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Breed/Type</ion-label>
+          <ion-select
+            [(ngModel)]="pet.breed"
+            name="breed"
+            placeholder="Select Breed"
+          >
+            <ion-select-option value="Labrador">Labrador</ion-select-option>
+            <ion-select-option value="Persian">Persian</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Price</ion-label>
+          <ion-textarea
+            [(ngModel)]="pet.price"
+            name="price"
+            placeholder="Type here"
+          ></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Gender</ion-label>
+          <ion-radio-group [(ngModel)]="pet.gender" name="gender">
+            <ion-item>
+              <ion-item>
+                <ion-label>Male</ion-label>
+                <ion-radio slot="start" value="Male"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>Female</ion-label>
+                <ion-radio slot="start" value="Female"></ion-radio>
+              </ion-item>
+            </ion-item>
+          </ion-radio-group>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Age</ion-label>
+          <ion-textarea
+            readonly
+            (click)="toggleDatePicker()"
+            [value]="age !== null ? age + ' years old' : 'Select Age'"
+            auto-grow="true"
+          ></ion-textarea>
+        </ion-item>
+
+        <ion-item *ngIf="showDatePicker">
+          <ion-label position="stacked">Select Birth Date</ion-label>
+          <ion-datetime
+            display-format="MM DD YYYY"
+            [(ngModel)]="pet.birthday"
+            name="birthday"
+            (ionChange)="onBirthdayChange($event)"
+          ></ion-datetime>
+        </ion-item>
+
+        <ion-item>
+          <ion-item>
+            <ion-label position="stacked">Weight</ion-label>
+            <ion-input
+              [(ngModel)]="pet.weight"
+              name="weight"
+              type="text"
+              placeholder="kg"
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="stacked">Height</ion-label>
+            <ion-input
+              [(ngModel)]="pet.height"
+              name="height"
+              type="text"
+              placeholder="cm"
+            ></ion-input>
+          </ion-item>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Color</ion-label>
+          <ion-select
+            [(ngModel)]="pet.color"
+            name="color"
+            placeholder="Select Color"
+          >
+            <ion-select-option value="Black">Black</ion-select-option>
+            <ion-select-option value="White">White</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Vaccinated</ion-label>
+          <ion-radio-group [(ngModel)]="pet.vaccinated" name="vaccinated">
+            <ion-item>
+              <ion-item>
+                <ion-label>Yes</ion-label>
+                <ion-radio slot="start" value="yes"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>No</ion-label>
+                <ion-radio slot="start" value="no"></ion-radio>
+              </ion-item>
+            </ion-item>
+          </ion-radio-group>
+        </ion-item>
+        <ion-item>
+          <ion-label>Microchipped</ion-label>
+          <ion-radio-group [(ngModel)]="pet.microchipped" name="microchipped">
+            <ion-item>
+              <ion-item>
+                <ion-label>Yes</ion-label>
+                <ion-radio slot="start" value="yes"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>No</ion-label>
+                <ion-radio slot="start" value="no"></ion-radio>
+              </ion-item>
+            </ion-item>
+          </ion-radio-group>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Neutered</ion-label>
+          <ion-radio-group [(ngModel)]="pet.neutered" name="neutered">
+            <ion-item>
+              <ion-item>
+                <ion-label>Yes</ion-label>
+                <ion-radio slot="start" value="yes"></ion-radio>
+              </ion-item>
+              <ion-item>
+                <ion-label>No</ion-label>
+                <ion-radio slot="start" value="no"></ion-radio>
+              </ion-item>
+            </ion-item>
+          </ion-radio-group>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Bio</ion-label>
+          <ion-textarea
+            [(ngModel)]="pet.bio"
+            name="bio"
+            placeholder="Type here"
+          ></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Contact number</ion-label>
+          <ion-textarea
+            [(ngModel)]="pet.mobileN"
+            name="mobile number"
+            placeholder="Type here"
+          ></ion-textarea>
+        </ion-item>
+
+        <ion-button expand="block" type="submit" color="primary">
+          Post
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </form>
+</ion-content>

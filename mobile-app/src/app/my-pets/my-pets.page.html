@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaulte='/' ></ion-back-button>
+    </ion-buttons>
+
+    <div class="header-margin-Single-Line">
+    <ion-label class="centered-title titleFont">My Pets</ion-label>
+  </div>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="bodyFont ion-padding" >
+  <ion-list>
+    <ion-item lines="none" *ngFor="let pet of myPets">
+      <ion-avatar slot="start">
+        <img [src]="pet.image" alt="{{ pet.name }}" />
+      </ion-avatar>
+      <ion-label>
+        <h2 class="bodyFont">{{pet.name}}</h2>
+      </ion-label>
+      <ion-thumbnail (click)="edit(pet.id)">
+        <img src="assets/icons/editPet.svg" class="edit-icon" />
+      </ion-thumbnail>
+    </ion-item>
+  </ion-list>
+
+  <div class="ion-padding fixedFooter">
+    <ion-button
+      expand="full"
+      fill="clear"
+      class="FilledButtons"
+      routerLink="/pet-profile"
+    >
+      + Add More Pets
+    </ion-button>
+
+    <ion-button
+      expand="full"
+      fill="clear"
+      class="OutlinedButtons"
+      routerLink="/subscription"
+    >
+      Continue
+    </ion-button>
+  </div>
+</ion-content>

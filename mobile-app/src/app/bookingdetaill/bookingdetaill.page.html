@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+    <div class="header-margin-Single-Line">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text=""></ion-back-button>
+      </ion-buttons>
+   
+        <ion-label class=" titleFont centered-title">Order detail</ion-label>
+      </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  class="ion-padding">
+  <ion-card *ngIf="booking">
+    <ion-card-content>
+      <ion-item>
+        <ion-avatar slot="start">
+          <img [src]="booking.trainerImage" alt="Trainer Image">
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ booking.trainer }}</h2>
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Date & Time</ion-label>
+        <ion-note slot="end">{{ booking.date }} {{ booking.time }}</ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Pet Type</ion-label>
+        <ion-note slot="end">{{ booking.petType }}</ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Special Note</ion-label>
+        <p>{{ booking.specialNote }}</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Appointment Fee</ion-label>
+        <ion-note slot="end">{{ booking.fee }}</ion-note>
+      </ion-item>
+
+      <ion-button expand="block" color="danger" (click)="cancelAppointment()">Cancel Appointment</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header-margin-Single-Line">
+      <ion-label class="titleFont">Change Passport Image</ion-label>
+    </div>
+
+    <ion-buttons style="margin-top: 20px;" slot="end">
+      <ion-button (click)="dismiss()" style="color: var(--Main-One);">Cancel</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-label class="bodyFont" style="font-weight: 600 !important;">Upload New Image</ion-label>
+
+    <ion-item class="roundedInput">
+      <div class="SpecialYellow">
+        <input
+        type="file"
+        accept="image/*"
+        (change)="onFileSelected($event)"
+        />
+        <ion-label class="bodyFont lightFont smallFont">
+          Upload your document +
+        </ion-label>
+      </div>
+    </ion-item>
+
+    <br>
+
+  <ion-button expand="full" fill="clear" class="FilledButtons" (click)="approve()">Approve</ion-button>
+</ion-content>

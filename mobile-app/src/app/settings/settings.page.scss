@@ -1,0 +1,26 @@
+ion-buttons{
+  margin-top: 20px;
+}
+
+.section {
+    margin-bottom: 20px;
+  }
+  
+  ion-label {
+    margin-left: 16px;
+
+  }
+  
+  .FilledButtons{
+    background-color: var(--Accent-One);
+  }
+
+  ion-button.whiteBtn{
+    --background: var(--White);
+    --border-color: #e0e0e000;
+    margin: 10px 0;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  

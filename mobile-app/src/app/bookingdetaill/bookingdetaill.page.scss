@@ -1,0 +1,40 @@
+ion-card {
+    margin: 16px;
+  }
+  
+  ion-item {
+    --inner-padding-end: 0;
+  }
+  
+  ion-label {
+    --color: var(--ion-color-medium);
+  }
+  
+  ion-note {
+    font-weight: bold;
+    color: var(--ion-color-primary);
+  }
+  
+  ion-button {
+    margin-top: 16px;
+    font-weight: bold;
+  }
+  
+  .success-popup {
+    --background: #fff;
+    --border-radius: 16px;
+    --width: 300px;
+    --height: 250px;
+    --ion-text-color: #333;
+  }
+  
+  .success-popup .popup-image {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 16px;
+  }
+  
+  .success-popup .popup-content {
+    text-align: center;
+  }
+  

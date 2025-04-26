@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <div class="header-margin">
+      <ion-label class="titleFont">Verify your email</ion-label>
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+
+<br />
+
+<ion-content class="ion-padding">
+
+  <form (ngSubmit)="verify()" [formGroup]="verifyForm">
+    <div class="bodyFont SmallMargin">
+
+      <ion-label>Verification Code</ion-label>
+
+      <ion-item class="roundedInput">
+        <ion-input class="bodyFont textGray" fill="solid" placeholder="Enter Verification Code"
+         type="number" formControlName="verificationCode" required></ion-input>
+      </ion-item>
+
+    </div>
+    <br/>
+
+    <ion-button expand="full" fill="clear" class="FilledButtons"
+    type="submit" [disabled]="verifyForm.invalid">Verify</ion-button>
+  </form>
+  <br/>
+
+  <ion-button expand="full" fill="clear" class="FilledButtons" (click)="resendCode()">Resend Code</ion-button>
+
+</ion-content>

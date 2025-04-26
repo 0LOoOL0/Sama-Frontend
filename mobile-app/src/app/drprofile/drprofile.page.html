@@ -1,0 +1,47 @@
+<!--! 1. Remove translucent and defaultHref="/"-->
+<!--!. There is usually a code in the scss page that you need to copy with the header too
+        I'll continue this note in the scss of this page-->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div class="header-margin-Single-Line">
+      <ion-title class="titleFont">Doctor's Biography</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="ion-padding">
+  <!-- Doctor Profile Section -->
+  <div class="profile-container">
+    <ion-avatar class="profile-image">
+      <img src={{veterinarian?.picture}} alt="Doctor Profile Image">
+    </ion-avatar>
+    <h2 class="bodyFont boldFont">Dr. {{veterinarian?.name}}</h2>
+    <p class="bodyFont">{{veterinarian?.specialization}}</p>
+  </div>
+
+  <!-- Doctor Information Section -->
+  <div class="info-container">
+    <div class="info-item">
+      <!--! Consider making the font smaller? specifically for titles -->
+      <p class="bodyFont boldFont">Education</p>
+      <p class="bodyFont info-box">{{veterinarian?.education}}</p>
+    </div>
+    <div class="info-item">
+      <p class="bodyFont boldFont">Years of experience</p>
+      <p class="bodyFont info-box">{{veterinarian?.years_of_experience}}</p>
+    </div>
+  </div>
+
+  <!-- Doctor Bio Section -->
+  <h3 class="bodyFont boldFont">Bio</h3>
+  <div class="bio-container">
+    <p class="bodyFont">
+    {{veterinarian?.bio}}
+    </p>
+  </div>
+</ion-content>

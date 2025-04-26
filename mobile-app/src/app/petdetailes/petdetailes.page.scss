@@ -1,0 +1,231 @@
+// general
+.icon{
+  width: 17px;
+  height: auto;
+}
+
+// header
+ion-buttons{
+  margin-top: 20px;
+}
+
+// document button
+.FilledButtons{
+  font-size: 0.7rem;
+  height: 4.5vh;
+}
+
+#location{
+  margin-right: 5px;
+}
+
+// passport
+.PassportContainer{
+  width: 100%;
+  max-width: 350px;
+  height: 30vh;
+  max-height: 218px;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  .passport{
+    width: 100%;
+    height: auto;
+    z-index: -5;   
+    opacity: 80%;
+    border-radius: 16px;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.CenterPass{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); width: auto;
+}
+
+#eye{
+  width: 17px;
+  height: auto;
+  margin-right: 5px;
+}
+
+.Buttons{
+  font-weight: 400;
+  opacity: 80%;
+  color: var(--White);
+  background-color: var(--Black);
+}
+
+// icons under the passport
+
+.icons{
+  width: 100%;
+  max-width: 350px;
+}
+
+#search{
+  width: 24px;
+  height: auto;
+}
+
+ion-thumbnail {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  img {
+    width: 50%;
+    height: auto;
+  }
+}
+
+.flexColumn{
+  display: flex;
+  flex-direction: column;
+}
+
+// pet details
+.details{
+  width: 100%;
+  border-radius: 16px;
+  padding: 10px 10px 10px 22px;
+  background-color: var(--White);
+  
+  .titleFont{
+    color: var(--Accent-Two);
+  }
+}
+
+.oneLine, .oneLineFirst, .oneLineTitle{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &.oneLineFirst{
+    margin-top: 10px;
+  }
+
+  .titleFont{
+    color: var(--Main-One);
+    font-size: 1.2rem;
+  }
+
+  ion-input{
+    margin-right: 12px;
+    width: 50%;
+    text-align: end;
+  }
+
+  ion-note{
+    margin-right: 9px;
+  }
+}
+
+#notInput{
+  margin-top: 30px;
+}
+
+#notInputSpecial{
+  margin-top: 20px;
+}
+
+#notInputLast{
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+// part 2 of the details
+.longText{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  .titleFont{
+    margin-top: 15px;
+    color: var(--Backup-Pink);
+    font-size: 0.825
+  }
+}
+
+.longTextTitle{
+  margin-top: 15px;
+  width: 40%;
+}
+
+.longTextText{
+  width: 60%;
+  padding: 10px;
+
+  ion-textarea{
+    --padding-top: 5px;
+    --padding-bottom: 5px;
+  }
+}
+
+.FilledButtons{
+  font-size: 0.875rem;
+  height: 6vh !important;
+}
+
+// modal
+ion-modal{
+  --border-radius: 16px;
+
+  .yellow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: var(--Accent-One);
+    border-radius: 25px;
+    margin: 5px;
+    width: 100%;
+    height: 70%;
+
+    input{
+      position: absolute;
+      opacity: 0%;
+      width: 100%;
+      z-index: 2;
+    }
+
+    ion-label {
+      position: absolute;
+      z-index: 1;
+    }
+  }
+
+  ion-item{
+    margin-top: 10px !important;
+  }
+
+}
+
+#invisible{
+  opacity: 0;
+}
+
+.addDocTitle{
+  font-weight: 600 !important;
+}
+
+.smallButton{
+  width: 50%;
+}
+
+
+// error message
+.error{
+  color: red !important;
+}
+
+@media only screen and (orientation: landscape) {
+  .PassportContainer{
+    height: 218px;
+  }
+}

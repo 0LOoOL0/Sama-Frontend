@@ -1,0 +1,325 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-label class="centered-title titleFont">subscription</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="empty-state">
+    <img src="../../assets/sub.svg" alt="img" />
+    <p class="bodyFont">Choose Your Subscription Plan</p>
+
+    <div class="Plans">
+      <ion-card
+        id="free"
+        *ngFor="let pkg of packages"
+        (click)="openPetModal(pkg)"
+      >
+        <ion-card-header>
+          <ion-card-title class="bodyFont" *ngIf="pkg.is_free_trial">Free trial</ion-card-title>
+          <ion-card-title class="bodyFont">
+            {{pkg.duration === 'annually' ? 'One Year' : pkg.duration }}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <img src="../../assets/cat.svg" alt="sub" />
+          <p class="bodyFont smallFont">{{pkg.description}}</p>
+          <p class="bodyFont" id="price">
+            +{{pkg.is_free_trial ? 0 : pkg.price}} BD
+          </p>
+          <p class="bodyFont smallFont">
+            +{{pkg.second_price}}BD Per Additional Pet
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <p class="bodyFont" id="BnF" (click)="setOpen(true)">Benefits & Features</p>
+  </div>
+
+  <!-- <div class="empty-state-bigScreen">
+    <img src="../../assets/sub.svg" alt="img" />
+    <p class="bodyFont">Choose Your Subscription Plan</p>
+
+    <div class="Plans">
+      <ion-card
+        id="free"
+        *ngFor="let package of packages"
+        (click)="setOpenPets(true)"
+      >
+        <ion-card-header>
+          <ion-card-title class="bodyFont">Free trial</ion-card-title>
+          <ion-card-title class="bodyFont">
+            {{package.duration === 'annually' ? 'One Year' : 'One Month' }}
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <img src="../../assets/cat.svg" alt="sub" />
+          <p class="bodyFont smallFont">{{package.title}}</p>
+          <p class="bodyFont" id="price">+{{package.price}}BD</p>
+          <p class="bodyFont smallFont">
+            +{{package.second_price}}BD Per Additional Pet
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <p class="bodyFont" id="BnF" (click)="setOpen(true)">Benefits & Features</p>
+  </div> -->
+
+  <!--filter-->
+  <ion-modal
+    [isOpen]="isPetModalOpen"
+    [initialBreakpoint]="0.5"
+    [breakpoints]="[0.5, 0.75, 1]"
+    [backdropDismiss]="false"
+  >
+    <ng-template>
+      <ion-content class="ion-padding">
+        <ion-header>
+          <div class="inoneline">
+            <ion-button fill="clear" (click)="closePetModal()" class="bodyFont">
+              X
+            </ion-button>
+            <ion-title class="TitleFont">Your Pets</ion-title>
+          </div>
+        </ion-header>
+        <ion-content>
+          <ion-list>
+            <ion-item
+              lines="none"
+              *ngFor="let pet of myPets"
+              class="pet-name"
+              (click)="selectPet(pet)"
+              [disabled]="isMembershipActive(memberships[pet.id])"
+            >
+              <ion-checkbox
+                slot="start"
+                [checked]="selectedPets.includes(pet)" 
+              ></ion-checkbox>
+              <ion-avatar slot="start">
+                <img [src]="pet.image" (error)="pet.image = '/assets/icons/no-profile.svg'"   alt="{{ pet.name }}" />
+              </ion-avatar>
+              <ion-label class="bodyFont">
+                <h2>{{pet.name}}</h2>
+                <p *ngIf="isMembershipActive(memberships[pet.id])">
+                  Ends on: {{getEndDate(pet.id)}}
+                </p>
+              </ion-label>
+              <ion-thumbnail *ngIf="!isMembershipActive(memberships[pet.id])" (click)="edit(pet.id)">
+                <img src="assets/icons/edit.svg" class="edit-icon" />
+              </ion-thumbnail>
+              <ion-icon
+                name="star"
+                slot="end"
+                *ngIf="isMembershipActive(memberships[pet.id])"
+              ></ion-icon>
+            </ion-item>
+          </ion-list>
+          <ion-footer>
+            <ion-button
+            expand="full"
+            class="FilledButtons SelectButton"
+            fill="clear"
+            [disabled]="selectedPets.length === 0" 
+            (click)="confirmPetSelection()"
+          >
+
+              Select
+            </ion-button>
+          </ion-footer>
+        </ion-content>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal
+    [isOpen]="isModalOpen"
+    [initialBreakpoint]="0.5"
+    [breakpoints]="[0.5, 0.75, 1]"
+  >
+    <ng-template>
+      <ion-content class="ion-padding">
+        <ion-header>
+          <div class="inoneline">
+            <ion-button fill="clear" (click)="setOpen(false)" class="bodyFont">
+              X
+            </ion-button>
+            <ion-title class="TitleFont">Benefits & Features</ion-title>
+          </div>
+        </ion-header>
+        <ion-content>
+          <br />
+          <div class="specialParagraph">
+            <p class="bodyFont">
+              Aliquip officia nostrud aute sit velit pariatur ad ullamco
+              proident exercitation. Sit id ut eiusmod irure cillum.
+            </p>
+          </div>
+
+          <br />
+
+          <div class="rules">
+            <div>
+              <p class="titleFont">Proident velit ut quis officia</p>
+              <p class="bodyFont">
+                id voluptate est irure consectetur cupidatat amet cupidatat
+                minim est. Eu do irure minim fugiat sit velit nulla nostrud
+                adipisicing qui id fugiat incididunt exercitation. Ipsum nostrud
+                esse labore dolor qui proident fugiat nostrud incididunt. Sint
+                laboris culpa laborum et. Eiusmod excepteur Lorem veniam non
+                reprehenderit dolore pariatur qui ex consequat tempor.
+              </p>
+            </div>
+
+            <br />
+
+            <div>
+              <p class="titleFont">Ullamco deserunt occaecat fugiat sunt</p>
+              <p class="bodyFont">
+                elit ut nisi enim exercitation. Do nostrud amet dolor eiusmod
+                aliquip exercitation aliqua in id consequat. Ea aute tempor ad
+                aute cupidatat mollit ut. Labore magna ea occaecat ea culpa
+                fugiat sint mollit. Enim ut laborum mollit nisi deserunt laboris
+                occaecat non elit reprehenderit veniam ullamco mollit
+                adipisicing.
+              </p>
+            </div>
+
+            <br />
+
+            <div>
+              <p class="titleFont">Nostrud officia nisi mollit aute</p>
+              <p class="bodyFont">
+                sit aliqua sunt enim mollit eu voluptate consequat amet ullamco.
+                Consectetur dolore dolor veniam et enim culpa sit consectetur
+                nostrud fugiat eu occaecat non. Aliquip eu velit amet nostrud
+                ullamco dolor. Voluptate elit amet consectetur Lorem irure ipsum
+                ullamco duis consequat reprehenderit. Fugiat ea deserunt ipsum
+                incididunt Lorem labore.
+              </p>
+            </div>
+
+            <br />
+
+            <div>
+              <p class="titleFont">Quis amet sunt dolore ullamco</p>
+              <p class="bodyFont">
+                ipsum. Irure enim aliquip Lorem velit est cupidatat ex minim
+                tempor nostrud est esse aute. Culpa proident esse reprehenderit
+                nisi tempor anim commodo voluptate officia ut. Consectetur sit
+                sunt commodo nisi pariatur sint sint occaecat duis laboris sint.
+                Sunt qui consectetur minim minim deserunt amet cupidatat veniam
+                ut id dolore magna eiusmod.
+              </p>
+            </div>
+
+            <br />
+
+            <div>
+              <p class="titleFont">Mollit ea in excepteur dolor</p>
+              <p class="bodyFont">
+                in. Anim culpa anim laboris est id dolore consequat amet. Tempor
+                mollit commodo cillum anim elit aliqua eu dolore culpa id et sit
+                laboris nulla. Incididunt proident ut dolor dolor labore eu
+                consequat enim ullamco reprehenderit labore adipisicing enim.
+                Dolor velit amet consequat est proident laboris et ea est
+                cupidatat laboris.
+              </p>
+            </div>
+
+            <br />
+
+            <div>
+              <p class="titleFont">Elit sint irure in occaecat</p>
+              <p class="bodyFont">
+                quis incididunt amet dolor esse nisi proident laboris. Cupidatat
+                proident excepteur et ex nostrud. Ut reprehenderit tempor do
+                laboris ex. Culpa mollit et incididunt laboris nostrud elit
+                adipisicing excepteur voluptate aliquip magna sunt. Do velit ex
+                eiusmod ullamco qui commodo enim esse proident.
+              </p>
+            </div>
+
+            <br />
+
+            <div>
+              <p class="titleFont">
+                Occaecat voluptate incididunt veniam velit
+              </p>
+              <p class="bodyFont">
+                eiusmod ut proident nostrud nisi consectetur esse. Labore
+                eiusmod quis nostrud dolore in deserunt eu culpa occaecat
+                reprehenderit elit. Aute ullamco labore ad aliquip do dolore
+                commodo. Do duis minim id ea. Id dolor amet ullamco dolore ipsum
+                duis ut velit enim cupidatat.
+              </p>
+            </div>
+
+            <br />
+
+            <div>
+              <p class="titleFont">Dolore esse anim cupidatat occaecat</p>
+              <p class="bodyFont">
+                reprehenderit laboris reprehenderit eiusmod. Nulla nisi officia
+                duis consequat esse occaecat velit do occaecat est ad culpa
+                laborum amet. Adipisicing duis sint aliquip excepteur. Aliquip
+                sit in duis do veniam. Voluptate mollit laborum deserunt
+                exercitation culpa aliqua est in.
+              </p>
+            </div>
+
+            <br />
+
+            <div>
+              <p class="titleFont">Ipsum aliquip proident dolore enim</p>
+              <p class="bodyFont">
+                qui non velit ea dolore veniam qui quis consectetur. Quis
+                laboris cillum est duis dolor occaecat proident minim sunt ad ad
+                esse veniam et. In amet id Lorem dolore ea ad cillum nulla ex ut
+                mollit. Esse eu nulla proident voluptate reprehenderit non
+                magna.
+              </p>
+            </div>
+          </div>
+        </ion-content>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Subscription History</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-item *ngFor="let subscription of filteredMemberships">
+      <ion-label>
+        <p>Started on: {{ subscription.start_date | date }}</p>
+        <p>Expires on: {{ subscription.end_date | date }}</p>
+      </ion-label>
+      <ion-button 
+        *ngIf="isSubscriptionActive(subscription.end_date)" 
+        (click)="deleteSubscription(subscription.id)"
+      >
+        Cancel
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<div class="ion-padding">
+  <ion-button
+    expand="full"
+    fill="clear"
+    class="OutlinedButtons"
+    routerLink="/mains"
+  >
+    Skip
+  </ion-button>
+</div>

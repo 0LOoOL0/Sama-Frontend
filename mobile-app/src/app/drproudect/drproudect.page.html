@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+ 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+   <ion-card>
+    <img src="assets/R.jpeg" alt="Emergency Service Image" class="service-image">
+  </ion-card>
+
+     <ion-card>
+    <ion-card-header>
+      <ion-card-title>Emergency Service</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="price">
+        <span class="old-price">BHD15.00</span>
+        <span class="new-price">BHD10.00</span>
+      </div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur tincidunt pharetra eu eleifend. Fusce ultricies ligula eu sem varius pharetra.</p>
+      <div class="rating">
+        <ion-icon name="star" color="warning"></ion-icon>
+        4.2 | 20 reviewed
+      </div>
+    </ion-card-content>
+  </ion-card>
+ 
+  <ion-card>
+    <ion-card-header>
+      <ion-title>Reviews</ion-title>
+      <ion-button fill="clear" slot="end" class="see-all">See All</ion-button>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="review-summary">
+        <ion-icon name="star" color="warning"></ion-icon>
+        4.2 (12)
+      </div>
+      <ion-item *ngFor="let review of reviews" lines="none">
+        <ion-avatar slot="start">
+          <img [src]="review.avatar" alt="Reviewer Avatar">
+        </ion-avatar>
+        <ion-label>
+          <h3>{{ review.name }}</h3>
+          <div class="rating">
+            <ion-icon name="star" color="warning"></ion-icon>
+            <ion-icon name="star" color="warning"></ion-icon>
+            <ion-icon name="star" color="warning"></ion-icon>
+            <ion-icon name="star" color="warning"></ion-icon>
+            <ion-icon name="star" color="medium"></ion-icon>
+          </div>
+          <p>{{ review.comment }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+ 
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="shareService()">
+        <ion-icon slot="icon-only" name="share-outline"></ion-icon>
+      </ion-button>
+      <ion-button (click)="toggleFavorite()">
+        <ion-icon [name]="isFavorite ? 'heart' : 'heart-outline'" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-button expand="block" class="book-appointment-button" (click)="bookAppointment()" slot="end">Book an appointment</ion-button>
+  </ion-toolbar>
+</ion-footer>

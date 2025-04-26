@@ -1,0 +1,290 @@
+// header
+ion-header{
+  ion-buttons{
+  margin-top: 20px;
+  }
+}
+
+.icon{
+  width: 24px;
+  height: auto;
+}
+
+#select{
+  margin: 5px;
+}
+
+ion-checkbox {
+  --border-radius: 6px;
+  --checkbox-background-checked: var(--Main-One);
+}
+
+ion-checkbox::part(container) {
+  --border-radius: 6px;
+  border: 2px solid var(--Main-One);
+  --checkbox-background: var(--background-color);
+}
+
+ion-item{
+  --background: var(--White);
+  --border-color: none;
+
+  ion-label{
+    font-family: "Montserrat", sans-serif !important;
+    font-size: 0.875rem !important;
+  }
+
+  ion-checkbox::part(container) {
+    --checkbox-background: var(--White);
+  }
+}
+
+// items
+.itemsdesign{
+  border-radius: 16px;
+  margin: 5px;
+  background-color: var(--White);
+  padding: 10px;
+  --ion-item-border-width: 0;
+--ion-item-border-color: transparent;
+     }
+
+.Itemsdesign{
+  border-radius: 16px;
+  background-color: var(--White);
+  padding: 10px;
+  margin-bottom: 10px;
+
+  ion-input{
+    width: 20px;
+  }
+}
+
+.Itemsdesign2{
+  border-radius: 16px;
+  background-color: var(--White);
+  padding: 10px 0px 10px;
+  margin-bottom: 10px;
+
+  ion-input{
+    width: 20px;
+  }
+}
+
+.item-img{
+  border-radius: 16px;
+}
+
+.Item-img{
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border-radius: 16px;
+}
+
+.price{
+  color:var(--Main-One) !important;
+}
+
+.qt-buttons{
+  margin-top: 5px;
+  width: 25%;
+}
+
+// footer
+.delete-items{
+  //background: var(--White);
+  --background: var(--Main-One);
+  --color: var(--White)!important;
+  border-radius: 16px;
+  height: 45px;
+  width: 45px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  img{
+  
+    height: 45px;
+     width: 45px;
+  }
+}
+
+.Delete-items{
+  --background: var(--Main-One);
+  --color: var(--White)!important;
+  height: 65%;
+  margin-top: 13px;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+}
+
+.notMemberTotal{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  margin-bottom: 10px;
+}
+
+// Other sizes
+@media screen and (max-width: 355px) {
+  .Item-img {
+    display: none !important;
+  }
+
+  ion-item{
+    ion-label{
+      margin-left: 10px;
+    }
+  }
+
+  .Delete-items{
+    height: 54%;
+  }
+}
+
+
+#quantity-controls {
+    margin-right: 12px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color:var(--Main-One);
+    font-size:12px ;
+    
+
+    ion-input {
+        text-align: center;
+        --ion-item-border-width: 0;
+    --ion-item-border-color: transparent;
+    }
+
+    ion-button {
+        justify-content: space-between;
+        margin: 9px;
+        font-size: 9px;
+        --border-radius: 50%;
+        width: 5px;
+        height: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        --background: var(--Main-Two);
+
+    }
+}
+
+.toolbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+  .checkoutbtn{
+
+    --background:var(--Main-One);
+    --color:var(--White);
+    --border-radius: 16px;
+    padding: 70px;
+    height: 100px ;
+    width: 200px;
+  }
+
+
+  .item-name{
+    margin-top: 0px;
+  }
+
+ion-footer{
+margin: 5px;
+margin-left: 10px;
+margin-right: 10px;
+margin-bottom: 10px;
+.FilledButtons {
+    font-family: "Montserrat";
+    //font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 0.875rem;
+    font-style: normal;
+    //color: var(--White)!important;
+    text-align: center;
+    border-radius: 16px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    height: 9vh;
+    width: 26vh;
+    --color: white !important;
+  
+    &.FilledButtons {
+      background-color: var(--Main-One);
+    color: var(--White)!important;
+    
+    }
+  
+    &.OutlinedButtons {
+      border: 1px solid var(--Main-One);
+      color: var(--Main-One);
+    }
+  }
+  .white{
+    color: var(--White)!important;
+
+
+  }
+}
+.btndelet{
+    background: var(--Main-One)!important;
+    color: var(--White)!important;
+    //border: 1px solid var(--Main-One);
+    border-radius: 16px;
+    height: 45px;
+   width: 45px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+   
+    img{
+
+      height: 45px;
+      width: 45px;
+    }
+    &.FilledButtons {
+        background-color: var(--Main-One);
+      color: var(--White)!important;
+      
+      }
+    
+      &.OutlinedButtons {
+        border: 1px solid var(--Main-One);
+        color: var(--Main-One);
+      }
+
+&.FilledButtons {
+  background-color: var(--Main-One);
+color: var(--White)!important;
+
+}
+
+&.OutlinedButtons {
+  border: 1px solid var(--Main-One);
+  color: var(--Main-One);
+}
+
+}
+
+.transfer-button {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 95px;
+  border-radius: 16px;
+  color: white !important;
+  margin-left: 10px;
+  margin-right: 10px;
+   z-index: 1;
+}
+
+

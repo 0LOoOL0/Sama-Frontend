@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="header-margin-Single-Line">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text=""></ion-back-button>
+      </ion-buttons>
+   
+        <ion-label class=" titleFont centered-title">FAQ</ion-label>
+      </div>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-group *ngFor="let item of faqList">
+      <ion-item detail (click)="toggleAnswer(item)">
+        <ion-icon slot="start" src="/assets/A.png"></ion-icon>
+        <ion-label>
+          <h2>Q: {{ item.question }}</h2>
+        </ion-label>
+      </ion-item>
+      <ion-item *ngIf="item.open">
+        <ion-icon slot="start" src="/assets/Q.png"></ion-icon>
+        <ion-label>
+          <p>A: {{ item.answer }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+</ion-content>

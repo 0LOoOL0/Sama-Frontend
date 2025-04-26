@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Filter</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>Layout</ion-label>
+      <ion-segment [(ngModel)]="layout">
+        <ion-segment-button value="list">
+          <ion-icon name="list-outline"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="grid">
+          <ion-icon name="grid-outline"></ion-icon>
+        </ion-segment-button>
+      </ion-segment>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Price</ion-label>
+      <ion-range dualKnobs="true" min="0" max="100" [(ngModel)]="priceRange">
+        <ion-label slot="start">0 BHD</ion-label>
+        <ion-label slot="end">100 BHD</ion-label>
+      </ion-range>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Pet Type</ion-label>
+      <ion-select [(ngModel)]="petType" multiple="true">
+        <ion-select-option value="cat">Cat</ion-select-option>
+        <ion-select-option value="dog">Dog</ion-select-option>
+        <ion-select-option value="fish">Fish</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Reviews</ion-label>
+      <ion-segment [(ngModel)]="reviews">
+        <ion-segment-button value="1">
+          <ion-icon name="star-outline"></ion-icon>
+          & up
+        </ion-segment-button>
+        <ion-segment-button value="2">
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          & up
+        </ion-segment-button>
+        <ion-segment-button value="3">
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          & up
+        </ion-segment-button>
+        <ion-segment-button value="4">
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          <ion-icon name="star-outline"></ion-icon>
+          & up
+        </ion-segment-button>
+      </ion-segment>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" (click)="applyFilters()">Apply Filters</ion-button>
+</ion-content>

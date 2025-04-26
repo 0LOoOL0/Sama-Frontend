@@ -1,0 +1,349 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div class="header-margin-Single-Line">
+      <ion-label class="titleFont">My Pet</ion-label>
+    </div>
+    <ion-buttons slot="end">
+      <ion-thumbnail (click)="transfer()">
+        <img src="assets/icons/magicWand.svg" />
+      </ion-thumbnail>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="MakeItCenter">
+    <div class="MakeItFlex FlexSpaceInBetween icons" id="title and documents">
+  
+      <ion-button fill="clear" class="FilledButtons" (click)="setOpen(true)">
+        <img class="icon" id="location" src="assets/icons/plus-white.svg" />
+        Document
+      </ion-button>
+    </div>
+  </div>
+
+
+  <div class="MakeItCenter">
+    <div class="PassportContainer">
+      <img
+        class="CenterPass passport"
+        [src]="petDet?.image"
+        alt="pet image"
+        (error)="petDet.image = '/assets/icons/no-profile.svg'" 
+      />
+      <div class="CenterPass">
+        <ion-button
+          fill="clear"
+          class="Buttons"
+          (click)="viewPassportImage(petDet.id)"
+        >
+          <img id="eye" src="assets/icons/EyeWhite.svg" />
+          Edit
+        </ion-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="MakeItCenter">
+    <div class="FlexSpaceInBetween icons">
+      <ion-thumbnail (click)="isLost(petDet.id)">
+        <!-- <img src="assets/icons/lostPet.png" /> -->
+        lost
+      </ion-thumbnail>
+      <ion-thumbnail (click)="AllowAdoption(petDet.id)">
+        <!-- <img src="assets/icons/house.svg" /> -->
+        adopt
+      </ion-thumbnail>
+      <ion-thumbnail (click)="AllowMating(petDet.id)">
+        mate
+      </ion-thumbnail>
+      <ion-thumbnail (click)="AllowSelling(petDet.id, petDet)">
+        sell
+      </ion-thumbnail>
+      <ion-thumbnail (click)="confirmDelete(petDet.id)">
+        <img src="assets/icons/trash.svg" />
+      </ion-thumbnail>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="details">
+    <div class="oneLineTitle">
+      <ion-label class="titleFont">Pet Health Record</ion-label>
+      <ion-thumbnail (click)="toggleEditMode()">
+        <img src="assets/icons/edit.svg" />
+      </ion-thumbnail>
+    </div>
+
+    <ion-label class="titleFont">Pet Information</ion-label>
+
+    <div class="oneLineFirst">
+      <ion-label class="bodyFont boldFont">Pet Name</ion-label>
+      <ion-input
+        class="bodyFont"
+        [(ngModel)]="petDet.name"
+        [disabled]="!isEditMode"
+      ></ion-input>
+    </div>
+
+    <div class="oneLine">
+      <ion-label class="bodyFont boldFont">Pet Type</ion-label>
+      <ion-input
+        class="bodyFont"
+        [(ngModel)]="petDet.pet_type"
+        [disabled]="!isEditMode"
+      ></ion-input>
+    </div>
+
+    <div class="oneLine">
+      <ion-label class="bodyFont boldFont">Breed</ion-label>
+      <ion-input
+        class="bodyFont"
+        [(ngModel)]="petDet.breed"
+        [disabled]="!isEditMode"
+      ></ion-input>
+    </div>
+
+    <div class="oneLine">
+      <ion-label class="bodyFont boldFont">Age</ion-label>
+      <ion-input
+        class="bodyFont"
+        [(ngModel)]="petDet.age"
+        [disabled]="!isEditMode"
+      ></ion-input>
+    </div>
+
+    <div class="oneLine" id="notInputSpecial">
+      <ion-label class="bodyFont boldFont">Gender</ion-label>
+
+      <ng-container *ngIf="isEditMode; else viewMode">
+        <ion-select class="bodyFont" [(ngModel)]="petDet.gender" slot="end">
+          <ion-select-option class="bodyFont textGray" value="m">
+            Male
+          </ion-select-option>
+          <ion-select-option class="bodyFont textGray" value="f">
+            Female
+          </ion-select-option>
+        </ion-select>
+      </ng-container>
+
+      <ng-template #viewMode>
+        <ion-note slot="end" class="bodyFont textGray">
+          {{ petDet.gender === 'm' ? 'Male' : 'Female' }}
+        </ion-note>
+      </ng-template>
+    </div>
+
+    <div class="oneLine" id="notInput">
+      <ion-label class="bodyFont boldFont">Vaccinated</ion-label>
+
+      <ng-container *ngIf="isEditMode; else view">
+        <ion-select
+          class="bodyFont"
+          [(ngModel)]="petDet.is_vaccinated"
+          slot="end"
+        >
+          <ion-select-option class="bodyFont textGray" value="yes">
+            Yes
+          </ion-select-option>
+          <ion-select-option class="bodyFont textGray" value="no">
+            No
+          </ion-select-option>
+          <ion-select-option class="bodyFont textGray" value="i don't know">
+            I don't know
+          </ion-select-option>
+        </ion-select>
+      </ng-container>
+
+      <ng-template #view>
+        <ion-note class="bodyFont textGray">{{petDet.is_vaccinated}}</ion-note>
+      </ng-template>
+    </div>
+
+    <div class="oneLine" id="notInput">
+      <ion-label class="bodyFont boldFont">Microchipped</ion-label>
+
+      <ng-container *ngIf="isEditMode; else Mode">
+        <ion-select
+          class="bodyFont"
+          [(ngModel)]="petDet.is_microchipped"
+          slot="end"
+        >
+          <ion-select-option class="bodyFont textGray" value="yes">
+            Yes
+          </ion-select-option>
+          <ion-select-option class="bodyFont textGray" value="no">
+            No
+          </ion-select-option>
+          <ion-select-option class="bodyFont textGray" value="i don't know">
+            I don't know
+          </ion-select-option>
+        </ion-select>
+      </ng-container>
+
+      <ng-template #Mode>
+        <ion-note class="bodyFont textGray">
+          {{petDet.is_microchipped}}
+        </ion-note>
+      </ng-template>
+    </div>
+
+    <div class="oneLine" id="notInputLast">
+      <ion-label class="bodyFont boldFont">Neutered</ion-label>
+
+      <ng-container *ngIf="isEditMode; else vMode">
+        <ion-select
+          class="bodyFont"
+          [(ngModel)]="petDet.is_neutered"
+          slot="end"
+        >
+          <ion-select-option class="bodyFont textGray" value="yes">
+            Yes
+          </ion-select-option>
+          <ion-select-option class="bodyFont textGray" value="no">
+            No
+          </ion-select-option>
+          <ion-select-option class="bodyFont textGray" value="i don't know">
+            I don't know
+          </ion-select-option>
+        </ion-select>
+      </ng-container>
+
+      <ng-template #vMode>
+        <ion-note class="bodyFont textGray">{{petDet.is_neutered}}</ion-note>
+      </ng-template>
+    </div>
+
+    <div class="oneLine">
+      <ion-label class="bodyFont boldFont">Weight</ion-label>
+      <ion-input
+        class="bodyFont"
+        [(ngModel)]="petDet.weight"
+        type="number"
+        [disabled]="!isEditMode"
+      ></ion-input>
+    </div>
+
+    <div class="oneLine">
+      <ion-label class="bodyFont boldFont">Height</ion-label>
+      <ion-input
+        class="bodyFont"
+        [(ngModel)]="petDet.height"
+        type="number"
+        [disabled]="!isEditMode"
+      ></ion-input>
+    </div>
+
+    <!-- <br /> -->
+    <!-- <ion-label class="titleFont">Health Concern</ion-label>
+
+    <div class="longText">
+      <ion-label class="titleFont">Veterinarian</ion-label>
+      <div class="longTextText">
+        <ion-textarea
+          class="bodyFont"
+          [(ngModel)]="note"
+          [disabled]="!isEditMode"
+          auto-grow="true"
+          placeholder="Enter details here"
+        ></ion-textarea>
+      </div>
+    </div>
+
+    <div class="longText">
+      <ion-label class="titleFont">Allergies</ion-label>
+      <div class="longTextText">
+        <ion-textarea
+          class="bodyFont"
+          [(ngModel)]="note"
+          [disabled]="!isEditMode"
+          auto-grow="true"
+          placeholder="Enter details here"
+        ></ion-textarea>
+      </div>
+    </div>
+
+    <div class="longText">
+      <div class="longTextTitle">
+        <ion-label class="titleFont">Existing Condition</ion-label>
+      </div>
+      <div class="longTextText">
+        <ion-textarea
+          class="bodyFont"
+          [(ngModel)]="note"
+          [disabled]="!isEditMode"
+          auto-grow="true"
+          placeholder="Enter details here"
+        ></ion-textarea>
+      </div>
+    </div>
+  </div> -->
+
+  <br />
+
+  <div *ngIf="id === petDet.id && isEditMode" class="FlexSpaceInBetween">
+    <ion-button fill="clear" class="OutlinedButtons" (click)="editclose()">
+      Cancel
+    </ion-button>
+    <ion-button
+      fill="clear"
+      class="FilledButtons"
+      (click)="saveChanges(petDet)"
+    >
+      Confirm
+    </ion-button>
+  </div>
+
+  <ion-modal
+    [isOpen]="isModalOpen"
+    [initialBreakpoint]="0.5"
+    [breakpoints]="[0.5, 0.75, 1]"
+  >
+    <ng-template>
+      <ion-content class="ion-padding">
+        <ion-label class="bodyFont addDocTitle">Document Title</ion-label>
+        <ion-item class="roundedInput">
+          <ion-input
+            class="bodyFont textGray"
+            fill="solid"
+            placeholder="Type here"
+            type="text"
+            [(ngModel)]="input.documentTitle"
+          ></ion-input>
+        </ion-item>
+        <br />
+        <ion-label class="bodyFont addDocTitle">Upload Document</ion-label>
+
+        <ion-item class="roundedInput">
+          <div class="yellow">
+            <ion-input
+            id="invisible"
+            type="file"
+            accept="image/*"
+            (change)="handleFileInput($event)"></ion-input>
+            <ion-label class="bodyFont lightFont smallFont">
+              Upload your document +
+            </ion-label>
+          </div>
+        </ion-item>
+
+
+        <br />
+        <ion-button
+          expand="full"
+          fill="clear"
+          class="FilledButtons smallButton"
+          (click)="addDoc()"
+        >
+          + Add
+        </ion-button>
+        <ion-label class="bodyFont error" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </ion-label>
+      </ion-content>
+    </ng-template>
+  </ion-modal>

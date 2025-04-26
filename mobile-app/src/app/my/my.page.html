@@ -1,0 +1,114 @@
+
+    <ion-header>
+      <ion-toolbar>
+        <div class="header-margin-Single-Line">
+          <ion-buttons slot="start">
+            <ion-back-button defaultHref="/" text=""></ion-back-button>
+          </ion-buttons>
+       
+            <ion-label class=" titleFont centered-title">My Profile</ion-label>
+          </div>
+      </ion-toolbar>
+    </ion-header>
+
+
+ <ion-content class="ion-padding">
+  <div class="profile-header">
+    <div class="profile-container">
+      <ion-card class="circul">
+        <ion-avatar class="profile-image">
+          <img
+            [src]="profile.profile_image"
+            (error)="profile.profile_image = '/assets/icons/no-profile.svg'"
+            alt="Profile Picture"
+            class="profile-image"
+          />
+        </ion-avatar>
+      </ion-card>
+    </div>
+  </div>
+
+  <h2>{{profile.first_name}} {{profile.last_name}}</h2>
+  <p>Joined :{{ profile.created_at| date:'yyyy-MM-dd' }}</p>
+
+  <ion-card class="profile-details">
+    <ion-list lines="none">
+      <ion-buttons>
+        <ion-button fill="clear" class="edit-button" (click)="editProfile()">
+          <svg
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 20.5H21M3.00003 20.5H4.67457C5.16376 20.5 5.40835 20.5 5.63852 20.4447C5.84259 20.3957 6.03768 20.3149 6.21663 20.2053C6.41846 20.0816 6.59141 19.9086 6.93732 19.5627L19.5001 6.99998C20.3285 6.17156 20.3285 4.82841 19.5001 3.99998C18.6716 3.17156 17.3285 3.17156 16.5001 3.99998L3.93729 16.5627C3.59139 16.9086 3.41843 17.0816 3.29475 17.2834C3.18509 17.4624 3.10428 17.6574 3.05529 17.8615C3.00003 18.0917 3.00003 18.3363 3.00003 18.8255V20.5Z"
+              stroke="black"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </ion-button>
+      </ion-buttons>
+      <ion-item>
+        <img src="assets/icons/phoneee.svg" class="icons" />
+        <ion-label>Phone number</ion-label>
+        <ion-note slot="end">{{profile.phone}}</ion-note>
+      </ion-item>
+
+      <ion-item>
+        <img src="assets/icons/email.svg" class="icons" />
+        <ion-label>Email</ion-label>
+        <ion-note slot="end">{{profile.email}}</ion-note>
+      </ion-item>
+      <ion-item>
+        <img src="assets/icons/person.png" class="icons" />
+        <ion-label>Gender</ion-label>
+        <ion-note slot="end" *ngIf="profile.gender === 'f'">Female</ion-note>
+        <ion-note slot="end" *ngIf="profile.gender === 'm'">Male</ion-note>
+      </ion-item>
+      <ion-item>
+       
+        <img src="assets/icons/birthDay.svg" class="icons" />
+        <ion-label>Date of birth</ion-label>
+        <ion-note slot="end">{{profile.date_of_birth}}</ion-note>
+      </ion-item>
+
+      <ion-item>
+        <img src="assets/icons/location-my.svg" class="icons" />
+        <ion-label>Locations</ion-label>
+        <ion-note slot="end" *ngIf="profile.location == 'apartment'">
+          {{profile.building_name}}
+          <br />
+          {{profile.apt_number}} , {{profile.floor}}
+          <br />
+          {{profile.road}},{{profile.block}}
+          <br />
+          {{profile.city}}
+        </ion-note>
+        <ion-note slot="end" *ngIf="profile.location == 'house'">
+          {{profile.house}}
+          <br />
+          {{profile.road}},{{profile.block}}
+          <br />
+          {{profile.city}}
+        </ion-note>
+        <ion-note slot="end" *ngIf="profile.location == 'office'">
+          {{profile.road}},{{profile.block}}
+          <br />
+          {{profile.building_name}} , {{profile.floor}} {{profile.company}}
+          <br />
+          {{profile.city}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        <img src="assets/icons/nationality.svg" class="icons" />
+        <ion-label>Nationality</ion-label>
+        <ion-note slot="end">{{profile.nationality}}</ion-note>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<div class="ion-padding empty-state">
+  <div class="middle">
+    <div class="ion-padding allitem">
+      <div class="bigScreen">
+        <div>
+          <br />
+          <img src="assets/icons/confirm.svg" />
+        </div>
+        <br />
+
+        <!-- Conditional Title Text -->
+        <div>
+          <ion-label class="titleFont">
+            <ng-container *ngIf="type === 'order' || type === 'coupon'; else membershipTitle">
+              Order Submitted!
+            </ng-container>
+            <ng-template #membershipTitle>
+              Congratulations You Are A Member!
+            </ng-template>
+          </ion-label>
+        </div>
+        <br />
+
+        <!-- Conditional Body Text -->
+        <div>
+          <ion-text class="bodyFont" *ngIf="type === 'order'">
+            Thank you for your order! Get ready to enjoy your purchase!
+          </ion-text>
+          <ion-text class="bodyFont" *ngIf="type !== 'order'">
+            Thank you for subscribing! Get ready to experience the best discount!
+          </ion-text>
+        </div>
+      </div>
+
+      <!-- Repeat for Small Screen -->
+      <div class="smallScreen">
+        <div>
+          <img src="assets/icons/confirm.svg" />
+        </div>
+
+        <!-- Conditional Title Text for Small Screen -->
+        <div>
+          <ion-label class="titleFont">
+            <ng-container *ngIf="type === 'order'; else smallMembershipTitle">
+              Congratulations on Your Order!
+            </ng-container>
+            <ng-template #smallMembershipTitle>
+              Congratulations You Are A Member!
+            </ng-template>
+          </ion-label>
+        </div>
+
+        <!-- Conditional Body Text for Small Screen -->
+        <div>
+          <ion-text class="bodyFont" *ngIf="type === 'order'">
+            Thank you for your order! Get ready to enjoy your purchase!
+          </ion-text>
+          <ion-text class="bodyFont" *ngIf="type !== 'order'">
+            Thank you for subscribing! Get ready to experience the best discount!
+          </ion-text>
+        </div>
+      </div>
+    </div>
+    <div class="space"></div>
+  </div>
+</div>
+
+<div>
+  <ion-button fill="clear" expand="full" (click)="home()">Continue Shopping</ion-button>
+</div>
+</ion-content >

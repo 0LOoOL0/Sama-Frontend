@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+  
+     
+    <div class="header-margin-Single-Line">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text=""></ion-back-button>
+      </ion-buttons>
+   
+        <ion-label class=" titleFont centered-title">Approval Status</ion-label>
+      </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="approval-container">
+    <div class="timeline">
+      <div class="line" [class.active]="currentState === 'waiting'" [class.full]="currentState === 'approved'"></div>
+      <div class="point first" [class.active]="currentState === 'waiting' || currentState === 'approved'"></div>
+      <div class="point second" [class.active]="currentState === 'approved'"></div>
+      <div class="point third" [class.active]="currentState === 'approved'"></div>
+    </div>
+    <div class="status-icon">
+      <ion-icon *ngIf="currentState === 'waiting'" name="time-outline" class="approval-icon"></ion-icon>
+      <ion-icon *ngIf="currentState === 'approved'" name="checkmark-done-outline" class="approval-icon"></ion-icon>
+    </div>
+    <div class="status-text">
+      <div *ngIf="currentState === 'waiting'">
+        <p class="status-title">Waiting for approval</p>
+        <p class="status-description">The application is currently under review. We appreciate your patience.</p>
+      </div>
+      <div *ngIf="currentState === 'approved'">
+        <p class="status-title">Success!</p>
+        <p class="status-description">Congratulations! Your application is accepted. Grow your business on our platform.</p>
+      </div>
+    </div>
+  </div>
+
+  <ion-button expand="full" *ngIf="currentState === 'approved'" class="done-button" (click)="onDone()">Done</ion-button>
+</ion-content>

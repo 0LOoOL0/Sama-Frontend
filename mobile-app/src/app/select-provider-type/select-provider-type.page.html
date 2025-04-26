@@ -1,0 +1,36 @@
+<!-- Header goes above the ion-content! this way it remains in the same place and it can accommodate for
+      the ion back button  -->
+<ion-header>
+  <ion-toolbar>
+    <div class="header-margin">
+      <ion-label class="titleFont">Select Provider Type</ion-label>
+
+      <p class="textGray bodyFont">Lorem ipsum dolor sit amet</p>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding ">
+
+    <ion-list>
+      <ion-radio-group>
+        <ion-item *ngFor="let provider of providers" class="custom-shadow">
+          <ion-label>
+            <h2 class="titleFont">{{ provider.name }}</h2>
+            <p class="textGray">{{ provider.description }}</p>
+          </ion-label>
+          <ion-radio slot="end" value="{{ provider.id }}"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+    
+
+</ion-content>
+
+<!-- This kind of button goes under the content because that keeps it always at the end of the page
+      it also has an ion padding becuse the ion-content doesn't affect it -->
+<div class="ion-padding">
+  <ion-button expand="full" fill="clear" class="OutlinedButtons" (click)="next()" routerLink="/create-your-account">
+    Next
+  </ion-button>
+</div>

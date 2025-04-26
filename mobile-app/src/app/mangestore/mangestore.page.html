@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="selectedSegment" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="services">
+        Services
+      </ion-segment-button>
+      <ion-segment-button value="products">
+        Products
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="selectedSegment === 'services'">
+    <ion-list>
+      <ion-item-sliding *ngFor="let service of services">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img [src]="service.image">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ service.name }}</h2>
+            <p>{{ service.description }}</p>
+            <h3 class="price">{{ service.price }}</h3>
+            <h3 class="discount-price">{{ service.discountPrice }}</h3>
+          </ion-label>
+          <ion-icon name="ellipsis-vertical" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="editService(service)">
+            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="danger" (click)="deleteService(service)">
+            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+  <div *ngIf="selectedSegment === 'products'">
+    <ion-list>
+      <ion-item-sliding *ngFor="let product of products">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img [src]="product.image">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+            <h3 class="price">{{ product.price }}</h3>
+            <h3 class="discount-price">{{ product.discountPrice }}</h3>
+          </ion-label>
+          <ion-icon name="ellipsis-vertical" slot="end"></ion-icon>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option (click)="editProduct(product)">
+            <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+          </ion-item-option>
+          <ion-item-option color="danger" (click)="deleteProduct(product)">
+            <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addServiceOrProduct()">
+      <ion-icon name="add-outline"></ion-icon>
+      <span class="fab-text">{{ fabText }}</span>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,325 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <div class="header-margin-Single-Line">
+      <ion-label class="titleFont">Profile setup</ion-label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="center-content">
+        <div class="round-picture-container">
+          <!-- ! I changed the icon here since it had to be changed both in the html and ts. This is our default no 
+                image placeholder -->
+          <img [src]="profileImagePreview || 'assets/mypet.svg'" class="round-image" />
+          <input type="file" #fileInput (change)="onFileSelected($event)" hidden />
+          <div class="camera-container" (click)="fileInput.click()">
+            <img class="file-button" src="assets/icons/camera.svg" alt="camera" />
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <p class="profile-subtitle bodyFont">Add Profile Photo</p>
+  </ion-grid>
+
+  <form (ngSubmit)="completeProfile()" [formGroup]="profileForm">
+    <div class="bodyFont SmallMargin">
+      <ion-label class="bodyFont">First Name</ion-label>
+      <ion-item class="roundedInput">
+        <ion-input class="bodyFont textGray" fill="solid" placeholder="Enter your name" formControlName="first_name"
+          required></ion-input>
+      </ion-item>
+
+      <!-- ! All error messages (Even below) need to have bodyFont and lightFont class too -->
+      <ion-note class="bodyFont lightFont red-text"
+        *ngIf="profileForm.get('first_name').invalid && profileForm.get('first_name').touched" color="danger">
+        <span *ngIf="profileForm.get('first_name').errors?.required">
+          First Name is required.
+        </span>
+        <span *ngIf="profileForm.get('first_name').errors?.minlength">
+          First Name must be at least 3 characters long.
+        </span>
+        <span *ngIf="profileForm.get('first_name').errors?.maxlength">
+          First Name cannot be more than 31 characters long.
+        </span>
+        <span *ngIf="profileForm.get('first_name').errors?.pattern">
+          First Name can only contain alphabetic characters.
+        </span>
+      </ion-note>
+      <br />
+
+      <ion-label class="bodyFont">Last Name</ion-label>
+      <ion-item class="roundedInput">
+        <ion-input class="bodyFont textGray" fill="solid" placeholder="Phone Number" formControlName="last_name"
+          required></ion-input>
+      </ion-item>
+      <ion-note class="bodyFont lightFont red-text"
+      *ngIf="profileForm.get('last_name').invalid && profileForm.get('last_name').touched" color="danger">
+      <span *ngIf="profileForm.get('last_name').errors?.required">
+        Last Name is required.
+      </span>
+      <span *ngIf="profileForm.get('last_name').errors?.minlength">
+        Last Name must be at least 3 characters long.
+      </span>
+      <span *ngIf="profileForm.get('last_name').errors?.maxlength">
+        Last Name cannot be more than 31 characters long.
+      </span>
+      <span *ngIf="profileForm.get('last_name').errors?.pattern">
+        Last Name can only contain alphabetic characters.
+      </span>
+      </ion-note>
+      <br />
+
+      <ion-label class="bodyFont">Phone</ion-label>
+      <ion-item class="roundedInput">
+        <ion-input class="bodyFont textGray" fill="solid" placeholder="Phone Number" formControlName="phone"
+          required></ion-input>
+      </ion-item>
+      <ion-note class="bodyFont lightFont red-text"
+        *ngIf="profileForm.get('phone').invalid && profileForm.get('phone').touched" color="danger">
+        <span *ngIf="profileForm.get('phone').errors?.required">
+          Phone number is required.
+        </span>
+        <span *ngIf="profileForm.get('phone').errors?.pattern">
+          Phone number must be exactly 8 digits.
+        </span>
+      </ion-note>
+      <br />
+
+      <!--! Location is styled differently than the first two fields, it needs to be bold and have more margin -->
+
+      <ion-label class="bodyFont">Location</ion-label>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <ion-button class="locbutton" shape="round" fill="clear" (click)="showHome()">House</ion-button>
+          </ion-col>
+          <ion-col size="4">
+            <ion-button class="locbutton" shape="round" fill="clear" (click)="showAppartment()">Apartment</ion-button>
+          </ion-col>
+          <ion-col size="4">
+            <ion-button class="locbutton" shape="round" fill="clear" (click)="showOffice()">Office</ion-button>
+          </ion-col>
+        </ion-row>
+
+        <!-- House -->
+        <ion-row *ngIf="location === 0">
+          <ion-col size="6">
+            <ion-item class="roundedInput">
+              <ion-input class="bodyFont textGray" formControlName="city" placeholder="City"></ion-input>
+            </ion-item>
+            <ion-note class="bodyFont lightFont red-text"
+            *ngIf="profileForm.get('city').invalid && profileForm.get('city').touched" color="danger">
+            <span *ngIf="profileForm.get('city').errors?.required">
+              City is required.
+            </span>
+            <span *ngIf="profileForm.get('city').errors?.minlength">
+              City must be at least 3 characters long.
+            </span>
+            <span *ngIf="profileForm.get('city').errors?.maxlength">
+              City cannot be more than 31 characters long.
+            </span>
+            <span *ngIf="profileForm.get('city').errors?.pattern">
+              City can only contain alphabetic characters.
+            </span>
+          </ion-note>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item class="roundedInput">
+              <ion-input class="bodyFont textGray" formControlName="house" placeholder="House"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item class="roundedInput">
+              <ion-input class="bodyFont textGray" formControlName="road" placeholder="Road"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item class="roundedInput">
+              <ion-input class="bodyFont textGray" formControlName="block" placeholder="Block"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <!-- Building (Apartment/Office) -->
+        <ion-row *ngIf="location !== null && location > 0">
+          <ion-col size="7">
+            <ion-item class="roundedInput">
+              <ion-input class="bodyFont textGray" formControlName="building_name"
+                placeholder="Building name"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="5">
+            <ion-item class="roundedInput">
+              <ion-input class="bodyFont textGray" formControlName="city" placeholder="City"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <!-- Apartment -->
+        <ion-row *ngIf="location === 1">
+          <ion-col size="6">
+            <ion-item class="roundedInput">
+              <ion-input class="bodyFont textGray" formControlName="apt_number" placeholder="Apt. number"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item class="roundedInput">
+              <ion-input class="bodyFont textGray" formControlName="floor" placeholder="Floor"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <!-- Office -->
+        <ion-row *ngIf="location === 2">
+          <ion-col size="6">
+            <ion-item class="roundedInput">
+              <ion-input class="bodyFont textGray" formControlName="company" placeholder="Company"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item class="roundedInput">
+              <ion-input class="bodyFont textGray" formControlName="floor" placeholder="Floor"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+
+        <!-- Road and Block -->
+        <ion-row *ngIf="location !== null && location > 0">
+          <ion-col size="6">
+            <ion-item class="roundedInput">
+              <ion-input class="bodyFont textGray" formControlName="road" placeholder="Road"></ion-input>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-item class="roundedInput">
+              <ion-input class="bodyFont textGray" formControlName="block" placeholder="Block"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+
+      <ion-label class="bodyFont">Nationality</ion-label>
+      <ion-item class="roundedInput">
+        <!--! We changed the type of menu so you can use the same customization for it as pet-profile -->
+        <ion-select class="bodyFont textGray custom-select" interface="popover" placeholder="Select your Nationality"
+          formControlName="nationality" required>
+          <ion-select-option class="bodyFont" value="Bahrain">
+            Bahrain
+          </ion-select-option>
+          <ion-select-option class="bodyFont" value="USA">
+            USA
+          </ion-select-option>
+          <ion-select-option class="bodyFont" value="Canada">
+            Canada
+          </ion-select-option>
+          <ion-select-option class="bodyFont" value="UK">UK</ion-select-option>
+          <ion-select-option class="bodyFont" value="Australia">
+            Australia
+          </ion-select-option>
+          <ion-select-option class="bodyFont" value="Other">
+            Other
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-note class="bodyFont lightFont red-text"
+        *ngIf="profileForm.get('nationality').invalid && profileForm.get('nationality').touched" color="danger">
+        Nationality is required.
+      </ion-note>
+      <br />
+
+      <ion-label class="bodyFont">Gender</ion-label>
+      <ion-item class="roundedInput">
+        <ion-select class="bodyFont textGray" interface="popover" placeholder="Select Gender" formControlName="gender"
+          required>
+          <ion-select-option class="bodyFont" value="m">Male</ion-select-option>
+          <ion-select-option class="bodyFont" value="f">Female</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-note class="bodyFont lightFont red-text"
+      *ngIf="profileForm.get('gender').invalid && profileForm.get('gender').touched" color="danger">
+      <span *ngIf="profileForm.get('gender').errors?.required">
+      Gender is required.
+      </span>
+      </ion-note>
+      <br />
+      <ion-label class="bodyFont">Date of birth</ion-label>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4">
+            <ion-item class="roundedInput">
+              <ion-select class="bodyFont textGray" interface="popover" formControlName="day" aria-label="Day"
+                placeholder="Day">
+                <ion-select-option class="bodyFont" *ngFor="let day of days" [value]="day">
+                  {{ day }}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-note class="bodyFont lightFont red-text"
+            *ngIf="profileForm.get('day').invalid && profileForm.get('day').touched" color="danger">
+            <span *ngIf="profileForm.get('day').errors?.required">
+            Day is required.
+            </span>
+            </ion-note>
+          </ion-col>
+          <ion-col size="4">
+            <ion-item class="roundedInput">
+              <ion-select class="bodyFont textGray" interface="popover" formControlName="month" aria-label="Month"
+                placeholder="Month" (ionChange)="onMonthOrYearChange()">
+                <ion-select-option class="bodyFont" *ngFor="let month of months" [value]="month">
+                  {{ month }}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+          <ion-note class="bodyFont lightFont red-text"
+          *ngIf="profileForm.get('month').invalid && profileForm.get('month').touched" color="danger">
+          <span *ngIf="profileForm.get('month').errors?.required">
+            Month is required.
+          </span>
+          </ion-note>
+          </ion-col>
+          <ion-col size="4">
+            <ion-item class="roundedInput">
+              <ion-select class="bodyFont textGray" interface="popover" formControlName="year" aria-label="Year"
+                placeholder="Year" (ionChange)="onMonthOrYearChange()">
+                <ion-select-option class="bodyFont" *ngFor="let year of years" [value]="year">
+                  {{ year }}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+            <ion-note class="bodyFont lightFont red-text"
+            *ngIf="profileForm.get('year').invalid && profileForm.get('year').touched" color="danger">
+            <span *ngIf="profileForm.get('year').errors?.required">
+            Year is required.
+            </span>
+            </ion-note>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <ion-note class="bodyFont lightFont red-text"
+        *ngIf="profileForm.get('day').invalid && profileForm.get('day').touched" color="danger">
+        Day is required.
+      </ion-note>
+      <ion-note class="bodyFont lightFont red-text"
+        *ngIf="profileForm.get('month').invalid && profileForm.get('month').touched" color="danger">
+        Month is required.
+      </ion-note>
+      <ion-note class="bodyFont lightFont red-text"
+        *ngIf="profileForm.get('year').invalid && profileForm.get('year').touched" color="danger">
+        Year is required.
+      </ion-note>
+      <br />
+    </div>
+  <!-- ! You can remove ion-padding here because it gives too big of a margin for the button -->
+  <div>
+    <ion-button class="FilledButtons" fill="clear" expand="block" type="submit" [disabled]="profileForm.invalid">
+      Complete Profile
+    </ion-button>
+  </div>
+  </form>
+
+</ion-content>

@@ -1,0 +1,128 @@
+<!--<ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterDoctors()"></ion-searchbar>-->
+
+<ion-header>
+  <ion-toolbar>
+
+    <div class="header-margin-Single-Line">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text=""></ion-back-button>
+      </ion-buttons>
+   
+        <ion-label class=" titleFont centered-title">Doctors</ion-label>
+
+      </div>
+
+
+    <ion-buttons slot="end">
+      <ion-button (click)="openSearch()">
+        <img class="icon" src="/assets/icons/search.svg">
+      </ion-button>
+      <ion-button (click)="openFilter()">
+        <img class="icon" src="assets/icons/filter.svg" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+
+  <div class="ion-content-backup">
+
+    <ion-searchbar *ngIf="isSearchVisible" [(ngModel)]="searchTerm" (ionInput)="onSearchInput($event)" debounce="300"
+      placeholder="Search providers">
+    </ion-searchbar>
+
+    <!-- <div [ngSwitch]="viewType"> -->
+
+    <div class="MakeItCenter">
+      <div>
+        <div class="MakeItAGride gridContainer">
+          <div class="singleCell" *ngFor="let doctor of filteredDoctors" style="cursor: pointer;">
+            <div class="imgContainer">
+              <img [src]="doctor.image" alt="Doctor Image" (click)="goToVetDetails(doctor.provider_id)">
+            </div>
+            <div class="FlexSpaceInBetween">
+              <div class="titleContainer">
+                <ion-label class="bodyFont boldFont vetClinicTitle">
+                  Dr. {{ doctor.name }}
+                </ion-label>
+              </div>
+              <img class="icon" (click)="addToFavorites(doctor)"
+                [src]="doctor?.isFavorite ?  'assets/heartr.svg':'assets/icons/heart.svg'" alt="Favorite Icon">
+
+            </div>
+            <ion-label class="bodyFont smallFont boldFont specialityName">
+              {{ doctor.medical_degree_and_specializtion }}
+            </ion-label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Cancelled -->
+    <!-- <div *ngSwitchCase="'list'" class="list-container">
+      <ion-item *ngFor="let doctor of filteredDoctors">
+        <ion-thumbnail slot="start">
+          <img [src]="doctor.image" alt="Doctor Image">
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ doctor.name }}</h2>
+          <p>{{ doctor.speciality }}</p>
+        </ion-label>
+        <ion-button fill="clear" slot="end">
+          <ion-icon name="heart-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </div> 
+  </div>-->
+
+  </div>
+
+
+  <ion-modal [isOpen]="showFilterModal" (ionModalDidDismiss)="dismissFilter()" class="modal">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <div class="filter-header">
+            <ion-title class="titleFont">Filter</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="resetFilter()" class="bodyFont">Reset</ion-button>
+              <ion-button (click)="dismissFilter()" class="bodyFont">Close</ion-button>
+            </ion-buttons>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+
+
+        <ion-label class="bodyFont speciality">Speciality</ion-label>
+        <br>
+        <br>
+        <div class="speciality-dropdown">
+          <ion-select [(ngModel)]="selectedSpeciality" placeholder="Select Speciality" class="bodyFont">
+            <ion-select-option *ngFor="let speciality of specialities" [value]="speciality" class="bodyFont">{{
+              speciality }}</ion-select-option>
+          </ion-select>
+        </div>
+
+        <br>
+
+        <ion-label class="bodyFont review-label">Reviews</ion-label>
+        <div class="review">
+          <div class="review-options">
+            <ion-chip *ngFor="let rating of reviewRatings" (click)="selectReviewRating(rating)">
+              <div class="stars">
+                <ion-icon *ngFor="let star of [].constructor(rating)" src="assets/icons/Star.svg" alt="star"></ion-icon>
+              </div>
+              <span> & up</span>
+            </ion-chip>
+          </div>
+        </div>
+        <br>
+        <ion-button expand="block" (click)="applyFilter()" class="apply-button bodyFont">Apply</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>

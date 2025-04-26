@@ -1,0 +1,28 @@
+ion-content {
+    --background: #f4f5f8;
+  
+    ion-card {
+      margin-bottom: 16px;
+      --border-radius: 12px;
+      --box-shadow: none;
+    }
+  
+    ion-avatar img {
+      --border-radius: 50%;
+    }
+  
+    ion-button.add-product-btn {
+      --border-radius: 8px;
+      --color: #d87c49;
+      --border-color: #d87c49;
+      border: 1px solid;
+      margin-bottom: 16px;
+    }
+  
+    ion-button {
+      --border-radius: 8px;
+      --background: #d87c49;
+      --color: #ffffff;
+    }
+  }
+  

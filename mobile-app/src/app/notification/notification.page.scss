@@ -1,0 +1,32 @@
+// header
+.centered-title {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+ion-buttons{
+  margin-top: 18px;
+}
+
+ion-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 5px 0px 10px;
+  --background: var(--White); 
+}
+
+.icon{
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+ion-card-content {
+  display: flex;
+  --background: var(--White);
+  flex-direction: column;
+  --ion-item-border-width: 0;
+  --ion-item-border-color: transparent;
+}

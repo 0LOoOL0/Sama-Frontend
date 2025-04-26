@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+  
+
+    <div class="header-margin-Single-Line">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text=""></ion-back-button>
+      </ion-buttons>
+   
+        <ion-label class=" titleFont centered-title">Notification</ion-label>
+          
+      </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding bodyFont">
+    <ion-label class="blackTitleFont">Today</ion-label>
+
+    <ion-card *ngIf="todayEvents.length === 0">
+      <ion-card-content>
+        <ion-label class="bodyFont">No events today</ion-label>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngFor="let remind of todayEvents">
+      <ion-card-content>
+        <ion-label class="boldFont bodyFont">{{ remind.title }}</ion-label>
+        <br>
+        <div class="MakeItFlex">
+          <img class="icon" src="assets/icons/calendar.svg">
+          <ion-label class="bodyFont textGray">{{ remind.date }} | {{ remind.time }}</ion-label>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <div *ngFor="let group of groupedEvents; let i = index">
+      <br>
+      <ion-label class="blackTitleFont">{{ formatDate(group.date) }}</ion-label>
+
+      <ion-card *ngFor="let remind of group.events">
+        <ion-card-content >
+          <ion-label class="boldFont bodyFont">{{ remind.title }}</ion-label>
+          <br>
+
+          <div class="MakeItFlex">
+            <img class="icon" src="assets/icons/calendar.svg">
+            <ion-label class="bodyFont textGray">{{ remind.date }} | {{ remind.time }}</ion-label>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+</ion-content>

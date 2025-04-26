@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Digital Card</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card>
+    <div class="no-card">
+      <ion-icon name="paw-outline" class="no-card-icon"></ion-icon>
+      <p>No card!</p>
+    </div>
+  </ion-card>
+
+  <div class="pet-selector">
+    <ion-avatar>
+      <img src="assets/pet-avatar.jpg" alt="Pet Avatar">
+    </ion-avatar>
+    <ion-select [(ngModel)]="selectedPet" interface="popover">
+      <ion-select-option *ngFor="let pet of pets" [value]="pet">{{ pet.name }}</ion-select-option>
+    </ion-select>
+  </div>
+
+  <ion-segment [(ngModel)]="segment" color="primary">
+    <ion-segment-button value="qrCode">
+      <ion-label>QR Code</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="coupons">
+      <ion-label>Coupons</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div *ngIf="segment === 'qrCode'" class="qr-code-container">
+    <ion-card>
+      <div class="not-member">
+        <img src="assets/not-member-image.jpg" alt="Not a Member Image">
+        <p>Oh no! Your pet is not a member</p>
+        <ion-button expand="block" color="primary">Subscribe Now!</ion-button>
+      </div>
+    </ion-card>
+  </div>
+
+  <div *ngIf="segment === 'coupons'" class="coupons-container">
+    <!-- Coupons content goes here -->
+  </div>
+</ion-content>

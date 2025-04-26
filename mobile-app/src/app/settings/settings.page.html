@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div class="header-margin-Single-Line">
+      <ion-label class="titleFont">settings</ion-label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+    <ion-label class="blackTitleFont">Account </ion-label>
+    <ion-button expand="full" (click)="goPrivacyPage()" class="whiteBtn">
+      <ion-icon src="assets/icons/isetting.svg"></ion-icon>
+      <ion-label class="bodyFont">Privacy</ion-label>
+    </ion-button>
+    
+    <ion-button expand="full" (click)="goSupportPage()" class="whiteBtn">
+      <ion-icon src="assets/icons/isetting.svg"></ion-icon>
+      <ion-label class="bodyFont">Help & Support</ion-label>
+    </ion-button>
+  
+    <ion-button expand="full" (click)="goTermsAndConditions()" class="whiteBtn">
+      <ion-icon src="assets/icons/isetting.svg"></ion-icon>
+      <ion-label class="bodyFont">Terms & Policies</ion-label>
+    </ion-button>
+  
+    <ion-label class="blackTitleFont">Support & About</ion-label>
+    
+    <ion-button expand="full" (click)="goSubscriptionPage()" class="whiteBtn">
+      <ion-icon src="assets/icons/isetting.svg"></ion-icon>
+      <ion-label class="bodyFont">Subscription</ion-label>
+    </ion-button>
+    
+    <ion-button expand="full" (click)="goReportProblem()" class="whiteBtn">
+      <ion-icon src="assets/icons/isetting.svg"></ion-icon>
+      <ion-label class="bodyFont">Report a Problem</ion-label>
+    </ion-button>
+  
+</ion-content> 
+
+<div class="ion-padding">
+  <ion-button
+    expand="full"
+    fill="clear"
+    class="FilledButtons"
+    (click)="logoutUser()"
+  >
+    Log Out
+  </ion-button>
+</div>

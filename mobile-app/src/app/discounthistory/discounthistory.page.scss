@@ -1,0 +1,231 @@
+// header
+.centered-title {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    margin: 0px;
+
+  }
+  
+  .total-amount {
+    font-size: 14px;
+    color:var(--Main-Two);
+    align-items: center;
+  }
+  
+  .total-saved {
+    font-size: 20px;
+    font-weight: bold;
+    color:var(--Main-Two);
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  ///img
+// .discount-entry {
+//       display: flex;
+//       flex-direction: column;
+//       width: 50%;
+//       height: auto;
+//      }
+
+  .filterImg{
+    margin-left: 6px;
+  }
+
+  //filter
+
+  .filter-card {
+    --background: var(--white);
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    display: flex;
+    flex-direction: column;
+    --border-radius: 16px;
+    --width: 100%;
+    --height: 50%;
+    position: flex;
+  }
+
+  .filter-container {
+    padding: 20px;
+    border-radius: 16px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  ion-segment {
+    --background: transparent;
+  }
+
+  .transactions-button {
+    --background: #dfe3e7;
+    border: none;
+    padding: 4px;
+    margin: 4px;
+    font-size: 14px;
+    color: black;
+    border-radius: 16px;
+    align-content: right;
+  }
+
+  .date-range {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+  }
+
+  .date-picker {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    padding: 8px;
+    // --background: white;
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  .date-picker:last-child {
+    margin-right: 0;
+  }
+
+  .date-button {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  h2{
+    margin: 1rem;
+    font-size: 1.2rem;
+  }
+  .discount-card {
+    margin: 0px;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --background-color: var(--GrayColor);
+    padding: 0.6px;
+    .discount-entry {
+      display: flex;
+      align-items: center;
+      padding: 13px;
+  
+      ion-thumbnail {
+        width: 80px;
+        height: 80px;
+        margin-right: 1rem;
+        margin-bottom: 50px;
+        margin-top: 0px;
+       
+       
+         p {
+          font-size: 0.9rem;
+          color:var(--Black);
+          margin-bottom: 45px;
+          font-weight: bold;
+          justify-content: space-between;
+          display: flex;
+          align-items: center;
+        }
+      }
+      ion-label {
+        flex-grow: 3;
+      
+        h2 {
+          font-size: 1.1rem;
+          font-weight: bold;
+          //margin-bottom: 0.5rem;
+          margin-bottom: 19px;
+          margin-top: 8px;
+
+         color: var(--White);
+        }
+        .prices {
+          margin-left: 14px;
+          .price-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+  
+            span:first-child {
+              color: var(--White);
+              margin-left: 16px;
+            }
+  
+            span:last-child {
+              font-weight: bold;
+              margin-left: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .yousaved{
+    color:var(--Accent-One);
+  }
+  .youpaid{
+    color:var(--Main-Two);
+    font-weight: bold;
+  }
+
+  .icons {
+    width: 25px;
+    height: 25px;
+  }
+
+  // .to-text {
+  //   font-size: 14px;
+  //   color: #333;
+  //   justify-content: space-between;
+  // }
+  
+  .apply-button {
+    display: flex;
+    font-size: 15px;
+    padding: 16px 32px;
+    --border-radius: 16px;
+    height: 80px;
+    width: auto;
+    --background: #ED5F1E;
+    color: white !important;
+  }
+
+  .span {
+    margin: 0 5px;
+    position: absolute;
+  }
+
+  .resetButton {
+    justify-content: right;
+    --border-radius: 16px;
+    --background: var(--background-color);
+  }
+
+  ion-segment-button {
+    --background: white !important;
+    padding: 4px;
+    margin: 4px;
+    font-size: 14px;
+    color: black;
+    --border-radius: 16px;
+    justify-content: right;
+  }
+

@@ -1,0 +1,110 @@
+// header
+.centered-title {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+ion-buttons{
+  margin-top: 18px;
+}
+
+// ion-selecet 
+ion-select, ion-select-option{
+    font-weight: 600;
+}
+::ng-deep ion-select-popover {
+  --background: white !important;
+}
+
+::ng-deep ion-select-popover ion-list {
+  background-color: white !important;
+}
+
+::ng-deep ion-select-popover ion-list ion-item {
+  --background: white !important;
+  --color: black !important;
+}
+
+::ng-deep .select-interface-option {
+  background-color: white !important;
+  color: black !important;
+}
+
+// List
+ion-list{
+  background-color: var(--background-color);
+}
+
+.coupon {
+  background-color: var(--White);
+  border-radius: 16px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+  .ListIcon{
+    display: flex;
+    align-items: center;
+    margin-right:10px;
+    border-right: 2px dashed var(--GrayColor);
+
+    ion-thumbnail img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  
+  .ListDetails{
+    width: 100%;
+    margin-right: 10px;
+  
+    ion-label{
+      h2 {
+        font-weight: 600;
+      }
+      p{
+        font-weight: 400;
+      }
+    }
+
+    .inOneLine{
+      display: flex;
+      justify-content: space-between;
+
+      p{
+        margin-top: auto;
+      }
+      .titleFont{
+        color: var(--Main-Two)!important;
+        font-weight: 600;
+        font-size: 2rem !important;
+      }
+    }
+    
+    ion-button {
+      height: 4vh;
+      width: 55%;
+      margin-bottom: 0px;
+    }
+  
+  }
+
+  // Other size
+  @media screen and (max-width: 350px){
+    ion-buttons{
+      max-width: 25%;
+      img{
+        margin-right: 10px;
+      }
+    }
+
+    .ListDetails{
+        p{
+          font-size: 0.6rem !important;
+        }
+      }
+    }

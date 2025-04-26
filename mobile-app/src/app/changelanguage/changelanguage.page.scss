@@ -1,0 +1,25 @@
+// header
+.centered-title {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+ion-buttons{
+  margin-top: 16px;
+}
+  
+ion-title {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+ion-item {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  --background: var(--White);
+  --border-color: #e0e0e000;
+  --border-radius: 16px;
+}
+  

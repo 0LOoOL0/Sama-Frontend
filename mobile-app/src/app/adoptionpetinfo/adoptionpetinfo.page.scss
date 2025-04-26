@@ -1,0 +1,265 @@
+//header
+ion-buttons {
+  margin-top: 20px;
+}
+
+
+
+//body 
+ion-content {
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+hr {
+  border-top: 1px solid #c5c5c5;
+}
+
+.pet-image {
+  display: block;
+  margin: 10px auto;
+  width: 70%;
+  max-width: 350px;
+  height: auto;
+  padding-bottom: 0;
+  border-radius: 16px;
+}
+
+.pet-name {
+  font-size: 1rem !important;
+}
+
+.title-container{
+  max-width: 350px;
+  width: 100%;
+  height: 100px;
+  position: relative;
+}
+
+.titles{
+  width: 50%;
+  height: 100px;
+  position: absolute;
+  top:0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  ion-label{
+    margin: 0 !important;
+  }
+
+  span{
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.buttons{
+  width: 25%;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top:0;
+
+  .icon{
+    margin-right: 10px;
+  }
+}
+
+.icon-button {
+  --padding-start: 0;
+  --padding-end: 0;
+  --padding-top: 0;
+  --padding-bottom: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-location {
+  display: flex;
+  justify-content: center;
+}
+
+.loc-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.pet-icon-container {
+  position: absolute;
+  justify-content: flex-end;
+  top: -2px;
+  right: 10px;
+  display: flex;
+  gap: 26px;
+  padding: 0;
+  margin: 0;
+  margin-right: 18px;
+  z-index: 5;
+  margin-bottom: -4;
+}
+
+.ion-padding {
+  ion-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(0.5rem + 0.5vw);
+    color: black;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin-top: 10px;
+  }
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+ion-chip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 calc(45% - 10px);
+  border-radius: 16px;
+  height: 80px;
+  padding: 5;
+  overflow: hidden;
+  background: transparent;
+}
+
+.icon{
+  width: 24px;
+  height: 24px;
+}
+
+.paw-icon {
+  margin-left: auto;
+  width: 65px;
+  height: 65px;
+  opacity: 1;
+  position: absolute;
+  bottom: -12px;
+  right: -10px;
+  z-index: -1;
+  transform: rotate(-30deg);
+}
+
+.pet-details {
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  overflow: hidden;
+  opacity: 85%;
+}
+
+.gender {
+  background-color: var(--Main-One);
+  border-color: var(--Main-One);
+}
+
+.colour {
+  background-color: var(--Main-Two);
+  border-color: var(--Main-Two);
+}
+
+.breed {
+  background-color: var(--Accent-One);
+  border-color: var(--Accent-One);
+}
+
+.age {
+  background-color: var(--Accent-Two);
+  border-color: var(--Accent-Two);
+}
+
+.weight {
+  background-color: var(--Backup-Pink);
+  border-color: var(--Backup-Pink);
+}
+
+.Owner-info{
+  width: 100%;
+  padding: 16px;
+
+  p{
+    color: var(--GrayColor) !important;
+  }
+}
+
+.whiteButton{
+  background-color: var(--White);
+  border-radius: 16px;
+  margin-top: 10px;
+  margin-right: 5px;
+  --padding-start: 10px;
+  --padding-end: 10px;
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+}
+
+#icon-container{
+  margin-left: 15px;
+  display: flex;
+}
+
+
+
+.owner-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.owner-name, .pet-name {
+  margin-left: 15px;
+}
+
+.phone-icon, .message-icon {
+  background: white;
+  border: 1px solid white;
+  padding: 5px;
+  border-radius: 30%;
+  box-shadow: 0px 4px 8px rgba (0, 0, 0, 0.3);
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+}
+
+.see-more-less {
+  --color: var(--Main-Two) !important;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-style: normal;
+}
+
+#icon-container-small{
+  display: none;
+}
+
+@media screen and (max-width: 420px){
+  #icon-container{
+    display: none;
+  }
+
+  #icon-container-small{
+    display: flex;
+  }
+}

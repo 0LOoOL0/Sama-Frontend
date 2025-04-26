@@ -1,0 +1,197 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons class="backButton" slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-label class="centered-title titleFont">Digital card</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- new -->
+  <ion-modal [isOpen]="showRedeemModal" (ionModalDidDismiss)="closeRedeemModal()" class="modal-content"   [breakpoints]="[0, 0.5, 1]" 
+    [initialBreakpoint]="0.5"    
+    backdropDismiss="true" >
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Enter Redeem Code</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeRedeemModal()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+  
+      <ion-content>
+        <ion-item>
+          <ion-label position="floating">Enter Code</ion-label>
+          <ion-input [(ngModel)]="redeemCode"></ion-input>
+        </ion-item>
+  
+        <ion-button expand="block" (click)="submitRedeemCode()">Submit</ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <div class="MakeItCenter">
+    <div class="card-content FlexSpaceInBetween">
+      <!-- I removed this because there isn't enough space -->
+      <!-- <img *ngIf="selectedPet" [src]="selectedPet.imageUrl ? selectedPet.imageUrl : 'assets/default-image.png'" alt="{{ selectedPet.name }}" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;"/> -->
+      
+      <div *ngIf="selectedPet" class="MakeItFlexAsAColumnNoCenter">
+        <ion-label class="blackTitleFont">Breed: {{ selectedPet?.name }}</ion-label>
+        <ion-label class="bodyFont boldFont">Country: Bahrain </ion-label>
+        <ion-label class="bodyFont boldFont">
+          Gender: {{ selectedPet?.gender === 'f' ? 'Female' : selectedPet?.gender === 'm' ? 'Male' : 'Unknown' }}
+        </ion-label>
+        <ion-label class="bodyFont boldFont">Valid date: {{ membershipEndDate ? (membershipEndDate | date:'mediumDate') : 'TBA' }}</ion-label>
+        <ion-label class="bodyFont boldFont">Owner's name: {{ profile?.first_name }}</ion-label>
+      </div>
+
+      <div *ngIf="selectedPet" class="in-card-qr">
+        <img *ngIf="qrCodeUrl" [src]="qrCodeUrl" alt="QR Code" />
+      </div>
+    </div>  
+  </div>
+
+  <br>
+  <ion-buttons class="selector bodyFont">
+    <ion-select
+      class="bodyFont"
+      [(ngModel)]="selectedPetId"
+      toggleIcon="assets/icons/expand.svg"
+      (ionChange)="selectPet($event.detail.value)"
+      interface="popover"
+      placeholder="Select Pet">
+
+      <img class="pfp" slot="start" *ngIf="!selectedPet" src="assets/mypet.svg" alt="no pet">
+      <img class="pfp" slot="start" *ngIf="selectedPet" [src]="selectedPet.image ? selectedPet.image : 'assets/mypet.svg'" alt="{{ selectedPet.name }}">
+
+      <ion-select-option *ngFor="let pet of pets" [value]="pet.id">
+        <div style="display: flex; align-items: center;">
+          {{pet.name}}
+        </div>
+      </ion-select-option>
+    </ion-select>
+  </ion-buttons>
+  
+  <br *ngIf="!hasActiveMembership">
+
+  <div class="MakeItCenter" *ngIf="!hasActiveMembership">
+    <div class="subscribe" style="background-image: url('/assets/bg.svg')">
+      <ion-label class="bodyFont boldFont">Not a member?</ion-label>
+      <ion-button fill="clear" routerLink="/subscription">SUBSCRIBE</ion-button>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="MakeItCenter">
+    <div class="segmentContainer">
+      <ion-segment [(ngModel)]="segment">
+        <ion-segment-button value="coupons"><div class="purpleUnderline">Coupons</div></ion-segment-button>
+        <ion-segment-button value="qr-code">QR Code</ion-segment-button>
+      </ion-segment>
+      
+      <div [ngSwitch]="segment" class="contentContainer">
+        <br>
+
+        <div *ngSwitchCase="'coupons'">
+          <ng-container *ngIf="hasActiveMembership; else noCouponsTemplate">
+            <div class="button-container">
+              <ion-button expand="full" routerLink="/coupon" fill="clear" class="Buttons">BUY MORE COUPONS</ion-button>
+            </div>
+        
+            <ion-list>
+              <ion-label class="blackTitleFont">Owned</ion-label>
+              <br>
+              <br>
+              <div *ngFor="let coupon of coupons" class="coupon">
+                <div class="ListIcon">
+                  <ion-thumbnail slot="start">
+                    <img [src]="coupon?.image" alt="Coupon Image">
+                  </ion-thumbnail>
+                </div>
+        
+                <div class="ListDetails">
+                  <ion-label class="ion-text-wrap">
+                    <h2 class="bodyFont">{{ coupon.title }}</h2>
+                    <div class="inOneLine">
+                      <p class="bodyFont smallFont">{{ coupon.description }}</p>
+                    </div>
+                    <div class="inOneLine">
+                      <ion-button expand="full" fill="clear" (click)="openRedeemModal(coupon.id)" class="FilledButtons smallFont">REDEEM</ion-button>
+                      <p class="textGray smallFont" id="date">{{ coupon.expiration_date }}</p>
+                    </div>
+                  </ion-label>
+                </div>
+              </div>
+            </ion-list>
+        
+            <br>
+        
+            <ion-list class="used">
+              <ion-label class="blackTitleFont">Used</ion-label>
+              <br>
+              <br>
+              <div *ngFor="let coupon of usedCoupons" class="coupon">
+                <div class="ListIcon">
+                  <ion-thumbnail slot="start">
+                    <img [src]="coupon.coupon?.image" alt="Coupon Image">
+                  </ion-thumbnail>
+                </div>
+        
+                <div class="ListDetails">
+                  <ion-label class="ion-text-wrap">
+                    <h2 class="bodyFont">{{ coupon.coupon?.title }}</h2>
+                    <div class="inOneLine">
+                      <p class="bodyFont smallFont">{{ coupon.coupon?.description }}</p>
+                    </div>
+                    <div class="inOneLine">
+                      <ion-button expand="full" fill="clear" class="FilledButtons smallFont">REDEEM</ion-button>
+                      <p class="textGray smallFont" id="date">{{ coupon.coupon?.expiration_date }}</p>
+                    </div>
+                  </ion-label>
+                </div>
+              </div>
+            </ion-list>
+          </ng-container>
+        
+          <ng-template #noCouponsTemplate>
+            <ion-label class="bodyFont">No active membership.</ion-label>
+          </ng-template>
+        </div>
+        
+
+
+        <div *ngSwitchCase="'qr-code'" class="MakeItCenter MakeItFlexAsAColumn">
+          <ng-container *ngIf="!noMembershipMessage && qrCodeUrl !== undefined; else noMembershipTemplate">
+            <div class="qr-code-container MakeItCenter" title="{{ qrCodeUrl }}" id="qr">
+              <div class="blue-paw">
+                <img src="assets/blue-paw.svg"/>
+              </div>
+              <img *ngIf="qrCodeUrl" [src]="qrCodeUrl" alt="QR Code" />
+              <div class="yellow-paw">
+                <img src="assets/yellow-paw.svg"/>
+              </div>
+            </div>
+            <ion-label class="bodyFont" id="textGray">Present QR code to vendor</ion-label>
+            <br>
+          </ng-container>
+        
+          <ng-template #noMembershipTemplate>
+            <div class="no-membership-message">
+              <ion-label class="bodyFont">Select a pet with an active membership.</ion-label>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</ion-content>
+

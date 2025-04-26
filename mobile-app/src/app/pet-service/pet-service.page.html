@@ -1,0 +1,122 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div class="header-margin-Single-Line">
+      <ion-label class="titleFont">Pet Services</ion-label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="MakeItCenter" id="services">
+    <div class="Container">
+
+      <div class="MakeItAGride">
+
+        <div class="serviceSquare" (click)="navigateTo('vetclinic/vet clinics')">
+          <div class="service MakeItFlex MakeItCenter">
+
+            <img src="assets/icons/Syringe.svg">
+
+            <div>
+              <ion-label class="bodyFont boldFont">Vet clinics</ion-label>
+              <br>
+              <ion-label class="bodyFont LighFont desc">(7 nearby)</ion-label>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="serviceSquare" (click)="navigateTo('vetclinic/pet stores')">
+          <div class="service MakeItFlex MakeItCenter">
+            <img src="assets/icons/PetFood.svg">
+
+            <div>
+              <ion-label class="bodyFont boldFont">Pet Stores</ion-label>
+              <br>
+              <ion-label class="bodyFont LighFont desc">(7 nearby)</ion-label>
+            </div>
+          </div>
+        </div>
+
+        <div class="serviceSquare" (click)="navigateTo('vetclinic/groomers')">
+          <div class="service MakeItFlex MakeItCenter">
+            <img src="assets/icons/HairComb.svg">
+
+            <div>
+              <ion-label class="bodyFont boldFont">Groomers</ion-label>
+              <br>
+              <ion-label class="bodyFont LighFont desc">(7 nearby)</ion-label>
+            </div>
+          </div>
+        </div>
+
+        <div class="serviceSquare" (click)="navigateTo('vetclinic/trainer')">
+          <div class="service MakeItFlex MakeItCenter">
+            <img src="assets/icons/trainer.svg">
+
+            <div>
+              <ion-label class="bodyFont boldFont">Training</ion-label>
+              <br>
+              <ion-label class="bodyFont LighFont desc">(7 nearby)</ion-label>
+            </div>
+          </div>
+        </div>
+
+          <div class="serviceSquare" (click)="navigateTo('drlist')">
+            <div class="service MakeItFlex MakeItCenter">
+                <img src="assets/icons/DE.svg">
+
+            <div>
+              <ion-label class="bodyFont boldFont">Doctor emergency</ion-label>
+              <br>
+              <ion-label class="bodyFont LighFont desc">(7 nearby)</ion-label>
+            </div>
+          </div>
+        </div>
+
+        <div class="serviceSquare" (click)="navigateTo('vetclinic/products')">
+          <div class="service MakeItFlex MakeItCenter">
+            <img src="assets/icons/paw.svg">
+
+            <div>
+              <ion-label class="bodyFont boldFont">Product</ion-label>
+              <br>
+              <ion-label class="bodyFont LighFont desc">(7 nearby)</ion-label>
+            </div>
+          </div>
+        </div>
+
+        <div class="serviceSquare">
+          <div class="service MakeItFlex MakeItCenter">
+            <div>
+              <ion-label class="bodyFont boldFont">Accomodation</ion-label>
+              <br>
+              <ion-label class="bodyFont LighFont desc">(7 nearby)</ion-label>
+            </div>
+          </div>
+        </div>
+
+        <div class="serviceSquare" (click)="navigateTo('sama-pet-store')">
+          <div class="service MakeItFlex MakeItCenter">
+            <img src="assets/icons/logo.svg">
+
+            <div>
+              <ion-label class="bodyFont boldFont">Sama pet store</ion-label>
+              <br>
+              <ion-label class="bodyFont LighFont desc">(7 nearby)</ion-label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <br>
+
+
+</ion-content>

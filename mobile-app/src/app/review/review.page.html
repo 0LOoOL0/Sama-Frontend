@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <div class="header-margin-Single-Line">
+      <ion-title class="titleFont">Reviews</ion-title>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  
+  
+   <div *ngFor="let review of reviews">
+      <div class="ReviewContainer">
+
+        <div class="FlexSpaceInBetween">
+          <div class="MakeItFlex">
+            <div class="square">
+              <div class="parent">
+                <img [src]="review.petOwner?.profile_image" alt="Avatar">
+              </div>
+            </div>
+            <div class="column">
+              <ion-label class="bodyFont boldFont">{{ review.petOwner?.first_name }}</ion-label>
+              <div class="stars-container">
+                <div *ngFor="let i of [1, 2, 3, 4, 5]" class="star">
+                  <svg
+                  [attr.fill]="i <= review.rate ?'#F0A441' : '#9da4aa'"
+                  viewBox="0 0 1024 1024"
+                  xmlns="http://www.w3.org/2000/svg"
+                  stroke="rgba(0, 0, 0, 0.3)"
+                  class="icon">
+                  <path
+                    d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z">
+                  </path>
+                </svg>
+              </div>
+            </div> 
+            </div>
+          </div>
+
+          <ion-label class="bodyFont">{{ review.date }}</ion-label>
+
+        </div>
+
+        <div class="Margin-Top">
+          <ion-label class="bodyFont">{{ review.comment }}</ion-label>
+        </div>
+      </div>
+    </div> 
+
+
+</ion-content>
+
+<form class="Form" [formGroup]="reviewForm" (ngSubmit)="submitReview()">
+
+  <div class="comment MakeItFlex">
+    <ion-label class="bodyFont">Comment</ion-label>
+    <ion-input
+      class="bodyFont"
+      fill="solid"
+      formControlName="comment"
+    ></ion-input>
+  </div>
+
+  <div class="Rate FlexSpaceInBetween MakeItFlex">
+      <ion-label class="bodyFont">Rating</ion-label>
+      <div class="star-rating">
+        <div class="stars-container">
+          <div *ngFor="let star of [1, 2, 3, 4, 5]" class="star">
+            <svg
+              [attr.fill]="star <= rating ? '#F0A441' : '#9da4aa'"
+              viewBox="0 0 1024 1024"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="rgba(0, 0, 0, 0.3)"
+              class="icon"
+              (click)="setRating(star)"
+            >
+              <path
+                d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 0 0 .6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0 0 46.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <ion-button type="submit" expand="full" fill="clear" class="FilledButtons" [disabled]="!reviewForm.valid">Submit Review</ion-button>
+</form>
+

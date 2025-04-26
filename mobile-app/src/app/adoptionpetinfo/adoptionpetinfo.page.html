@@ -1,0 +1,152 @@
+ <ion-header>
+    <ion-toolbar>
+
+
+      <div class="header-margin-Single-Line">
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/" text=""></ion-back-button>
+        </ion-buttons>
+     
+          <ion-label class=" titleFont centered-title">Adopt Pet</ion-label>
+        </div>
+    </ion-toolbar>
+  </ion-header>
+  
+<ion-content class="ion-padding">
+  <div class="loading-container" *ngIf="pet === undefined">
+    <ion-label class="bodyFont">Loading pet information please wait...</ion-label>
+    <ion-spinner name="circular"></ion-spinner>
+  </div>
+
+  <ng-container *ngIf="pet">
+    <ion-card>
+      <img
+        [src]="pet.imageUrl"
+        (error)="pet.imageUrl = '/assets/icons/no-profile.svg'"
+        alt="{{ pet.name }}"
+        *ngIf="pet.image"
+        class="pet-image"
+      />
+
+      <ion-card-header>
+        <div class="MakeItCenter">
+          <div class="title-container">
+            
+            <div class="titles MakeItCenter MakeItFlexAsAColumn">
+              <ion-label class="bodyFont boldFont pet-name">{{pet.name}}</ion-label>
+              <div class="makeItFlex MakeItCenter">
+                <ion-icon src="assets/icons/location.svg" class="bodyFont loc-icon" name="location-outline"></ion-icon>
+                <span class="bodyFont">{{ pet.location ? pet.location : (pet.petOwner.city || 'Location not available') }}</span>
+              </div>
+            </div>
+
+            <div class="buttons MakeItFlex MakeItCenter">
+                <ion-img *ngIf="!pet.isFavorite" src="assets/icons/heart.svg" alt="Favorite Icon" class="icon"
+                  (click)="addToFavorites(pet)">
+                </ion-img>
+                <ion-img *ngIf="pet.isFavorite" src="assets/heartr.svg" alt="Favorite Icon" class="icon"
+                  (click)="addToFavorites(pet)">
+                </ion-img>
+
+                <ion-img src="assets/icons/paperPlane.svg" class="icon"></ion-img>
+            </div>
+
+          </div>
+        </div>
+
+
+
+      </ion-card-header>
+
+      <hr>
+      <ion-card-content class="no-padding">
+        <div class="details">
+          <ion-chip class="bg" color="success">
+            <ion-label class="bodyFont boldFont gender pet-details">
+              <img src="assets/icons/orange-paw.svg" class="paw-icon">
+              Gender: {{pet.gender === 'm'? 'Male' : 'Female'}}
+            </ion-label>
+            <!-- <ion-badge color="light">{{pet.gender === 'm'? 'Male' : 'Female'}} </ion-badge> -->
+          </ion-chip>
+          <ion-chip class="bg" color="tertiary">
+            <ion-label class="bodyFont boldFont colour pet-details">
+              <img src="assets/icons/purple-paw.svg" class="paw-icon">
+              Colour: {{ pet.color }}
+            </ion-label>
+            <!-- <ion-badge color="light">{{ pet.color }}</ion-badge> -->
+          </ion-chip>
+          <ion-chip class="bg" color="warning">
+            <ion-label class="bodyFont boldFont breed pet-details">
+              <img src="assets/icons/yellow-paw.svg" class="paw-icon">
+              Breed: {{ pet.breed }}
+            </ion-label>
+            <!-- <ion-badge color="light">{{ pet.breed }}</ion-badge> -->
+          </ion-chip>
+          <ion-chip class="bg" color="danger">
+            <ion-label class="bodyFont boldFont age pet-details">
+              <img src="assets/icons/turq-paw.svg" class="paw-icon">
+              Age: {{ pet.petAge }} Year
+            </ion-label>
+            <!-- <ion-badge color="light">{{ pet.petAge }} Year</ion-badge> -->
+          </ion-chip>
+          <ion-chip class="bg" color="primary">
+            <ion-label class="bodyFont boldFont weight pet-details">
+              <img src="assets/icons/pink-paw.svg" class="paw-icon">
+              Weight: {{ pet.weight }}
+            </ion-label>
+            <!-- <ion-badge color="light">{{ pet.weight }} KG</ion-badge> -->
+          </ion-chip>
+          <div class="simple-divider"></div>
+        </div>
+        <hr>
+
+        <div class="Owner-info FlexSpaceInBetween">
+          <div class="MakeItFlex">
+            <div id="image">
+              <ion-avatar slot="start">
+                <img [src]="pet.petOwner.profile_image" alt="Owner Image"/>
+              </ion-avatar>
+            </div>
+            <div id="owner-details">
+              <h2 class="owner-name bodyFont boldFont">{{pet.petOwner.first_name}} {{pet.petOwner.last_name}}</h2>
+              <p class="pet-name bodyFont textGray">{{pet.name}} Owner</p>
+            </div>
+          </div>
+          
+          <div id="icon-container" class="MakeItFlex">
+            <ion-button class="whiteButton" fill="clear" (click)="presentAlertConfirm('call')">
+              <img class="icon" src="assets/icons/phone.svg">
+            </ion-button>
+            <ion-button class="whiteButton" fill="clear" (click)="presentAlertConfirm('chat')">
+              <img class="icon" src="assets/icons/paperPlane.svg">
+            </ion-button>
+          </div>
+        </div>
+
+        <!-- for small screens, don't delete it  -->
+        <div class="MakeItCenter">
+          <div id="icon-container-small" class="MakeItFlex">
+            <ion-button class="whiteButton" fill="clear" (click)="presentAlertConfirm('call')">
+              <img class="icon" src="assets/icons/phone.svg">
+            </ion-button>
+            <ion-button class="whiteButton" fill="clear" (click)="presentAlertConfirm('chat')">
+              <img class="icon" src="assets/icons/paperPlane.svg">
+            </ion-button>
+          </div>
+        </div>
+
+
+        <p>{{ displayText }}</p>
+        <ion-button
+          *ngIf="showMoreButton"
+          expand="block"
+          fill="clear"
+          color="primary"
+          (click)="toggleDescription()"
+        >
+          <p class="see-more-less">{{ isExpanded ? 'Show Less' : 'See More' }}</p>
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </ng-container>
+</ion-content>

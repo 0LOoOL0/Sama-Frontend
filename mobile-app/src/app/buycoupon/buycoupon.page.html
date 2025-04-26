@@ -1,0 +1,75 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card>
+    <img src="assets/vet.jpg" alt="Vet Image" class="vet-image"/>
+
+    <ion-card-content>
+      <div class="shop-header">
+        <img src="assets/pet-shop-logo.png" alt="Pet Shop Logo" class="shop-logo"/>
+        <div class="shop-details">
+          <h2 class="shop-name">PETS CABANA</h2>
+          <h2 class="discount">BHD10.00 OFF</h2>
+        </div>
+      </div>
+
+      <h3 class="offer-title">Get your 30% off accessories</h3>
+      <ul class="offer-details">
+        <li>Collars, leashes, and harnesses</li>
+        <li>Beds, mats, and blankets</li>
+        <li>Bowls and feeders</li>
+        <li>Toys (chew toys, plush toys, interactive toys)</li>
+        <li>Grooming supplies (brushes, combs, nail clippers)</li>
+        <li>Carriers and crates</li>
+        <li>Clothing and costumes</li>
+        <li>ID tags and name plates</li>
+        <li>Poop bags and waste disposal items</li>
+        <li>Car seat covers and pet barriers</li>
+      </ul>
+
+      <p class="redeem-date">Redeemable until: 30 June 2023</p>
+
+      <ion-button expand="block" color="primary">Buy</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+
+
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-card *ngIf="coupon">
+    <img [src]="coupon.imageUrl" alt="Vet Image" class="vet-image"/>
+
+    <ion-card-content>
+      <div class="shop-header">
+        <img [src]="coupon.shopLogo" alt="Pet Shop Logo" class="shop-logo"/>
+        <div class="shop-details">
+          <h2 class="shop-name">{{ coupon.shopName }}</h2>
+          <h2 class="discount">{{ coupon.discount }}</h2>
+        </div>
+      </div>
+
+      <h3 class="offer-title">{{ coupon.title }}</h3>
+      <ul class="offer-details">
+        <li *ngFor="let detail of coupon.details">{{ detail }}</li>
+      </ul>
+
+      <p class="redeem-date">Redeemable until: {{ coupon.redeemDate }}</p>
+
+      <ion-button expand="block" color="primary" (click)="buyCoupon()">Buy</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content> -->

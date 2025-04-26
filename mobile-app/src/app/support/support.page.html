@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titleFont">Help & Support</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="help-icon">
+    <img src="/assets/help-customer.png" alt="Help Icon" />
+  </div>
+
+  <br>
+
+  <ion-list>
+    <ion-item button (click)="navigateTo('faqs')" class="bodyFont">
+      <ion-icon slot="start" src="/assets/icons/faq.svg"></ion-icon>
+      <ion-label>FAQs</ion-label>
+    </ion-item>
+
+    <ion-item button (click)="contactViaWhatsApp()" class="bodyFont">
+      <ion-icon slot="start" src="/assets/icons/whatsapp.svg"></ion-icon>
+      <ion-label>Contact us on WhatsApp</ion-label>
+    </ion-item>
+
+    <ion-item button (click)="contactUs()" class="bodyFont">
+      <ion-icon slot="start" src="/assets/icons/phone.svg"></ion-icon>
+      <ion-label>Contact us</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,39 @@
+.upload-section {
+    margin-bottom: 20px;
+  
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+  
+    .upload-box {
+      border: 2px dashed #ff7b54;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      color: #ff7b54;
+  
+      ion-icon {
+        font-size: 48px;
+        margin-bottom: 10px;
+      }
+  
+      span {
+        display: block;
+        font-weight: bold;
+      }
+    }
+  
+    .upload-info {
+      font-size: 12px;
+      color: gray;
+      margin: 5px 0 0 0;
+    }
+  }
+  
+  ion-item {
+    margin-top: 20px;
+  }
+  

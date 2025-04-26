@@ -1,0 +1,36 @@
+<div class="empty-state bodyFont">
+  <ion-header>
+    <span class="left-align">
+      <ion-toolbar>
+        <ion-label class="titleFont" id="black">My Pets</ion-label>
+      </ion-toolbar>
+    </span>
+  </ion-header>
+
+  <ion-content class="ion-padding bodyFont">
+    <div class="middle">
+      <img src="assets/mypet.svg" alt="my Pet" />
+      <p class="textGray">No Pets Have Been Added</p>
+    </div>
+  </ion-content>
+
+  <div class="bottom ion-padding">
+    <ion-button
+      class="bodyFont"
+      expand="full"
+      fill="clear"
+      class="FilledButtons"
+      routerLink="/pet-profile"
+    >
+      + Add Pets
+    </ion-button>
+    <ion-button
+      expand="full"
+      fill="clear"
+      class="OutlinedButtons"
+      routerLink="/mains"
+    >
+      Skip
+    </ion-button>
+  </div>
+</div>

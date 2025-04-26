@@ -1,0 +1,138 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titleFont">Profile Setup</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-content>
+
+      <ion-label position="stacked" class="bodyFont">Business Name</ion-label>
+      <ion-item lines="none" class="roundedInput">
+        <ion-input [(ngModel)]="profile.businessName" placeholder="Enter your name" fill="solid" class="bodyFont textGray"></ion-input>
+      </ion-item>
+
+      <ion-label position="stacked" class="bodyFont">Phone Number</ion-label>
+      <ion-item lines="none" class="roundedInput">
+        <ion-input [(ngModel)]="profile.phoneNumber" placeholder="Enter your Phone Number" fill="solid" class="bodyFont textGray"></ion-input>
+      </ion-item>
+
+      <ion-label position="stacked" class="bodyFont">Company Email</ion-label>
+      <ion-item lines="none" class="roundedInput">
+        <ion-input [(ngModel)]="profile.companyEmail" placeholder="Enter your company email" fill="solid" class="bodyFont textGray"></ion-input>
+      </ion-item>
+
+      <ion-label position="stacked" class="bodyFont">Location</ion-label>
+      <ion-segment [(ngModel)]="profile.location" class="location-segment">
+        <ion-segment-button value="House">
+          <ion-label>House</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="Apartment">
+          <ion-label>Apartment</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="Office">
+          <ion-label>Office</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+      <div *ngIf="profile.location === 'House'">
+        <ion-row>
+          <ion-col col-3>
+            <ion-item lines="none" class="roundedInput">
+              <ion-input [(ngModel)]="profile.house" placeholder="House" fill="solid" class="bodyFont textGray"></ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col col-9>
+            <ion-item lines="none" class="roundedInput">
+              <ion-input [(ngModel)]="profile.road" placeholder="Road" fill="solid" class="bodyFont textGray"></ion-input>
+            </ion-item>
+          </ion-col>
+
+          <ion-col col-3>
+            <ion-item lines="none" class="roundedInput">
+              <ion-input [(ngModel)]="profile.block" placeholder="Block" fill="solid" class="bodyFont textGray"></ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </div>
+
+      <div *ngIf="profile.location === 'Apartment'">
+        <ion-item lines="none" class="roundedInput">
+          <!-- <ion-label position="stacked">Building Number</ion-label> -->
+          <ion-input [(ngModel)]="profile.buildingNumber" placeholder="Building Number" fill="solid" class="bodyFont textGray"></ion-input>
+        </ion-item>
+        <ion-item lines="none" class="roundedInput">
+          <ion-label position="stacked">Apartment No</ion-label>
+          <ion-input [(ngModel)]="profile.apartmentNo" placeholder="Apartment No" fill="solid" class="bodyFont textGray"></ion-input>
+        </ion-item>
+        <ion-item lines="none" class="roundedInput">
+          <ion-label position="stacked">Floor (optional)</ion-label>
+          <ion-input [(ngModel)]="profile.floor" placeholder="Floor (optional)" fill="solid" class="bodyFont textGray"></ion-input>
+        </ion-item>
+        <ion-item lines="none" class="roundedInput">
+          <ion-label position="stacked">Street</ion-label>
+          <ion-input [(ngModel)]="profile.street" placeholder="Street" fill="solid" class="bodyFont textGray"></ion-input>
+        </ion-item>
+      </div>
+
+      <div *ngIf="profile.location === 'Office'">
+        <ion-item lines="none" class="roundedInput">
+          <ion-label position="stacked">Building Name</ion-label>
+          <ion-input [(ngModel)]="profile.buildingName" placeholder="Building Name" fill="solid" class="bodyFont textGray"></ion-input>
+        </ion-item>
+        <ion-item lines="none" class="roundedInput">
+          <ion-label position="stacked">Building Number</ion-label>
+          <ion-input [(ngModel)]="profile.buildingNumberOffice" placeholder="Building Number" fill="solid" class="bodyFont textGray"></ion-input>
+        </ion-item>
+        <ion-item lines="none" class="roundedInput">
+          <ion-label position="stacked">Company Name</ion-label>
+          <ion-input [(ngModel)]="profile.companyName" placeholder="Company Name" fill="solid" class="bodyFont textGray"></ion-input>
+        </ion-item>
+        <ion-item lines="none" class="roundedInput">
+          <ion-label position="stacked">Floor (optional)</ion-label>
+          <ion-input [(ngModel)]="profile.floorOffice" placeholder="Floor (optional)" fill="solid" class="bodyFont textGray"></ion-input>
+        </ion-item>
+        <ion-item lines="none" class="roundedInput">
+          <ion-label position="stacked">Street</ion-label>
+          <ion-input [(ngModel)]="profile.streetOffice" placeholder="Street" fill="solid" class="bodyFont textGray"></ion-input>
+        </ion-item>
+      </div>
+
+      <ion-item-divider>
+        <ion-label>Authorized Contact Profile</ion-label>
+        <ion-button fill="clear" size="small" (click)="addContact()">
+          <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon> Add contact
+        </ion-button>
+      </ion-item-divider>
+
+      <div *ngFor="let contact of profile.contacts; let i = index">
+        <ion-item lines="none" class="roundedInput">
+          <ion-label position="stacked">Name</ion-label>
+          <ion-input [(ngModel)]="contact.name" placeholder="Enter your name" fill="solid" class="bodyFont textGray"></ion-input>
+        </ion-item>
+        <ion-item lines="none" class="roundedInput">
+          <ion-label position="stacked">Job title</ion-label>
+          <ion-input [(ngModel)]="contact.jobTitle" placeholder="Enter your title" fill="solid" class="bodyFont textGray"></ion-input>
+        </ion-item>
+        <ion-item lines="none" class="roundedInput">
+          <ion-label position="stacked">Phone number</ion-label>
+          <ion-input [(ngModel)]="contact.phoneNumber" placeholder="Add your Phone number" fill="solid" class="bodyFont textGray"></ion-input>
+        </ion-item>
+        <ion-item lines="none" class="roundedInput">
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input [(ngModel)]="contact.email" placeholder="Add your Email" fill="solid" class="bodyFont textGray"></ion-input>
+        </ion-item>
+        <ion-button fill="clear" color="danger" (click)="removeContact(i)">
+          <ion-icon slot="icon-only" name="remove-circle-outline"></ion-icon> Remove contact
+        </ion-button>
+      </div>
+
+      <ion-button expand="block" color="primary" (click)="next()">Next</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

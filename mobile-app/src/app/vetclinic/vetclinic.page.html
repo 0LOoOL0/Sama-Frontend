@@ -1,0 +1,176 @@
+<ion-header>
+  <ion-toolbar>
+    
+    <div class="header-margin-Single-Line">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text=""></ion-back-button>
+      </ion-buttons>
+   
+        <ion-label class=" titleFont centered-title">{{ type }}</ion-label>
+          
+      
+
+    <ion-buttons slot="end">
+      <ion-button (click)="openFilter()">
+        <img class="icon" src="assets/icons/filter.svg" />
+      </ion-button>
+    </ion-buttons>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="onSearchInput($event)" debounce="300"
+    placeholder="Search providers">
+  </ion-searchbar>
+
+  <div *ngIf="type === 'products'" class="MakeItCenter">
+    <div>
+      <div class="MakeItAGride gridContainer">
+        <div class="singleCell" *ngFor="let product of products">
+          <div class="imgContainer" (click)="navigateToDetails(product)">
+            <img [src]="product.images[0]" alt="{{ product.name }}" />
+          </div>
+
+          <div class="FlexSpaceInBetween textContainer">
+            <div class="titleAndPriceContainer">
+              <div class="titleContainer break-word">
+                <ion-label class="bodyFont boldFont">{{ product.name }}</ion-label>
+              </div>
+
+              <div class="prices">
+                <ion-label id="old" class="bodyFont textGray boldFont smallFont location">{{ product.old_price }} BD</ion-label>
+                <br>
+                <ion-label id="new" class="bodyFont boldFont smallFont location">{{ product.new_price }} BD</ion-label>
+              </div>
+            </div>
+            <div class="MakeItFlex">
+              <!-- These two are buttons-->
+              <div *ngIf="!product.isFavorite" (click)="addToFavorites(product)">
+                <img class="icon" src="/assets/heart.svg">
+              </div>
+              <div *ngIf="product.isFavorite" (click)="addToFavorites(product)">
+                <img class="icon" src="/assets/heartr.svg">
+              </div>
+
+              <!-- Add to Cart logic with increment -->
+              <div (click)="addToCart(product)">
+                <img class="icon" id="add" src="/assets/icons/plus-filled.svg">
+                <ion-label *ngIf="product.isInCart" class="quantity-label">x{{ product.quantity }}</ion-label>
+              </div>
+            </div>              
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="type !== 'products'" class="MakeItCenter">
+    <!-- Existing logic for clinics, stores, etc. -->
+    <div class="MakeItAGride vetClinicsContainer">
+      <div class="vetClinic" *ngFor="let clinic of clinics">
+        <div class="imgContainer">
+          <img [src]="clinic.profile_image" alt="Clinic Image" (click)="goToVetDetails(clinic.id)" (error)="clinic.profile_image = '/assets/icons/store.png'"  class="clinic-image" />
+        </div>
+        <div class="FlexSpaceInBetween">
+          <div class="titleContainer">
+            <ion-label class="bodyFont boldFont vetClinicTitle">{{ clinic.name }}</ion-label>
+          </div>
+          <ion-img *ngIf="!clinic.isFavorite" src="assets/icons/heart.svg" alt="Favorite Icon" class="icon"
+            (click)="addToFavorites(clinic)">
+          </ion-img>
+          <ion-img *ngIf="clinic.isFavorite" src="assets/heartr.svg" alt="Favorite Icon" class="icon"
+            (click)="addToFavorites(clinic)">
+          </ion-img>
+        </div>
+      </div>
+    </div>
+  </div>
+          
+
+  <!--Filter-->
+
+  <ion-modal class="bodyFont modal" [isOpen]="showFilterModal" (ionModalDidDismiss)="dismissFilter()"
+    [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title class="titleFont">Filter</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="resetFilter()" class="bodyFont">Reset</ion-button>
+            <ion-button (click)="dismissFilter()" class="bodyFont">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content class="content-container">
+        <ion-item class="price">
+          <ion-label class="bodyFont price-label">Price</ion-label>
+          <br>
+          <div class="price-select">
+            <ion-select [(ngModel)]="priceOrder">
+              <ion-select-option value="lowest" class="bodyFont price">Lowest to Highest</ion-select-option>
+              <ion-select-option value="highest" class="bodyFont price">Highest to Lowest</ion-select-option>
+            </ion-select>
+          </div>
+        </ion-item> 
+        <ion-item class="price price-range">
+          <div class="price-container">
+            <div class="input-wrapper">
+              <ion-input [(ngModel)]="priceRange.lower" placeholder="0" type="number" min="0"
+                class="price-input"></ion-input>
+              <span class="currency bodyFont">BHD</span>
+            </div>
+            <span class="to-label">to</span>
+            <div class="input-wrapper">
+              <ion-input [(ngModel)]="priceRange.upper" placeholder="1000" type="number" min="0"
+                class="price-input"></ion-input>
+              <span class="currency bodyFont">BHD</span>
+            </div>
+          </div>
+        </ion-item>
+
+        <!-- <ion-item class="kilo">
+          <ion-label class="bodyFont">Kilometer</ion-label>
+          <div class="slider-header">
+            <span> {{ kilometerRange }} KM </span>
+          </div>
+        </ion-item>
+        <ion-range [(ngModel)]="kilometerRange" min="0" max="50" step="1" class="kilometer-range">
+          <ion-label slot="start" class="kilo-label">0 KM</ion-label>
+          <ion-label slot="end" class="kilo-label">50 KM</ion-label>
+        </ion-range>
+        <div class="slider-scale">
+          <span>5</span>
+          <span>10</span>
+          <span>15</span>
+          <span>20</span>
+          <span>25</span>
+          <span>30</span>
+          <span>35</span>
+          <span>40</span>
+          <span>45</span>
+        </div> -->
+
+        <br>
+
+        <ion-label class="bodyFont review-label">Reviews</ion-label>
+        <div class="review">
+          <div class="review-options">
+            <ion-chip *ngFor="let rating of reviewRatings" (click)="selectReviewRating(rating)">
+              <div class="stars">
+                <ion-icon *ngFor="let star of [].constructor(rating)" name="star" slot="start"
+                  src="assets/icons/Star.svg"></ion-icon>
+              </div>
+              <span> & up</span>
+            </ion-chip>
+          </div>
+        </div>
+
+        <br>
+        <ion-button expand="block" (click)="applyFilter()" class="apply-button">Apply</ion-button>
+
+      </ion-content>
+    </ng-template>
+  </ion-modal>

@@ -1,0 +1,66 @@
+// header
+p{
+  padding-top: 2px;
+  margin: 5px 32px 0px 0px;
+  width:100%
+}
+
+//input fields
+ion-item{
+  margin-top:10px;
+}
+
+.SmallMargin{
+  ion-label{
+      margin-left: 16px;
+      font-weight: 600;
+  }
+  #SpecialMargin{
+    margin-bottom: 2px;
+  }
+}
+
+// forgot password
+.forgot-password {
+  width: 100%;
+  margin-top: 2px;
+  margin-left: 16px;
+  margin-bottom: 15px;
+}
+
+// span
+.logIn{
+  color: var(--Main-One);
+  font-weight: 600;
+}
+
+// log in through third party buttons
+.logInButtons{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+      ion-button{
+          width: 90%;
+          border-radius: 16px;
+      }
+      ion-icon{
+          margin-right: 10px ;
+      }
+}
+
+#Facebook{
+  background-color: #3975EA;
+  color: var(--white);
+}
+
+#Google{
+  background-color: rgb(255, 255, 254);
+  color: var(--Black);
+}
+
+#Apple{
+  background-color: var(--Black);
+  color: rgb(255, 255, 254);
+}

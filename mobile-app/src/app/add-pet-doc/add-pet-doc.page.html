@@ -1,0 +1,173 @@
+<ion-header>
+  <ion-toolbar>
+   
+    <div class="header-margin-Single-Line">
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/" text=""></ion-back-button>
+      </ion-buttons>
+   
+        <ion-label class=" titleFont centered-title">Add Pet Documents</ion-label>
+      </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="empty-state">
+    <div class="bodyFont">
+      <p *ngIf="List.length === 0">
+        <ion-label>Documents</ion-label>
+        <br />
+        Keep your pet’s records handy by uploading them for quick retrieval no
+        matter your location!
+        <br />
+        (Supported file formats: PNG, JPEG only.)
+      </p>
+    </div>
+    
+    <div *ngIf="List.length > 0" class="container">
+      <ion-list *ngFor="let petDocument of List; let i = index">
+        <ion-label id="title" class="bodyFont">
+          {{ petDocument.documentTitle }}
+        </ion-label>
+
+          <div class="document FlexSpaceInBetween">
+            <div class="MakeItFlex notFullWidth">
+              <div class="start">
+                <ion-thumbnail slot="start">
+                  <img src="assets/icons/file.svg" alt="Document Image" />
+                </ion-thumbnail>
+              </div>
+              <div class="middle">
+                <ion-label class="bodyFont textGray">
+                  {{ petDocument.uploadedFile?.name }}
+                </ion-label>
+              </div>
+            </div>
+
+
+            <ion-thumbnail slot="start">
+              <img
+                src="assets/icons/download.svg"
+                (click)="downloadDoc(petDocument.uploadedFile)"/>
+            </ion-thumbnail>
+          </div>
+
+            <div class="bottomIcons">
+              <div class="smaller">
+                <ion-thumbnail slot="start" (click)="setEditOpen(true, i)">
+                  <img src="assets/icons/edit.svg" />
+                </ion-thumbnail>
+                <ion-thumbnail slot="start" (click)="deleteDoc(i)">
+                  <img src="assets/icons/trash.svg" />
+                </ion-thumbnail>
+              </div>
+            </div>
+
+      </ion-list>
+    </div>
+  </div>
+
+  <ion-modal
+    [isOpen]="isModalOpen"
+    [initialBreakpoint]="0.5"
+    [breakpoints]="[0.5, 0.75, 1]"
+  >
+    <ng-template>
+      <ion-content class="ion-padding">
+        <ion-label class="bodyFont">Document Title</ion-label>
+        <ion-item class="roundedInput">
+          <ion-input
+            class="bodyFont textGray"
+            fill="solid"
+            placeholder="Type here"
+            type="text"
+            [(ngModel)]="input.documentTitle"
+          ></ion-input>
+        </ion-item>
+        <br />
+        <ion-label class="bodyFont">Upload Document</ion-label>
+
+        <ion-item class="roundedInput">
+          <div class="yellow">
+            <input
+            type="file"
+            accept="image/*"
+            (change)="handleFileInput($event)"
+            />
+            <ion-label class="bodyFont lightFont smallFont">
+              Upload your document +
+            </ion-label>
+          </div>
+        </ion-item>
+
+        <br />
+        <ion-button
+          expand="full"
+          fill="clear"
+          class="FilledButtons smallButton"
+          (click)="addDoc()"
+        >
+          + Add
+        </ion-button>
+        <ion-label class="error-message" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </ion-label>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal
+    [isOpen]="editModalOpen"
+    [initialBreakpoint]="0.5"
+    [breakpoints]="[0.5, 0.75, 1]"
+  >
+    <ng-template>
+      <ion-content class="ion-padding">
+        <ion-label class="bodyFont">Edit Document Title</ion-label>
+        <ion-item class="roundedInput">
+          <ion-input
+            class="bodyFont textGray"
+            fill="solid"
+            placeholder="Type here"
+            type="text"
+            [(ngModel)]="input.documentTitle"
+          ></ion-input>
+        </ion-item>
+        <br />
+        <ion-button
+          expand="full"
+          fill="clear"
+          class="FilledButtons smallButton"
+          (click)="saveEdit()"
+        >
+          Save
+        </ion-button>
+        <ion-label class="error-message" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </ion-label>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+
+<div class="ion-padding">
+  <div class="left">
+    <ion-button
+      expand="full"
+      fill="clear"
+      class="FilledButtons smallButton"
+      (click)="setOpen(true)"
+    >
+      + Add
+    </ion-button>
+  </div>
+  <ion-button
+    expand="full"
+    fill="clear"
+    [class]="getButtonColor()"
+    (click)="navigateNext()"
+  >
+    {{ getButtonLabel() }}
+  </ion-button>
+</div>
+

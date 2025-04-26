@@ -1,0 +1,152 @@
+// header
+ion-buttons{
+  margin-top: 20px;
+}
+
+// general
+.blackTitleFont{
+  font-size: 1.2rem;
+}
+
+.icon{
+  width: 24px;
+  height: auto;
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+}
+
+.Margin-Top{
+  margin-top: 10px;
+}
+
+.Middle{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+// image
+.Pimage{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  max-width: 360px;
+  height: auto;
+  border-radius: 16px;
+}
+
+// title and prices
+#old-price {
+  text-decoration: line-through;
+  color: var(--Main-One) !important;
+  margin-right: 10px;
+  font-size: 1rem !important;
+}
+  
+#new-price {
+  color: var(--Main-Two) !important;
+  font-size: 1rem !important;
+}
+
+// rating
+.stars-container {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 3px;
+}
+
+.star {
+  margin-right: 3px;
+}
+
+// subscribe
+.subscribe{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 350px;
+  height: clamp(59px, 64px, 64px);
+  border-radius: 16px;
+  padding-right: 20px;
+  padding-left: 20px;
+  text-align: center;
+  
+  .bodyFont{
+    color: var(--White) !important;
+  }
+
+  ion-button{
+    font-family: "Montserrat";
+    font-optical-sizing: auto;
+    font-style: normal;
+
+    text-align: center;
+    border-radius: 16px;
+    background-color: var(--Main-One);
+    color: white;
+    padding: 0px 16px 0px;
+  }
+}
+
+// Review header
+.countColour{
+  color: var(--Main-One) !important;
+  margin-left: 3px;
+}
+
+// reviews
+.ReviewContainer{
+  width: 100%;
+  border-radius: 16px;
+  margin: 10px 0px 10px;
+  padding: 16px;
+}
+
+.square{
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+
+  .parent{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+}
+
+// Footer
+.add-to-cart-button{
+  width: 50%;
+  background-color:var(--Main-Two);
+}
+
+.footer{
+  padding: 0px 16px 0px;
+}
+
+@media screen and (max-width: 350px){
+  .subscribe{
+    .bodyFont{
+      font-size: 0.775rem;
+    }
+  }
+
+  ion-button{
+    padding: 0px 8px 0px;
+    width: 50%;
+  }
+}

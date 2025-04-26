@@ -1,0 +1,293 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+/**
+ * Ionic Dark Mode
+ * -----------------------------------------------------
+ * For more info, please see:
+ * https://ionicframework.com/docs/theming/dark-mode
+ */
+
+/* @import "@ionic/angular/css/palettes/dark.always.css"; */
+/* @import "@ionic/angular/css/palettes/dark.class.css"; */
+@import "@ionic/angular/css/palettes/dark.system.css";
+
+// colors
+:root {
+    --Main-One: #ED5F1E;
+    --Main-Two: #5E17EB;
+    --Main-Two-Shadow: rgb(94, 23, 235, 0.5);
+    --Accent-One: #FFEA50;
+    --Accent-Two: #4FC8DC;
+    --GrayColor:  #9da4aa;
+    --Backup-Pink: #FFB8FF;
+    --background-color: #dfe3e7;
+    --Black: #000000;
+    --White: #ffffff;
+  }
+
+// texts
+.titleFont, .blackTitleFont{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 1rem;
+  font-weight: 600;
+  // Use a value from 100 to 900
+  font-style: normal;
+
+  &.titleFont{
+    color: var(--Black);
+  }
+
+  &.blackTitleFont{
+    color: var(--Black);
+  }
+
+}
+.centered-title {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.bodyFont, .bodyFontNoColor {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 0.875rem;
+  font-weight: 500;
+  font-style: normal;
+  &.bodyFont{
+    color: var(--Black) !important;
+  }
+}
+
+.textGray {
+  color: var(--GrayColor) !important;
+}
+
+.smallFont{
+  font-size: 0.7rem !important;
+}
+
+.boldFont{
+  font-weight: 600 !important;
+}
+
+.lightFont{
+  font-weight: 400 !important;
+}
+
+// Layout elements
+.MakeItFlex, .MakeItCenter{
+  display: flex;
+  &.MakeItFlex{
+    align-items: center;
+  }
+  &.MakeItCenter{
+    justify-content: center;
+  }
+}
+
+.MakeItFlexAsAColumn, .MakeItFlexAsAColumnNoCenter{
+  display: flex;
+  flex-direction: column;
+  &.MakeItFlexAsAColumn{
+    align-items: center;
+  }
+}
+
+.FlexSpaceInBetween, .FlexSpaceInBetweenNoPadding{
+  display: flex;
+  justify-content: space-between;
+
+  &.FlexSpaceInBetweenNoPadding{
+    padding: 0px;
+  }
+}
+
+.MakeItAGride{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+// ion native elements
+  ion-app {
+    background-color: var(--background-color);
+  }
+  
+  ion-content {
+    --background: var(--background-color);
+  }
+
+  ion-toolbar, ion-footer, ion-card, ion-list{
+    --background: var(--background-color);
+    --ion-border-color: transparent;
+    --ion-box-shadow: none;
+    box-shadow: none !important;
+    border: none !important;
+    
+    &.ion-toolbar {
+        --ion-toolbar-shadow: none;
+    }
+  }
+
+  ion-button{
+    text-transform: none;
+  }
+
+  ion-title{
+    font-weight: 600;
+    font-size: 1.3rem;
+  }
+
+  ion-back-button {
+    --color: var(--Black);
+    
+  }
+ 
+
+  ion-list{
+    background-color: white;
+  }
+
+  ion-radio-group{
+    .bodyFont{
+        font-weight: 400;
+    }
+  
+    ion-radio {
+        --color: var(--GrayColor);
+        --color-checked: var(--Main-Two);
+    }
+  }
+  
+// custom ion-input css
+  .input-fill-solid.sc-ion-input-md-h, .input-fill-solid.has-focus.sc-ion-input-md-h{
+    --background: var(--White);
+    --color: var(--GrayColor);
+    --border-color: none;
+    --border-radius: 16px;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    min-height: 56px;
+}
+
+.roundedInput {
+  --background: var(--White);
+  --border-radius: 16px;
+  --ion-border-color: transparent;
+}
+
+// custom header css
+.header-md {
+  -webkit-box-shadow:none;
+  box-shadow: none;
+}
+
+.header-margin{
+  margin-top: 30px;
+  margin-left:32px;
+  margin-right: 10px;
+}
+
+.header-margin-Single-Line {
+  margin-top: 20px;
+  margin-left:32px;
+  margin-right: 10px;
+}
+
+// custom ion-buttons css
+.Buttons,
+.FilledButtons,
+.OutlinedButtons {
+    font-family: "Montserrat";
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 0.875rem;
+    font-style: normal;
+
+    text-align: center;
+    border-radius: 16px;
+    margin-bottom: 10px;
+    height: 6vh;
+  
+    &.FilledButtons {
+      background-color: var(--Main-One);
+      color: white;
+    }
+  
+    &.OutlinedButtons {
+      border: 1px solid var(--Main-One);
+      color: var(--Main-One);
+    }
+  }
+
+// I don't remember what this is for but keep it
+  .loading-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+// custom ion-select css
+.selector{
+  background-color: var(--Main-One);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 25px;
+}
+
+// special code for a page that doesn't work
+.SpecialYellow{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: var(--Accent-One);
+  border-radius: 25px;
+  margin: 5px;
+  width: 100%;
+  height: 70%;
+
+  input{
+    position: absolute;
+    opacity: 0%;
+    width: 100%;
+    z-index: 2;
+  }
+
+  ion-label {
+    position: absolute;
+    z-index: 1;
+  }
+}
+
+ion-item{
+  margin-top: 10px !important;
+}

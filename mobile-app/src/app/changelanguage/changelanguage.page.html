@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-label class="centered-title titleFont">Change Language</ion-label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="custom-page-background ion-padding">
+    <ion-radio-group [(ngModel)]="selectedLanguage" (ionChange)="changeLanguage()">
+      <ion-item >
+        <ion-label class="bodyFont boldFont">English</ion-label>
+        <ion-radio slot="start" ></ion-radio>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label class="bodyFont boldFont">العربي</ion-label>
+        <ion-radio slot="start"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+</ion-content>
