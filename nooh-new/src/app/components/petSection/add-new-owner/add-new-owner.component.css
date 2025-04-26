@@ -1,7 +1,0 @@
-/* In your Tailwind CSS file */
-.active-tab {
-    @apply bg-[#5E17EB] border-b-2 border-[#5E17EB] text-white;
-  }
-
-  
-  

@@ -1,5 +1,0 @@
-/* In your Tailwind CSS file */
-.active-tab {
-    @apply text-blue-600 border-b-2 border-blue-600;
-  }
-  
