@@ -15,7 +15,7 @@ import { ToastController } from '@ionic/angular';
 export class AdoptionlistPage implements OnInit {
   searchQuery: string = '';
   AllPets: any = {};
-  ownerAddresses: { [petId: string]: string } = {};
+  ownerAddresses: { [petId: string]: string } = {}; 
   adoptionPets: any = [];
   lostPets: any = [];
   lostOwnerPets: any = [];
@@ -29,7 +29,7 @@ export class AdoptionlistPage implements OnInit {
     private authService: AuthService,
     private toastController: ToastController,
     private favService: FavService,
-  ) { }
+  ) {}
 
   ngOnInit() {
     // Fetch all pets
@@ -48,26 +48,26 @@ export class AdoptionlistPage implements OnInit {
       this.AllPets = petsData;
       this.loadImages();
       this.filterPets();
-
+  
       // Fetch the profile data to get the pet owner ID
       this.authService.fetchProfileData().then(profile => {
         const petOwnerId = profile.id;
-
+  
         // Get favorites for the current pet owner
         this.favService.getFavsByPetOwnerId(petOwnerId).subscribe(favs => {
           const favoriteIds = favs.map(fav => fav.pet_id);
-
+  
           // Loop through all pets and fetch their owner’s address
           this.AllPets.forEach((pet: any) => {
             // Check if the pet is in favorites
             pet.isFavorite = favoriteIds.includes(pet.id);
-
+  
             // Fetch owner data
             this.authService.getPetOwnerData(pet.pet_owner_id)
               .then((response: any) => {
                 // Assuming the response contains an object with the city in 'response.data.city'
                 console.log('Owner response:', response.data); // Log the full response to inspect it
-
+                
                 // Access the city field correctly (adjust this based on actual response structure)
                 const ownerCity = response.data.data?.city || 'Unknown city'; // Adjust if necessary
                 this.ownerAddresses[pet.id] = ownerCity;
@@ -87,12 +87,12 @@ export class AdoptionlistPage implements OnInit {
 
   filterPets() {
     this.adoptionPets = this.AllPets
-      .filter((pet: any) => pet.allow_adoption === 1)
-      .sort((a: any, b: any) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+    .filter((pet: any) => pet.allow_adoption === 1)
+    .sort((a: any, b: any) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 
-    this.mattingPets = this.AllPets
-      .filter((pet: any) => pet.is_neutered === 'yes')
-      .sort((a: any, b: any) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+  this.mattingPets = this.AllPets
+    .filter((pet: any) => pet.is_neutered === 'yes')
+    .sort((a: any, b: any) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
 
     this.lostOwnerPets = this.AllPets.filter((pet: any) => pet.is_lost === 1);
   }
@@ -102,14 +102,14 @@ export class AdoptionlistPage implements OnInit {
     if (this.petListType === 1) {
       pets = this.adoptionPets;
     } else if (this.petListType === 2) {
-      pets = [...this.lostPets, ...this.lostOwnerPets]
-        .sort((a: any, b: any) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+    pets = [...this.lostPets, ...this.lostOwnerPets]
+    .sort((a: any, b: any) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
     } else if (this.petListType === 3) {
       pets = this.mattingPets;
     }
 
     if (this.searchQuery) {
-      pets = pets.filter(pet =>
+      pets = pets.filter(pet => 
         pet.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
         pet.location?.toLowerCase().includes(this.searchQuery.toLowerCase()) || // Check pet's location
         (this.ownerAddresses[pet.id]?.toLowerCase().includes(this.searchQuery.toLowerCase()) || '') // Check owner's address
@@ -138,11 +138,11 @@ export class AdoptionlistPage implements OnInit {
       this.router.navigate(['/adoptionpetinfo', id]);
     }
   }
-
+  
 
   isFounder(): boolean {
-    return this.role === 'founder';
-  }
+  return this.role === 'founder'; 
+}
   showAdoption() {
     this.petListType = 1;
   }
@@ -188,7 +188,7 @@ export class AdoptionlistPage implements OnInit {
   //       },
   //     ],
   //   });
-
+  
   //   await alert.present();
   // }
 
@@ -203,7 +203,7 @@ export class AdoptionlistPage implements OnInit {
   addToFavorites(pet: any) {
     this.authService.fetchProfileData().then(profile => {
       const petOwnerId = profile.id;
-
+  
       // Check if the pet is already in favorites
       this.favService.isPetInFavorites(petOwnerId, pet.id).subscribe(isInFavorites => {
         if (isInFavorites) {
@@ -248,18 +248,18 @@ export class AdoptionlistPage implements OnInit {
 
   async loadImages() {
     for (const pet of this.AllPets) {
-      if (pet.image && pet.image.trim() !== '' && !pet.image.includes("via.placeholder.com")) {
-        try {
-          const res = await this.petInfoService.uploadImage(pet.image);
-          pet.imageUrl = res;
-          console.log('Updated imageUrl for pet:', pet.imageUrl);
-        } catch (error) {
-          console.error('Error uploading image for pet:', error);
+        if (pet.image && pet.image.trim() !== '' && !pet.image.includes("via.placeholder.com")) {
+            try {
+                const res = await this.petInfoService.uploadImage(pet.image);
+                pet.imageUrl = res;
+                console.log('Updated imageUrl for pet:', pet.imageUrl);
+            } catch (error) {
+                console.error('Error uploading image for pet:', error);
+            }
+        } else {
+            // If the condition is not met, log or handle the case as needed
+            console.log('Image URL remains unchanged for pet:', pet.imageUrl);
         }
-      } else {
-        // If the condition is not met, log or handle the case as needed
-        console.log('Image URL remains unchanged for pet:', pet.imageUrl);
-      }
     }
-  }
+}
 }
