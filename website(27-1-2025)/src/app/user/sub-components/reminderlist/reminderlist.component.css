@@ -1,0 +1,302 @@
+/* General Styles */
+body {
+  font-family: 'Promo Regular';
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+/* Main Container */
+.main-container {
+  font-family: 'Promo Regular';
+  display: flex;
+  gap: 20px;
+  padding: 40px;
+}
+
+/* Calendar Section */
+.calendar-section {
+  width: 30%;
+  background-color: #F1F1F1;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
+  height: 650px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-header h4 {
+  font-size: 24px;
+  text-align: center;
+  flex-grow: 1;
+  color: #39434F;
+}
+
+.calendar-header .month {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.calendar-header .arrows {
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
+}
+
+.calendar-header .arrow {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 9px;
+  table-layout: fixed;
+}
+
+.calendar-table th,
+.calendar-table td {
+  width: 12%;
+  height: 50px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 20px;
+  box-sizing: border-box;
+  border: none;
+  color: #606873;
+}
+
+.calendar-table td {
+  color: #606873;
+}
+
+.calendar-table th {
+  background-color: #f0f0f0;
+  border: none;
+  font-weight: normal;
+  padding: 0;
+  text-align: center;
+  color: #A0AEC0;
+}
+
+.calendar-table td.empty-cell {
+  background-color: #e8e5e5;
+}
+
+/* .calendar-table td:hover {
+  background-color: #f0f0f0;
+} */
+
+/* Reminders Section */
+.reminders-section {
+  width: 75em;
+  border: 20px solid #5E17EB;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #F1F1F1;
+}
+
+.reminders-section h2 {
+  color: #39434F;
+}
+
+.reminder-card {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 35px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.reminder-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 25%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.reminder-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  height: 80px;
+
+}
+
+.reminder-header h5 {
+  font-size: 1.5rem;
+}
+
+.reminder-icons span {
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.reminder-info {
+  font-size: 1.1rem;
+  color: #777;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.calendar-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.reminder-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #5a31f4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.more-buttons {
+  width: 15%;
+  padding: 15px;
+  font-size: 20px;
+  height: 50px;
+  background-color: #ED5F1E;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Promo Regular';
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  float: right;
+}
+
+.more-buttons img {
+  width: 25px;
+  margin-left: 8px;
+}
+
+
+/* Footer Section  */
+.footer-section {
+  font-family: 'Promo Regular';
+  background-color: #472ea3;
+  padding: 40px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.company-info {
+  flex: 1;
+  max-width: 250px;
+}
+
+.company-info h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.phone-number {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.working-hours {
+  flex: 1;
+  max-width: 150px;
+}
+
+.working-hours h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.useful-links {
+  flex: 1;
+  max-width: 150px;
+}
+
+.useful-links h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.useful-links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.useful-links ul li {
+  margin-bottom: 5px;
+}
+
+.useful-links ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.useful-links ul li a:hover {
+  text-decoration: underline;
+}
+
+.newsletter {
+  flex: 1;
+  max-width: 250px;
+}
+
+.newsletter h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.newsletter form {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter input {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  flex: 1;
+}
+
+.newsletter button {
+  background-color: #f7b32b;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.newsletter button:hover {
+  background-color: #e09b24;
+}

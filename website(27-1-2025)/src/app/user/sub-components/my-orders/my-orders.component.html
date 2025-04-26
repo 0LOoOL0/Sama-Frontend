@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+
+<div class="profile-container">
+  <div class="sidebar">
+    <div class="profile-image">
+      <img [src]="userProfile?.profile_image" alt="Sarah Newland">
+    </div>
+    <h2 class="profile-id">#{{userProfile?.id}}</h2>
+    <h1 class="profile-name">{{userProfile?.first_name}} {{userProfile?.last_name}}</h1>
+    <p class="join-date">Joined: {{userProfile?.created_at | date: 'yyyy-MM-dd'}}</p>
+  </div>
+  
+  <div class="main-content">
+    <nav class="profile-nav">
+      <ul>
+        <li><a href="user-main-component/my-profile">My Profile</a></li>
+        <li><a href="/user-main-component/pet-info">My Pets</a></li>
+        <li class="active"><a href="/user-main-component/my-orders">My Orders</a></li>
+        <li><a href="/user-main-component/discount-history">Discount History</a></li>
+        <li><a href="/user-main-component/status-tracker">Status Tracker</a></li>
+      </ul>
+    </nav>
+    
+    <div class="order-history">
+      <div class="order-item" *ngFor="let item of orderHistory | reverse; let i = index">
+        <div class="order-header">
+          <span class="date-id">ID:{{item.id}}</span>          
+          <span class="status" [ngClass]="{'pending': item.status === 'pending', 'delivered': item.status === 'delivered', 'failed': item.status === 'failed'}">
+            {{item.status}}
+          </span>          
+        </div>
+        <span class="date-id">{{ item.order_date | date: 'yyyy-MM-dd HH:mm:ss' }}</span>
+        <div class="order-content">
+          <div class="service-details">
+            <!-- <h3>{{item.service}}</h3> -->
+            <div class="price-details">
+              <p>Total: BHD {{item.amount}}</p>
+              <p *ngIf="item.discount_amount > 0">You Paid: BHD {{item.discount_amount}}</p>
+
+        <p *ngIf="item.discount_amount > 0" class="paid">BHD {{item.discount_amount}}</p>
+            </div>
+            <a class="view-details" (click)="viewDetail(i)">View details</a>
+          </div>
+          <button class="order-again" (click)="orderAgain(i)">Order Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

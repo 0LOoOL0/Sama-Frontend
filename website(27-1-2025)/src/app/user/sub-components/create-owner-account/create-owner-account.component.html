@@ -1,0 +1,156 @@
+<app-navbar></app-navbar>
+
+<body class="bg-image-page">
+  <main class="content">
+
+    <!-- Title -->
+    <div class="title">
+      <label class="title-font">Profile Setup</label>
+    </div>
+    <br />
+
+    <form [formGroup]="profileForm" (ngSubmit)="completeProfile()">
+      <!-- Image -->
+      <!-- Image Upload - same behavior as pet -->
+<div class="profile" (click)="triggerOwnerImageUpload()">
+  <!-- Show selected preview image if available, otherwise default -->
+  <img [src]="profileImagePreview || 'assets/img/profile-img.png'" alt="profile image" />
+  <img src="/assets/img/edit-pic.png" alt="edit icon" class="edit-icon" />
+</div>
+
+<!-- Hidden file input -->
+<input type="file" #ownerFileInput hidden accept="image/*" (change)="onFileSelected($event)" />
+
+
+      <!-- First Last Name -->
+      <div class="form-container">
+        <div>
+          <label class="body-font">First Name</label>
+          <input class="body-font text-gray" type="text" placeholder="Enter your name" formControlName="first_name"
+            required />
+          <div class="body-font small-font"
+            *ngIf="profileForm.get('first_name').invalid && profileForm.get('first_name').touched">
+            <span class="error-text">First Name is required</span>
+          </div>
+        </div>
+        <div>
+          <label class="body-font">Last Name</label>
+          <input class="body-font text-gray" type="text" placeholder="Enter last name" formControlName="last_name"
+            required />
+          <div class="body-font small-font"
+            *ngIf="profileForm.get('last_name').invalid && profileForm.get('last_name').touched">
+            <span class="error-text">Last Name is required</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dob & Gender -->
+      <div class="dob-form-container">
+        <div class="dob-group">
+          <label class="body-font">Date of Birth</label>
+          <input class="body-font text-gray dob-input" type="date" formControlName="dob" required />
+          <div class="body-font small-font" *ngIf="profileForm.get('dob').invalid && profileForm.get('dob').touched">
+            <span class="error-text">Date of birth is required</span>
+          </div>
+        </div>
+        <div class="gender-group">
+          <label class="body-font">Gender</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" formControlName="gender" value="m" /> Male
+            </label>
+            <label>
+              <input type="radio" formControlName="gender" value="f" /> Female
+            </label>
+          </div>
+          <div *ngIf="profileForm.get('gender').invalid && profileForm.get('gender').touched">
+            <span class="error-text">Gender is required</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Office Road -->
+      <div class="form-container">
+        <div>
+          <label class="body-font">Office/Building</label>
+          <input class="body-font text-gray" type="text" placeholder="SamaPetOffice" formControlName="building_name"
+            required />
+          <div class="body-font small-font"
+            *ngIf="profileForm.get('building_name').invalid && profileForm.get('building_name').touched">
+            <span class="error-text">Office/Building is required</span>
+          </div>
+        </div>
+        <div>
+          <label class="body-font">Road</label>
+          <input class="body-font text-gray" type="text" placeholder="Road" formControlName="road" required />
+          <div class="body-font small-font" *ngIf="profileForm.get('road').invalid && profileForm.get('road').touched">
+            <span class="error-text">Road is required</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Block City -->
+      <div class="form-container">
+        <div>
+          <label class="body-font">Block</label>
+          <input class="body-font text-gray" type="text" placeholder="Block" formControlName="block" required />
+          <div class="body-font small-font"
+            *ngIf="profileForm.get('block').invalid && profileForm.get('block').touched">
+            <span class="error-text">Block is required</span>
+          </div>
+        </div>
+        <div>
+          <label class="body-font">City</label>
+          <input class="body-font text-gray" type="text" placeholder="City" formControlName="city" required />
+          <div class="body-font small-font" *ngIf="profileForm.get('city').invalid && profileForm.get('city').touched">
+            <span class="error-text">City is required</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Nationality & Phone -->
+      <div class="form-container">
+        <div>
+          <label class="body-font">Nationality</label>
+          <select class="body-font text-gray" formControlName="nationality" required>
+            <option value="Bahrain">Bahrain</option>
+            <option value="USA">USA</option>
+            <option value="Canada">Canada</option>
+            <option value="UK">UK</option>
+            <option value="Australia">Australia</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="body-font small-font"
+            *ngIf="profileForm.get('nationality').invalid && profileForm.get('nationality').touched">
+            <span class="error-text">Nationality is required</span>
+          </div>
+        </div>
+
+        <div>
+          <label class="body-font">Phone</label>
+          <input class="body-font text-gray" placeholder="Phone Number" formControlName="phone" required />
+          <div class="body-font small-font"
+            *ngIf="profileForm.get('phone').invalid && profileForm.get('phone').touched">
+            <span class="error-text" *ngIf="profileForm.get('phone').hasError('pattern')">Phone must be 8 digits</span>
+            <span class="error-text" *ngIf="profileForm.get('phone').hasError('required')">Phone is required</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Button for navigation only -->
+      <div class="button-container">
+        <button class="FilledButtons complete-profile" type="submit">
+          Complete Profile
+        </button>
+      </div>
+
+      <!-- SAME BUTTON FOR  LOGIN -->
+      <!-- <div class="button-container">
+        <button class="FilledButtons complete-profile" type="submit" [disabled]="profileForm.invalid">
+          Complete Profile
+        </button>
+      </div> -->
+      
+    </form>
+  </main>
+</body>

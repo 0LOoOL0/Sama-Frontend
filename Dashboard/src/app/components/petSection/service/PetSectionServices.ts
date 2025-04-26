@@ -210,6 +210,19 @@ getOwnerOrders(ownerId: number): Observable<any[]> {
 
 
 
+getPetsWithMembershipByOwner(ownerId: number): Observable<any> {
+  return this.http.get(`${this.petBaseUrl}/owner/${ownerId}/pets-with-membership`);
+}
+
+
+// pet-section.service.ts
+updatePetCollarCode(petId: number, code: string) {
+  return this.http.put(
+    `${this.petBaseUrl}/pets/${petId}/collar-code`,
+    { code }        // Laravel only needs 'code'; petId is in the URL
+  );
+}
+
 
 
 }

@@ -1,0 +1,49 @@
+<link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+
+<h2>Sign Up</h2>
+
+<div class="signwith">
+    <button class="btn btn-primary s" (click)="signupWithGoogle()"><img class="icon" src="../../../assets/Google-icon.svg"><span class="btt">Sign Up with Google</span></button>
+    <button class="btn btn-primary s" (click)="signupWithFacebook()"><img class="icon" src="../../../assets/Facebook-icon.svg"><span class="btt">Sign Up with Facebook</span></button>
+</div>
+
+<div class="svgcontainer">
+    <svg width="528" height="33" viewBox="0 0 528 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect y="15.5" width="223.5" height="2" fill="#666666" fill-opacity="0.25" />
+        <path
+            d="M256.508 24.432C255.212 24.432 254.02 24.208 252.932 23.76C251.86 23.312 250.924 22.696 250.124 21.912C249.34 21.112 248.724 20.168 248.276 19.08C247.844 17.976 247.628 16.784 247.628 15.504C247.628 14.224 247.844 13.04 248.276 11.952C248.724 10.848 249.34 9.904 250.124 9.12C250.924 8.32 251.86 7.696 252.932 7.248C254.02 6.8 255.212 6.576 256.508 6.576C257.804 6.576 258.988 6.8 260.06 7.248C261.148 7.696 262.084 8.32 262.868 9.12C263.668 9.904 264.284 10.848 264.716 11.952C265.164 13.04 265.388 14.224 265.388 15.504C265.388 16.784 265.164 17.976 264.716 19.08C264.284 20.168 263.668 21.112 262.868 21.912C262.084 22.696 261.148 23.312 260.06 23.76C258.988 24.208 257.804 24.432 256.508 24.432ZM256.508 22.56C257.5 22.56 258.404 22.376 259.22 22.008C260.052 21.64 260.764 21.136 261.356 20.496C261.948 19.856 262.404 19.112 262.724 18.264C263.06 17.4 263.228 16.48 263.228 15.504C263.228 14.528 263.06 13.616 262.724 12.768C262.404 11.904 261.948 11.152 261.356 10.512C260.764 9.872 260.052 9.368 259.22 9C258.404 8.632 257.5 8.448 256.508 8.448C255.516 8.448 254.604 8.632 253.772 9C252.956 9.368 252.252 9.872 251.66 10.512C251.068 11.152 250.604 11.904 250.268 12.768C249.948 13.616 249.788 14.528 249.788 15.504C249.788 16.48 249.948 17.4 250.268 18.264C250.604 19.112 251.068 19.856 251.66 20.496C252.252 21.136 252.956 21.64 253.772 22.008C254.604 22.376 255.516 22.56 256.508 22.56ZM268.628 7.008H272.972C273.788 7.008 274.596 7.056 275.396 7.152C276.212 7.248 276.94 7.456 277.58 7.776C278.22 8.096 278.74 8.568 279.14 9.192C279.54 9.8 279.74 10.632 279.74 11.688C279.74 12.936 279.364 13.944 278.612 14.712C277.86 15.48 276.82 15.968 275.492 16.176L280.316 24H277.844L273.236 16.368H270.644V24H268.628V7.008ZM270.644 14.496H272.444C273.004 14.496 273.58 14.48 274.172 14.448C274.78 14.416 275.332 14.312 275.828 14.136C276.34 13.96 276.756 13.688 277.076 13.32C277.412 12.936 277.58 12.392 277.58 11.688C277.58 11.08 277.46 10.592 277.22 10.224C276.98 9.856 276.66 9.576 276.26 9.384C275.876 9.176 275.436 9.04 274.94 8.976C274.46 8.912 273.972 8.88 273.476 8.88H270.644V14.496Z"
+            fill="#666666" />
+        <rect x="304.5" y="15.5" width="223.5" height="2" fill="#666666" fill-opacity="0.25" />
+    </svg>
+</div>
+
+
+<div class="card-body">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <br>
+            <input type="email" class="form-control" id="email" formControlName="email">
+        </div>
+        <div class="form-group">
+            <div class="label-container">
+                <label for="password" id="pass">Password</label>
+                <button id="show" type="button" class="btn btn-outline-secondary" (click)="togglePasswordVisibility()">
+                    {{ showPassword ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+            <div class="input-group">
+                <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="password" formControlName="password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword" id="cnf">Confirm Password</label>
+            <br>
+            <input [type]="showPassword ? 'text' : 'password'" class="form-control" id="confirmPassword" formControlName="confirmPassword">
+        </div>
+        <button type="submit" class="btn btn-primary c">Sign Up</button>
+    </form>
+    <div *ngIf="signupError" class="error-message">
+        {{ signupError }}
+    </div>
+</div>

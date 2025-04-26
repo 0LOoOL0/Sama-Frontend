@@ -1,0 +1,121 @@
+.adoption-lost-mate-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .tabs {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .tab {
+    flex: 1;
+    padding: 10px 15px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .tab.active {
+    background-color: #6a1b9a;
+    color: #fff;
+    border-color: #6a1b9a;
+  }
+  
+  .tab:last-child {
+    margin-right: 0;
+  }
+  
+  .summary-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pets-grid {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .pet-card {
+    width: 180px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .pet-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .pet-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .pet-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .pet-table th, .pet-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .pet-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .pet-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .see-all {
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  
+  .btn-see-all {
+    padding: 10px 20px;
+    background-color: #6a1b9a;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-see-all:hover {
+    background-color: #57117a;
+  }
+  
+  .footer-note {
+    color: #6a1b9a;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  

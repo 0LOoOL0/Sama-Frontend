@@ -1,0 +1,55 @@
+<app-navbar></app-navbar>
+
+<div class="profile-container">
+  <div class="sidebar">
+    <div class="profile-image">
+      <img src="assets/sarah-newland.jpg" alt="Sarah Newland">
+    </div>
+    <p class="profile-id">#1234</p>
+    <h1 class="profile-name">Sarah Newland</h1>
+    <p class="join-date">Joined: 22/06/2023</p>
+  </div>
+
+  <div class="main-content">
+    <nav class="profile-nav">
+      <ul>
+        <li><a href="user-main-component/my-profile">My Profile</a></li>
+        <li><a href="/user-main-component/pet-info">My Pets</a></li>
+        <li><a href="/user-main-component/my-orders">My Orders</a></li>
+        <li class="active"><a href="/user-main-component/discount-history">Discount History</a></li>
+        <li><a href="/user-main-component/status-tracker">Status Tracker</a></li>
+      </ul>
+    </nav>
+
+    <div class="order-history">
+      <div *ngFor="let item of discountHistory" class="order-item">
+        <div class="order-header">
+          <span class="date-id">{{item.date}} ID:{{item.id}}</span>
+        </div>
+
+        <div class="order-content">
+          <div class="service-image">
+            <img [src]="item.image" [alt]="item.service">
+          </div>
+
+          <div class="service-details">
+            <h3>{{item.service}}</h3>
+            <div class="price-details">
+              <p>Original price</p>
+              <p>You Saved</p>
+              <p>You Paid</p>
+            </div>
+            <a href="/user-main-component/view-discount-details" class="view-details">View details</a>
+          </div>
+
+          <div class="price-info">
+            <p class="items">{{item.items}} items</p>
+            <p class="strikethrough">BHD {{item.originalPrice.toFixed(3)}}</p>
+            <p class="saved">BHD {{item.savedAmount.toFixed(3)}}</p>
+            <p class="paid">BHD {{item.finalPrice.toFixed(3)}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

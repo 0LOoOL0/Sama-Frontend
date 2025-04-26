@@ -1,0 +1,180 @@
+<app-navbar></app-navbar>
+
+<body class="bg-image-page">
+  <main class="content">
+
+    <!-- Title -->
+    <div class="title">
+      <label class="title-font">Add Pet</label>
+    </div>
+    <br />
+
+    <!-- Form Inputs -->
+    <form [formGroup]="petForm" (ngSubmit)="savePetProfile()">
+      <!-- Image -->
+      <div class="profile" (click)="triggerFileInput()">
+        <!-- Use selectedImage if available; otherwise fallback to default image -->
+        <img [src]="selectedImage || '/assets/img/dog-img.png'" alt="profile" />
+        <img src="/assets/img/edit-pic.png" alt="edit icon" class="edit-icon" />
+      </div>
+      <!-- Hidden file input -->
+      <input type="file" #fileInput hidden accept="image/*" (change)="displayImage($event)" />
+
+      <!-- Pet Name -->
+      <div id="pet-name">
+        <label class="body-font">Pet Name</label>
+        <input class="body-font text-gray" type="text" placeholder="Enter pet name" formControlName="petName" />
+        <div class="body-font small-font" *ngIf="petForm.get('petName')?.invalid && petForm.get('petName')?.touched">
+          <span class="error-text">Pet name is required</span>
+        </div>
+      </div>
+
+      <!-- Type & Breed -->
+      <div class="pet-form-container">
+        <div id="pet-type" class="form-group">
+          <label class="body-font">Pet Type</label>
+          <input class="body-font text-gray" type="text" placeholder="Enter pet type"
+            formControlName="selectedPetType" />
+          <div class="body-font small-font"
+            *ngIf="petForm.get('selectedPetType')?.invalid && petForm.get('selectedPetType')?.touched">
+            <span class="error-text">Pet type is required</span>
+          </div>
+        </div>
+
+        <div id="breed" class="form-group">
+          <label class="body-font">Breed/Type</label>
+          <input class="body-font text-gray" type="text" placeholder="Enter pet breed"
+            formControlName="selectedBreed" />
+          <div class="body-font small-font"
+            *ngIf="petForm.get('selectedBreed')?.invalid && petForm.get('selectedBreed')?.touched">
+            <span class="error-text">Breed is required</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Age & Color -->
+      <div class="pet-form-container">
+        <div id="age" class="form-group">
+          <label class="body-font">Age</label>
+          <input
+            class="body-font text-gray"
+            type="number"
+            placeholder="Enter pet age"
+            formControlName="age"
+            min="0"
+          />
+          <div class="body-font small-font" *ngIf="petForm.get('age')?.invalid && petForm.get('age')?.touched">
+            <span class="error-text">Age is required</span>
+          </div>
+        </div>
+
+        <div id="color" class="form-group">
+          <label class="body-font">Color</label>
+          <input class="body-font text-gray" type="text" placeholder="Enter pet color" formControlName="color" />
+          <div class="body-font small-font" *ngIf="petForm.get('color')?.invalid && petForm.get('color')?.touched">
+            <span class="error-text">Color is required</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weight & Height -->
+      <div id="size" class="size-container">
+        <div class="make-it-one-line">
+          <label class="body-font">Weight</label>
+          <input class="body-font text-gray" type="number" placeholder="Enter pet weight" formControlName="weight" />
+          <div class="body-font small-font" *ngIf="petForm.get('weight')?.invalid && petForm.get('weight')?.touched">
+            <span class="error-text">Weight is required and must be a positive number</span>
+          </div>
+        </div>
+        <div class="make-it-one-line">
+          <label class="body-font">Height</label>
+          <input class="body-font text-gray" type="number" placeholder="Enter pet height" formControlName="height" />
+          <div class="body-font small-font" *ngIf="petForm.get('height')?.invalid && petForm.get('height')?.touched">
+            <span class="error-text">Height is required and must be a positive number</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gender & Vaccine -->
+      <div class="pet-form-container">
+        <div id="gender" class="form-group">
+          <label class="body-font">Gender</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" formControlName="gender" value="m" [checked]="petForm.value.gender == 'm'" /> Male
+            </label>
+            <label>
+              <input type="radio" formControlName="gender" value="f" [checked]="petForm.value.gender == 'f'" /> Female
+            </label>
+          </div>
+          <div class="body-font small-font" *ngIf="petForm.get('gender')?.invalid && petForm.get('gender')?.touched">
+            <span class="error-text">Gender is required</span>
+          </div>
+        </div>
+
+        <div id="vaccinated" class="form-group">
+          <label class="body-font">Vaccinated</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" formControlName="vaccinated" value="1" /> Yes
+            </label>
+            <label>
+              <input type="radio" formControlName="vaccinated" value="0" /> No
+            </label>
+          </div>
+          <div class="body-font small-font"
+               *ngIf="petForm.get('vaccinated')?.invalid && petForm.get('vaccinated')?.touched">
+            <span class="error-text">Vaccinated status is required</span>
+          </div>
+        </div>
+        
+      </div>
+
+      <!-- Michrohipped & Neutured -->
+      <div class="pet-form-container">
+        <div id="microchipped" class="form-group">
+          <label class="body-font">Microchipped</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" formControlName="microchipped" value="1" /> Yes
+            </label>
+            <label>
+              <input type="radio" formControlName="microchipped" value="0" /> No
+            </label>
+          </div>
+          <div class="body-font small-font"
+               *ngIf="petForm.get('microchipped')?.invalid && petForm.get('microchipped')?.touched">
+            <span class="error-text">Microchipped status is required</span>
+          </div>
+        </div>
+        
+
+        <div id="neutered" class="form-group">
+          <label class="body-font">Neutered</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" formControlName="neutered" value="1" /> Yes
+            </label>
+            <label>
+              <input type="radio" formControlName="neutered" value="0" /> No
+            </label>
+          </div>
+          <div class="body-font small-font"
+               *ngIf="petForm.get('neutered')?.invalid && petForm.get('neutered')?.touched">
+            <span class="error-text">Neutered status is required</span>
+          </div>
+        </div>
+        
+      </div>
+  
+      <!-- Buttons -->
+      <div class="button-container">
+        <button class="filled-buttons" [disabled]="petForm.invalid" type="submit">Next</button>
+
+        <button class="filled-buttons" type="button" (click)="skip()">Skip</button>
+      </div>
+    </form>
+    
+
+  </main>
+</body>

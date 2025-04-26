@@ -1,0 +1,160 @@
+.membership-container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+
+    background-color: #f8f8fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 3vh 3vw;
+    width: 80vw;
+    max-width: 600px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.membership-container h1 {
+    font-size: 2.5vh;
+    color: #333;
+}
+
+.membership-container p {
+    font-size: 1.8vh;
+    color: #777;
+    margin-bottom: 2vh;
+}
+
+.image-container {
+    align-items: center;
+    width: 340px;
+    height: 314px;
+    background-image: url(../../../../assets/person-sitting.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.plans-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2vh;
+}
+
+.plan {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6236ff;
+    color: white;
+    border: none;
+    padding: 2vh 1vw;
+    border-radius: 0.3rem;
+    width: 48%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.plan:hover {
+    background-color: #5329e1;
+}
+
+.free-trial h2,
+.one-year h2 {
+    font-size: 2vh;
+    margin-bottom: 1vh;
+}
+
+.free-trial p,
+.one-year p {
+    font-size: 1.5vh;
+    color: #FFEA50
+}
+
+.price {
+    font-size: 1.8vh;
+    font-weight: bold;
+    margin-bottom: 7vh;
+    color: #FFEA50;
+}
+
+.plan .content {
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.5vh;
+    color: #6236ff;
+    display: block;
+    margin-bottom: 2vh;
+}
+
+button {
+    background-color: #f8f8fc;
+    color: #6236ff;
+    border: 0.2rem solid #6236ff;
+    padding: 1.5vh 0;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #6236ff;
+    color: white;
+}
+
+.popup {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+}
+
+.popup-content h2 {
+    color: #6236ff;
+    margin-bottom: 1rem;
+}
+
+.popup-content ul {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.popup-content button {
+    background-color: #6236ff;
+    color: white;
+    padding: 0.5rem 2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}

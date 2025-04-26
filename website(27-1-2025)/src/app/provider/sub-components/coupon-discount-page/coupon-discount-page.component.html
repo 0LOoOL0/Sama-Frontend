@@ -1,0 +1,104 @@
+<link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+<div class="header"></div>
+  <app-navbar></app-navbar>
+
+<div class="coupon-container">
+  <button class="back-button" (click)="goBack()">← Coupon Discount</button>
+
+
+  <form [formGroup]="couponForm" (ngSubmit)="onSubmit()">
+    <div class="upload-section" (click)="logoFileInput.click()">
+      <label>High Quality Logo Image</label>
+      <div class="upload-box" [class.has-image]="logoPreview">
+        <img *ngIf="!logoPreview" src="path_to_camera_icon" alt="Upload">
+        <img *ngIf="logoPreview" [src]="logoPreview" alt="logo preview" class="image-preview"/>
+        <span *ngIf="!logoPreview">Add logo image</span>
+        <p *ngIf="!logoPreview">Accepted File Types: JPG, PNG, Docx</p>
+        <p *ngIf="!logoPreview">Max size: 2 MB</p>
+      </div>
+      <input type="file" #logoFileInput id="logoImg" style="display: none;" (change)="onLogoImageSelected($event)" accept=".jpg,.png">
+    </div>
+
+    <div class="upload-section" (click)="businessFileInput.click()">
+      <label>Other Pictures Of The Business</label>
+      <div class="upload-box" [class.has-image]="businessPreview">
+        <img *ngIf="!businessPreview" src="path_to_camera_icon" alt="Upload" />
+        <img *ngIf="businessPreview" [src]="businessPreview" alt="Business Preview" class="image-preview" />
+        <span *ngIf="!businessPreview">Add Business image</span>
+        <p *ngIf="!businessPreview">Accepted File Types: JPG, PNG, Docx</p>
+        <p *ngIf="!businessPreview">Max size: 2 MB</p>
+      </div>
+      <input type="file" #businessFileInput style="display:none" (change)="onBusinessImageSelected($event)" accept="image/*">
+    </div>
+
+    <div class="form-group">
+      <label for="title">Business Name</label>
+      <input type="text" id="title" formControlName="title" required>
+      <div *ngIf="couponForm.get('title')?.invalid && couponForm.get('title')?.touched" class="error-message">
+        Business Name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="adDescription">Ad Description</label>
+      <textarea id="adDescription" formControlName="description" maxlength="250"></textarea>
+      <div *ngIf="couponForm.get('description')?.invalid && couponForm.get('description')?.touched" class="error-message">
+        Ad Description is required
+      </div>
+    </div>
+
+      <!-- Quantity -->
+  <div class="form-group quantity-box">
+    <label for="quantity">Quantity</label>
+    <div class="quantity-controls">
+      <button class="quantity-decrease" (click)="decreaseQuantity()">-</button>
+      <input type="number" id="quantity" formControlName="quantity" name="quantity" min="1" max="999" />
+      <button class="quantity-increase" (click)="increaseQuantity()">+</button>
+    </div>
+  </div>
+
+    <!-- Coupon Layout -->
+    <div class="form-group">
+      <label for="couponLayout">Coupon Layout</label>
+      <input type="text" id="couponLayout" placeholder="ex. samaXXXX" formControlName="code" name="couponLayout" required />
+      
+      <label>Price</label>
+      <div>
+        <input type="radio" checked id="free" value="free" name="price" (change)="changePrice('free')"/>
+        <label for="free">FREE <span>free coupons can only be aquired by users with membership</span> </label>
+      </div>
+      <div>
+        <input type="radio" id="custom" value="custom" name="price" (change)="changePrice('custom')"/>
+        <label for="custom">Custom Price</label>
+        <input type="number"               
+              formControlName="price" 
+              placeholder="Enter price">
+      </div>
+    </div>
+    <!-- expiry-date -->
+    <div class="form-group expiry-date">
+      <label>Expiry Date</label>
+      <div class="date-selectors">
+        <select formControlName="expiryDay">
+          <option value="" disabled>Day</option>
+          <option *ngFor="let day of days" [value]="day">{{day}}</option>
+        </select>
+        <select formControlName="expiryMonth">
+          <option value="" disabled>Month</option>
+          <option *ngFor="let month of months; let i = index" [value]="i + 1">{{month}}</option>
+        </select>
+        <select formControlName="expiryYear">
+          <option value="" disabled>Year</option>
+          <option *ngFor="let year of years" [value]="year">{{year}}</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="couponForm.invalid || !logoImage || !businessImage">Next</button>
+  </form>
+</div>
+
+<div class="floating-icons">
+  <a href="#"><img src="path_to_whatsapp_icon" alt="WhatsApp" /></a>
+  <a href="#"><img src="path_to_arrow_icon" alt="Scroll Up" /></a>
+</div>

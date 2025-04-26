@@ -1,0 +1,93 @@
+.page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/../assets/cat-bg.png");
+    background-size: cover;
+    background-position: center;
+}
+
+
+.form {
+    box-shadow: 10px 8px 18px rgb(0, 0, 0,0.4);
+    border-radius: 16px;
+    width: 60%;
+    max-width: 500px;
+    padding: 2rem;
+    margin-right: auto;
+    margin-left: 7%;
+    margin-bottom: 10%;
+    margin-top: 10%;
+    background-color: white;
+
+}
+
+.segment {
+    margin-top: 20px;
+    display: flex;
+    margin-bottom: 20px;
+    justify-content: center;
+
+}
+
+.segment-button {
+    width: 70%;
+    height: 2.3rem;
+    padding: 10px 20px;
+    border: none;
+    background-color: darkgray;
+    color: white;
+    cursor: pointer;
+
+}
+
+.segment-button:first-child {
+    border-radius: 12px 0 0 12px;
+}
+
+.segment-button:last-child {
+    border-radius: 0 12px 12px 0;
+}
+
+.segment-button.active {
+    background-color: #5E17EB;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center; 
+    flex-direction: column;
+    position: fixed;
+    margin-left: 80%;
+    bottom: 20px;
+    width: 100%; 
+    z-index: 10; 
+}
+
+.icons {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.icons img {
+    width: 30%;
+    height: 30%;
+}
+
+.whatsapp {
+    background-color: white;
+}
+
+.arrow {
+    background-color: white;
+}

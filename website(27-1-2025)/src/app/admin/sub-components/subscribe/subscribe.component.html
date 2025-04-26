@@ -1,0 +1,37 @@
+<div class="membership-container">
+    <h1>Become a Member Today</h1>
+    <p>Unlock exclusive benefits, discounts, and premium content by subscribing to our membership program and enhance
+        your experience.</p>
+    <div class="image-container">
+    </div>
+
+    <div class="plans-container">
+        <button class="plan free-trial">
+            <h2>Free Trial</h2>
+            <p>Get a free trial for a week</p>
+        </button>
+
+        <button class="plan one-year">
+            <div class="content">
+                <h2>One Year</h2>
+                <p>Benefits & Features</p>
+                <p>+10BD Per Additional Pet</p>
+            </div>
+            <span class="price">20BD</span>
+        </button>
+    </div>
+    <a href="#" (click)="showPopup()">Benefits & Features</a>
+    <button>Skip</button>
+</div>
+
+<div class="popup" *ngIf="popupVisible" class="overlay" (click)="hidePopup()">
+    <div class="popup-content" (click)="stopPropagation($event)">
+        <h2>Benefits & Features</h2>
+        <ul>
+            <li>Good services</li>
+            <li>Affordable prices</li>
+            <li>For all animals</li>
+            <li>24/7 customer support</li>
+        </ul>
+    </div>
+</div>

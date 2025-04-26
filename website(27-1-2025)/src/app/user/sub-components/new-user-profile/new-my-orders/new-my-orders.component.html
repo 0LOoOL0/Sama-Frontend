@@ -1,0 +1,52 @@
+<div class="content" *ngFor="let order of orderHistory; let i = index">
+  <div class="header">
+    <div class="id-date">
+      <span class="date-id">Date: {{ order.invoice_date | date:'yyyy-MM-dd HH:mm:ss' }}</span>
+    </div>
+    <span class="status">{{ order.status }}</span>
+  </div>
+
+  <div class="display">
+    <div class="space-between">
+      <div class="service-details">
+        <ng-container *ngIf="order.order_products && order.order_products.length > 0; else noService">
+          <h3>
+            {{ order.order_products[0].product.product_name_en }}
+            <span *ngIf="order.order_products.length > 1">
+              and {{ order.order_products.length - 1 }} more
+            </span>
+          </h3>
+        </ng-container>
+        <ng-template #noService>
+          <h3>Order</h3>
+        </ng-template>
+        <div class="price-details">
+          <p>Total: BHD {{ order.total_amount }}</p>
+          <p *ngIf="order.discount_amount">You Saved: BHD {{ order.discount_amount }}</p>
+          <p>You Paid: BHD {{ order.paid_amount || order.total_amount }}</p>
+        </div>
+        <a href="javascript:void(0)" (click)="toggleDetails(order)">
+          {{ showDetails && selectedOrderForDetails === order ? 'Show less' : 'View details' }}
+        </a>
+      </div>
+
+      <div class="price-info">
+        <p class="items">{{ order.order_products?.length }} items</p>
+      </div>
+      <button class="order-again" (click)="orderAgain(i)">Order Again</button>
+    </div>
+  </div>
+
+  <div *ngIf="showDetails && selectedOrderForDetails === order" class="details-content">
+    <div class="view-details">
+      <div>
+        <p class="items">{{ order.order_products?.length }} items</p>
+        <div *ngFor="let op of order.order_products">
+          <p>
+            {{ op.product.product_name_en }} – {{ op.quantity }} x {{ op.unit_price }} = {{ op.total_price }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

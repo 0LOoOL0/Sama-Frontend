@@ -1,0 +1,35 @@
+<app-navbar></app-navbar>
+
+<div class="profile-container">
+    <div class="sidebar">
+      <div class="profile-image">
+        <img src="assets/sarah-newland.jpg" alt="Sarah Newland">
+      </div>
+      <p class="profile-id">#1234</p>
+      <h2 class="profile-name">Sarah Newland</h2>
+      <p class="join-date">Joined: 22/06/2023</p>
+    </div>
+  
+    <div class="main-content">
+      <nav class="profile-nav">
+        <ul>
+          <li><a href="user-main-component/my-profile">My Profile</a></li>
+          <li class="active"><a href="/user-main-component/pet-info">My Pets</a></li>
+          <li><a href="/user-main-component/my-orders">My Orders</a></li>
+          <li><a href="/user-main-component/discount-history">Discount History</a></li>
+          <li><a href="/user-main-component/status-tracker">Status Tracker</a></li>
+        </ul>
+      </nav>
+  
+      <div class="edit-health-concerns">
+        <h2><button class="back-button" (click)="goBack()">&lt;</button> Edit Health Conditions</h2>
+  
+        <div *ngFor="let condition of healthConditions; let i = index" class="health-condition">
+          <input type="text" [(ngModel)]="condition.type" placeholder="Condition Type">
+          <textarea [(ngModel)]="condition.description" placeholder="Description"></textarea>
+        </div>
+  
+        <button class="update-button" (click)="updateHealthConditions()">Update</button>
+      </div>
+    </div>
+  </div>

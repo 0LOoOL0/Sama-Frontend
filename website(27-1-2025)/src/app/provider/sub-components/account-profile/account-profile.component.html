@@ -1,0 +1,48 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<div class="header"><app-navbar></app-navbar></div>
+<div class="content" *ngIf="segment === 'profile'">
+    <div class="profile-container">
+        <div class="profile-card">
+            <img [src]="profile.profile_image" alt="Profile Picture" class="profile-image">        
+            <div class="profile-info">
+                <p>#{{profile?.id}}</p>
+                <h2>{{profile?.name}}</h2>
+                <p>Joined: {{profile?.created_at}}</p>
+            </div>
+        </div>
+
+    <div class="details-card">
+        <div class="details">
+            <p><strong>Phone Number:</strong>{{profile?.contact_no}}</p>
+            <p><strong>Email:</strong>{{profile?.email}}</p>
+            <p><strong>Commercial Registration Number:</strong>{{cr_record}}</p>
+            <p><strong>Social Media:</strong></p>
+            <p><strong>Availability:</strong></p>
+            <div class="availability">
+                <div class="day-buttons">
+                    <button>S</button>
+                    <button>M</button>
+                    <button>T</button>
+                    <button>W</button>
+                    <button>T</button>
+                    <button>F</button>
+                    <button>S</button>
+                </div>
+                <p><strong>Hours:</strong>{{formatTime(profile?.timing)}}</p>
+            </div>
+            <div class="upload-section">
+                <label for="business-contract">Upload Business Contract</label>
+                <input type="file" id="business-contract" class="file-input">
+                <label for="commercial-cert">Upload Commercial Registration Certificate</label>
+                <input type="file" id="commercial-cert" class="file-input">
+            </div>
+            <p><strong>Locations:</strong>{{profile?.address}}</p>
+            <div class="btn-container">
+                <button>+ Add Contact</button>
+            </div>
+            <p><strong>Authorized Contact Profile</strong></p>
+        </div>
+            
+    </div>
+</div>

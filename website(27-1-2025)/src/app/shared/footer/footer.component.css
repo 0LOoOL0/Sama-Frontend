@@ -1,0 +1,125 @@
+ /* footerSection */
+.footerSection {
+    background-color: #5e17eb;
+    color: white;
+    font-family: Arial, sans-serif;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .footerColumn {
+    flex: 1;
+    padding: 30px 20px;
+    min-width: 150px;
+    text-align: center;
+    transition: transform 0.3s ease; /* Smooth scaling effect on hover */
+  }
+  
+  .footerColumn:hover {
+    transform: translateY(-10px); /* Raises the column slightly on hover */
+  }
+  
+  .footerLogo {
+    width: 100px;
+    transition: opacity 0.3s ease; /* Smooth fade effect on hover */
+  }
+  
+  .footerLogo:hover {
+    opacity: 0.8;
+  }
+  
+  .footerInfo p, .footerHours p, .footerLinks a, .footerNewsletter p {
+    margin: 24px 0;
+  }
+  
+  .footerInfo .phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .fa-phone-alt {
+    margin-right: 10px;
+  }
+  
+  .footerLinks a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease; /* Color change on hover */
+  }
+  
+  .footerLinks a:hover {
+    color: #DDD; /* Lighter color on hover */
+    text-decoration: underline;
+  }
+  
+  .footerNewsletter form {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .footerNewsletter input {
+    flex-grow: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease; /* Background color change on focus */
+  }
+  
+  .footerNewsletter input:focus {
+    background-color: #c9a9ef; /* Darker purple on focus */
+  }
+  
+  .footerNewsletter button {
+    background-color: #600080;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Background color change on hover */
+  }
+  
+  .footerNewsletter button:hover {
+    background-color: #db9fe7;
+  }
+  
+  .footerCopyright {
+    font-size: 14px;
+    color: #DDD;
+    padding-top: 10px;
+    border-top: 1px solid #DDD; /* Adds a line above the copyright text */
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .footerColumn {
+      width: 100%;
+      padding: 10px 0;
+    }
+  
+    .footerNewsletter form {
+      flex-direction: column;
+    }
+  
+    .footerNewsletter input {
+      margin-bottom: 10px;
+    }
+  
+    .footerNewsletter button {
+      width: 100%;
+    }
+  }

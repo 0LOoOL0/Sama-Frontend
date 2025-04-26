@@ -1,113 +1,451 @@
-<div class="w-full h-full animated-gradient shadow-lg flex items-center justify-between px-6 py-3">
-  <!-- Logo Section -->
-  <div class="flex items-center mr-8 cursor-pointer" [routerLink]="['/admin-dashboard']">
-    <img src="Image/newLogo.png" alt="Full Logo" class="h-11 w-30 transition-all hover:scale-105">
+<div class="flex">
+  <!-- Sidebar -->
+  <div
+    [ngClass]="{
+      'w-12': isSidebarCollapsed,
+      'w-52': !isSidebarCollapsed,
+      'bg-white': true,
+      'h-fit': true,
+      'transition-all': true,
+      'duration-300': true,
+      'relative': true,
+      'overflow-hidden': true
+    }"
+  >
+    <!-- Toggle Button -->
+    <div
+      class="absolute top-2  right-[1] p-2 bg-gray-100 rounded-full cursor-pointer"
+      (click)="toggleSidebar()"
+    >
+      <i [class]="isSidebarCollapsed ? 'fas fa-arrow-right' : 'fas fa-arrow-left'"></i>
+    </div>
+
+    <nav class="space-y-4 p-0">
+
+
+      <!-- logo  -->
+
+      <div class="flex items-center space-x-2">
+        <!-- Small Logo -->
+        <img 
+          src="Image/slogo.png" 
+          alt="Small Logo" 
+          class="h-10 w-10 transition-all mt-14" 
+          [ngClass]="{ 'hidden': !isSidebarCollapsed }"
+        >
+      
+        <!-- Full Logo -->
+        <img 
+          src="Image/logo.png" 
+          alt="Full Logo" 
+          class="h-46 w-46 transition-all" 
+          [ngClass]="{ 'hidden': isSidebarCollapsed }"
+        >
+      </div>
+      
+
+
+
+      <!-- searchbar  -->
+
+      <div class="flex items-center justify-start border rounded-lg px-4 py-2">
+        <i class="fas fa-search text-gray-500"></i>
+        <input 
+          type="text" 
+          placeholder="Search..." 
+          class="ml-2 w-full outline-none text-gray-700 placeholder-gray-400"
+     
+      [ngClass]="{ 'opacity-0': isSidebarCollapsed }"
+        />
+      </div>
+      
+
+
+      <!-- 1. Sama Pet Dashboard -->
+      <div class="flex items-center space-x-2 p-2 hover:bg-gray-100 cursor-pointer ">
+        <i class="fas fa-tachometer-alt text-gray-700 mt-4"></i>
+        <span class="text-blue-700 mt-4 " [ngClass]="{ 'opacity-0': isSidebarCollapsed }">Sama Pet Dashboard</span>
+      </div>
+      <p class="ml-8" [ngClass]="{ 'opacity-0': isSidebarCollapsed }">Overview</p>
+
+      <!-- 2. Users Management -->
+      <div>
+        <div
+          class="flex items-center space-x-2 p-2 hover:bg-gray-100 cursor-pointer"
+          (click)="toggleDropdown('usersManagementDropdown')"
+        >
+          <i class="fas fa-users text-gray-700"></i>
+          <i class="fas fa-chevron-right text-gray-700" [ngClass]="{ 'opacity-0': isSidebarCollapsed }"></i>
+          <span class="text-blue-700" [ngClass]="{ 'opacity-0': isSidebarCollapsed }">Users Management</span>
+        </div>
+        <div *ngIf="dropdownVisibility.usersManagementDropdown" class="ml-6 space-y-1">
+          <!-- Pet Owners Parent Item -->
+          <div
+            class="flex items-center space-x-2 hover:bg-gray-100 cursor-pointer"
+            (click)="toggleDropdown('petOwnersDropdown')"
+          >
+            <i class="fas fa-chevron-right"></i>
+            <span>Pet Owners</span>
+          </div>
+          <div *ngIf="dropdownVisibility.petOwnersDropdown" class="ml-6 space-y-1">
+            <div class="hover:bg-gray-100 cursor-pointer"routerLink="/pet-owner-list">List of Pet Owners</div>
+            <div class="hover:bg-gray-100 cursor-pointer" routerLink="/add-pet-owner">Add New Owner</div>
+          </div>
+
+          <!-- Providers Parent Item -->
+          <div
+            class="flex items-center space-x-2 hover:bg-gray-100 cursor-pointer"
+            (click)="toggleDropdown('providersDropdown')"
+          >
+            <i class="fas fa-chevron-right"></i>
+            <span>Providers</span>
+          </div>
+          <div *ngIf="dropdownVisibility.providersDropdown" class="ml-6 space-y-1">
+            <div class="hover:bg-gray-100 cursor-pointer" routerLink="/list-all-provider">List of Providers</div>
+            <div class="hover:bg-gray-100 cursor-pointer" routerLink="/add-new-provider">Add New Provider</div>
+          </div>
+
+          <!-- Admin Roles & Permissions Parent Item -->
+          <div
+            class="flex items-center space-x-2 hover:bg-gray-100 cursor-pointer"
+            (click)="toggleDropdown('adminRolesPermissionsDropdown')"
+          >
+            <i class="fas fa-chevron-right"></i>
+            <span>Admin Roles & Permissions</span>
+          </div>
+          <div *ngIf="dropdownVisibility.adminRolesPermissionsDropdown" class="ml-6 space-y-1">
+            <div class="hover:bg-gray-100 cursor-pointer">Admin Accounts</div>
+            <div class="hover:bg-gray-100 cursor-pointer">Roles & Permissions</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- supplier Parent Item -->
+      <div
+      class="flex items-center space-x-2 hover:bg-gray-100 cursor-pointer"
+      (click)="toggleDropdown('supplierDropdown')"
+    >
+      <i class="fas fa-chevron-right"></i>
+      <span>Suppliers</span>
+    </div>
+    <div *ngIf="dropdownVisibility.supplierDropdown" class="ml-6 space-y-1">
+      <div class="hover:bg-gray-100 cursor-pointer" routerLink="/all-suppliers">List of Suppliers</div>
+      <div class="hover:bg-gray-100 cursor-pointer" routerLink="/create-supplier">Add New supplier</div>
+    </div>
+
+
+
+      <!-- 3. Pet Management -->
+<div>
+  <div
+    class="flex items-center space-x-2 p-2 hover:bg-gray-100 cursor-pointer"
+    (click)="toggleDropdown('petManagementDropdown')"
+  >
+    <i class="fas fa-paw text-gray-700"></i>
+    <i class="fas fa-chevron-right"[ngClass]="{ 'opacity-0': isSidebarCollapsed }"></i>
+    <span class="text-blue-700" [ngClass]="{ 'opacity-0': isSidebarCollapsed }">Pet Management</span>
+  </div>
+  <div *ngIf="dropdownVisibility.petManagementDropdown" class="ml-6 space-y-1">
+    <div class="flex items-center space-x-2 hover:bg-gray-100 cursor-pointer">
+      <i class="fas fa-chevron-right"></i>
+      <span>List of Pets</span>
+    </div>
+    <div class="flex items-center space-x-2 hover:bg-gray-100 cursor-pointer">
+      <i class="fas fa-chevron-right"></i>
+      <span>Add New Pet</span>
+    </div>
+  </div>
+</div>
+
+
+
+<div *ngIf="dropdownVisibility.reportsDropdown" class="ml-6 space-y-1">
+  <div class="flex items-center hover:text-gray-800 cursor-pointer">
+    <i class="fas fa-chevron-right text-sm mr-2"></i>
+    <div class="hover:bg-gray-100 cursor-pointer" routerLink="/create-invoice">Generate Invoices</div>
+  </div>
+  <div class="flex items-center hover:text-gray-800 cursor-pointer">
+    <i class="fas fa-chevron-right text-sm mr-2"></i>
+    <div class="hover:bg-gray-100 cursor-pointer" routerLink="/invoice-history">Invoice History</div>
+  </div>
+</div>
+
+
+
+
+<!-- 4. Sama Store -->
+<div>
+  <div
+    class="flex items-center space-x-2 p-2 hover:bg-gray-100 cursor-pointer"
+    (click)="toggleDropdown('samaStoreDropdown')"
+  >
+    <i class="fas fa-store text-gray-700"></i>
+    <i class="fas fa-chevron-right"[ngClass]="{ 'opacity-0': isSidebarCollapsed }"></i>
+    <span class="text-blue-700" [ngClass]="{ 'opacity-0': isSidebarCollapsed }">Sama Store</span>
+  </div>
+  <div *ngIf="dropdownVisibility.samaStoreDropdown" class="ml-6 space-y-1">
+    <div class="flex items-center space-x-2 hover:bg-gray-100 cursor-pointer" routerLink="/sama-products">
+      <i class="fas fa-chevron-right"></i>
+      <span>Products</span>
+    </div>
+    
+    <div class="flex items-center space-x-2 hover:bg-gray-100 cursor-pointer" routerLink="/sama-orders">
+      <i class="fas fa-chevron-right"></i>
+      <span>Orders</span>
+    </div>
+    
+    <div class="flex items-center space-x-2 hover:bg-gray-100 cursor-pointer" routerLink="/coupon-list">
+      <i class="fas fa-chevron-right"></i>
+      <span>Coupons</span>
+    </div>
+    
+    <!-- Friend's Route: Collar Orders -->
+    <div class="flex items-center space-x-2 hover:bg-gray-100 cursor-pointer" routerLink="/orders">
+      <i class="fas fa-chevron-right"></i>
+      <span>Collar Orders</span>
+    </div>
+  </div>
+</div>
+
+<!-- 5. Membership Management -->
+<div>
+  <!-- Membership Management Parent Item -->
+  <div class="flex items-center justify-between space-x-2 p-2 hover:bg-gray-100 cursor-pointer" (click)="toggleDropdown('membershipPackageDropdown')">
+    <i class="fas fa-id-card text-gray-700"></i>
+    <i class="fas fa-chevron-right"[ngClass]="{ 'opacity-0': isSidebarCollapsed }"></i>
+
+    <span class="text-blue-700" [ngClass]="{ 'opacity-0': isSidebarCollapsed }">Membership Management</span>
+    <!-- Chevron Icon for Parent Item -->
+   
   </div>
 
-  <!-- Menu Items -->
-  <div class="flex flex-1 justify-between items-center space-x-6">
+  <!-- Membership Package Dropdown -->
+  <div *ngIf="dropdownVisibility.membershipPackageDropdown" class="ml-6 space-y-1">
+    <div class="flex items-center justify-between hover:text-gray-800 cursor-pointer" (click)="toggleDropdown('samaCardDropdown')">
+      <span>Sama Card</span>
+      <!-- Chevron Icon for Sama Card -->
+      <i class="fas fa-chevron-right ml-auto" [ngClass]="{ 'transform rotate-90': dropdownVisibility.samaCardDropdown }"></i>
+    </div>
 
-    <!-- Dropdown Template -->
-    <div class="relative group">
-      <div class="flex items-center space-x-2 cursor-pointer">
-        <p class="text-lg font-bold text-white transition-all hover:text-[#fce94f]">Users</p>
+    <!-- Sama Card Dropdown -->
+    <div *ngIf="dropdownVisibility.samaCardDropdown" class="ml-6 space-y-1">
+      <div class="flex items-center hover:text-gray-800 cursor-pointer">
+        <i class="fas fa-chevron-right text-sm mr-2"></i>
+        <span>List Memberships</span>
       </div>
-      <div class="dropdown-list absolute bg-[#f8f5fc] shadow-lg rounded-md min-w-max px-1 py-1 top-full left-0 hidden
-                  group-hover:block transition-all duration-200">
-        <ul class="block">
-          <li><a href="/all-pet-list" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Pets</a></li>
-          <li><a href="/pet-owner-list" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Pet Owners</a></li>
-          <li><a href="/list-all-provider" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Providers</a></li>
-        </ul>
+      <div class="flex items-center hover:text-gray-800 cursor-pointer">
+        <i class="fas fa-chevron-right text-sm mr-2"></i>
+        <span>Add Membership</span>
+      </div>
+      <div class="flex items-center hover:text-gray-800 cursor-pointer">
+        <i class="fas fa-chevron-right text-sm mr-2"></i>
+        <span>Free Trial Management</span>
+      </div>
+      <div class="flex items-center hover:text-gray-800 cursor-pointer">
+        <i class="fas fa-chevron-right text-sm mr-2"></i>
+        <span>Trial Members</span>
       </div>
     </div>
 
-    <!-- Membership Dropdown -->
-    <div class="relative group">
-      <div class="flex items-center space-x-2 cursor-pointer">
-        <p class="text-lg font-bold text-white transition-all hover:text-[#fce94f]">Membership</p>
+    <!-- Membership Package Subsection -->
+    <div class="flex items-center justify-between hover:text-gray-800 cursor-pointer" (click)="toggleDropdown('membershipPackageDropdown')">
+      <span>Membership Package</span>
+      <!-- Chevron Icon for Membership Package -->
+      <i class="fas fa-chevron-right ml-auto" [ngClass]="{ 'transform rotate-90': dropdownVisibility.membershipPackageDropdown }"></i>
+    </div>
+
+    <!-- Membership Package Subsection Dropdown -->
+    <div *ngIf="dropdownVisibility.membershipPackageDropdown" class="ml-6 space-y-1">
+      <div class="flex items-center hover:text-gray-800 cursor-pointer">
+        <i class="fas fa-chevron-right text-sm mr-2"></i>
+        <span>All Packages</span>
       </div>
-      <div class="dropdown-list absolute bg-[#f8f5fc] shadow-lg rounded-md min-w-max px-1 py-1 top-full left-0 hidden
-                  group-hover:block transition-all duration-200">
-        <ul class="block">
-          <li><a href="/sama-card" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Members List</a></li>
-          <li><a href="/admin-dashboard" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Packages</a></li>
-        </ul>
+      <!-- <span>All Packages</span> -->
+      <div class="hover:bg-gray-100 cursor-pointer"routerLink="/packages-list">All packages</div>
+
+    </div>
+    <div class="flex items-center hover:text-gray-800 cursor-pointer">
+      <i class="fas fa-chevron-right text-sm mr-2"></i>
+      <div class="hover:bg-gray-100 cursor-pointer"routerLink="/packages-create">Add new Package</div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- 6. Blog Management -->
+<div>
+  <!-- Blog Management Parent Item -->
+  <div class="flex items-center space-x-2 p-2 hover:bg-gray-100 cursor-pointer" (click)="toggleDropdown('blogManagementDropdown')">
+    <i class="fas fa-blog text-gray-700"></i>
+    <i class="fas fa-chevron-right" [ngClass]="{ 'opacity-0': isSidebarCollapsed }"></i>
+    <span class="text-blue-700" [ngClass]="{ 'opacity-0': isSidebarCollapsed }">Blog Management</span>
+  </div>
+
+  <!-- Blog Management Dropdown -->
+  <div *ngIf="dropdownVisibility.blogManagementDropdown" class="ml-6 space-y-1">
+    <a [routerLink]="['/all-blogs']" class="flex items-center hover:text-gray-800 cursor-pointer">
+      <i class="fas fa-chevron-right text-sm mr-2"></i>
+      <span>All Blogs</span>
+    </a>
+    <a [routerLink]="['/create-post']" class="flex items-center hover:text-gray-800 cursor-pointer">
+      <i class="fas fa-chevron-right text-sm mr-2"></i>
+      <span>Add New Blog</span>
+    </a>
+  </div>
+</div>
+
+
+<!-- 7. Reports & Invoices -->
+<div>
+  <!-- Reports & Invoices Parent Item -->
+  <div class="flex items-center space-x-2 p-2 hover:bg-gray-100 cursor-pointer" (click)="toggleDropdown('reportsDropdown')">
+    <i class="fas fa-file-invoice text-gray-700"></i>
+    <i class="fas fa-chevron-right"[ngClass]="{ 'opacity-0': isSidebarCollapsed }"></i>
+
+    <span class="text-blue-700" [ngClass]="{ 'opacity-0': isSidebarCollapsed }">Reports & Invoices</span>
+    <!-- Chevron Icon for Reports -->
+  </div>
+
+  <!-- Reports & Invoices Dropdown -->
+  <div *ngIf="dropdownVisibility.reportsDropdown" class="ml-6 space-y-1">
+    <div class="flex items-center hover:text-gray-800 cursor-pointer">
+      <i class="fas fa-chevron-right text-sm mr-2"></i>
+      <span>Generate Invoices</span>
+    </div>
+    <div class="flex items-center hover:text-gray-800 cursor-pointer">
+      <i class="fas fa-chevron-right text-sm mr-2"></i>
+      <span>Invoice History</span>
+    </div>
+  </div>
+</div>
+
+<!-- 8. Roles & Permissions -->
+<div>
+  <!-- Roles & Permissions Parent Item -->
+  <div class="flex items-center space-x-2 p-2 hover:bg-gray-100 cursor-pointer" (click)="toggleDropdown('adminRolesPermissionsDropdown')">
+    <i class="fas fa-user-cog text-gray-700"></i>
+    <i class="fas fa-chevron-right"[ngClass]="{ 'opacity-0': isSidebarCollapsed }"></i>
+
+    <span class="text-blue-700" [ngClass]="{ 'opacity-0': isSidebarCollapsed }">Roles & Permissions</span>
+    <!-- Chevron Icon for Roles -->
+  </div>
+
+  <!-- Roles & Permissions Dropdown -->
+  <div *ngIf="dropdownVisibility.adminRolesPermissionsDropdown" class="ml-6 space-y-1">
+    <div class="flex items-center hover:text-gray-800 cursor-pointer">
+      <i class="fas fa-chevron-right text-sm mr-2"></i>
+      <span>Roles List</span>
+    </div>
+    <div class="flex items-center hover:text-gray-800 cursor-pointer">
+      <i class="fas fa-chevron-right text-sm mr-2"></i>
+      <span>All Users</span>
+    </div>
+    <div class="flex items-center hover:text-gray-800 cursor-pointer">
+      <i class="fas fa-chevron-right text-sm mr-2"></i>
+      <span>Add New User</span>
+    </div>
+    <div class="flex items-center hover:text-gray-800 cursor-pointer">
+      <i class="fas fa-chevron-right text-sm mr-2"></i>
+      <span>Add New Permission</span>
+    </div>
+  </div>
+</div>
+
+<!-- 9. Settings -->
+<!-- Settings -->
+<div>
+  <!-- Settings Parent Item -->
+  <div class="flex items-center space-x-2 p-2 hover:bg-gray-100 cursor-pointer" (click)="toggleDropdown('settingsDropdown')">
+    <i class="fas fa-cogs text-gray-700"></i>
+    <i class="fas fa-chevron-right text-sm mr-2"[ngClass]="{ 'opacity-0': isSidebarCollapsed }"></i>
+
+    <span class="text-blue-700" [ngClass]="{ 'opacity-0': isSidebarCollapsed }">Settings</span>
+    <!-- Chevron Icon for Settings -->
+ 
+  </div>
+
+  <!-- Settings Dropdown -->
+  <div *ngIf="dropdownVisibility.settingsDropdown" class="ml-6 space-y-1">
+    <!-- Account Settings -->
+    <div class="flex items-center  hover:text-gray-800 cursor-pointer" (click)="toggleDropdown('accountSettingsDropdown')">
+      <i class="fas fa-chevron-right"></i>
+      <span>Account Settings</span>
+    
+    </div>
+    <div *ngIf="dropdownVisibility.accountSettingsDropdown" class="ml-6 space-y-1">
+      <div class="flex items-center hover:text-gray-800 cursor-pointer">
+        <i class="fas fa-chevron-right text-sm mr-2"></i>
+        <span>Company Profile</span>
+      </div>
+      <div class="flex items-center hover:text-gray-800 cursor-pointer">
+        <i class="fas fa-chevron-right text-sm mr-2"></i>
+        <span>Change Password</span>
       </div>
     </div>
 
-    <!-- Sama Store Dropdown -->
-    <div class="relative group">
-      <div class="flex items-center space-x-2 cursor-pointer">
-        <p class="text-lg font-bold text-white transition-all hover:text-[#fce94f]">Sama Store</p>
+    <!-- Notification & Email Preferences -->
+    <div class="flex items-center  hover:text-gray-800 cursor-pointer" (click)="toggleDropdown('notificationEmailPreferencesDropdown')">
+      <i class="fas fa-chevron-right "></i>
+
+      <span>Notification & Email Preferences</span>
+    </div>
+    <div *ngIf="dropdownVisibility.notificationEmailPreferencesDropdown" class="ml-6 space-y-1">
+      <div class="flex items-center hover:text-gray-800 cursor-pointer">
+        <i class="fas fa-chevron-right text-sm mr-2"></i>
+        <span>User Alerts</span>
       </div>
-      <div class="dropdown-list absolute bg-[#f8f5fc] shadow-lg rounded-md min-w-max px-1 py-1 top-full left-0 hidden
-                  group-hover:block transition-all duration-200">
-        <ul class="block">
-          <li><a href="/sama-orders" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Orders</a></li>
-          <li><a href="/sama-products" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Products</a></li>
-          <li><a href="/coupon-list" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Coupons</a></li>
-          <li><a href="/orders" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Collar Orders</a></li>
-        </ul>
+      <div class="flex items-center hover:text-gray-800 cursor-pointer">
+        <i class="fas fa-chevron-right text-sm mr-2"></i>
+        <span>Admin Alerts</span>
+      </div>
+      <div class="flex items-center hover:text-gray-800 cursor-pointer">
+        <i class="fas fa-chevron-right text-sm mr-2"></i>
+        <span>Email Settings</span>
+      </div>
+      <div class="flex items-center hover:text-gray-800 cursor-pointer">
+        <i class="fas fa-chevron-right text-sm mr-2"></i>
+        <span>Email Logs</span>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Pet Care Options Dropdown -->
-    <div class="relative group">
-      <div class="flex items-center space-x-2 cursor-pointer">
-        <p class="text-lg font-bold text-white transition-all hover:text-[#fce94f]">Pet Care Options</p>
-      </div>
-      <div class="dropdown-list absolute bg-[#f8f5fc] shadow-lg rounded-md min-w-max px-1 py-1 top-full left-0 hidden
-                  group-hover:block transition-all duration-200">
-        <ul class="block">
-          <li><a href="/admin-dashboard" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Adopted Pets</a></li>
-          <li><a href="/admin-dashboard" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Lost Pets</a></li>
-          <li><a href="/admin-dashboard" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Mate Pets</a></li>
-        </ul>
-      </div>
+<!-- Authentication -->
+<div>
+  <!-- Authentication Parent Item -->
+  <div class="flex items-center space-x-2 p-2 hover:bg-gray-100 cursor-pointer" (click)="toggleDropdown('authenticationDropdown')">
+    <i class="fas fa-sign-in-alt text-gray-700"></i>
+    <i class="fas fa-chevron-right "[ngClass]="{ 'opacity-0': isSidebarCollapsed }"></i>
+
+    <span class="text-blue-700" [ngClass]="{ 'opacity-0': isSidebarCollapsed }">Authentication</span>
+    <!-- Chevron Icon for Authentication -->
+   
+
+  </div>
+
+  <!-- Authentication Dropdown -->
+  <div *ngIf="dropdownVisibility.authenticationDropdown" class="ml-6 space-y-1">
+    <div class="flex items-center hover:text-gray-800 cursor-pointer">
+      <i class="fas fa-chevron-right text-sm mr-2"></i>
+      <span>User Login</span>
     </div>
-
-    <!-- Blog -->
-    <div class="relative">
-      <a href="/main/blogs"><p class="text-lg font-bold text-white transition-all hover:text-[#fce94f]">Blog</p></a>
+    <div class="flex items-center hover:text-gray-800 cursor-pointer">
+      <i class="fas fa-chevron-right text-sm mr-2"></i>
+      <span>Reset Password</span>
     </div>
-
-    <!-- Reports & Analytics -->
-    <div class="relative">
-      <a href="/admin-dashboard"><p class="text-lg font-bold text-white transition-all hover:text-[#fce94f]">Reports & Analytics</p></a>
+    <div class="flex items-center hover:text-gray-800 cursor-pointer">
+      <i class="fas fa-chevron-right text-sm mr-2"></i>
+      <span>Logout</span>
     </div>
+  </div>
+</div>
 
-    <!-- Settings Dropdown -->
-    <div class="relative group">
-      <div class="flex items-center space-x-2 cursor-pointer">
-        <p class="text-lg font-bold text-white transition-all hover:text-[#fce94f]">Settings</p>
-      </div>
-      <div class="dropdown-list absolute bg-[#f8f5fc] shadow-lg rounded-md min-w-max px-1 py-1 top-full left-0 hidden
-                  group-hover:block transition-all duration-200">
-        <ul class="block">
-          <li><a href="/account" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Account</a></li>
-          <li><a href="/all-notification" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Notifications</a></li>
-          <li><a href="/all-email" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Emails</a></li>
-          <li><a href="/admin-dashboard" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Email Logs</a></li>
-          <li><a href="/invoice" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Invoice</a></li>
-          <li><a href="/card" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Card</a></li>
-        </ul>
-      </div>
-    </div>
 
-    <!-- Authentication Dropdown -->
-    <div class="relative group">
-      <div class="flex items-center space-x-2 cursor-pointer">
-        <p class="text-lg font-bold text-white transition-all hover:text-[#fce94f]">Authentication</p>
-      </div>
-      <div class="dropdown-list absolute bg-[#f8f5fc] shadow-lg rounded-md min-w-max px-1 py-1 top-full left-0 hidden
-                  group-hover:block transition-all duration-200">
-        <ul class="block">
-          <li><a href="/admin-dashboard" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Reset Password</a></li>
-          <li><a href="/admin-dashboard" class="block text-[#4a3f58] hover:bg-[#b9a1d6] hover:text-white px-2 py-1 rounded-md">Logout</a></li>
-        </ul>
-      </div>
-    </div>
 
+
+
+      <!-- Repeat the same pattern for other sections like Pet Management, Sama Store, etc. -->
+    </nav>
   </div>
 </div>

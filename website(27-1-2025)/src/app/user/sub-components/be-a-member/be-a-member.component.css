@@ -1,0 +1,620 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+a {
+    text-decoration: none;
+    color: #5E17EB;
+}
+.hero {
+    background-color: #e0f7fa;
+    text-align: center;
+    position: relative;
+    padding: 40px 0;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Hero Section */
+.heroSection {
+  position: relative;
+  background: #fbb5fb;
+  text-align: left;
+  overflow: hidden;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+/* Background Styling with Wave Effect */
+.heroBackground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+}
+
+/* Hero Container */
+.hero-container {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin-left: 100px;
+}
+
+/* Breadcrumb Navigation */
+.heroLinkContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #4b0082;
+}
+
+.hero-link {
+  text-transform: uppercase;
+  color: #4b0082;
+  text-decoration: none;
+}
+
+.hero-link.active {
+  color: #ff47a2;
+}
+
+.heroDot {
+  width: 10px;
+  height: 10px;
+  background: #ff47a2;
+  border-radius: 50%;
+}
+
+.heroSection::before {
+  content: '';
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.4);
+  position: absolute;
+  border-radius: 50%;
+  top: -100px;
+  animation: floatBubble 20s infinite linear;
+}
+
+.heroSection::after {
+  content: '';
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  border-radius: 50%;
+  top: -150px;
+  left: 50%;
+  animation: floatBubble 25s infinite linear;
+}
+
+@keyframes floatBubble {
+  0% {
+      transform: translateY(0) translateX(0);
+  }
+  50% {
+      transform: translateY(500px) translateX(50px);
+  }
+  100% {
+      transform: translateY(0) translateX(-50px);
+  }
+}
+/* Heading */
+.hero-heading {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #000;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+/* Description */
+.hero-description {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  max-width: 565px;
+}
+
+/* Pet Image Container */
+.heroImageContainer {
+  position: absolute;
+  right: 11%;
+  bottom: -93px;
+}
+
+.heroImage {
+  max-width: 535px;
+  height: auto;
+}
+
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  .breadcrumb a {
+    text-decoration: none;
+    color: #5a31f4;
+}
+
+.cta-btn{
+  background-color: #5e17eb;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: 700;
+}
+
+.cta-btn:hover {
+  background-color: #9eaeb4;
+}
+
+/* Media Query for devices less than 768px wide */
+@media (max-width: 768px) {
+    .hero-container,
+    .heroLinkContainer {
+        text-align: center;
+        margin: 0 auto;
+        padding: 0 20px; /* Add some padding on the sides */
+    }
+  
+    .hero-container {
+        max-width: 100%; /* Use 100% of the container width */
+    }
+  
+    .hero-heading {
+        font-size: 2.5rem; /* Adjust font size for small screens */
+    }
+  
+    .hero-description {
+        max-width: 100%; /* Allow description to fill the container */
+        padding: 0 10px; /* Add padding to maintain layout */
+    }
+  
+    .heroImageContainer {
+        position: relative; /* Change positioning to relative */
+        right: auto; /* Reset right positioning */
+        bottom: auto; /* Reset bottom positioning */
+        margin: 20px auto 0; /* Add margin for spacing */
+        display: block; /* Ensure it is a block to center below the text */
+    }
+  
+    .heroImage {
+        width: 80%; /* Adjust image width to be responsive */
+        max-width: 350px; /* Limit maximum width to ensure it looks good */
+    }
+  
+    .cta-btn {
+        display: block; /* Make button a block to fill width */
+        width: 50%; /* Adjust button width to 50% for better accessibility */
+        margin: 20px auto; /* Center button horizontally and add vertical spacing */
+    }
+  
+    .heroLinkContainer {
+        flex-direction: column; /* Stack links vertically */
+        gap: 5px; /* Reduce gap size */
+    }
+  }
+  
+  /* Media Query for devices less than 480px wide */
+  @media (max-width: 480px) {
+    .hero-heading {
+        font-size: 2rem; /* Further reduce font size for very small screens */
+    }
+  
+    .hero-description {
+        font-size: 0.9rem; /* Reduce font size for descriptions */
+    }
+  
+    .cta-btn {
+        width: 60%; /* Increase button width for smaller devices */
+    }
+  }
+  
+  /* Existing CSS stays unchanged, only add the following */
+  
+  @media (max-width: 1280px) {
+
+    .hero-container {
+      /* Center align the text and button for medium devices */
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      padding-top: 35px;
+    }
+  
+    .heroImageContainer {
+      /* Center the image below the text for medium devices */
+      position: relative;
+      right: auto;
+      bottom: -87px;
+      display: block;
+      margin: 20px auto 0;
+      text-align: center; /* Center the image */
+    }
+  
+    .heroImage {
+      width: 50%; /* Adjust width for better visibility */
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .heroImage {
+      width: 60%; /* Increase width to maintain image visibility */
+    }
+  }
+  
+  @media (max-width: 912px) {
+    .heroImage {
+      width: 70%; /* Further increase for smaller screens */
+    }
+  }
+  
+  @media (max-width: 853px) {
+    .heroImage {
+      width: 75%; /* Adjust based on visual feedback */
+    }
+  }
+  
+  @media (max-width: 820px) {
+    .heroImage {
+      width: 80%; /* Larger display for smaller devices */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .herosection{
+        padding-bottom:0%;
+    }
+    .hero-heading {
+      font-size: 2.5rem; /* Adjust title size for better fit */
+    }
+  
+    .hero-description {
+      font-size: 1rem; /* Adjust description size */
+    }
+  
+    .heroImage {
+      width: 90%; /* Maximize image size for better visibility */
+    }
+  }
+  
+  @media (max-width: 540px) {
+    .hero-heading {
+      font-size: 2rem; /* Further reduce for small screens */
+    }
+  
+    .hero-description {
+      font-size: 0.9rem; /* Slightly reduce text size */
+    }
+  
+    .heroImage {
+      width: 95%; /* Make image almost full-width */
+    }
+  }
+  
+/* Features Section */
+.features {
+    text-align: center;
+    padding: 50px 20px;
+}
+.features h2 {
+    margin-bottom: 30px;
+}
+.feature-item {
+    display: inline-block;
+    width: 45%;
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+}
+.feature-item img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+/* Package Plan Section */
+.package-plan {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f0f0f0;
+}
+.package-plan h2 {
+    margin-bottom: 30px;
+}
+.package {
+    display: inline-block;
+    width: 28%;
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.package .price {
+    font-size: 24px;
+    font-weight: bold;
+}
+.package button {
+    background-color: #5E17EB;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Footer Section */
+.footer {
+    background-color: #5E17EB;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.footer a {
+    color: white;
+}
+
+
+.membershipHighlightSection {
+  padding: 70px 20px;
+  background: #fff5fc;
+  text-align: center;
+}
+
+.membershipHighlightContainer {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.highlightTitle {
+  font-size: 2.7rem;
+  color: #5E17EB;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.highlightSubtitle {
+  font-size: 1.15rem;
+  color: #555;
+  margin-bottom: 50px;
+}
+
+.highlightGrid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+.membershipImageWrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto 20px auto;
+  text-align: center;
+}
+
+.membershipImage {
+  width: 50%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+
+.highlightCard {
+  background-color: #fff;
+  border-radius: 15px;
+  padding: 30px 25px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  width: 290px;
+  transition: transform 0.3s ease;
+}
+
+.highlightCard:hover {
+  transform: translateY(-10px);
+}
+
+.highlightCard h3 {
+  color: #333;
+  margin-top: 15px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.highlightCard p {
+  font-size: 0.96rem;
+  color: #666;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.highlightIcon {
+  width: 60px;
+  height: 60px;
+}
+
+/* CTA Button */
+.highlightCTA {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 12px 30px;
+  background-color: #5E17EB;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.highlightCTA:hover {
+  background-color: #4710c0;
+}
+
+.membership-section {
+  text-align: center;
+  padding: 60px 20px;
+  background: #fff5fc;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(155, 130, 255, 0.05);
+}
+
+.membership-section h2 {
+  color: #3D287D;
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.membership-section p {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.membership-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.option-card {
+  width: 295px;
+  background: linear-gradient(135deg, #7767bb, rgb(90 60 190 / 44%));
+  border: 1px solid rgba(160, 130, 255, 0.3);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  color: #fff;
+  padding: 30px 25px;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.option-card * {
+  position: relative;
+  z-index: 1;
+}
+
+.option-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+.option-card .icon {
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.option-card h3 {
+  font-size: 1.4rem;
+  margin: 10px 0 5px;
+  color: #ffffff;
+}
+
+.option-card p {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  color: #ffffff;
+}
+
+.option-card .price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  background-color: #ffffff;
+  color: #6B3DD1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+/* Link Styling */
+.benefits-link, .skip-link {
+  color: #6B3DD1;
+  font-weight: 500;
+  text-decoration: none;
+  margin: 8px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.benefits-link:hover, .skip-link:hover {
+  color: #957DDA;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .membership-options {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .option-card {
+    width: 90%;
+    max-width: 320px;
+  }
+
+  .membership-section {
+    padding: 40px 15px;
+  }
+}
+
+.option-card:hover {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2), 0 12px 25px rgba(0,0,0,0.2);
+}
+.membership-container{
+  display: flex;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px;
+}
+.feature-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-top: 10px;
+}
+
+.feature-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  color: #ffffff;
+}
+
+.feature-list li::before {
+  content: '✔';
+  position: absolute;
+  left: 0;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1rem;
+}

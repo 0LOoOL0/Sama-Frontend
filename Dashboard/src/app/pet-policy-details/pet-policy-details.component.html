@@ -1,0 +1,134 @@
+
+  <div class="central-container">
+    <div class="back-button-container">
+        <button class="back-button" (click)="goBack()">
+          <i class="fas fa-arrow-left"></i> Back to Dashboard
+        </button>
+      </div>
+  <div class="policy-container">
+    <div *ngIf="loading" class="loading">Loading policy details...</div>
+  
+    <div *ngIf="error" class="error-message">{{ error }}</div>
+  
+    <div *ngIf="pet && policy && owner" class="details-card">
+      <h2 class="section-title">
+        🐶 Pet & Owner Details
+        <button class="toggle-btn" (click)="toggleDetailsSection()" title="Toggle Details">
+          <i [class]="isDetailsCollapsed ? 'fas fa-chevron-down' : 'fas fa-chevron-up'"></i>
+        </button>
+      </h2>
+    
+      <div *ngIf="!isDetailsCollapsed">
+        <!-- Pet Info -->
+        <h2 class="section-title">🐾 Pet Details</h2>
+        <div class="detail-group">
+          <label>Name:</label>
+          <span>{{ pet.name }}</span>
+        </div>
+        <div class="detail-group">
+          <label>Type:</label>
+          <span>{{ pet.pet_type }}</span>
+        </div>
+        <div class="detail-group">
+          <label>Breed:</label>
+          <span>{{ pet.breed }}</span>
+        </div>
+        <div class="detail-group">
+          <label>Age:</label>
+          <span>{{ pet.age }}</span>
+        </div>
+        <div class="detail-group">
+          <label>Gender:</label>
+          <span>{{ pet.gender === 'm' ? 'Male' : 'Female' }}</span>
+        </div>
+    
+        <!-- Owner Info -->
+        <h2 class="section-title">👤 Owner Details</h2>
+        <div class="detail-group">
+          <label>Full Name:</label>
+          <span>{{ owner.first_name }} {{ owner.last_name }}</span>
+        </div>
+        <div class="detail-group">
+          <label>Contact Number:</label>
+          <span>{{ owner.phone }}</span>
+        </div>
+      </div>
+    
+      <!-- Policy Info -->
+      <h2 class="section-title">📋 Policy Status</h2>
+      <div class="detail-group">
+        <span class="status-label" [ngClass]="{ 'valid': !isExpired, 'expired': isExpired }">
+          {{ isExpired ? 'Expired' : 'Valid' }}
+        </span>
+      </div>
+      <div class="detail-group">
+        <label>Valid Until:</label>
+        <span>{{ policy.end_date | date }}</span>
+      </div>
+    </div>
+    
+  </div>
+
+  <h2 class="section-title">🛒 Add Products/Services</h2>
+
+  <div *ngIf="!isExpired; else expiredBlock" class="order-form">
+    <div class="tabs">
+      <button [class.active]="activeTab === 'products'" (click)="activeTab = 'products'">Products</button>
+      <button [class.active]="activeTab === 'services'" (click)="activeTab = 'services'">Services</button>
+    </div>
+
+    <div class="card-list" *ngIf="activeTab === 'products'">
+      <div *ngFor="let item of availableProducts" class="item-card product-card">
+        <label>
+          <input type="checkbox" [(ngModel)]="item.selected" />
+          <div class="product-content">
+            <img [src]="item.imageUrl" alt="{{ item.name }}" class="product-image" />
+            <div class="product-info">
+              <div class="item-name">{{ item.name }}</div>
+              <div class="item-price">${{ item.price }}</div>
+            </div>
+          </div>
+        </label>
+      </div>
+    </div>
+    
+    <div class="card-list" *ngIf="activeTab === 'services'">
+      <div *ngFor="let item of availableServices" class="item-card">
+        <label>
+          <input type="checkbox" [(ngModel)]="item.selected" />
+          <div class="item-info">
+            <div class="item-name">{{ item.name }}</div>
+            <div class="item-price">${{ item.price }}</div>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <button class="submit-order-button" (click)="submitOrder()">Submit Order</button>
+  </div>
+
+  <ng-template #expiredBlock>
+    <p class="expired-warning">This membership is expired. Product and service ordering is disabled.</p>
+  </ng-template>
+</div>
+
+<div class="receipt-overlay" *ngIf="showReceipt">
+    <div class="receipt printable-receipt">
+        <h2>Receipt</h2>
+        <p>Pet: {{ pet.name }}</p>
+        <p>Owner: {{ owner.first_name }} {{ owner.last_name }}</p>
+        <p><strong>Membership Number:</strong> {{ policy?.id }}</p>
+<p><strong>Date & Time:</strong> {{ currentDateTime }}</p>
+
+        <ul>
+          <li *ngFor="let item of order.metadata?.products">{{ item.name }} - ${{ item.price }}</li>
+        </ul>
+        <p><strong>Total:</strong> ${{ order.amount }}</p>
+        <p><strong>Discounted Total:</strong> ${{ order.amount - order.discount_amount }}</p>
+      <div class="receipt-actions">
+        <button (click)="printReceipt()">🖨️ Print</button>
+        <button (click)="emailReceipt()">✉️ Email</button>
+        <button (click)="closeReceipt()">❌ Close</button>
+      </div>
+    </div>
+  </div>

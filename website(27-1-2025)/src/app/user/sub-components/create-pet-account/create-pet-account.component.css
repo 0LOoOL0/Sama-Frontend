@@ -1,0 +1,234 @@
+body {
+  background-color: rgb(157, 155, 155);
+  margin: 0;
+  align-items: center;
+  font-family: 'Promo Regular';
+}
+
+.bg-image-page {
+  background-image: url('/assets/img/catbg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  padding: 60px;
+
+}
+
+.profile {
+  width: 9rem;
+  height: 9rem;
+  margin: 1.25rem auto;
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+.profile img:first-child {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.edit-icon {
+  position: absolute;
+  right: 0rem;
+  bottom: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+.pet-form-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 200px;
+}
+
+.radio-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.size-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.make-it-one-line {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.content {
+  max-width: 700px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  margin-right: 20px;
+  padding: 30px;
+}
+
+.header-margin-single-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-font {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.toolbar button {
+  background-color: #5E17EB;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.thumbnail {
+  width: 20px;
+  height: 20px;
+}
+
+#profile-picture .container {
+  display: flex;
+  justify-content: center;
+}
+
+.parent {
+  position: relative;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder {
+  width: 100px;
+  height: 100px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+}
+
+.icon {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background-color: #5E17EB;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+form div {
+  margin-bottom: 20px;
+}
+
+label.body-font {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.875rem;
+}
+
+.gender,
+.vaccination-status,
+.microchip-status,
+.neutered-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.filled-buttons {
+  width: 48%;
+  padding: 15px;
+  font-size: 1rem;
+  background-color: #5E17EB;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Promo Regular';
+}
+
+.filled-buttons:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* .filled-buttons {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  background-color: #5E17EB;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.filled-buttons:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+} */

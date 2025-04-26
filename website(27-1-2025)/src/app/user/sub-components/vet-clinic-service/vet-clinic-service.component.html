@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vet Clinic Services Details</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <app-navbar></app-navbar>
+   <!-- Updated Hero Section -->
+<section class="heroSection">
+    <div class="heroBackground"></div>
+    <div class="container-3xl">
+        <div class="hero-container">
+            <!-- Breadcrumb Navigation -->
+            <div class="heroLinkContainer">
+                <a href="home" class="hero-link">HOME</a>
+                <div class="heroDot"></div>
+                <a href="service" class="hero-link">SERVICE</a>
+                <div class="heroDot"></div>
+                <a href="vet-clinic" class="hero-link">VET CLINIC</a>
+                <div class="heroDot"></div>
+                <a href="clinic-1" class="hero-link active">CLINIC 1</a>
+            </div>
+            
+            <!-- Hero Title -->
+            <h1 class="hero-heading">Clinic 1</h1>
+            
+            <!-- Location -->
+            <div class="locationLink flex gap-half">
+                <img src="./assets/icons/location-icon.svg" alt="location" class="locationIcon">
+                <span>Manama, Bahrain</span>
+            </div>
+            
+            <!-- Description -->
+            <p class="hero-description">
+                We provide compassionate, expert care to ensure your pets remain happy and healthy.
+                Located in the heart of Bahrain, we offer a range of services tailored to meet the unique needs of your furry friends.
+            </p>
+        </div>
+        
+        <!-- Cat Image -->
+        <div class="heroImageContainer">
+            <img src="./assets/img/greycat.png" alt="Clinic Cat" class="heroImage">
+        </div>
+    </div>
+</section> 
+
+    <section class="clinicDetailsSection">
+        <div class="container">
+            <div class="textContent">
+                <p class="clinicDescription">
+                    Providing compassionate, comprehensive care for your beloved pets. Our experienced team of veterinarians and support staff are dedicated to keeping your furry (or feathery, or scaly!) friends happy and healthy. From preventative checkups to emergency services, we offer the latest treatments in a warm, welcoming environment.
+                </p>
+                <div class="services">
+                    <div class="serviceItem">
+                        <div class="iconBox"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h2 class="serviceTitle">Companionship</h2>
+                    </div>
+                    <div class="serviceItem">
+                        <div class="iconBox"><i class="fas fa-home"></i></div>
+                        <h2 class="serviceTitle">Warm and inviting environment</h2>
+                    </div>
+                    <div class="serviceItem">
+                        <div class="iconBox"><i class="fas fa-utensils"></i></div>
+                        <h2 class="serviceTitle">Fresh water and food</h2>
+                    </div>
+                    <div class="serviceItem">
+                        <div class="iconBox"><i class="fas fa-heart"></i></div>
+                        <h2 class="serviceTitle">Lots of love and snuggles</h2>
+                    </div>
+                </div>
+                <div class="availability">
+                    <h2 class="availabilityTitle">Availability time</h2>
+                    <div class="days">
+                        <span class="day">M</span>
+                        <span class="day active">T</span>
+                        <span class="day">W</span>
+                        <span class="day active">T</span>
+                        <span class="day">F</span>
+                        <span class="day">S</span>
+                        <span class="day active">S</span>
+                    </div>
+                    <p class="hours">Hours: <span>10:00am - 2:00pm</span></p>
+                </div>
+    
+                <!-- WhatsApp and Share Buttons -->
+                <div class="actionButtons">
+                    <a href="https://wa.me/1234567890" target="_blank" class="whatsappBtn">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
+                    <button class="shareBtn" (click)="sharePage()">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+
+                      <!-- Favorite Button -->
+    <button class="favoriteBtn" (click)="toggleFavorite()">
+        <i class="fas fa-heart" [ngClass]="{'favorited': isFavorited}"></i>
+    </button>
+                </div>
+    
+            </div>
+    
+            <!-- Image Slider -->
+            <div class="sliderContainer">
+                <button class="prevBtn" (click)="prevImage()">&#10094;</button>
+                <div class="clinicImages">
+                    <img *ngFor="let image of images; let i = index" 
+                         [src]="image" 
+                         [alt]="'Image ' + (i + 1)"
+                         [class.active]="i === currentIndex">
+                </div>
+                <button class="nextBtn" (click)="nextImage()">&#10095;</button>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <div class="servicebyproduct w-full ">
+        <app-item-by-provider></app-item-by-provider>
+    </div>
+    
+   
+    <!-- get service section -->
+    <section class="getServiceSection">
+        <div class="container-3xl">
+            <div class="grid-layout-2">
+                <div class="grid-col-7 col-xl">
+                    <div class="getServiceTextContainer">
+                        <h1 class="mdHeading">Want To Get a Service?</h1>
+                        <p class="mainText">Consequat nisl vel pretium lectus quam id leo in. Quis viverra nibh cras
+                            pulvinar
+                            mattis. Quis hendrerit dolor magna eget est lorem ipsum dolor</p>
+
+                        <div class="socialMediaContainer flex row-between gap-3">
+                            <a href="#" class="socialMediaLink"><img src="./assets/img/apple-store-icon.png"
+                                    alt="apple-store" class="socialMediaIcon"></a>
+                            <a href="#" class="socialMediaLink"><img src="./assets/img/google-play-icon.png"
+                                    alt="google-play" class="socialMediaIcon"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-col-5 col-xl">
+                    <div class="getServiceImgContainer">
+                        <img src="./assets/img/sama-phone-1.png" alt="get-service" class="getServiceImg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- other services section -->
+    <section class="otherServicesSection">
+        <div class="container-2xl">
+            <h4 class="subHeading">Our Services</h4>
+            <h1 class="mdHeading">All Pet Care Services</h1>
+    
+            <div class="grid-layout">
+                <div class="grid-col">
+                    <div class="serviceCard">
+                        <img src="./assets/img/other-servics-img-1.png" alt="Vet Clinic" class="serviceImage">
+                        <h5 class="serviceTitle">Vet Clinic</h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="serviceCard">
+                        <img src="./assets/img/other-servics-img-2.png" alt="Pet Store" class="serviceImage">
+                        <h5 class="serviceTitle">Pet Store</h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="serviceCard">
+                        <img src="./assets/img/other-servics-img-3.png" alt="Grooming" class="serviceImage">
+                        <h5 class="serviceTitle">Grooming</h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="serviceCard">
+                        <img src="./assets/img/other-servics-img-4.png" alt="Sama Store" class="serviceImage">
+                        <h5 class="serviceTitle">Sama Store</h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="serviceCard">
+                        <img src="./assets/img/other-servics-img-5.png" alt="Pet Training" class="serviceImage">
+                        <h5 class="serviceTitle">Pet Training</h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="serviceCard">
+                        <img src="./assets/img/other-servics-img-6.png" alt="Marketplace" class="serviceImage">
+                        <h5 class="serviceTitle">Marketplace</h5>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- More Button -->
+            <div class="more-services-btn-container">
+                <button class="more-services-btn" (click)="navigateToServices()">More</button>
+            </div>
+        </div>
+    </section>
+    
+
+    
+    <footer class="footerSection">
+        <div class="container">
+            <div class="footerColumn footerInfo">
+                <img src="./assets/img/brand-logo-1.png" alt="Sama Pet Care Logo" class="footerLogo">
+                <p>Sama Pet Care is a comprehensive platform dedicated to enhancing pet care.</p>
+                <p class="phone"><i class="fas fa-phone-alt"></i> (973) 77690000</p>
+                <p>Got Questions? Call us 24/7</p>
+            </div>
+            <div class="footerColumn footerHours">
+                <h3>Working Hours</h3>
+                <p>Mon - Fri: 7am - 6pm</p>
+                <p>Saturday: 9am - 4pm</p>
+                <p>Sunday: Closed</p>
+            </div>
+            <div class="footerColumn footerLinks">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Delivery</a></li>
+                    <li><a href="#">Sales</a></li>
+                </ul>
+            </div>
+            
+            <div class="footerColumn footerNewsletter">
+                <h3>Newsletter</h3>
+                <p>Be first in the queue! Get our latest news straight to your inbox.</p>
+                <form>
+                    <input type="email" placeholder="Email">
+                    <button type="submit">➤</button>
+                </form>
+            </div>
+        </div>
+        <div class="footerCopyright">
+            <p>© 2025 Sama Pet Care. All rights reserved. Designed by Sama Pet.</p>
+        </div>
+    </footer>

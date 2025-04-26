@@ -1,0 +1,130 @@
+// general
+.MakeItCenter{
+  margin-bottom: 20px;
+}
+
+.icons{
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+}
+
+// font
+h2, h3, p, label{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+h3{
+  margin: 0;
+}
+
+p{
+  font-weight: bold;
+  margin: 0;
+}
+
+// card
+.card-content {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  max-width: 350px;
+  height: 206px;
+  
+  padding: 10px;
+  padding-top: 40px;
+  border-radius: 16px;
+
+  background: url('/assets/pet-card.jpeg');
+  background-size: cover;
+  background-position: center;
+}
+
+.in-card-qr{
+  background-color: red;
+
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+
+  img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+// buttons
+.buttons{
+  width: 100%;
+  max-width: 350px;
+
+  button{
+    width: 50%;
+  }
+}
+
+button{
+  padding: 12px 0px;
+  border-radius: 16px;
+  border: none;
+  background-color: var(--White);
+  color: var(--GrayColor);
+  font-weight: 600;
+}
+
+.active{
+  background-color: var(--Accent-One);
+  color: var(--Main-Two);
+}
+
+// list
+input[type="checkbox"] {
+  transform: scale(1.5);
+  margin: 10px;
+}
+
+.listContainer{
+  margin: auto 16px;
+}
+
+.listItem{
+  height: 65px;
+  margin-top: 20px;
+  border-radius: 16px;
+  padding: 16px;
+  
+  background-color: var(--background-color);
+
+  input[type="checkbox"] {
+    background-color: var(--background-color);
+  }
+
+  label{
+    font-weight: 600;
+  }
+
+  p{
+    font-weight: 400;
+  }
+}
+
+.listItemImg{
+  width: 60px;
+  height: 60px;
+  margin: auto 15px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  img{
+    width: auto;
+    height: 100%;
+  }
+}

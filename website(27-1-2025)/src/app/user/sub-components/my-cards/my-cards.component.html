@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://db.onlinewebfonts.com/c/40315542611eb41a00c2c04091dbe8a6?family=Promo+Regular" rel="stylesheet">
+
+</head>
+
+<body style="font-family:Promo Regular">
+    <app-navbar></app-navbar>
+
+    <!-- hero section -->
+    <section class="heroSection">
+        <div class="heroBackground"></div>
+        <div class="container-3xl">
+            <div class="hero-container">
+                <div class="heroLinkContainer ">
+                    <a href="home" class="hero-link active">Home</a>
+                    <div class="heroDot"></div>
+                    <a href="/user-main-component/my-cards" class="hero-link  ">My cards</a>
+                </div>
+                <h1 class="hero-heading">My Cards</h1>
+            </div>
+
+            <!-- Pet Image -->
+            <div class="heroImageContainer">
+                <img src="./assets/img/cutekitten.png" alt="Happy Dog" class="heroImage">
+            </div>
+        </div>
+    </section>
+    <!-- my cards   section -->
+    <section class="productListingSection myCardCouponsSection">
+        <div class="productListingContainer">
+            <div class="grid-layout-2">
+                <div class="grid-col-6">
+                    <!-- <div class="myCardCardItem">
+                        <div class="flex row-between">                            
+                            <select class="cardDropDwon" (change)="onPetChange($event.target.value)">
+                                <option [value]="i" *ngFor="let pet of pets; let i = index" >                                    
+                                    <h1 class="mdHeading">{{pet.name}}</h1>
+                                </option>
+                            </select>                            
+                        </div>
+
+                        <div class="cardImageContainer" style="background-color: orange;" *ngIf="pet?.memberShip; else notMember">
+                            <h1 class="mdHeading">{{pet?.name}}</h1>
+                            <h1 class="mdHeading">Breed: {{pet?.breed}}</h1>
+                            <h1 class="mdHeading">Gender: {{pet?.gender == 'f'? 'Female' : pet?.gender == 'm' ? 'Male' : 'Unknown'}}</h1>
+                            <h1 class="mdHeading">Owner Name: {{prof?.first_name}} {{prof?.last_name}}</h1>
+                            <h1 class="mdHeading">expiration_date: {{pet?.end_date | date:'dd-MM-yyyy'}}</h1>
+                        </div>
+                        <ng-template #notMember>
+                            <h1 class="mdHeading" style="background-color: red;">{{pet?.name}} is not a member</h1>
+                        </ng-template>
+
+                        <div class="cardBtnContainer flex row-center">
+                            <a href="#" class="main-btn">Order Physical Card</a>
+                        </div>
+                    </div> -->
+                    <div class="myCardCardItem">
+                        <div class="flex row-between">
+                            <select class="cardDropDwon" (change)="onPetChange($event.target.value)">
+                                <option *ngFor="let pet of pets; let i = index" [value]="i">
+                                  {{ pet.name }}
+                                </option>
+                              </select>
+                              
+                        </div>
+                        <div class="cardDisplay">
+                            <div id="cardContent" class="card">
+                                <!-- Info Section -->
+                                <div class="info-section">
+                                    <!-- Image inside info section -->
+                                    <div class="image-section">
+                                        <img src="../../../../assets/img/catt.jpeg" alt="Pet Image" class="rounded-2xl" />
+                                        <div class="info-text">
+                                            <p>{{pet?.name}}</p>
+                                            <p>SA001</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Info details -->
+                                    <div class="details-section">
+                                        <p><span class="label">BREED</span><span class="value">: {{pet?.breed}}</span></p>
+                                        <p><span class="label">COUNTRY</span><span class="value">: Bahrain</span></p>
+                                        <p><span class="label">GENDER</span><span class="value">: {{pet?.gender == 'f'? 'Female' : pet?.gender == 'm' ? 'Male' : 'Unknown'}}</span></p>
+                                        <p><span class="label">VALID DATE</span><span class="value">: {{pet?.end_date | date:'dd-MM-yyyy'}}</span>
+                                        </p>
+                                        <p><span class="label">PET OWNER</span><span class="value">: {{prof?.first_name}} {{prof?.last_name}}</span></p>
+                                    </div>
+                                </div>
+                                <!-- Name and code -->
+                                <div class="additional-info">
+                                    <div class="qr-container">
+                                        <div class="qr-code"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ng-template #notMember>
+                            <h1 class="mdHeading" style="background-color: red;">{{pet?.name}} is not a member</h1>
+                        </ng-template>
+
+                        <div class="cardBtnContainer flex row-center">
+                            <a href="#" class="main-btn">Order Physical Card</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-col-6">
+                    <div class="couponsCardItem">
+                        <div class="couponsCardHeader flex row-between">
+                            <h1 class="mdHeading">Coupons</h1>
+                            <a href="#" class="main-btn">BUY MORE COUPONS</a>
+                        </div>
+
+                        <div class="coupusownerItem">
+                            <h2 class="smHeading">Owned</h2>
+                            <div class="ownerCard flex gap-1" *ngFor="let owned of coupon">
+                                <img [src]="owned.image" alt="coupon img" class="ownerCardImg">
+                                <div class="ownerCardText flex-1">
+                                    <h1 class="mdHeading">{{ getProviderNameById(owned.provider_id) }}</h1>
+                                    <p class="mainText">{{owned.title}}</p>
+                                    <div class="ownerCardBtnContainer flex row-between">
+                                        <a class="cardBtn">{{owned.code}}</a>
+                                        <p class="mainText">{{owned.expiration_date | date:'dd-MM-yyyy'}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="coupusownerItem">
+                            <h2 class="smHeading">Used</h2>
+                            <div class="ownerCard flex gap-1 disable" *ngFor="let used of usedCoupon">
+                                <img [src]="used.image" alt="card img" class="ownerCardImg">
+                                <div class="ownerCardText flex-1">
+                                    <h1 class="mdHeading">{{getProviderNameById(used.provider_id)}}</h1>
+                                    <p class="mainText">{{used.title}}</p>
+                                    <div class="ownerCardBtnContainer flex row-between">
+                                        <a class="cardBtn">{{used.code}}</a>
+                                        <p class="mainText">{{used.expiration_date | date:'dd-MM-yyyy'}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- membership section -->
+    <section class="membershipSection cardPageMemberShipSection">
+        <div class="container-2xl">
+            <div class="membershipContainer">
+                <div class="flex-col-6 col-md mx-auto">
+                    <h1 class="mdHeading">Your Pets Deserve the Best,
+                        Be a member!</h1>
+                    <p class="mainText">Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum. Ligula
+                        ullamcorper malesuada proin libero nunc consequat interdum varius sit.</p>
+                    <a href="/user-main-component/subscribe" class="main-btn">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footerSection">
+        <div class="container-2xl">
+            <div class="footerContainer">
+                <div class="grid-layout-2">
+                    <div class="grid-col-3 footerCol-lg">
+                        <div class="footerCard">
+                            <img src="./assets/img/brand-logo-1.png" alt="logo" class="footerLogo">
+                            <p class="mainText">Sama Pet is a comprehensive platform dedicated to enhancing pet care.
+                                From finding trusted service providers to managing pet profiles,
+                                memberships, and exclusive discounts,
+                                Sama Pet ensures everything you need for your furry friend is just a click away!</p>
+
+                            <div class="footerContactInfo flex gap-1">
+                                <img src="./assets/icons/call-icon.svg" alt="call" class="footerContactIcon">
+                                <div class="footerContactText">
+                                    <a href="tel:+97377690000" class="mdHeading">(973) 77690000</a>
+                                    <a href="#" class="smText">Got Questions? Call us 24/7</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-col-3 footerCol-lg"></div>
+                    <div class="grid-col-3">
+                        <div class="footerLinksCard">
+                            <h3 class="mdHeading">Quick Links</h3>
+                            <ul class="footerLinksList">
+                                <li class="footerLinksItem"><a href="#" class="smText">Home</a></li>
+                                <li class="footerLinksItem"><a href="#" class="smText">About</a></li>
+                                <li class="footerLinksItem"><a href="#" class="smText">Services</a></li>
+                                <li class="footerLinksItem"><a href="#" class="smText">Sama store</a></li>
+                                <li class="footerLinksItem"><a href="#" class="smText">Be a partner</a></li>
+                                <li class="footerLinksItem"><a href="#" class="smText">FAQ</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="footerLinksCard">
+                            <h3 class="mdHeading">Working Hours</h3>
+                            <p class="smText">Sunday - Thursday: <span>9am – 4pm</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- social media icons -->
+                <div class="footerSocialMediaContainer flex row-between">
+                    <div class="footerSocialMediaLeft flex gap-1-5">
+                        <a href="#" class="social-icon-link"><img src="./assets/icons/facebook-white-icon.svg"
+                                alt="facebook" class="social-icon"></a>
+                        <a href="#" class="social-icon-link"><img src="./assets/icons/instagram-white-icon.svg"
+                                alt="instagram" class="social-icon"></a>
+                        <a href="#" class="social-icon-link"><img src="./assets/icons/twitter-white-icon.svg"
+                                alt="twitter" class="social-icon"></a>
+                        <a href="#" class="social-icon-link"><img src="./assets/icons/whatsapp-white-icon.svg"
+                                alt="whatsapp" class="social-icon"></a>
+                    </div>
+                    <div class="footerSocialMediaRight flex gap-2 row-end">
+                        <a href="tel:+97337749339" class="social-icon-link flex gap-half"><img
+                                src="./assets/icons/call-white-icon.svg" alt="call" class="social-icon">+973 -
+                            37749339</a>
+                        <a href="mailto:SamaPet.bhgmail.com" class="social-icon-link flex gap-half"><img
+                                src="./assets/icons/email-white-icon.svg" alt="email"
+                                class="social-icon">SamaPet.bh&#64;gmail.com</a>
+                    </div>
+                </div>
+
+                <!-- footer copy Wirte -->
+                <div class="footerCopyWrite">
+                    <p class="smText"> © Sama Pet Care All rights reserved Copyrights 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+<div class="hospital-services">
+  <h2>Edit Hospital Services</h2>
+
+  <!-- Dynamic Service Input Groups -->
+  <div *ngFor="let service of services; let i = index" class="service-group">
+    <div class="field-group">
+      <label for="serviceNameEn-{{ i }}">Service Name (English)</label>
+      <input
+        type="text"
+        id="serviceNameEn-{{ i }}"
+        [(ngModel)]="service.serviceNameEn"
+        placeholder="Enter service name in English"
+      />
+    </div>
+    <div class="field-group">
+      <label for="serviceNameAr-{{ i }}">Service Name (Arabic)</label>
+      <input
+        type="text"
+        id="serviceNameAr-{{ i }}"
+        [(ngModel)]="service.serviceNameAr"
+        placeholder="Enter service name in Arabic"
+      />
+    </div>
+
+    <div class="field-group">
+      <label for="descriptionEn-{{ i }}">Description (English)</label>
+      <textarea
+        id="descriptionEn-{{ i }}"
+        [(ngModel)]="service.descriptionEn"
+        placeholder="Enter description in English"
+      ></textarea>
+    </div>
+    <div class="field-group">
+      <label for="descriptionAr-{{ i }}">Description (Arabic)</label>
+      <textarea
+        id="descriptionAr-{{ i }}"
+        [(ngModel)]="service.descriptionAr"
+        placeholder="Enter description in Arabic"
+      ></textarea>
+    </div>
+
+    <div class="pricing-group">
+      <div class="field-group">
+        <label for="discount-{{ i }}">Discount %</label>
+        <input
+          type="text"
+          id="discount-{{ i }}"
+          [(ngModel)]="service.discount"
+          placeholder="Enter discount percentage"
+        />
+      </div>
+      <div class="field-group">
+        <label for="priceBefore-{{ i }}">Price Before</label>
+        <input
+          type="text"
+          id="priceBefore-{{ i }}"
+          [(ngModel)]="service.priceBefore"
+          placeholder="Enter price before discount"
+        />
+      </div>
+      <div class="field-group">
+        <label for="priceAfter-{{ i }}">Price After</label>
+        <input
+          type="text"
+          id="priceAfter-{{ i }}"
+          [(ngModel)]="service.priceAfter"
+          placeholder="Enter price after discount"
+        />
+      </div>
+    </div>
+    <div *ngFor="let service of services; let i = index">
+      <label for="provider">Select Provider:</label>
+      <select [(ngModel)]="service.providerId" name="provider" required>
+        <option *ngFor="let provider of allProviders" [value]="provider.id">
+          {{ provider.name }} ({{ provider.type }})
+        </option>
+      </select>
+
+    <!-- Select Provider Type -->
+    <div class="field-group">
+      <label for="providerType-{{ i }}">Provider Type</label>
+      <select
+        id="providerType-{{ i }}"
+        [(ngModel)]="service.providerType"
+        (change)="onProviderTypeChange(service.providerType, i)"
+      >
+        <option value="" disabled selected>Select Provider Type</option>
+        <option *ngFor="let type of providerTypes" [value]="type">
+          {{ type }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Provider selection -->
+    <div class="field-group" *ngIf="providers[i] && providers[i].length > 0">
+      <label for="provider-{{ i }}">Provider</label>
+      <select
+        id="provider-{{ i }}"
+        [(ngModel)]="service.providerId"
+        (change)="onProviderChange(service.providerId, i)"
+      >
+        <option value="" disabled selected>Select Provider</option>
+        <option *ngFor="let provider of providers[i]" [value]="provider.id">
+          {{ provider.name }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Display provider contact number -->
+    <div class="field-group" *ngIf="service.contact_no">
+      <label>Provider Contact Number</label>
+      <input type="text" [(ngModel)]="service.contact_no" readonly />
+    </div>
+
+    <!-- Display provider contact number -->
+    <div class="field-group" *ngIf="service.status">
+      <label>Provider Status</label>
+      <input type="text" [(ngModel)]="service.status" readonly />
+    </div>
+
+    <!-- Input for pet types -->
+    <div class="field-group">
+      <label>Add Pet Type</label>
+      <input #petTypeInput type="text" placeholder="Enter pet type" />
+      <button
+        (click)="addPetType(i, petTypeInput.value); petTypeInput.value = ''"
+      >
+        Add Pet Type
+      </button>
+    </div>
+
+    <!-- Display added pet types -->
+    <div *ngIf="service.pet_type && service.pet_type.length > 0">
+      <label>Pet Types:</label>
+      <ul>
+        <li *ngFor="let petType of service.pet_type">{{ petType }}</li>
+      </ul>
+    </div>
+
+    <button
+      class="remove-service-btn"
+      *ngIf="services.length > 1"
+      (click)="removeService(i)"
+    >
+      Remove
+    </button>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="buttons">
+    <button class="add-more-btn" (click)="addService()">Add More</button>
+    <div class="action-buttons">
+      <button class="close-btn" (click)="closeForm()">Close</button>
+      <button class="save-btn" (click)="saveAllServices()">Save</button>
+    </div>
+  </div>
+</div>

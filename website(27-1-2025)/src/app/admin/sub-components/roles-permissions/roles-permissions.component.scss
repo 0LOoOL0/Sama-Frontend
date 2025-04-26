@@ -1,0 +1,145 @@
+.roles-permissions-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  section {
+    margin-bottom: 40px;
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .roles-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+
+      .role-box {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        flex: 1 1 calc(33.333% - 20px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .role-header {
+          h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: #333;
+          }
+
+          p {
+            font-size: 1rem;
+            color: #777;
+          }
+        }
+
+        .role-actions {
+          display: flex;
+          justify-content: flex-end;
+
+          .btn-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            color: #007bff;
+
+            &:hover {
+              color: #0056b3;
+            }
+          }
+        }
+      }
+
+      .add-role {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .btn-add {
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 8px;
+          cursor: pointer;
+          font-size: 1rem;
+
+          &:hover {
+            background-color: #0056b3;
+          }
+        }
+      }
+    }
+  }
+
+  .admins-with-roles {
+    .admin-roles-search {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+
+      .search-box {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+
+      .role-select {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+      }
+    }
+
+    .admin-roles-table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th, td {
+        padding: 10px;
+        border: 1px solid #ddd;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f1f1f1;
+        font-weight: bold;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      .btn-icon {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.25rem;
+        color: #007bff;
+
+        &:hover {
+          color: #0056b3;
+        }
+      }
+    }
+  }
+}

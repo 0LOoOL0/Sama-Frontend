@@ -1,0 +1,203 @@
+.create-supplier {
+    width: 100em;
+    margin: 20px;
+    padding: 40px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.200);
+}
+
+h2 {
+    color: #5E17EB;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.supplier-profile img {
+    height:200px;
+    margin-top: 50px;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+.filter-date{
+    display: flex;
+    font-weight: 400;
+}
+
+.filter-date li {
+    width: 300px;
+}
+
+.filter-date input{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.filter-date label{
+    margin: 0 20px;
+}
+
+.btn-filter {
+    background-color: #5E17EB;
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    color: white;
+    border-radius: 10px;
+    margin: 0px 5px;
+}
+
+.btn-create {
+    background-color: #5E17EB;
+    text-align: center;
+    width: 200px;
+    height: 60px;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.supplier-profile {
+    background-color: #5E17EB;
+    border-radius: 20px;
+    padding:20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+/* for the profile */
+
+.supplier-profile-content {
+    width: 75em;
+}
+
+.supplier-profile-content table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+
+.supplier-profile input {
+    border-radius: 10px;
+    padding: 5px;
+    color: black;
+    width: 100%;
+}
+
+.supplier-order {
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    padding:20px;
+    margin: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* supplier table */
+.supplier-content-table {
+    background-color: #eeeeee;
+    padding:20px;
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+.supplier-table {
+    margin: 20px auto;
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.supplier-table table {
+   width: 100%;
+}
+
+.supplier-table img {
+   border-radius: 5px;
+   display: block;
+   margin: 10px auto;
+}
+
+.supplier-table button {
+   border-radius: 10px;
+   display: block;
+   margin: 10px auto;
+   background-color: red;
+   width: 150px;
+   padding: 10px;
+}
+
+.supplier-table th {
+    color: white;
+    background-color: #5E17EB;
+    padding: 10px 0;
+    font-weight: 400;
+    height: 50px;
+}
+
+.supplier-table td {
+    background-color: rgb(250, 250, 250);
+    font-weight: 200;
+    color: black;
+    padding: 10px 0;
+}
+
+.supplier-table tr:hover td {
+    background-color: rgb(241, 241, 241);
+}
+
+.action-btn {
+    display: flex;
+    justify-content: space-around;
+}
+
+.delete-btn {
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100px;
+    text-align: center;
+    margin: 5px 10px;
+}
+
+.action-btn img{
+   height: 30px;
+}
+
+
+.navigation {
+    padding-top: 40px;
+    list-style-type: none;
+    display: flex;
+    justify-content: end;
+}
+
+.navigation li {
+
+    color: #5E17EB;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.navigation li:hover {
+    background-color: #5E17EB;
+    color: white;
+    cursor: pointer;
+}

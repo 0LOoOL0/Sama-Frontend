@@ -1,0 +1,55 @@
+/*@tailwind base;
+@tailwind components;
+@tailwind utilities;*/
+/* You can add global styles to this file, and also import other style files */
+:root {
+  --Main-One: #ED5F1E;
+  --Main-Two: #5E17EB;
+  --Main-Two-Shadow: rgb(94, 23, 235, 0.5);
+  --Accent-One: #FFEA50;
+  --Accent-Two: #4FC8DC;
+  --GrayColor:  #9da4aa;
+  --Backup-Pink: #FFB8FF;
+  --background-color: #dfe3e7;
+  --Black: #000000;
+  --White: #ffffff;
+}
+
+.font{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+// Layout elements
+.MakeItFlex, .MakeItCenter{
+  display: flex;
+  &.MakeItFlex{
+    align-items: center;
+  }
+  &.MakeItCenter{
+    justify-content: center;
+  }
+}
+
+.MakeItFlexAsAColumn, .MakeItFlexAsAColumnNoCenter{
+  display: flex;
+  flex-direction: column;
+  &.MakeItFlexAsAColumn{
+    align-items: center;
+  }
+}
+
+.FlexSpaceInBetween, .FlexSpaceInBetweenNoPadding{
+  display: flex;
+  justify-content: space-between;
+
+  &.FlexSpaceInBetweenNoPadding{
+    padding: 0px;
+  }
+}
+
+.MakeItAGride{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}

@@ -1,0 +1,403 @@
+body {
+  font-family: 'Promo Regular';
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+.main-container {
+  font-family: 'Promo Regular';
+  display: flex;
+  gap: 20px;
+  padding: 40px;
+}
+
+/* Calendar Section */
+.calendar-section {
+  font-family: 'Promo Regular';
+  width: 30%;
+  background-color: #F1F1F1;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.2);
+  height: 650px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-header h4 {
+  font-size: 24px;
+  text-align: center;
+  flex-grow: 1;
+  color: #39434F;
+}
+
+.calendar-header .month {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.calendar-header .arrows {
+  display: flex;
+  justify-content: space-between;
+  width: 50px;
+}
+
+.calendar-header .arrow {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 9px;
+  table-layout: fixed;
+}
+
+.calendar-table th,
+.calendar-table td {
+  width: 12%;
+  height: 50px;
+  padding: 5px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: white;
+  font-size: 20px;
+  box-sizing: border-box;
+  border: none;
+  color: #606873;
+}
+
+.calendar-table td {
+  color: #606873;
+}
+
+.calendar-table th {
+  background-color: #f0f0f0;
+  border: none;
+  font-weight: normal;
+  padding: 0;
+  text-align: center;
+  color: #A0AEC0;
+}
+
+.calendar-table td.empty-cell {
+  background-color: #e8e5e5;
+}
+
+
+/* Reminder Form Section */
+.reminder-form-section {
+  width: 75em;
+  border: 20px solid #5E17EB;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #F1F1F1;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-top: 15px;
+}
+
+.reminder-form-section h4 {
+  margin-bottom: 40px;
+  font-size: 1.8rem;
+  color: #5a31f4;
+  vertical-align: top;
+  display: inline-block;
+  margin: 0;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.reminder-form-section label {
+  font-weight: bold;
+  color: #5a31f4;
+  font-size: 1.4rem;
+  width: 20%;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.checkbox-container input {
+  transform: scale(1.8);
+  margin: 0;
+}
+
+.checkbox-label {
+  font-size: 1.4rem;
+  color: #ED5F1E;
+  margin-right: 10px;
+}
+
+.reminder-text {
+  font-size: 1.4rem;
+  color: #ED5F1E;
+  margin-left: 20px;
+}
+
+.input-field,
+textarea {
+  width: 75%;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: 'Promo Regular';
+  font-size: 1.4rem;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-field:focus,
+textarea:focus {
+  border-color: #5a31f4;
+}
+
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+  width: 75%;
+}
+
+.dropdown-button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: 'Promo Regular';
+  font-size: 1.4rem;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.3s ease;
+  position: relative;
+  padding-right: 40px;
+  transition: border-color 0.3s ease;
+}
+
+.dropdown-button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  font-family: 'Promo Regular';
+  font-size: 1.4rem;
+  border: 1px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+  padding-right: 40px;
+  transition: border-color 0.3s ease;
+}
+
+.dropdown-arrow {
+  content: '';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url('/assets/img/dropArrow.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-list.visible~.dropdown-button .dropdown-arrow {
+  transform: translateY(-50%) rotate(180deg);  
+}
+
+.dropdown-button:hover,
+.dropdown-button:focus {
+  border-color: #5a31f4;
+  outline: none;
+}
+
+.dropdown-list {
+  position: absolute;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  width: 150px;
+  display: none;
+  font-size: 1.4rem;
+}
+
+.dropdown-list.visible {
+  display: block;
+}
+
+.dropdown-list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-list li {
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.dropdown-list li:hover {
+  background: rgba(237, 95, 30, 0.3);
+}
+
+.dropdown-list.visible {
+  display: block;
+}
+
+.time-inputs {
+  display: flex;
+  gap: 15px;
+}
+
+.submit-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.submit-btn {
+  font-family: 'Promo Regular';
+  background-color: #5a31f4;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: background-color 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-btn:hover {
+  background-color: #4b27c1;
+}
+
+/* Footer Section  */
+.footer-section {
+  font-family: 'Promo Regular';
+  background-color: #472ea3;
+  padding: 40px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.company-info {
+  flex: 1;
+  max-width: 250px;
+}
+
+.company-info h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.phone-number {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.working-hours {
+  flex: 1;
+  max-width: 150px;
+}
+
+.working-hours h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.useful-links {
+  flex: 1;
+  max-width: 150px;
+}
+
+.useful-links h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.useful-links ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.useful-links ul li {
+  margin-bottom: 5px;
+}
+
+.useful-links ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.useful-links ul li a:hover {
+  text-decoration: underline;
+}
+
+.newsletter {
+  flex: 1;
+  max-width: 250px;
+}
+
+.newsletter h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.newsletter form {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter input {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  flex: 1;
+}
+
+.newsletter button {
+  background-color: #f7b32b;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.newsletter button:hover {
+  background-color: #e09b24;
+}

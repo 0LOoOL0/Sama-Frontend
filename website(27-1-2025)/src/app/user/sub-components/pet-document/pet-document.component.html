@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<div class="profile-container">
+    <div class="sidebar">
+      <div class="profile-image">
+        <img src="assets/sarah-newland.jpg" alt="Sarah Newland">
+      </div>
+      <p class="profile-id">#1234</p>
+      <h2 class="profile-name">Sarah Newland</h2>
+      <p class="join-date">Joined: 22/06/2023</p>
+    </div>
+
+    <div class="main-content">
+      <nav class="profile-nav">
+        <ul>
+          <li><a href="user-main-component/my-profile">My Profile</a></li>
+          <li class="active"><a href="/user-main-component/pet-info">My Pets</a></li>
+          <li><a href="/user-main-component/my-orders">My Orders</a></li>
+          <li><a href="/user-main-component/discount-history">Discount History</a></li>
+          <li><a href="/user-main-component/status-tracker">Status Tracker</a></li>
+        </ul>
+      </nav>
+
+      <div class="pet-info-content">
+        <div class="pet-selection">
+          <div class="pet-item add-pet" (click)="addPet()">
+            <div class="pet-image">
+              <span class="add-icon">+</span>
+            </div>
+            <span>Add New Pet</span>
+          </div>
+          <div *ngFor="let pet of pets" class="pet-item" [class.active]="pet === selectedPet">
+            <div class="pet-image">
+              <img [src]="pet.image" [alt]="pet.name">
+            </div>
+            <span>{{ pet.name }}</span>
+            <span *ngIf="pet.isVip" class="vip-badge">★</span>
+          </div>
+        </div>
+
+        <div class="pet-details">
+          <div class="info-tabs">
+            <button class="tab-button" (click)="info()">Pet Information</button>
+            <button class="tab-button" (click)="health()">Health Concern</button>
+            <button class="tab-button active" (click)="document()">Document</button>
+            <button class="add-button">+ Add</button>
+            <a href="#" class="edit-link"><!--Edit--></a>
+          </div>
+
+          <div class="document-grid">
+            <div *ngFor="let doc of documents" class="document-item">
+              <img [src]="getDocumentIcon(doc.type)" alt="Document Type Icon" class="document-icon">
+              <img [src]="doc.thumbnail" alt="Document Thumbnail" class="document-thumbnail">
+              <p class="document-title">{{ doc.title }}</p>
+              <button class="document-options">⋮</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,41 @@
+<div class="dashboard-container">
+    <h1>Dashboard Roles & Management</h1>
+  
+    <div class="search-add">
+      <input type="text" placeholder="Search by name or email..." class="search-box" [(ngModel)]="searchTerm" (input)="filteredadmins()"/>
+      <button class="add-admin-button" [routerLink]="'/admin-main/addadmin'"><i class="fas fa-user-plus" ></i> Add New Admin</button>
+    </div>
+  
+    <table class="roles-table">
+      <thead>
+        <tr>
+          <th><input type="checkbox"></th>
+          <th>Admin</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let admin of shownAdmins">
+          <td><input type="checkbox"></td>
+          <td>{{admin.first_name + ' ' +  admin.last_name}}</td>
+          <td><input type="text" value="{{admin.email}}" disabled class="email-input"></td>
+          <td>
+            <span *ngFor="let role of admin.roles" class="role-badge administrator" >{{role.name}}</span>
+          </td>
+          <td>
+            <span class="status-badge" [ngClass]="{'active': admin.status === 'Active', 'inactive': admin.status === 'Non Active'}">
+              {{admin.status}}
+            </span>
+          </td>
+          <td>
+            <button class="action-button edit-button" (click)="editAdmin(admin)"><i class="fas fa-edit"></i></button>
+            <button class="action-button view-button" (click)="viewAdmin(admin)"><i class="fas fa-eye"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

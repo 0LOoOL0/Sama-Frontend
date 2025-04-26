@@ -1,0 +1,113 @@
+ 
+.lostPetFormSection {
+  padding: 6rem 0;
+}
+.lostPetFormContainer {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.petFomLable {
+  font-family: var(--outfit-font);
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #666666;
+  display: block;
+  margin-bottom: 0.5rem;
+} 
+.petFormImageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 3rem 1rem;
+  border: 1px dashed #5e17eb;
+  border-radius: 12px;
+  cursor: pointer;
+}
+.petFormImageContainer .smText {
+  margin: 0;
+  font-family: var(--outfit-font);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #5e17eb;
+}
+.petUploadInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+} 
+.lostPetForm {
+  margin-top: 4rem;
+}
+.lostPetForm .inputArea {
+  border: 1.01px solid #66666659;
+  border-radius: 12px;
+  font-family: var(--outfit-font);
+  font-size: 0.9rem;
+  font-weight: 200;
+  color: #343434;
+  width: 100%;
+  padding: 1rem;
+}
+.lostPetForm .inputConatiner {
+  margin-bottom: 2rem;
+}
+.genderFormContainer {
+  margin-top: 0.5rem;
+  margin-bottom: 0.6rem;
+}
+.genderFormContainer .genderInput {
+  width: 1.5rem;
+  height: 1.5rem;
+  accent-color: #ffda47;
+  cursor: pointer;
+  background-color: transparent;
+}
+.formBtnContainer {
+  margin-top: 2rem;
+}
+.formBtnContainer .main-btn {
+  width: 100%;
+  background-color: #5e17eb;
+  text-align: center;
+  border: 1px solid #5e17eb;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-weight: 500;
+}
+.formBtnContainer .cancelBtn {
+  background-color: #fff;
+  color: #bfc9d5;
+
+  border: 1.01px solid #bfc9d5;
+}
+.formBtnContainer .cancelBtn:hover {
+  background-color: #5e17eb;
+  color: #fff;
+}
+
+@media screen and (max-width: 1200px) {
+  .lostPetFormContainer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .petFomLable {
+    font-size: 0.89rem;
+  }
+  .petFormImageContainer {
+    flex-wrap: wrap;
+  }
+  .petFormImageContainer .smText {
+    font-size: 1rem;
+  }
+
+  .genderFormContainer .genderInput {
+    width: 1rem;
+    height: 1rem;
+  }
+}

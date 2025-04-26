@@ -1,0 +1,192 @@
+<app-navbar></app-navbar>
+<div class="main-container">
+  <!-- Calendar Section -->
+  <div class="calendar-section">
+    <div class="calendar-header">
+      <button class="month-btn" (click)="previousMonth()">←</button>
+      <h4>{{ currentMonthYear }}</h4>
+      <button class="month-btn" (click)="nextMonth()">→</button>
+    </div>
+
+    <!-- Calendar Table -->
+    <table class="calendar-table">
+      <thead>
+        <tr>
+          <th *ngFor="let day of weekdays">{{ day }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let week of calendarDays">
+          <td *ngFor="let day of week" [ngClass]="{'empty-cell': day === 0}">
+            <span *ngIf="day !== 0">{{ day }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add Reminder Section -->
+  <div class="reminder-form-section">
+    <h4>New Reminder Form</h4>
+    <form [formGroup]="reminderForm" (ngSubmit)="onSubmit()">
+      <!-- Title -->
+      <div class="form-row">
+        <label for="title">Title</label>
+        <input id="title" formControlName="title" placeholder="Enter your Title" class="input-field">
+      </div>
+
+      <!-- Date -->
+      <div class="form-row">
+        <label for="date">Date</label>
+        <input type="date" id="date" formControlName="date" class="input-field">
+      </div>
+
+      <!-- Time -->
+      <div class="form-row">
+        <label>Time</label>
+        <div class="time-inputs">
+          <input type="time" formControlName="startTime" class="input-field">
+          <input type="time" formControlName="endTime" class="input-field">
+        </div>
+      </div>
+
+      <!-- Remind -->
+      <div class="checkbox-container">
+        <label for="remind" class="checkbox-label">Remind</label>
+        <input type="checkbox" id="remind" formControlName="remind" (change)="onCheckboxChange($event)">
+        <div *ngIf="isChecked; else notChecked" class="reminder-text">
+          Yes, remind me.
+        </div>
+        <ng-template #notChecked>
+          <div class="reminder-text">No, don't remind me.</div>
+        </ng-template>
+      </div>
+
+      <!-- <div class="checkbox-container">
+        <label for="remind">Remind</label>
+        <input class="remind" type="checkbox" id="remind" formControlName="remind">
+      </div> -->
+      <!-- <div class="checkbox-container">
+        <input class="remind" type="checkbox" id="remind" formControlName="remind" (change)="onCheckboxChange($event)">
+        <label for="remind" class="checkbox-label">Remind</label>
+      </div>
+      
+      <div *ngIf="isChecked; else notChecked">
+        <p class="reminder-text">Yes, remind me.</p>
+      </div>
+      <ng-template #notChecked>
+        <p class="reminder-text">No, don't remind me.</p>
+      </ng-template> -->
+
+      <!-- Repeat -->
+      <div class="form-row">
+        <label for="repeat">Repeat</label>
+        <div class="dropdown-container">
+          <button type="button" #dropdownButton class="dropdown-button" (click)="toggleDropdown($event)">
+
+            {{ selectedValue }}
+            <span class="dropdown-arrow"></span> <!-- This is where the arrow will go -->
+          </button>
+          <div #dropdownList class="dropdown-list" [class.visible]="isDropdownOpen">
+            <ul>
+              <li (click)="selectDropdownItem('Never')">Never</li>
+              <li (click)="selectDropdownItem('Daily')">Daily</li>
+              <li (click)="selectDropdownItem('Weekly')">Weekly</li>
+              <li (click)="selectDropdownItem('Monthly')">Monthly</li>
+            </ul>
+          </div>
+          <input type="hidden" id="repeat" name="repeat" [value]="selectedValue">
+        </div>
+      </div>
+
+
+
+
+
+      <!-- <div class="dropdown-container">
+        <button class="dropdown-button">Never</button>
+        <div class="dropdown-list hidden">
+          <ul>
+            <li data-value="never">Never</li>
+            <li data-value="daily">Daily</li>
+            <li data-value="weekly">Weekly</li>
+            <li data-value="monthly">Monthly</li>
+          </ul>
+        </div>
+        <input type="hidden" id="repeat" name="repeat" value="Never">
+      </div> -->
+
+      <!-- <div class="form-row">
+        <label for="repeat">Repeat</label>
+        <select id="repeat" formControlName="repeat" class="custom-select">
+          <option>Never</option>
+          <option>Daily</option>
+          <option>Weekly</option>
+          <option>Monthly</option>
+        </select>
+      </div> -->
+
+      <!-- Note -->
+      <div class="form-row">
+        <label for="note">Note</label>
+        <textarea id="note" formControlName="note" placeholder="Add note" class="input-field"></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="submit-btn-container">
+        <button type="submit" class="submit-btn">Done</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!-- Footer Section -->
+<div class="footer-section">
+  <!-- Footer Container -->
+  <div class="footer-container">
+    <!-- Company Info -->
+    <div class="company-info">
+      <h2>Sama Pet Care</h2>
+      <p>
+        Tristique nulla aliquet enim tortor at auctor urna.
+        Massa enim nec dui nunc mattis enim ut tellus. Sed ut perspiciatis.
+      </p>
+      <p class="phone-number">
+        (973) 77690000
+        <br>
+        Got Questions? Call us 24/7
+      </p>
+    </div>
+
+    <!-- Working Hours -->
+    <div class="working-hours">
+      <h3>Working Hours</h3>
+      <p>Mon - Fri: <span>7am - 6pm</span></p>
+      <p>Sat: <span>9am - 4pm</span></p>
+      <p>Sunday: <span>Closed</span></p>
+    </div>
+
+    <!-- Useful Links -->
+    <div class="useful-links">
+      <h3>Useful Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Delivery</a></li>
+        <li><a href="#">Sales</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="newsletter">
+      <h3>Newsletter</h3>
+      <p>Be first in the queue! Get our latest news straight to your inbox.</p>
+      <form>
+        <input type="email" placeholder="Email">
+        <button type="submit">➤</button>
+      </form>
+    </div>
+  </div>
+</div>

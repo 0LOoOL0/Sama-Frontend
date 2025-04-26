@@ -1,0 +1,37 @@
+<div class="container">
+  <ul class="search">
+    <li>
+      <input type="text">
+      <button>Search</button>
+    </li>
+  </ul>
+  <!-- Navigation filters -->
+  <div class="nav">
+    <ul class="tabs">
+      <li
+        class="tab-item"
+        *ngFor="let tab of tabs"
+        (click)="selectTab(tab)"
+        [class.active]="activeTab === tab"
+      >
+        <span>{{ tab }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Displaying items -->
+  <div class="items">
+    <ul class="detail" *ngFor="let item of filteredItems">
+      <li class="status">{{ activeTab }}</li>
+      <li><img [src]="item.image" alt="{{ item.title }}"></li>
+      <li>
+        <h3>{{ item.title || item.name }}</h3>
+      </li>
+      <li>
+        <!-- You could change the button text based on the active tab -->
+        <button>{{ activeTab === 'Selling' ? 'For Sale' : 'Available' }}</button>
+        <button class="delete">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>

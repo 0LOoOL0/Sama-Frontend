@@ -1,0 +1,96 @@
+<app-navbar></app-navbar>
+<div class="profile-container">
+    <div class="sidebar">
+      <div class="profile-image">
+        <img [src]="userProfile?.profile_image" alt="Sarah Newland">
+      </div>
+      <p class="profile-id">#{{userProfile?.id}}</p>
+      <h1 class="profile-name">{{userProfile?.first_name}} {{userProfile?.last_name}}</h1>
+      <p class="join-date">Joined: {{userProfile?.created_at | date: 'yyyy-MM-dd'}}</p>
+    </div>
+  
+    <div class="main-content">
+      <nav class="profile-nav">
+        <ul>
+          <li><a href="user-main-component/my-profile">My Profile</a></li>
+          <li class="active"><a href="/user-main-component/pet-info">My Pets</a></li>
+          <li><a href="/user-main-component/my-orders">My Orders</a></li>
+          <li><a href="/user-main-component/discount-history">Discount History</a></li>
+          <li><a href="#">Status Tracker</a></li>
+        </ul>
+      </nav>
+  
+      <div class="pet-info-content">
+        <div class="pet-selection">
+          <div class="pet-item add-pet" (click)="addPet()">
+            <div class="pet-image">
+              <span class="add-icon">+</span>
+            </div>
+            <p>Add New Pet</p>
+          </div>
+          <div *ngFor="let pet of pets; let i = index" class="pet-item" [class.active]="pet.name === selectedPet.name">
+            <div class="pet-image" (click)="displaySelected(i)">
+              <img [src]="pet.image" [alt]="pet.name">
+            </div>
+            <p>{{ pet?.name }}</p>
+            <span *ngIf="pet.membership" class="vip-badge">★</span>
+          </div>
+        </div>
+  
+        <div class="pet-details">
+          <div class="info-tabs">
+            <button class="tab-button active" (click)="info()">Pet Information</button>
+            <button class="tab-button" (click)="health()">Health Concern</button>
+            <button class="tab-button" (click)="document()">Document</button>
+            <a class="edit-link" (click)="edit(selectedPet?.id)">Edit</a>
+          </div>
+  
+          <div class="pet-info">
+            <div class="info-row">
+              <span class="label">Pet Name</span>
+              <span class="value">{{ selectedPet?.name }}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Pet Type</span>
+              <span class="value">{{ selectedPet?.pet_type}}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Breed</span>
+              <span class="value">{{ selectedPet?.breed }}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Age</span>
+              <span class="value">{{ selectedPet?.age }}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Gender</span>
+              <span class="value">{{ selectedPet?.gender === 'f' ? 'Female' : 'Male' }}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Vaccinated</span>
+              <span class="value">{{ selectedPet?.is_vaccinated}}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Microchipped</span>
+              <span class="value">{{ selectedPet?.is_microchipped}}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Neutered</span>
+              <span class="value">{{ selectedPet?.is_neutered}}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Weight</span>
+              <span class="value">{{ selectedPet?.weight }} kg</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Height</span>
+              <span class="value">{{ selectedPet?.height }} cm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  

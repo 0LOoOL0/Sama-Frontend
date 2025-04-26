@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Dashboard": {
+    "SamaPet": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/dashboard",
+            "outputPath": "dist/sama-pet",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -27,14 +27,10 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+               "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": [],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -64,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Dashboard:build:production"
+              "buildTarget": "SamaPet:build:production"
             },
             "development": {
-              "buildTarget": "Dashboard:build:development"
+              "buildTarget": "SamaPet:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -97,5 +93,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

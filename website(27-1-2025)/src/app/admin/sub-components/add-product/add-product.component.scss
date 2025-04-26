@@ -1,0 +1,197 @@
+.add-product-container {
+    padding: 30px;
+    background-color: #f0f2f5;
+    border-radius: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .status-buttons, .publish-product, .active-status-buttons {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .btn-status {
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .online {
+    background-color: #34c759;
+    color: white;
+  }
+  
+  .offline {
+    background-color: #ff3b30;
+    color: white;
+  }
+  
+  .active {
+    background-color: #5ac8fa;
+    color: white;
+  }
+  
+  .non-active {
+    background-color: #af52de;
+    color: white;
+  }
+  
+  .btn-status:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .publish-product .btn-publish {
+    padding: 16px 36px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 30px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .publish-product .btn-publish:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .product-info {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+  }
+  
+  h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
+    color: #4a4a4a;
+    font-weight: 600;
+  }
+  
+  .form-group {
+    margin-bottom: 30px; /* Increased margin to add more space between fields */
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 30px;
+    border: 1px solid #ced4da;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.2s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #5ac8fa;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(90, 200, 250, 0.25);
+    outline: none;
+  }
+  
+  .product-names, .categories, .descriptions, .product-details, .pricing {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px; /* Increased gap to add space between the columns */
+    flex-wrap: wrap;
+  }
+  
+  .product-names .form-group, .categories .form-group, .descriptions .form-group, .pricing .form-group {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .product-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stock-switch-group {
+    align-self: center;
+  }
+  
+  .stock-switch {
+    display: flex;
+    align-items: center;
+  }
+  
+  .stock-switch .toggle-switch {
+    width: 60px;
+    height: 30px;
+    appearance: none;
+    background-color: #e4e4e4;
+    border-radius: 30px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .stock-switch .toggle-switch::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stock-switch .toggle-switch:checked {
+    background-color: #34c759;
+  }
+  
+  .stock-switch .toggle-switch:checked::before {
+    transform: translateX(30px);
+  }
+  
+  .add-more {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  
+  .btn-add-more {
+    padding: 18px 40px;
+    background-color: #af52de;
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .btn-add-more:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  }
+  

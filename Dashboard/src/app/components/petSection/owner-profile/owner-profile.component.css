@@ -1,42 +1,47 @@
 .container {
-    display: grid;
-    grid-template-columns: 1fr 2fr; /* Part One: 1/3, Part Two: 2/3 */
-    height: 100vh;
-  }
-  
-  .part-one {
-    background-color: #5E17EB;
-    overflow-y: auto;
-  }
-  
-  .part-two {
-    background-color: #F5F5F9;
-    overflow-y: auto;
-  }
-  .styled-button {
-    background-color: #4CAF50; /* Green background */
-    color: white; /* White text */
-    border: none; /* Remove border */
-    padding: 4px; /* Add padding */
-    text-align: center; /* Center the text */
-    text-decoration: none; /* Remove underline */
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Change cursor to pointer */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
-  }
-  
-  .styled-button:hover {
-    background-color: #45a049; /* Darker green on hover */
-    transform: scale(1.05); /* Slightly enlarge the button */
-  }
-  
-  .styled-button:focus {
-    outline: none; /* Remove the outline when focused */
-  }
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  height: 100vh;
+}
 
-  /* CARD STYLING */
+.part-one {
+  background-color: #5E17EB;
+  overflow-y: auto;
+}
+
+.part-two {
+  background-color: #F5F5F9;
+  overflow-y: auto;
+}
+.active-tab {
+  border-bottom: 2px solid #2563eb;
+  color: #2563eb;
+}
+.styled-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.styled-button:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+.styled-button:focus {
+  outline: none;
+}
+
+
+/* CARD STYLING */
 #cardContent {
   display: flex;
   align-items: center;
@@ -168,4 +173,58 @@
   flex-grow: 1;
   text-align: left;
 }
-  
+
+/* keep everything else you already have */
+.modal.show {           /* <‑‑ add this */
+  display: flex;        /* makes the modal visible & centres it */
+}
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content h2 {
+  font-size: 24px;
+  color: #5E17EB;
+  margin: 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.modal-content button {
+  background-color: #5E17EB;
+  color: #fff;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-left: 10px;
+  font-size: 20px;
+margin-top: 20px;
+}
+
+.modal-content button:hover {
+  background-color: #4a0bb1;
+}

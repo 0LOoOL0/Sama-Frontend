@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sama Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/custom-style.css">
+    <link rel="stylesheet" href="./css/resposiveness.css">
+</head>
+
+<body>
+<!--header section-->
+<app-navbar></app-navbar>
+
+    <!-- hero section -->
+    <section class="heroSection">
+        <!-- Background Wave -->
+        <div class="heroBackground"></div>
+    
+        <div class="container-3xl">
+            <div class="hero-container">
+                <!-- Breadcrumb Navigation -->
+                <div class="heroLinkContainer">
+                    <a href="home" class="hero-link">HOME</a>
+                    <div class="heroDot"></div>
+                    <a href="store" class="hero-link active">SAMA STORE</a>
+                </div>
+    
+                <!-- Hero Title -->
+                <h1 class="hero-heading">Sama Store</h1>
+    
+                <!-- Hero Description -->
+                <p class="hero-description">
+                    Sama Pet Care Store offers an extensive selection of pet products tailored to your pet’s unique needs.
+                    Whether you’re a dog owner in Manama or a cat lover in Muharraq, we’ve got the perfect supplies to keep 
+                    your furry, feathery, or scaly friends happy.
+                </p>
+            </div>
+    
+            <!-- Hero Image -->
+            <div class="heroImageContainer">
+                <img src="./assets/img/cutedog.png" alt="Happy Dog" class="heroImage">
+            </div>
+        </div>
+    </section>
+    
+
+
+    <!-- product searchInput section -->
+    <section class="productSearchInputSection ">
+        <div class="container-2xl">
+            <div class="productSearchInputContainer flex row-between gap-1-5">
+                <div class="inputHolder flex flex-1 row-between gap-1">
+                    <img src="./assets/icons/search.svg" alt="search" class="searchIcon">
+                    <input type="text" class="inputArea flex-1" placeholder="Search" [(ngModel)]="searchQuery" (input)="applyFilter()">
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- product service section -->
+    <section class="productServiceSection">
+        <div class="container-2xl">
+            <div class="productServiceContainer">
+                <div class="productTabContainer flex row-center gap-2">
+                    <button class="tabbtn active" data-tab="#productTab">Product</button>
+                </div>
+                <div class="tabContentContainer">
+                    <div class="tabContentItem active" id="productTab">
+                        <div class="grid-layout ">
+                            <div class="grid-col" (click)="filterByCategory('All')">
+                                <div class="productCard">
+                                    <img src="./assets/img/dog-img.png" alt="dog" class="productImage">
+                                    <h5 class="smText">All</h5>
+                                </div>
+                            </div>
+                            <div class="grid-col" (click)="filterByCategory('Dogs')">
+                                <div class="productCard">
+                                    <img src="./assets/img/dog-img.png" alt="dog" class="productImage">
+                                    <h5 class="smText">Dogs</h5>
+                                </div>
+                            </div>
+                            <div class="grid-col" (click)="filterByCategory('Cats')">
+                                <div class="productCard">
+                                    <img src="./assets/img/cat-img-1.png" alt="cat" class="productImage">
+                                    <h5 class="smText">Cats</h5>
+                                </div>
+                            </div>
+                            <div class="grid-col" (click)="filterByCategory('Birds')">
+                                <div class="productCard">
+                                    <img src="./assets/img/dog-img-2.png" alt="dog" class="productImage">
+                                    <h5 class="smText">Birds</h5>
+                                </div>
+                            </div>                            
+                            <div class="grid-col" (click)="filterByCategory('other')">
+                                <div class="productCard">
+                                    <img src="./assets/img/cat-img-2.png" alt="cat" class="productImage">
+                                    <h5 class="smText">Others</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- product Listing section -->
+    <section class="productListingSection">
+        <div class="container-2xl">
+            <div class="productListingContainer">
+                <div class="grid-layout-2">
+                    <div class="grid-col-9">
+                        <div class="productListContainer">
+                            <!-- product list -->
+                            <div class="grid-layout-2" >
+                                <div class="grid-col-4 col-sm">
+                                    <div *ngIf="filteredProducts && filteredProducts.length > 0">
+                                        <div class="productListItemCard" *ngFor="let product of displayedProducts" (click)="navigateTodetail(product.id)">
+                                            <img [src]="product.images?.[0] || 'assets/default-image.png'" alt="product image" class="productListItemImage">
+
+                                               
+                                            <div class="productCardBody">
+                                                <a class="mdHeading">{{product.product_name_en}}</a>
+
+                                                <div class="productReview flex row-center gap-half">
+                                                    <div>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="productPrice flex row-center gap-1">
+                                                    <p class="smText">BHD {{ product.price }}</p>
+
+                                                </div>
+
+                                                <button 
+                                                class="main-btn" 
+                                                (click)="addToCart(product); $event.stopPropagation()"
+                                                style="margin-top: 0.5rem;">
+                                                Add to Cart
+                                                </button>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>                              
+                            </div>                        
+                            <div class="paginationContainer">
+                                <span class="paginationBtn" [class]="page == currentPage ? 'active' : ''" *ngFor="let page of [].constructor(maxPages); let i = index"
+                                    (click)="changePage(i + 1)"
+                                    [class.active]="currentPage === i + 1"
+                                    class="page-box">
+                                    {{ i + 1 }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-col-3">
+                        <div class="productFilterContainer">
+                            <div class="productFilterCard">
+                                <h3 class="mdHeading flex row-between">Price range <img
+                                        src="./assets/icons/down-arrow-black.svg" alt="filter" class="filterDownArrow">
+                                </h3>
+                                <div class="range-container">
+                                    <input type="range" class="range-slider" id="min-range" min="0" max="100"
+                                        [value]="priceRange.lower" [(ngModel)]="priceRange.lower">
+                                    <input type="range" class="range-slider" id="max-range" min="0" max="100"
+                                        [value]="priceRange.upper" [(ngModel)]="priceRange.upper">
+                                    <div class="slider-track"></div>
+                                </div>
+                                <p class="range-values">Range: <span id="min-value">{{priceRange.lower}}</span> - <span
+                                        id="max-value">{{priceRange.upper}}</span></p>
+
+                                <button class="main-btn" (click)="applyPriceFilter()">Apply Filter</button>
+                                <button class="main-btn" (click)="clearFilter()">clear Filter</button>
+                            </div>
+
+                            <!-- <div class="productFilterCard">
+                                <h3 class="mdHeading flex row-between">Product Tag <img
+                                        src="./assets/icons/down-arrow-black.svg" alt="filter" class="filterDownArrow">
+                                </h3>
+                                <div class="filterBtnContainer">
+                                    <button class="main-btn">Toys</button>
+                                    <button class="main-btn">Nature</button>
+                                    <button class="main-btn">Healthy</button>
+                                    <button class="main-btn">Collars</button>
+                                    <button class="main-btn">Pillows</button>
+                                    <button class="main-btn">Carrier</button>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- membership section -->
+    <section class="membershipSection">
+        <div class="container-2xl">
+            <div class="membershipContainer">
+                <div class="flex-col-6 col-md mx-auto">
+                    <h1 class="mdHeading">Your Pets Deserve the Best,
+                        Be a member!</h1>
+                    <p class="mainText">Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum. Ligula
+                        ullamcorper malesuada proin libero nunc consequat interdum varius sit.</p>
+                    <a href="/user-main-component/subscribe" class="main-btn">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer section -->
+    <footer class="footerSection">
+        <div class="container">
+            <div class="footerColumn footerInfo">
+                <img src="./assets/img/brand-logo-1.png" alt="Sama Pet Care Logo" class="footerLogo">
+                <p>Sama Pet Care is a comprehensive platform dedicated to enhancing pet care.</p>
+                <p class="phone"><i class="fas fa-phone-alt"></i> (973) 77690000</p>
+                <p>Got Questions? Call us 24/7</p>
+            </div>
+            <div class="footerColumn footerHours">
+                <h3>Working Hours</h3>
+                <p>Mon - Fri: 7am - 6pm</p>
+                <p>Saturday: 9am - 4pm</p>
+                <p>Sunday: Closed</p>
+            </div>
+            <div class="footerColumn footerLinks">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Delivery</a></li>
+                    <li><a href="#">Sales</a></li>
+                </ul>
+            </div>
+            
+            <div class="footerColumn footerNewsletter">
+                <h3>Newsletter</h3>
+                <p>Be first in the queue! Get our latest news straight to your inbox.</p>
+                <form>
+                    <input type="email" placeholder="Email">
+                    <button type="submit">➤</button>
+                </form>
+            </div>
+        </div>
+        <div class="footerCopyright">
+            <p>© 2025 Sama Pet Care. All rights reserved. Designed by Sama Pet.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        function togglePriceRange() {
+            const minRange = document.getElementById("min-range");
+            const maxRange = document.getElementById("max-range");
+            const sliderTrack = document.querySelector(".slider-track");
+            const minValueText = document.getElementById("min-value");
+            const maxValueText = document.getElementById("max-value");
+
+            function updateSliderTrack() {
+                const minValue = parseInt(minRange.value);
+                const maxValue = parseInt(maxRange.value);
+
+                // Ensure min doesn't exceed max
+                if (minValue > maxValue) {
+                    minRange.value = maxValue;
+                }
+
+                const minPercentage = (minValue / minRange.max) * 100;
+                const maxPercentage = (maxValue / maxRange.max) * 100;
+
+                // Update slider track colors
+                sliderTrack.style.background = `linear-gradient(
+                    to right,
+                    #EFEFEF ${minPercentage}%,
+                    #7C58D3 ${minPercentage}%,
+                    #7C58D3 ${maxPercentage}%,
+                    #EFEFEF ${maxPercentage}%
+                )`;
+
+                // Update min and max values in the <p> tag
+                minValueText.textContent = minValue + " $";
+                maxValueText.textContent = maxValue + " $";
+            }
+
+            // Attach event listeners
+            minRange.addEventListener("input", updateSliderTrack);
+            maxRange.addEventListener("input", updateSliderTrack);
+
+            updateSliderTrack(); // Initialize on page load
+        }
+        togglePriceRange()
+
+
+        function toggleSideMenu() {
+            let sideMenu = document.querySelector(".side-menu");
+            let hambergerIcon = document.querySelector(".hamberger-icon");
+            let closeIcon = document.querySelector(".close-icon");
+
+            hambergerIcon.addEventListener("click", () => {
+                sideMenu.classList.add("show");
+            })
+            closeIcon.addEventListener("click", () => {
+                sideMenu.classList.remove("show");
+            })
+        }
+        toggleSideMenu(); // sider menu toggle
+
+        // for service and product tab
+        // function serviceAndProductTab() {
+        //     let tab = document.querySelectorAll(".tabbtn");
+        //     let tabContent = document.querySelectorAll(".tabContentItem");
+        //     tab.forEach((btn) => {
+        //         btn.addEventListener("click", () => {
+        //             tabContent.forEach((content) => {
+        //                 content.classList.remove("active");
+        //             });
+        //             tab.forEach((button) => {
+        //                 button.classList.remove("active");
+        //             });
+
+        //             btn.classList.add("active");
+        //             document.querySelector(btn.dataset.tab).classList.add("active");
+        //         });
+        //     });
+
+        // }
+        serviceAndProductTab(); // service and product tab
+
+
+
+
+    </script>
+</body>
+
+</html>

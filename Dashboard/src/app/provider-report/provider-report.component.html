@@ -1,0 +1,63 @@
+<div class="report-container">
+    <button class="back-button" (click)="goBack()">← Back</button>
+  
+    <h2>📋 Provider Report</h2>
+  
+    <form (ngSubmit)="applyFilters()" class="filter-form">
+        <label>
+          Date From:
+          <input type="date" [(ngModel)]="filters.dateFrom" name="dateFrom">
+        </label>
+      
+        <label>
+          Date To:
+          <input type="date" [(ngModel)]="filters.dateTo" name="dateTo">
+        </label>
+      
+        <label>
+          Category:
+          <select [(ngModel)]="filters.selectedCategory" name="selectedCategory" (change)="onCategoryChange()">
+            <option value="">All Categories</option>
+            <option value="services">Services</option>
+            <option value="products">Products</option>
+            <option value="promotions">Promotions</option>
+            <option value="coupons">Coupons</option>
+          </select>
+        </label>
+      
+        <div class="button-group">
+          <button type="submit" class="filter-button">Apply Filters</button>
+          <button type="button" class="clear-button" (click)="clearFilters()">Clear Filters</button>
+        </div>
+      </form>
+      
+    <div *ngIf="loading" class="status-msg">Generating report...</div>
+  
+    <div *ngIf="!loading">
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngIf="showCategory('services')"><td>Total Services</td><td>{{ totalSales }}</td></tr>
+          <tr *ngIf="showCategory('products')"><td>Total Products</td><td>{{ totalProducts }}</td></tr>
+          <tr *ngIf="showCategory('promotions')"><td>Total Promotions</td><td>{{ totalPromotions }}</td></tr>
+          <tr *ngIf="showCategory('coupons')"><td>Active Coupons</td><td>{{ totalActiveCoupons }}</td></tr>
+        </tbody>
+      </table>
+  
+      <div class="bar-chart" *ngIf="barData.length">
+        <div class="bar" *ngFor="let item of barData">
+          <div class="bar-fill" [style.height.px]="(item.value / maxBarValue) * 150 + 10"></div>
+          <div class="bar-label">{{ item.label }}</div>
+          <div class="bar-value">{{ item.value }}</div>
+        </div>
+      </div>
+    </div>
+  
+    <button class="download-button" (click)="printReport()">🖨️ Print / Save as PDF</button>
+  </div>
+  

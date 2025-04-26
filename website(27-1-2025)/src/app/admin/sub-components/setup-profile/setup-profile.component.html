@@ -1,0 +1,213 @@
+<div>
+  <div class="progress-container">
+    <!-- Sign Up (Completed) -->
+    <div class="circle-container">
+      <div class="circle completed">1</div>
+      <div class="label">Sign Up</div>
+      <div class="text">
+        <p>
+          Create a new account
+          <br />
+          by providing your basic
+          <br />
+          information and setting
+          <br />
+          a secure password.
+        </p>
+      </div>
+    </div>
+
+    <!-- Line after Sign Up (Completed) -->
+    <div class="line completed"></div>
+
+    <!-- Verify Email (Completed) -->
+    <div class="circle-container">
+      <div class="circle completed">2</div>
+      <div class="label">Verify Email</div>
+      <div class="text">
+        <p>
+          Confirm your identity by
+          <br />
+          entering the verification
+          <br />
+          code sent to your
+          <br />
+          registered email.
+        </p>
+      </div>
+    </div>
+
+    <!-- Line after Verify Email (Active) -->
+    <div class="line active"></div>
+
+    <!-- Setup My Profile (Current Step) -->
+    <div class="circle-container">
+      <div class="circle active">3</div>
+      <div class="label">Setup My Profile</div>
+      <div class="text">
+        <p>
+          Complete your profile
+          <br />
+          details with information
+          <br />
+          like name, contact info.
+        </p>
+      </div>
+    </div>
+
+    <!-- Remaining Steps -->
+    <div class="line"></div>
+
+    <div class="circle-container">
+      <div class="circle">4</div>
+      <div class="label">Setup Pet Profile</div>
+      <div class="text">
+        <p>
+          Easily create a detailed
+          <br />
+          profile for your pet, including
+          <br />
+          photos, medical info, and
+          <br />
+          personalized details.
+        </p>
+      </div>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="circle-container">
+      <div class="circle">5</div>
+      <div class="label">Success!</div>
+      <div class="text">
+        <p>
+          Congratulations, your
+          <br />
+          profile has been
+          <br />
+          approved and is now
+          <br />
+          active.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="profile-setup-container">
+    <!-- Profile Photo Upload -->
+    <div class="profile-photo-upload">
+      <div class="round-picture-container">
+        <img
+          id="previewImage"
+          src="../../assets/profile.svg"
+          class="round-image"
+          alt="Profile Photo Preview"
+        />
+        <input
+          type="file"
+          id="fileInput"
+          accept="image/*"
+          (change)="onFileSelected($event)"
+        />
+
+        <div
+          class="camera-container"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          <img class="file-button" src="../../assets/camera.svg" alt="camera" />
+        </div>
+      </div>
+      <p class="profile-subtitle">Add Profile Photo</p>
+    </div>
+    <div>
+      <div class="form-container">
+        <form>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+
+          <div class="form-group">
+            <label>Location Type:</label>
+            <div class="location-buttons">
+              <button type="button" class="location-btn" data-location="house">
+                House
+              </button>
+              <button
+                type="button"
+                class="location-btn"
+                data-location="apartment"
+              >
+                Apartment
+              </button>
+              <button type="button" class="location-btn" data-location="office">
+                Office
+              </button>
+            </div>
+            <input type="hidden" id="location-type" name="location-type" />
+          </div>
+
+          <div class="form-group">
+            <label for="house">House:</label>
+            <input
+              type="text"
+              id="house"
+              name="house"
+              placeholder="House"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="road">Road:</label>
+            <input
+              type="text"
+              id="road"
+              name="road"
+              placeholder="Road"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="block">Block:</label>
+            <input
+              type="text"
+              id="block"
+              name="block"
+              placeholder="Block"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="area">Area:</label>
+            <input
+              type="text"
+              id="area"
+              name="area"
+              placeholder="Area"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="nationality">Nationality:</label>
+            <input type="text" id="nationality" name="nationality" required />
+          </div>
+
+          <div class="form-group">
+            <label for="birthdate">Birthdate:</label>
+            <input type="date" id="birthdate" name="birthdate" required />
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

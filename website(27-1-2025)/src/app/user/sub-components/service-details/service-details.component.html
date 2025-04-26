@@ -1,0 +1,111 @@
+<app-navbar></app-navbar>
+<div class="product-page"  >
+    <!-- Product Details Section -->
+
+    <div class="product-deatils" *ngFor="let product of productss">
+
+      <section class="product-details">
+        <div class="image-gallery">
+          <div class="main-image">
+            <img [src]="product?.image" alt="Main Product Image">
+          </div>
+          <div class="image-thumbnails">
+            <ng-container *ngFor="let image of [product?.service_image_url, product?.image]; let i = index">
+              <ng-container *ngIf="i < 3 && image">
+                <img [src]="image" [alt]="'product image ' + (i + 1)">
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+        <div class="product-info">
+          <h2>{{ product?.title }}</h2>
+          <p>
+            <strong>Price: </strong>
+            <span class="original-price">{{ product?.old_price }} BHD</span>
+            <span class="sale-price">{{ product?.new_price }} BHD</span>
+          </p>
+          <div class="reviews">
+            <span>⭐⭐⭐⭐⭐ 2 Reviews</span>
+          </div>
+          <div class="quantity-add" *ngIf="product?.provider_id == 1">
+            <input type="number" value="1" min="1">
+            <button class="add-to-cart">Add to Cart</button>
+          </div>
+          <ul class="product-meta">
+            <li><strong>Status:</strong> {{ product?.status }}</li>
+            <!-- <li><strong>Categories:</strong> {{product?.pet_type}} Other</li> -->
+            <li><strong>Tags:</strong> Beds, Other</li>
+            <li><strong>Share:</strong> [Share Buttons]</li>
+          </ul>
+        </div>
+      </section>
+    
+      <!-- Product Tabs Section -->
+      <section class="product-tabs">
+        <ul class="tabs">
+          <li class="active">Description</li>
+          <li>Additional Info</li>
+          <li>Reviews</li>
+        </ul>
+        <div class="tab-content">
+          <div class="description active">
+            <h4>Service Description</h4>
+            <p>{{ product?.short_description }}</p>
+          </div>
+          <div class="additional-info">
+            <!-- Additional Info Content -->
+          </div>
+          <div class="reviews-section">
+            <!-- Reviews Content -->
+          </div>
+        </div>
+      </section>
+
+    <!-- Top Products Section -->
+<section class="top-products">
+    <h3>Our Products</h3>
+    <div class="products-wrapper">
+      <div class="product-card">
+        <img src="path-to-image1" alt="Hydrolyzed Dry Dog Food">
+        <p class="product-title">Hydrolyzed Dry Dog Food</p>
+        <p class="product-price">$12.39</p>
+      </div>
+      <div class="product-card">
+        <img src="path-to-image2" alt="Flying Fish Cat Scratching">
+        <p class="product-title">Flying Fish Cat Scratching</p>
+        <p class="product-price">$25.89</p>
+      </div>
+      <div class="product-card">
+        <img src="path-to-image3" alt="Tug Dog Toy">
+        <p class="product-title">Tug Dog Toy</p>
+        <p class="product-price">$99.99</p>
+      </div>
+      <div class="product-card">
+        <img src="path-to-image4" alt="Pink Spiked Collar">
+        <p class="product-title">Pink Spiked Collar</p>
+        <p class="product-price">$22.99</p>
+      </div>
+      <div class="product-card">
+        <img src="path-to-image5" alt="Squeez Ball Dog Toy">
+        <p class="product-title">Squeez Ball Dog Toy</p>
+        <p class="product-price"><span class="original-price">$12.39</span> <span class="sale-price">$7.99</span></p>
+      </div>
+    </div>
+  </section>
+  
+  
+    <!-- Call to Action Banner -->
+    <section class="cta-banner">
+      <div class="banner-content">
+        <div class="cta-text">
+          <span class="discount">UP TO 40% OFF</span>
+          <h3>Stop Overpaying and Start Saving BIG</h3>
+          <p>Masa placerat dui ultricies lacus. Aliquet bibendum enim facilisis gravida neque convallis.</p>
+          <button class="subscribe-btn">Subscribe</button>
+        </div>
+        <div class="cta-image">
+          <img src="path-to-banner-image" alt="Banner Image">
+        </div>
+      </div>
+    </section>
+  </div>

@@ -1,0 +1,62 @@
+<div class="order-list-container">
+    <h2>Order List</h2>
+  
+    <div class="order-summary">
+      <div class="summary-card completed">
+        <p class="title">Completed</p>
+        <p class="amount">Amount: $500</p>
+        <p class="count">No: 20</p>
+      </div>
+      <div class="summary-card pending">
+        <p class="title">Pending</p>
+        <p class="amount">Amount: $200</p>
+        <p class="count">No: 10</p>
+      </div>
+      <div class="summary-card cancelled">
+        <p class="title">Cancelled</p>
+        <p class="count">No: 5</p>
+      </div>
+      <div class="summary-card pending-payment">
+        <p class="title">Pending Payment</p>
+      </div>
+      <div class="summary-card refund">
+        <p class="title">Refund</p>
+        <p class="amount">Amount: $50</p>
+      </div>
+      <button class="btn-add-order">+ Add Order</button>
+    </div>
+  
+    <input type="text" placeholder="Search orders..." class="search-bar"/>
+  
+    <table class="order-table">
+      <thead>
+        <tr>
+          <th>Order Date</th>
+          <th>Customers</th>
+          <th>Payment</th>
+          <th>Method</th>
+          <th>Status</th>
+          <th>Delivered</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2024-08-20</td>
+          <td>John Doe</td>
+          <td class="payment-status paid">Paid</td>
+          <td>Credit</td>
+          <td class="status out-for-delivery">Out of Delivery</td>
+          <td class="delivered yes">Yes</td>
+        </tr>
+        <tr>
+          <td>2024-08-21</td>
+          <td>Jane Smith</td>
+          <td class="payment-status pending">Pending</td>
+          <td>Cash</td>
+          <td class="status delivered">Delivered</td>
+          <td class="delivered no">No</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

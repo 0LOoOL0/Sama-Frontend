@@ -1,0 +1,55 @@
+.add-package-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    flex-basis: 30%;
+    font-weight: bold;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    flex-basis: 65%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-buttons {
+    text-align: center;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-save {
+    background-color: #6a0dad;
+    color: white;
+    margin-right: 10px;
+  }
+  
+  .btn-close {
+    background-color: #ff3333;
+    color: white;
+  }
+  

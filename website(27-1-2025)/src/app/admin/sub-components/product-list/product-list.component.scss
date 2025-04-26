@@ -1,0 +1,128 @@
+.product-list-container {
+    padding: 20px;
+    background-color: #f3f4f5;
+    border-radius: 12px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+p {
+    color: gray;
+    margin-bottom: 20px;
+}
+
+.top-buttons, .filter-section, .add-product-section {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.status-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.add-product-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #6f00ff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-section label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-section select {
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.import-export-buttons button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background-color: white;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.product-table {
+    margin-top: 20px;
+    overflow-x: auto; /* This will add a scrollbar if the table is too wide */
+}
+
+.search-box {
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* This will help keep each column's width consistent */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflowing text */
+    text-overflow: ellipsis; /* Add ellipsis (...) for overflowed text */
+}
+
+thead {
+    background-color: #f0f0f0;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.active-status {
+    color: green;
+    font-weight: bold;
+}
+
+.inactive-status {
+    color: red;
+    font-weight: bold;
+}
+
+.edit-btn, .delete-btn, .other-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.edit-btn {
+    color: #ff5722;
+}
+
+.delete-btn {
+    color: #f44336;
+}
+
+img {
+    width: 50px; /* Adjust this value based on your needs */
+    height: 50px; /* Adjust this value based on your needs */
+    border-radius: 50%;
+}

@@ -1,0 +1,92 @@
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    text-align: 20px;
+    font-weight: bold;
+    color: blue;
+}
+
+.content {
+    background-color: #dfdfdf;
+    margin: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    font-size:20px;
+}
+
+.header p { margin:0;}
+
+.space-between {
+    flex: 1;
+    padding: 0 20px 0 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 100px;
+}
+
+.display {
+    display: flex;
+    align-items: center;
+}
+
+.price-info {
+    text-align: right;
+}
+
+img {
+    padding: 20px;
+    margin-top: 30px;
+    margin-left: 50px;
+    border-radius: 50px;
+    height: 180px;
+    flex: 0 0 auto;
+}
+
+.items {
+    font-size: 20px;
+    color: #5E17EB;
+    margin-bottom: 10px;
+}
+.strikethrough {
+    text-decoration: line-through;
+    color: #000000;
+}
+
+.paid {
+    color: #000000;
+}
+.saved {
+    color: #5E17EB;
+}
+
+.filter {
+    padding: 20px;
+}
+
+li {
+   list-style-type: none; 
+}
+input {
+    width: 80%;
+    height:50px; 
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+button {
+    background-color: #5E17EB;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    margin: 0 20px 0 20px;
+    width: 150px;
+    font-size: 20px;
+}
+button:hover {
+    color: #5E17EB;
+    background-color: white;
+    border: 1px solid #5E17EB;
+}

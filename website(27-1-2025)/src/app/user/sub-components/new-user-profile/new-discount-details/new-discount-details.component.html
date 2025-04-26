@@ -1,0 +1,52 @@
+<button class="return" (click)="goBack()">Back</button>
+<div class="discount-details">
+    <div class="discount-header">
+        <h2>Discount Details</h2>
+        <p class="order-id">Order ID: {{ discountDetails.id }}</p>
+    </div>
+
+    <div class="discount-info">
+        <div class="info-group">
+            <p><strong>Date:</strong> {{ discountDetails.date }}</p>
+        </div>
+        <div class="info-group">
+            <p><strong>Original Price:</strong> BHD {{ discountDetails.originalPrice.toFixed(3) }}</p>
+            <p><strong>You Saved:</strong> BHD {{ discountDetails.savedAmount.toFixed(3) }}</p>
+            <p><strong>You Paid:</strong> BHD {{ discountDetails.finalPrice.toFixed(3) }}</p>
+        </div>
+    </div>
+
+    <div class="service-details">
+        <div class="service-image">
+            <img [src]="discountDetails.image" [alt]="discountDetails.service">
+        </div>
+        <div class="service-info">
+            <h3>{{ discountDetails.service }}</h3>
+            <p><strong>Provider:</strong> {{ discountDetails.provider }}</p>
+            <p><strong>Location:</strong> {{ discountDetails.location }}</p>
+        </div>
+    </div>
+
+    <table class="order-items">
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of discountDetails.items">
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>BHD {{ item.price.toFixed(3) }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="price-summary">
+        <p><strong>Original Price:</strong> BHD {{ discountDetails.originalPrice.toFixed(3) }}</p>
+        <p><strong>You Saved:</strong> BHD {{ discountDetails.savedAmount.toFixed(3) }}</p>
+        <p class="total"><strong>You Paid:</strong> BHD {{ discountDetails.finalPrice.toFixed(3) }}</p>
+    </div>
+</div>

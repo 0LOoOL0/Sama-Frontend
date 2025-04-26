@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.public-Sans {
+  font-family: "Public Sans", sans-serif;
+}
+.inter {
+  font-family: "Inter", sans-serif;
+}
+.text-16 {
+  font-size: 1rem;
+}
+
+/* Toggle B */
+input:checked ~ .dot {
+  transform: translateX(100%);
+  background: #fff;
+}
+input:checked ~ .buttonMove {
+  background: #07ee31;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* For Firefox */
+}
+
+.tabBtnActive {
+  background: #5e17eb;
+  color: #fff;
+  font-weight: 700;
+}
+
+.trasitionTime {
+  transition: all 0.3s ease-in;
+}
+.accordion-content {
+  transition: max-height 0.3s ease;
+}

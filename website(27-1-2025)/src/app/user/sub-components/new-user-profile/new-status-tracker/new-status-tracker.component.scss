@@ -1,0 +1,118 @@
+ul {
+    list-style-type: none;
+}
+
+li {
+    text-decoration-style: none;
+}
+
+.search {
+    padding: 20px;
+    input {
+        width: 75%;
+        height: 30px;
+        border-radius: 10px;
+        margin: 0 20px 0 20px;
+        padding: 5px;
+    }
+}
+
+
+button {
+    cursor: pointer;
+    background-color: #5E17EB;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    color: white;
+    width: 150px;
+    font-size: 20px;
+    border: 1px solid #5E17EB;
+    margin: 0 20px 0 20px;
+    &:hover {
+        background-color: white;
+        color: #5E17EB;
+        border: 1px solid #5E17EB;
+    }
+}
+
+
+.tabs {
+    
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+
+    li {
+        background-color: #5E17EB;
+        border-radius: 20px;
+        padding: 20px;
+        color: white;
+        border: 1px solid #5E17EB;
+        &:hover {
+            cursor: pointer;
+            background-color: white;
+            color: #5E17EB;
+            border: 1px solid #5E17EB;
+        }
+    } 
+}
+
+.items {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    
+
+    button {
+        border-radius: 10px;
+        padding: 10px;
+        border: none;
+        background-color: white;
+        color:  #5E17EB;;
+        border: 1px solid #5E17EB;
+        width: 100px;
+        margin: 5px;
+        &:hover {
+
+        }
+    }
+
+    .delete {
+        background-color: red;
+        color: white;
+        border: 1px solid red;
+    }
+    
+
+    .detail {
+        padding: 35px;
+        // border: 1px solid #ccc;
+        background-color: #ffffff;
+        border-radius: 10px;
+        margin: 20px;
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.082);
+    }
+    .status {
+        margin-left: auto;
+        margin-right: auto;
+        color: rgb(99, 187, 192);
+        font-weight: bold;
+        background-color: white;
+        padding: 10px;
+        border: 2px solid rgb(99, 187, 192);
+        border-radius: 10px;
+        width: 100px;
+    }
+    li {
+        margin: 10px;
+    }
+
+    img {
+        height: 225px;
+        border-radius: 20px;
+    }
+
+}

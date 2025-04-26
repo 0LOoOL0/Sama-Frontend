@@ -1,0 +1,134 @@
+<div class="container">
+    <div class="info">
+        <table>
+            <tr>
+                <td> <span class="label">Pet Name</span> </td>
+                <td> <span class="value">{{ selectedPet?.name }}</span></td>
+            </tr>
+            <tr>
+                <td><span class="label">Pet Type</span></td>
+                <td><span class="value">{{ selectedPet?.pet_type}}</span></td>
+            </tr>
+            <tr>
+                <td><span class="label">Breed</span></td>
+                <td><span class="value">{{ selectedPet?.breed }}</span></td>
+            </tr>
+            <tr>
+                <td><span class="label">Age</span></td>
+                <td><span class="value">{{ selectedPet?.age }}</span></td>
+            </tr>
+            <tr>
+                <td><span class="label">Gender</span></td>
+                <td><span class="value">{{ selectedPet?.gender === 'f' ? 'Female' : 'Male' }}</span></td>
+            </tr>
+            <tr>
+                <td><span class="label">Vaccinated</span></td>
+                <td><span class="value">{{ selectedPet?.is_vaccinated}}</span></td>
+            </tr>
+            <tr>
+                <td><span class="label">Microchipped</span></td>
+                <td><span class="value">{{ selectedPet?.is_microchipped}}</span></td>
+            </tr>
+            <tr>
+                <td><span class="label">Neutered</span></td>
+                <td><span class="value">{{ selectedPet?.is_neutered}}</span></td>
+            </tr>
+            <tr>
+                <td><span class="label">Weight</span></td>
+                <td><span class="value">{{ selectedPet?.weight }} kg</span></td>
+            </tr>
+            <tr>
+                <td><span class="label">Height</span></td>
+                <td><span class="value">{{ selectedPet?.height }} cm</span></td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="buttons">
+        <button (click)="openAdoptionPopup()">Adoption</button>
+        <button (click)="openSellPopup()">Sell</button>
+        <button (click)="openMatePopup()">Mate</button>
+        <button (click)="openLostPopup()">Lost</button>
+    </div>
+</div>
+
+<!-- for adoption -->
+<div class="popup" *ngIf="isAdoptionPopupVisible">
+    <div class="popup-content">
+        <span class="close" (click)="closePopup()">&times;</span>
+        <h2>Adoption Pet</h2>
+        <ul>
+            <li>
+                <label for="name">Who are You?</label>
+                <select name="user" id="">
+                    <option value="default" selected>Select option....</option>
+                    <option value="default">I am an Owner</option>
+                    <option value="default">I am a Founder</option>
+                </select>
+            </li>
+        </ul>
+        <p>Are you sure you want to send this pet to adoption?</p>
+        <div class="action-buttons">
+            <button (click)="updateAdoption()">Confirm</button>
+            <button style="background-color: red;" (click)="closePopup()">Cancel</button>
+        </div>
+    </div>
+</div>
+<!-- for Sell -->
+<div class="popup" *ngIf="isSellPopupVisible">
+    <div class="popup-content">
+        <span class="close" (click)="closePopup()">&times;</span>
+        <h2>Sell Pet</h2>
+        <ul>
+            <li>
+                <label for="name">Price</label>
+                <input type="number" placeholder="type price...">
+            </li>
+        </ul>
+        <p>Are you sure you want to sell this pet?</p>
+        <div class="action-buttons">
+            <button (click)="updateSell()">Confirm</button>
+            <button style="background-color: red;" (click)="closePopup()">Cancel</button>
+        </div>
+    </div>
+</div>
+<!-- for Mate -->
+<div class="popup" *ngIf="isMatePopupVisible">
+    <div class="popup-content">
+        <span class="close" (click)="closePopup()">&times;</span>
+        <h2>Mate Pet</h2>
+        <ul>
+            <li>
+                <label for="name">Price</label>
+                <input type="number" placeholder="type price...">
+            </li>
+        </ul>
+        <p>Are you sure you want to display this pet for mating?</p>
+        <div class="action-buttons">
+            <button (click)="updateMate()">Confirm</button>
+            <button style="background-color: red;" (click)="closePopup()">Cancel</button>
+        </div>
+    </div>
+</div>
+<!-- for Lost -->
+<div class="popup" *ngIf="isLostPopupVisible">
+    <div class="popup-content">
+        <span class="close" (click)="closePopup()">&times;</span>
+        <h2>Lost Pet</h2>
+        <ul>
+            <li>
+                <label for="name">Who are you?</label>
+                <select name="user" id="">
+                    <option value="default" selected>Select option....</option>
+                    <option value="default">I am an Owner</option>
+                    <option value="default">I am a Founder</option>
+                </select>
+            </li>
+        </ul>
+        <p>Are you sure you want to display this lost pet?</p>
+        <div class="action-buttons">
+            <button (click)="updateLost()">Confirm</button>
+            <button style="background-color: red;" (click)="closePopup()">Cancel</button>
+        </div>
+    </div>
+</div>

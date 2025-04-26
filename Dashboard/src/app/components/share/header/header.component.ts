@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
-type DropdownKey =
+type DropdownKey = 
   | 'overviewDropdown'
   | 'usersManagementDropdown'
   | 'petManagementDropdown'
@@ -22,13 +22,15 @@ type DropdownKey =
   | 'accountSettingsDropdown'
   | 'notificationEmailPreferencesDropdown'
   | 'petOwnersDropdown'
-  | 'providersDropdown';
+  | 'providersDropdown'
+  | 'supplierDropdown';
+  
 
 @Component({
   selector: 'app-header',
   imports: [CommonModule, RouterLink],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'] 
 })
 export class HeaderComponent {
   dropdownVisibility: Record<DropdownKey, boolean> = {
@@ -52,13 +54,14 @@ export class HeaderComponent {
     notificationEmailPreferencesDropdown: false,
     petOwnersDropdown: false,
     providersDropdown: false,
+    supplierDropdown: false,
   };
 
   // Sidebar collapsed state
   isSidebarCollapsed: boolean = true;
 
 
-
+  
 
   // Toggle dropdown visibility
   toggleDropdown(dropdownId: DropdownKey): void {
@@ -68,7 +71,7 @@ export class HeaderComponent {
   // Toggle sidebar visibility and close all dropdowns when sidebar is toggled
   toggleSidebar(): void {
     this.isSidebarCollapsed = !this.isSidebarCollapsed;
-
+    
     // Close all dropdowns when sidebar is collapsed
     if (this.isSidebarCollapsed) {
       this.closeAllDropdowns();

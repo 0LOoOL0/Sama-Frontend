@@ -1,0 +1,21 @@
+<div class="navbar">
+    <table>
+        <tr>
+            <td>
+                <a routerLink="adoption" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }"> Adoption</a>
+            </td>
+            <td>
+                <a routerLink="mating" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }"> Mating</a>
+            </td>
+            <td>
+                <a routerLink="lost" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }"> Lost</a>
+            </td>
+            <td>
+                <a routerLink="sell" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }"> Sell</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="show-items">
+    <router-outlet></router-outlet>
+</div>

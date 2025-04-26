@@ -1,0 +1,47 @@
+<div class="user-container">
+    <div class="space-between">
+        <h2>Invoice History List</h2>
+        <button class="btn-action" (click)="navigateToCreateInvoice()">generate Invoice</button>
+    </div>
+
+    <div class="content">
+        <ul>
+            <li>Total Invoice: {{ invoices.length }}</li>
+            <li>Shipped No: {{ shippedCount }}</li>
+            <li>Pending No: {{ pendingCount }}</li>
+            <li>Paid No: {{ paidCount }}</li>
+        </ul>
+    </div>
+
+    <div class="content-table">
+        <table>
+            <tr>
+                <th>Invoice NO:</th>
+                <th>Invoice Date</th>
+                <th>Customer Name</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th><button class="btn-delete">Delete All</button></th>
+            </tr>
+            <tr *ngFor="let invoice of invoices">
+                <td (click)="navigateToInvoice(invoice.id, invoice.type)" style="cursor: pointer; color: blue;">
+                    {{ invoice.id }}
+                  </td>
+                  
+                  
+                  
+                <td>{{ invoice.invoice_date | date:'dd MMM yyyy' }}</td>
+                <td>{{ invoice.customer_name }}</td>
+                <td>{{ invoice.total_amount }} BHD</td>
+                <td>
+                    <button [ngClass]="invoice.status.toLowerCase()">{{ invoice.status }}</button>
+                </td>
+                <td>
+                    <div class="btn-img">
+                        <img src="biin.png" alt="delete" (click)="deleteInvoice(invoice.id)">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

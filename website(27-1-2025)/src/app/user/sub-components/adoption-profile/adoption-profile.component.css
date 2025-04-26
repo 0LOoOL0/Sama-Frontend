@@ -1,0 +1,293 @@
+/* Header/Navbar Styles */
+.navbar {
+    background-color: #ffd700;
+    padding: 10px;
+  }
+  
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-menu {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-menu li {
+    margin-right: 15px;
+  }
+  
+  .nav-menu a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .login-btn {
+    background-color: #fff;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+  }
+  
+  /* Banner Section */
+  .banner-section {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #ffde59;
+    position: relative;
+  }
+  
+  .banner-section h1 {
+    font-size: 48px;
+    margin: 0;
+  }
+  
+  .cat-img {
+    position: absolute;
+    top: -50px;
+    right: 20px;
+    width: 150px;
+  }
+  
+  /* Main Content */
+  .adoption-center {
+    padding: 50px 0;
+  }
+  
+  .image-carousel {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product-img {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 8px;
+  }
+  
+  .pet-details {
+    text-align: center;
+  }
+  
+  .main-pet-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .share-info {
+    margin: 15px 0;
+  }
+  
+  .share-info a {
+    margin-right: 10px;
+  }
+  
+  .attributes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .badge {
+    background-color: #f8f9fa;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 20px;
+  }
+  
+  /* Offer Section */
+  .offer-section {
+    background-color: #ffd700;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .offer-content {
+    max-width: 50%;
+  }
+  
+  .offer-img {
+    width: 40%;
+    border-radius: 10px;
+  }
+  
+  /* Footer Section */
+  .footer {
+    background-color: #00008b;
+    color: #fff;
+    padding: 50px 0;
+    margin-top: 50px;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .footer a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .newsletter form {
+    display: flex;
+    gap: 10px;
+  }
+  
+
+
+  /* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Image Carousel Styling */
+  .product-carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  .product-thumbnail {
+    width: 80px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s;
+  }
+  
+  .product-thumbnail:hover {
+    transform: scale(1.1);
+  }
+  
+  .main-image-container {
+    margin-bottom: 15px;
+  }
+  
+  .main-pet-img {
+    width: 100%;
+    border-radius: 15px;
+  }
+  
+  .carousel-dots {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+  }
+  
+  .dot.active {
+    background-color: #000;
+  }
+  
+  /* Pet Details Styling */
+  .pet-details {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  
+  .pet-details h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+  
+  .contact-share {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .contact-share span {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .contact-share a {
+    margin-right: 15px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+  }
+  
+  .contact-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .contact-buttons a {
+    font-size: 24px;
+    color: #25d366; /* WhatsApp green */
+    text-decoration: none;
+  }
+  
+  .contact-buttons a:last-child {
+    color: #333; /* Arrow icon color */
+  }
+  
+  /* Attributes Section */
+  .pet-attributes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  
+  .attribute {
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 120px;
+  }
+  
+  .attribute span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .attribute div {
+    color: #333;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .pet-adoption-section {
+      flex-direction: column;
+    }
+  
+    .product-carousel,
+    .pet-details {
+      text-align: center;
+    }
+  
+    .contact-share {
+      justify-content: center;
+    }
+  }

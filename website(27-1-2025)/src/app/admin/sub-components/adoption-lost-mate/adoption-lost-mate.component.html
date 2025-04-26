@@ -1,0 +1,71 @@
+<div class="adoption-lost-mate-page">
+    <div class="tabs">
+      <button class="tab" [class.active]="activeTab === 'adoption'" (click)="setTab('adoption')">Adoption</button>
+      <button class="tab" [class.active]="activeTab === 'lost'" (click)="setTab('lost')">Lost</button>
+      <button class="tab" [class.active]="activeTab === 'mate'" (click)="setTab('mate')">Mate</button>
+    </div>
+  
+    <!-- Common Summary Cards -->
+    <div class="summary-cards">
+      <div class="card">
+        <h3>Total No.</h3>
+        <p>{{ totalNumber }}</p>
+      </div>
+      <div class="card">
+        <h3>Total Left</h3>
+        <p>{{ totalLeft }}</p>
+      </div>
+      <div class="card">
+        <h3>Total Transfer</h3>
+        <p>{{ totalTransfer }}</p>
+      </div>
+    </div>
+  
+    <div class="see-all">
+      <button class="btn btn-see-all">See All</button>
+    </div>
+  
+    <!-- Pets Grid Based on Active Tab -->
+    <div class="pets-grid">
+      <div class="pet-card" *ngFor="let pet of currentPets">
+        <img [src]="pet.image" alt="Pet image">
+        <p>{{ pet.name }}</p>
+        <p>{{ pet.dateLabel }}: {{ pet.dateValue }}</p>
+      </div>
+    </div>
+  
+    <!-- Common Table Based on Active Tab -->
+    <div class="pet-table" *ngIf="currentPets.length > 0">
+      <table>
+        <thead>
+          <tr>
+            <th>Pic</th>
+            <th>Name</th>
+            <th>{{ currentPets[0].dateLabel }}</th>
+            <th>Date Transfer</th>
+            <th>New Owner</th>
+            <th>Contact</th>
+            <th>Email</th>
+            <th>out/on</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pet of currentPets">
+            <td><img [src]="pet.image" alt="Pet image"></td>
+            <td>{{ pet.name }}</td>
+            <td>{{ pet.dateValue }}</td>
+            <td>{{ pet.dateTransfer }}</td>
+            <td>{{ pet.newOwner }}</td>
+            <td>{{ pet.contact }}</td>
+            <td>{{ pet.email }}</td>
+            <td>{{ pet.outOn }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <p *ngIf="currentPets.length === 0">No data available for this category.</p>
+  </div>
+  
+  <p class="footer-note">This page will be the same for both lost and mate</p>
+  

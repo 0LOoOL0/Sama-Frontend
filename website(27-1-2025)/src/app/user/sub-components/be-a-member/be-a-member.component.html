@@ -1,0 +1,147 @@
+<app-navbar></app-navbar>
+<section class="heroSection">
+    <div class="heroBackground"></div>
+    <div class="container-3xl">
+        <div class="hero-container">
+            <!-- Breadcrumb Navigation -->
+            <div class="heroLinkContainer">
+                <a href="home" class="hero-link">HOME</a>
+                <div class="heroDot"></div>
+                <a href="store" class="hero-link active">BE A MEMBER</a>
+            </div>
+
+            <!-- Hero Title -->
+            <h1 class="hero-heading">Be a Member</h1>
+
+            <!-- Description -->
+            <p class="hero-description">
+                Unlock exclusive deals and pamper your pet with the care they deserve—join our membership today
+            </p>
+
+            <button class="cta-btn" (click)="scrollToSection()">Join us Now</button>
+        </div>
+
+        <!-- Pet Image -->
+        <div class="heroImageContainer">
+            <img src="./assets/img/catandowner.png" alt="Happy cat" class="heroImage">
+        </div>
+    </div>
+</section>
+
+<section class="membershipHighlightSection">
+    <div class="membershipHighlightContainer">
+      <h2 class="highlightTitle">Why Join Sama Pets?</h2>
+    <!-- Responsive Image Section -->
+    <div class="membershipImageWrapper">
+        <img src="./assets/img/familywithpet.jpeg" alt="Happy pets with owners" class="membershipImage" />
+   </div>
+      <p class="highlightSubtitle">Unlock a world of personalized pet care, exclusive rewards, and a supportive community tailored for devoted pet owners</p>
+    
+      <div class="highlightGrid">
+        <div class="highlightCard">
+          <img src="./assets/icons/doglock.png" alt="Discounts" class="highlightIcon">
+          <h3>Unlock the Best for Your Pet</h3>
+          <p>Be a member to receive a personalized pet card and enjoy exclusive discounts, offers, and surprises tailored to your furry friend</p>
+        </div>
+  
+        <div class="highlightCard">
+          <img src="./assets/icons/dogcatheart.png" alt="Priority Care" class="highlightIcon">
+          <h3>Connect, Care, and Share</h3>
+          <p>View and showcase adoption opportunities, find pet mates, and alert the community with lost pet notifications</p>
+        </div>
+  
+        <div class="highlightCard">
+          <img src="./assets/icons/reminder.png" alt="Welcome Gift" class="highlightIcon">
+          <h3>Never Miss a Moment</h3>
+          <p>Set personalized reminders for your pet’s grooming, feeding, and vet visits</p>
+        </div>
+  
+        <div class="highlightCard">
+          <img src="./assets/icons/collar.png" alt="Loyalty Points" class="highlightIcon">
+          <h3>Smart Tag, Safe Pet</h3>
+          <p>Purchase a tag with a QR code to easily identify and reunite with your lost pet</p>
+        </div>
+  
+        <div class="highlightCard">
+          <img src="./assets/icons/petrecords.png" alt="Member Events" class="highlightIcon">
+          <h3>Your Pet’s Digital Companion</h3>
+          <p>Access all your pet’s records, reminders, and services in one seamless dashboard</p>
+        </div>
+  
+        <div class="highlightCard">
+          <img src="./assets/icons/petshields.png" alt="Pet Wellness" class="highlightIcon">
+          <h3>Pet Wellness Perks</h3>
+          <p>Enjoy complimentary health checkups and grooming vouchers</p>
+        </div>
+      </div>
+  
+      <a href="/user-main-component/subscribe" class="highlightCTA">Join Now</a>
+    </div>
+  </section>
+  
+
+  <div class="membership-container">
+    <main class="main-content">
+      <section class="membership-section">
+        <h2>Unlock Exclusive Benefits with Sama Membership – Join Now!</h2>
+        <p>Become a Sama member and enjoy exclusive discounts, premium content, and priority services. Start with a free trial today!</p>
+  
+        <!-- ✅ Dynamic packages section from backend -->
+        <div class="membership-options">
+          <div class="option-card" *ngFor="let pkg of packages" (click)="choose(pkg)" role="button" tabindex="0" aria-pressed="false">
+            <span class="icon" aria-hidden="true">{{ pkg.is_free_trial ? '🎁' : '✨' }}</span>
+            <h3>{{ pkg.title }}</h3>
+            <p>{{ pkg.description }}</p>
+  
+            <ul class="feature-list" *ngIf="pkg.features">
+              <li *ngFor="let feature of pkg.features">{{ feature }}</li>
+            </ul>
+  
+            <div class="price" [ngStyle]="{'margin-top': pkg.is_free_trial ? '36px' : '0'}">
+              {{ pkg.price === 0 ? 'Free' : pkg.price + 'BD' }}
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+<!-- footer section -->
+<footer class="footerSection">
+    <div class="container">
+        <div class="footerColumn footerInfo">
+            <img src="./assets/img/brand-logo-1.png" alt="Sama Pet Care Logo" class="footerLogo">
+            <p>Sama Pet Care is a comprehensive platform dedicated to enhancing pet care.</p>
+            <p class="phone"><i class="fas fa-phone-alt"></i> (973) 77690000</p>
+            <p>Got Questions? Call us 24/7</p>
+        </div>
+        <div class="footerColumn footerHours">
+            <h3>Working Hours</h3>
+            <p>Mon - Fri: 7am - 6pm</p>
+            <p>Saturday: 9am - 4pm</p>
+            <p>Sunday: Closed</p>
+        </div>
+        <div class="footerColumn footerLinks">
+            <h3>Useful Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Delivery</a></li>
+                <li><a href="#">Sales</a></li>
+            </ul>
+        </div>
+        
+        <div class="footerColumn footerNewsletter">
+            <h3>Newsletter</h3>
+            <p>Be first in the queue! Get our latest news straight to your inbox.</p>
+            <form>
+                <input type="email" placeholder="Email">
+                <button type="submit">➤</button>
+            </form>
+        </div>
+    </div>
+    <div class="footerCopyright">
+        <p>© 2025 Sama Pet Care. All rights reserved. Designed by Sama Pet.</p>
+    </div>
+</footer>

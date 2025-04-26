@@ -1,0 +1,48 @@
+<div class="packages-listing-container">
+    <div class="header">
+      <h2>Packages Listing</h2>
+      <button class="btn-add-package">Add Package</button>
+    </div>
+  
+    <div class="package-cards">
+      <div class="package-card" *ngFor="let package of packages">
+        <div class="card-icon">
+          <button class="edit-btn">✎</button>
+        </div>
+        <div class="card-content">
+          <p class="package-name">{{ package.name }}</p>
+          <p class="package-duration">{{ package.duration }}</p>
+          <p class="package-status">{{ package.status }}</p>
+        </div>
+      </div>
+    </div>
+  
+    <input type="text" placeholder="Search" class="search-bar"/>
+  
+    <table class="packages-table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Package Name</th>
+          <th>Price</th>
+          <th>Status_User</th>
+          <th>Status_Staff</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let package of packages; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ package.name }}</td>
+          <td>{{ package.price }}</td>
+          <td>{{ package.statusUser }}</td>
+          <td>{{ package.statusStaff }}</td>
+          <td class="actions">
+            <button class="edit-btn">✎</button>
+            <button class="delete-btn">🗑</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

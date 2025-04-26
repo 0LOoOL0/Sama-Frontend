@@ -1,0 +1,101 @@
+.container {
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+    background-color: #FFDA47;
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    width: 1400px;
+    max-width: 1400px;
+    height: 516px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.heading-1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 0 436px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+}
+
+.number {
+    font-size: 250px;
+    font-weight: 800;
+    line-height: 200px;
+    color: #0E081E;
+    margin: 0 20px;
+}
+
+
+.paw-icon {
+    width: 154px;
+    height: 154px;
+    background-image: url(../../assets/paws.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.page-not-found {
+    font-size: 68px;
+    font-weight: 800;
+    color: #0E081E;
+    position: absolute;
+    top: 265px;
+}
+
+.message {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    line-height: 25px;
+    color: #1C103B;
+    text-align: center;
+    position: absolute;
+    top: 356px;
+}
+
+.message-part {
+    padding: 0 30px;
+}
+
+.link-container {
+    position: absolute;
+    top: calc(50% + 180px);
+    /* Adjusted top position */
+}
+
+.home-button {
+    background-color: #7C58D3;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 800;
+    padding: 10px 14px;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: absolute;
+    bottom: -10px;
+}
+
+.social-icon {
+    font-size: 26px;
+    color: #7C58D3;
+}

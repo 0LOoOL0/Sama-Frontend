@@ -1,0 +1,38 @@
+<div class="space-between">
+    <a href="/user-main-component/transfer-1">Transfer Ownership</a>
+    <a href="/user-main-component/create-owner-profile" class="edit-link">Edit</a>
+</div>
+
+<div class="profile-details">
+    <div class="space-between">
+        <span class="label">Phone number</span>
+        <span class="value">{{userProfile?.phone}}</span>
+    </div>
+
+    <div class="space-between">
+        <span class="label">Email</span>
+        <span class="value">{{userProfile?.email}}</span>
+    </div>
+
+    <div class="space-between">
+        <span class="label">Gender</span>
+        <span class="value">{{userProfile?.Gender === 'f' ? 'Female' : 'Male'}}</span>
+    </div>
+
+    <div class="space-between">
+        <span class="label">Date of birth</span>
+        <span class="value">{{userProfile?.date_of_birth}}</span>
+    </div>
+
+    <div class="space-between">
+        <span class="label">Nationality</span>
+        <span class="value">{{userProfile?.nationality}}</span>
+    </div>
+
+    <div class="space-between">
+        <span class="label">Locations</span>
+        <span class="value">{{displayedAdd}}
+            <i class="fas fa-chevron-down"></i>
+        </span>
+    </div>
+</div>

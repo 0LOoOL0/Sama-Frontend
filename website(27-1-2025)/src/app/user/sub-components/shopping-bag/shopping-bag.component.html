@@ -1,0 +1,112 @@
+<app-navbar></app-navbar>
+<div class="shopping-bag-page">
+  <!-- Breadcrumb and Title -->
+  <div class="header-banner">
+    <h1>Shopping Bag</h1>
+    <p>Sed lectus vestibulum mattis ullamcorper velit sed...</p>
+  </div>
+
+  <!-- Product Table -->
+  <table class="shopping-bag-table">
+    <thead>
+      <tr>
+        <th style="width: 50px;">
+          <input 
+            type="checkbox" 
+            [checked]="selectAll"
+            (change)="selectAllItems($event)"
+            class="w-4 h-4"
+          >
+        </th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+        <th style="width: 80px;">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Regular Cart Items -->
+      <tr *ngFor="let item of items">
+        <td>
+          <input 
+            type="checkbox" 
+            [(ngModel)]="item.selected"
+            (change)="updatePageInfo()"
+            class="w-4 h-4"
+          >
+        </td>
+        <td>
+          <div class="product-info">
+            <!-- Only display image if imageUrl is provided -->
+            <ng-container *ngIf="item.imageUrl">
+              <img [src]="item.imageUrl" [alt]="item.label">
+            </ng-container>
+            <div>
+              <span class="product-name">{{ item.label }}</span>
+            </div>
+          </div>
+        </td>
+        <td>
+          <span [class]="isMember ? 'old-price' : 'new-price'">{{ item.price }} BHD</span>
+        </td>
+        <td class="quantity-cell">
+          <button (click)="decrementQuantity(item)" class="quantity-btn">-</button>
+          <input 
+            type="number" 
+            [value]="item.quantity" 
+            (change)="onQuantityChange(item, $event)"
+            [max]="item.maxQuantity"
+            min="1"
+            class="quantity-input"
+          >
+          <button (click)="incrementQuantity(item)" class="quantity-btn">+</button>
+        </td>
+        <td>{{ item.price * item.quantity }} BHD</td>
+        <td>
+          <button 
+            (click)="deleteCartItem(item)"
+            class="delete-btn"
+            style="background: #ff4444; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">
+            Delete
+          </button>
+        </td>
+      </tr>
+
+      <!-- No Items Message -->
+      <tr *ngIf="items.length === 0">
+        <td colspan="6" class="text-center p-4">
+          Your shopping bag is empty
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Selected Items Summary -->
+  <div class="selected-summary" *ngIf="selectedItemsCount > 0">
+    <p>Selected Items: {{ selectedItemsCount }}</p>
+    <button 
+      (click)="deleteSelectedItems()"
+      class="delete-selected-btn">
+      Delete Selected
+    </button>
+  </div>
+
+  <!-- Checkout Section -->
+  <div class="checkout-section">
+    <div class="coupon-code">
+      <input type="text" placeholder="Coupon Code">
+      <button>Apply Coupon</button>
+    </div>
+    <div class="total-price">
+      <p *ngIf="savedPrice > 0" class="saved-price">You saved: {{ savedPrice }} BHD</p>
+      <p>Total: <strong>{{ getTotalPrice() }} BHD</strong></p>
+      <button 
+        class="checkout-btn" 
+        (click)="goToCheckOut()"
+        [disabled]="selectedItemsCount === 0">
+        Checkout
+      </button>
+    </div>
+  </div>
+</div>

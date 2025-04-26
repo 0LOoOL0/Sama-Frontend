@@ -1,0 +1,204 @@
+<app-navbar></app-navbar>
+
+<!-- Hero Section -->
+<section class="heroSection">
+    <div class="heroBackground"></div>
+    <div class="container-3xl">
+        <div class="hero-container">
+            <!-- Breadcrumb Navigation -->
+            <div class="heroLinkContainer">
+                <a href="home" class="hero-link">HOME</a>
+                <div class="heroDot"></div>
+                <a href="be-a-partner" class="hero-link active">BE A PARTNER</a>
+            </div>
+
+            <!-- Hero Title -->
+            <h1 class="hero-heading">Partner With Sama Pets</h1>
+
+            <!-- Description -->
+            <p class="hero-description">
+                Grow your business and reach more pet owners with Sama Pet.
+            </p>
+
+            <button class="cta-btn" (click)="scrollToSection()">Join Us Now</button>
+        </div>
+        <!-- Pet Image -->
+        <div class="heroImageContainer">
+            <img src="./assets/img/cat_and_dog.png" alt="Be a Partner" class="heroImage">
+        </div>
+    </div>
+</section>
+
+<!-- Main Content Section -->
+<section class="content-container">
+    <div class="content-grid">
+
+      <!-- Join Sama Section -->
+      <div class="join-sama-container">
+        <div class="JoinSamaContainer">
+            <img src="./assets/img/happy pets.jpg" alt="Happy Pets" class="JoinSamaImage">
+        </div>
+        <div class="content-box-sama">
+            <h2 class="join-sama"><i class="fas fa-question-circle" style="padding-right: 15px;"></i>Why Join Sama Pet?</h2>
+            <ul class="feature-list">
+                <li>Free listing in the app with no subscription fees or commissions.</li>
+                <li>Offer coupons and promotions to attract more bookings.</li>
+                <li>Access to thousands of pet owners looking for services.</li>
+                <li>Listings in Lost Pets, Adoption, and Sama Store sections.</li>
+                <li>Smart dashboard for easy service management.</li>
+                <li>Free advertising for the first 3 months.</li>
+            </ul>
+        </div>
+      </div>
+
+      <!-- How It Works Section -->
+      <div class="join-sama-container">
+        <div class="content-box-sama">
+            <h2 class="join-sama"><i class="fas fa-cogs" style="padding-right: 15px;"></i>How It Works</h2>
+            <ul class="feature-list">
+                <li>Register and enter basic details.</li>
+                <li>Offer free or paid coupons to attract more clients.</li>
+                <li>Utilize Lost Pets, Adoption, and Sama Store sections.</li>
+                <li>Receive customer inquiries and benefit from free marketing.</li>
+                <li>List services like veterinary consultations, grooming, or product sales.</li>
+                <li>Provide exclusive discounts for Sama Pet Card holders to increase repeat visits.</li>
+            </ul>
+        </div>
+        <div class="JoinSamaContainer">
+            <img src="./assets/img/cutedoggy.jpg" alt="Work Process" class="JoinSamaImage">
+        </div>
+      </div>
+
+      <!-- Revenue Increase Section -->
+      <div class="join-sama-container">
+        <div class="JoinSamaContainer">
+            <img src="./assets/img/doggyplaying.png" alt="Increase Revenue" class="JoinSamaImage">
+        </div>
+        <div class="content-box-sama">
+            <h2 class="join-sama"><i class="fas fa-users" style="padding-right: 15px;"></i>How Does Sama Pet Help You Increase Revenue?</h2>
+            <ul class="feature-list">
+                <li>Customers receive coupons and special offers through the app.</li>
+                <li>Free advertising at launch, followed by affordable promotions.</li>
+                <li>Ensure repeat visits with exclusive Sama Pet Card discounts.</li>
+                <li>Engage customers through Lost Pets and Adoption features.</li>
+                <li>Automated notifications inform them of new promotions.</li>
+                <li>Sell pet products directly through Sama Store.</li>
+            </ul>
+        </div>
+      </div>
+
+      <!-- Exclusive Offer Section -->
+      <div class="join-sama-container">
+        <div class="content-box-sama">
+            <h2 class="join-sama"><i class="fas fa-handshake" style="padding-right: 15px;"></i>Exclusive Offer for Early Service Providers</h2>
+            <ul class="feature-list">
+                <li>Opportunity to provide exclusive discounts for Sama Pet Card holders to retain customers.</li>
+                <li>Listing in Lost Pets, Adoption, and Sama Store sections.</li>
+                <li>Dedicated support to optimize service visibility.</li>
+                <li>Free registration with no long-term fees.</li>
+                <li>Option to offer free or paid coupons.</li>
+                <li>Free advertising for 3 months.</li>
+            </ul>
+        </div>
+        <div class="JoinSamaContainer">
+            <img src="./assets/img/businesscat.jpg" alt="Early Providers" class="JoinSamaImage">
+        </div>
+      </div>
+    </div>
+
+            <!-- Sign-Up Section at the Top Left -->
+            <section class="get-started">
+                <h2>Join Sama Pet Now</h2>
+                <p>Ready to take your business to the next level?</p>
+                <div  class="signup-form fade-in">
+                    <form (submit)="submitForm()">
+                        <div class="form-group">
+                          <label for="businessName">Business Name</label>
+                          <input type="text" id="businessName" name="businessName" placeholder="Enter your business name" [(ngModel)]="partner.businessName" required>
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="businessCategory">Business Category</label>
+                          <select id="businessCategory" name="businessCategory" [(ngModel)]="partner.businessCategory" required>
+                            <option value="" disabled selected>Select a category</option>
+                            <option value="Veterinary">Veterinary</option>
+                            <option value="Grooming Salon">Grooming Salon</option>
+                            <option value="Pet Store">Pet Store</option>
+                            <option value="Accommodation">Accommodation</option>
+                            <option value="Pet Training and School">Pet Training and School</option>
+                            <option value="Others">Others</option>
+                          </select>
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="managerName">Manager Name</label>
+                          <input type="text" id="managerName" name="managerName" placeholder="Enter manager's name" [(ngModel)]="partner.managerName" required>
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="email">Email Address</label>
+                          <input type="email" id="email" name="email" placeholder="Enter your email" [(ngModel)]="partner.email" required>
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="phone">Phone Number</label>
+                          <input type="text" id="phone" name="phone" placeholder="Enter phone number" [(ngModel)]="partner.phone" required>
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="businessAddress">Business Address</label>
+                          <input type="text" id="businessAddress" name="businessAddress" placeholder="Enter business address" [(ngModel)]="partner.businessAddress" required>
+                        </div>
+                      
+                        <div class="form-group">
+                          <label for="socialMedia">Social Media (Optional)</label>
+                          <input type="text" id="socialMedia" name="socialMedia" placeholder="Enter social media link (optional)" [(ngModel)]="partner.socialMedia">
+                        </div>
+                      
+                        <button type="submit" class="submit-btn">Submit</button>
+                      </form>
+                      
+                </div>
+            </section>
+            
+</section>
+
+<!-- footer section -->
+<footer class="footerSection">
+    <div class="container">
+        <div class="footerColumn footerInfo">
+            <img src="./assets/img/brand-logo-1.png" alt="Sama Pet Care Logo" class="footerLogo">
+            <p>Sama Pet Care is a comprehensive platform dedicated to enhancing pet care.</p>
+            <p class="phone"><i class="fas fa-phone-alt"></i> (973) 77690000</p>
+            <p>Got Questions? Call us 24/7</p>
+        </div>
+        <div class="footerColumn footerHours">
+            <h3>Working Hours</h3>
+            <p>Mon - Fri: 7am - 6pm</p>
+            <p>Saturday: 9am - 4pm</p>
+            <p>Sunday: Closed</p>
+        </div>
+        <div class="footerColumn footerLinks">
+            <h3>Useful Links</h3>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Delivery</a></li>
+                <li><a href="#">Sales</a></li>
+            </ul>
+        </div>
+        
+        <div class="footerColumn footerNewsletter">
+            <h3>Newsletter</h3>
+            <p>Be first in the queue! Get our latest news straight to your inbox.</p>
+            <form>
+                <input type="email" placeholder="Email">
+                <button type="submit">➤</button>
+            </form>
+        </div>
+    </div>
+    <div class="footerCopyright">
+        <p>© 2025 Sama Pet Care. All rights reserved. Designed by Sama Pet.</p>
+    </div>
+</footer>

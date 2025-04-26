@@ -1,0 +1,80 @@
+<!-- Product & Service Section -->
+<section class="productServiceSection">
+  <div class="container-2xl">
+    <div class="productServiceContainer">
+      
+      <!-- Tab Buttons -->
+      <div class="productTabContainer flex row-center gap-2">
+        <button class="tabbtn" [ngClass]="{'active': activeTab === 'product'}" (click)="product()">Product</button>
+        <button class="tabbtn" [ngClass]="{'active': activeTab === 'service'}" (click)="service()">Service</button>
+      </div>
+
+      <!-- Product Categories -->
+      <div class="grid-layout category-filter">
+        <div class="grid-col" (click)="filterByCategory('All')">
+          <div class="productCard">
+            <img src="./assets/img/dog-img.png" alt="All Products" class="productImage">
+            <h5 class="smText">All</h5>
+          </div>
+        </div>
+        <div class="grid-col" (click)="filterByCategory('Dogs')">
+          <div class="productCard">
+            <img src="./assets/img/dog-img.png" alt="Dogs" class="productImage">
+            <h5 class="smText">Dogs</h5>
+          </div>
+        </div>
+        <div class="grid-col" (click)="filterByCategory('Cats')">
+          <div class="productCard">
+            <img src="./assets/img/cat-img-1.png" alt="Cats" class="productImage">
+            <h5 class="smText">Cats</h5>
+          </div>
+        </div>
+        <div class="grid-col" (click)="filterByCategory('Birds')">
+          <div class="productCard">
+            <img src="./assets/img/dog-img-2.png" alt="Birds" class="productImage">
+            <h5 class="smText">Birds</h5>
+          </div>
+        </div>
+        <div class="grid-col" (click)="filterByCategory('Others')">
+          <div class="productCard">
+            <img src="./assets/img/cat-img-2.png" alt="Others" class="productImage">
+            <h5 class="smText">Others</h5>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product List -->
+      <div *ngIf="activeTab === 'product'" class="productTab">
+        <h2 style="padding-top: 50px;">Products</h2>
+        <div class="grid-layout">
+          <div *ngFor="let product of products" class="product-card" (click)="navigateTodetail(product.id)">
+            <img [src]="product.image" alt="Product Image" class="product-image"/>
+            <h3>{{ product.title }}</h3>
+            <p class="product-description">{{ product.short_description }}</p>
+            <p class="price">
+              <span class="old-price">{{ product.old_price | currency }}</span>
+              <span class="new-price">{{ product.new_price | currency }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service List -->
+      <div *ngIf="activeTab === 'service'" class="serviceTab">
+        <h2 style="padding-top: 50px;">Services</h2>
+        <div class="grid-layout">
+          <div *ngFor="let service of servicess" class="service-card" (click)="navigateToServicedetail(service.id)">
+            <img [src]="service.image" alt="Service Image" class="service-image"/>
+            <h3>{{ service.title }}</h3>
+            <p class="service-description">{{ service.short_description }}</p>
+            <p class="price">
+              <span class="old-price">{{ service.old_price | currency }}</span>
+              <span class="new-price">{{ service.new_price | currency }}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

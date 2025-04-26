@@ -1,0 +1,45 @@
+<div class="page">
+<div class="membership-container">
+    <div class="promo-coupon-buttons">
+        <button  id="adPromotionButton">Ad Promotion</button>
+        <button  id="couponDiscountButton">Coupon Discount</button>
+    </div>
+
+    <h2>Choose how fast you want to sell 
+        your products on Sama Pet Store</h2>
+
+    <div class="image-container">
+    </div>
+
+    <div class="plans-container">
+        <button class="plans">
+            <div class="content">
+                <h2>Ready-to-Launch Promotion</h2>
+                <p>Instantly boost your buiness's for a  marketing boost with your already made advertisements .</p>
+            </div>
+            <span class="price">20BD</span>
+        </button>
+
+        <button class="plans">
+            <div class="content">
+                <h2>Custom Ad Design Promotion</h2>
+                <p>Our design experts will create a tailored ad campaign to showcase your pet store's products and services.</p>
+            </div>
+            <span class="price">20BD</span>
+        </button>
+    </div>
+    <a href="#" (click)="showPopup()">Benefits & Features</a>
+</div>
+
+<div class="popup" *ngIf="popupVisible" class="overlay" (click)="hidePopup()">
+    <div class="popup-content" (click)="stopPropagation($event)">
+        <h2>Benefits & Features</h2>
+        <ul>
+            <li>Good services</li>
+            <li>Affordable prices</li>
+            <li>For all animals</li>
+            <li>24/7 customer support</li>
+        </ul>
+    </div>
+</div>
+</div>

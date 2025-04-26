@@ -1,0 +1,82 @@
+<app-navbar></app-navbar>
+<div class="main-container">
+
+  <!-- Calendar Section -->
+  <div class="calendar-section">
+    <div class="calendar-header">
+      <button class="month-btn" (click)="previousMonth()">←</button>
+      <h4>{{ currentMonthYear }}</h4>
+      <button class="month-btn" (click)="nextMonth()">→</button>
+    </div>
+    <table class="calendar-table">
+      <thead>
+        <tr>
+          <th *ngFor="let day of weekdays">{{ day }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let week of calendarDays">
+          <td *ngFor="let day of week" [ngClass]="{ 'empty-cell': day === 0 }">
+            <span *ngIf="day !== 0">{{ day }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Booking Form -->
+  <div class="reminder-form-section">
+    <h4>New Booking Form</h4>
+    <form [formGroup]="bookingForm">
+      <div class="form-row">
+        <label for="bookingFor">Booking for</label>
+        <input id="bookingFor" class="input-field" formControlName="booking_for" placeholder="Enter name" />
+
+      </div>
+
+      <div class="form-row">
+        <label for="booking_date">Date</label>
+        <input type="date" class="input-field" formControlName="booking_date" />
+      </div>
+
+      <div class="form-row">
+        <label>Time</label>
+        <div class="time-inputs">
+          <input type="time" class="input-field" formControlName="start_time" />
+          <input type="time" class="input-field" formControlName="end_time" />
+        </div>
+      </div>
+
+      <div class="checkbox-container">
+        <label for="remind" class="checkbox-label">Remind</label>
+        <input type="checkbox" formControlName="remind" />
+        <div *ngIf="bookingForm.value.remind; else noReminder">Yes, remind me.</div>
+        <ng-template #noReminder><div>No, don't remind me.</div></ng-template>
+      </div>
+
+      <div class="form-row">
+        <label for="note">Note</label>
+        <textarea class="input-field" formControlName="note" placeholder="Add note"></textarea>
+      </div>
+
+      <div class="submit-btn-container">
+        <button type="button" class="submit-btn" (click)="showAlert()">Book</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Confirmation Popups -->
+  <div id="customAlert" class="modal">
+    <div class="modal-content">
+      <h2>Are you sure you want to proceed with the booking?</h2>
+      <br />
+      <button (click)="confirmAlert()">Yes</button>
+      <button (click)="closeAlert()">Cancel</button>
+    </div>
+  </div>
+  <div id="confirmAlert" class="modal">
+    <div class="modal-content">
+      <h2>Booked successfully</h2>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+h2 {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+button{
+    font-family: outifit;
+}
+
+.btt{
+    font-family: outfit;
+}
+
+.icon{
+    width: 1.2rem;
+    height: auto;
+    margin-right: 10px;
+}
+
+.s{
+    background-color: white;
+}
+.signwith {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: outifit;
+}
+
+.signwith .btn {
+    border: 1px solid black;
+    border-radius: 40px;
+    width: 80%;
+    height: 40px;
+    margin-bottom: 16px;
+}
+
+.form-control {
+    margin-top: 5px;
+    width: 80%;
+    height: 40px;
+    margin-bottom: 24px;
+    border: 1px solid #000000;
+    border-radius: 12px;
+}
+
+.svgcontainer {
+    width: 70%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15%;
+}
+
+label{
+    margin-right: 82%;
+    margin-left: 10%;
+}
+
+#pass{
+    margin-right: 20%;
+}
+
+#password{
+    margin-bottom: 1%;
+}
+.show-btn{
+    margin-right: 10%;
+}
+
+.c {
+    width: 80%;
+    height: 40px;
+    border-radius: 40px;
+    font-family: outfit;
+}
+
+.label-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forget {
+    display: block;
+    text-align: end;
+    margin-right: 10%;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #000000;
+}
+
+.log {
+    text-align: center;
+}

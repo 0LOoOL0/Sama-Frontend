@@ -1,0 +1,190 @@
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+    <!-- top header -->
+    <header id="header"> 
+        <nav class="nav-bar flex row-between gap-2">
+            <div class="navBarnd">
+                <a href="/home" class="brand-logo-link"><img src="./assets/img/updated-Sama-Pet-Logo.png" alt="logo"
+                        class="brand-logo"></a>
+            </div>
+            <ul class="nav-list flex row-center gap-2 flex-1">
+                <li class="nav-item">
+                    <a href="home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item"><a href="/user-main-component/providers" class="nav-link">Services <img src="./assets/icons/down-arrow.svg"
+                            alt="down-arrow" class="nav-link-underline"></a>
+                    <div class="nav-dropdown">
+                        <!--<a href="user-main-component/providers?filter=vet%20clinics" class="nav-link">Vet clinic</a>-->
+                        <a href="user-main-component/providers?filter=vet%20clinics" class="nav-link">Services</a>
+                        <!--<a href="#" class="nav-link">Grooming</a>-->
+                        <a href="/user-main-component/product-list" class="nav-link">Store</a>
+                        <a href="/user-main-component/adoption-center" class="nav-link">Adoption/ Lost Pets</a>
+                        <!--<a href="/user-main-component/adoption-center" class="nav-link">Lost pet</a>-->
+                        <!--<a href="/user-main-component/mate-list" class="nav-link">Matting</a>-->
+                    </div>
+                </li>
+                <li class="nav-item"><a href="/user-main-component/sama-store" class="nav-link">Sama store <img src="./assets/icons/down-arrow.svg"
+                            alt="down-arrow" class="nav-link-underline"></a>
+                    <div class="nav-dropdown">
+                        <a href="/user-main-component/collar-main" class="nav-link">Collar </a>
+                        <a href="/user-main-component/market-place" class="nav-link">Marketplace</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="/user-main-component/blogs" class="nav-link">Blog </a></li>
+                <li class="nav-item"><a href="/user-main-component/subscribe" class="nav-link">Join us <img src="./assets/icons/down-arrow.svg"
+                            alt="down-arrow" class="nav-link-underline"></a>
+                    <div class="nav-dropdown">
+                        <a href="/user-main-component/be-member" class="nav-link">Be a member</a>
+                        <a href="/user-main-component/be-partner" class="nav-link">Be a partner</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="/user-main-component/about-us" class="nav-link">About us<img src="./assets/icons/down-arrow.svg"
+                            alt="down-arrow" class="nav-link-underline"></a>
+                    <div class="nav-dropdown">
+                        <a href="/user-main-component/faq" class="nav-link">FAQ</a>
+                        <a href="/user-main-component/features" class="nav-link">Features</a>
+                        <!--<a href="#" class="nav-link">Contact us</a>-->
+                    </div>
+                </li>
+                <li class="nav-item nav-link-icon"><a href="/user-main-component/collar-main" class="nav-link"><img src="./assets/img/logo-chane.png"
+                            alt="search" class="logo-chane"></a></li>
+            </ul>
+ 
+            <div class="icoms ">
+                <ul class="nav-list flex row-center flex-2">
+                    
+    
+                    <li class="nav-item nav-link-icon"><a href="/user-main-component/favourites" class="nav-link"><img
+                                src="./assets/img/blackheart.svg" alt="search" class="link-icon"></a></li>
+    
+                    <li class="nav-item nav-link-icon" style="position: relative;">
+                        <a href="#" class="nav-link" (click)="toggleNotification($event)">
+                            <img src="./assets/img/bell.png" alt="notification" class="link-icon">
+                        </a>
+    
+                        <div id="notificationDropdown" class="dropdown-content" *ngIf="showDropdown">
+                            <h1>Notifications</h1>
+                            <ul>
+                                <div class="notContainer">
+                                    <img src="/assets/img/Noti-icon.png" alt="notification icon" />
+                                    <div class="textContainer">
+                                        <h3>New Booking Alert</h3>
+                                        <span>Hey Clinic 08-04-2025 - 12:00</span>
+                                    </div>
+                                </div>
+                                <div class="notContainer">
+                                    <img src="/assets/img/Noti-icon.png" alt="notification icon" />
+                                    <div class="textContainer">
+                                        <h3>New Booking Alert</h3>
+                                        <span>Hey Clinic 08-04-2025 - 12:00</span>
+                                    </div>
+                                </div>
+                                <div class="notContainer">
+                                    <img src="/assets/img/Noti-icon.png" alt="notification icon" />
+                                    <div class="textContainer">
+                                        <h3>New Booking Alert</h3>
+                                        <span>Hey Clinic 08-04-2025 - 12:00</span>
+                                    </div>
+                                </div>
+    
+                            </ul>
+                        </div>
+                    </li>
+    
+                    <li class="nav-item nav-link-icon"><a href="/user-main-component/reminder-list" class="nav-link"><img
+                                src="./assets/img/blaclcal.png" alt="search" class="link-icon"></a></li>
+    
+                                <li class="nav-item nav-link-icon">
+                                    <a (click)="goToCart()" class="nav-link">
+                                      <img src="./assets/img/cart.svg" alt="cart" class="link-icon">
+                                    </a>
+                                  </li>
+                                  
+                </ul>
+            </div>
+            
+            <div class="nav-btn flex gap-1 row-end">
+                <!-- If user is not logged in, show login -->
+                <ng-container *ngIf="!isLogged">
+                  <a href="/user-main-component/user-log-sign" class="main-btn">Login</a>
+                </ng-container>
+                
+                <!-- If user is logged in, show profile icon and sign out -->
+                <ng-container *ngIf="isLogged">
+                    <button (click)="logout()" class="main-btn">Sign Out</button>
+                    <a [routerLink]="['/user-main-component/new-user-profile/new-my-profile']">
+                      <img [src]="profile?.profile_image || 'assets/img/profile-pic.png'" alt="profile-pic" class="profile-pic">
+                    </a>
+                  </ng-container>
+                  
+                  
+                  
+                  
+                <img src="./assets/icons/hamberger.svg" alt="hamberger" class="hamberger-icon">
+              </div>
+              
+            <!-- <div class="nav-btn flex gap-1 row-end">
+                
+            </div> -->
+        </nav>
+
+    <!-- side menu -->
+    <div class="side-menu">
+        <img src="./assets/icons/close.svg" alt="close" class="close-icon">
+        <div class="navUserProfileContainer flex gap-1">
+            <div class="profilePicWrpaer">
+                <img src="./assets/img/profile-pic.png" alt="profile-pic" class="profile-pic">
+            </div>
+            <h1 class="mdHeading">Hi, Sarah!</h1>
+        </div>
+
+        <ul class="nav-list flex row-center gap-2 flex-1">
+            <li class="nav-item">
+                <a href="#" class="nav-link active">Home
+                    <img src="./assets/icons/down-arrow.svg" alt="down-arrow" class="nav-link-underline"></a>
+            </li>
+            <li class="nav-item"><a href="#" class="nav-link">Services <img src="./assets/icons/down-arrow.svg"
+                        alt="down-arrow" class="nav-link-underline"></a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Vet clinic</a>
+                    <a href="#" class="nav-link">Grooming</a>
+                    <a href="#" class="nav-link">Store</a>
+                    <a href="#" class="nav-link">Adoption</a>
+                    <a href="#" class="nav-link">Lost pet</a>
+                    <a href="#" class="nav-link">Matting</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="#" class="nav-link">Sama store <img src="./assets/icons/down-arrow.svg"
+                        alt="down-arrow" class="nav-link-underline"></a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Collar </a>
+                    <a href="#" class="nav-link">Marketplace</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="#" class="nav-link">Blog </a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Join us <img src="./assets/icons/down-arrow.svg"
+                        alt="down-arrow" class="nav-link-underline"></a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">Be a member</a>
+                    <a href="#" class="nav-link">Be a partner</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="#" class="nav-link">About us<img src="./assets/icons/down-arrow.svg"
+                        alt="down-arrow" class="nav-link-underline"></a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link">FAQ</a>
+                    <a href="#" class="nav-link">Features</a>
+                    <a href="#" class="nav-link">Contact us</a>
+                </div>
+            </li>
+            <li class="nav-item nav-link-icon"><a href="#" class="nav-link"><img src="./assets/img/logo-chane.png"
+                        alt="search" class="logo-chane"></a></li>
+        </ul>
+
+
+    </div>
+
+    <script src="./js/script.js"></script>  

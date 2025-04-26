@@ -1,0 +1,279 @@
+
+.document-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  button {
+    border-radius: 10px;
+    font-size: 20px;
+    
+  }
+  button:hover {
+    background-color: #dddddd;
+    cursor: pointer;
+  }
+  
+  .document-item {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+  }
+  
+  .document-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .document-thumbnail {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .document-title {
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  .document-options {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .add-button {
+    padding: 10px 30px;
+    background-color: #5E17EB;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: -530px;
+  }
+  
+  .edit-link {
+    color: #232323;
+    text-decoration: underline;
+  }
+
+  .popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+}
+
+.popup h2, p{
+    text-align: center;
+}
+
+.popup button {
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    border: none;
+    background-color: #5E17EB;
+    color: white;
+    margin: 20px;
+    text-align: center;
+}
+
+.popup ul {
+    padding: 20px;
+}
+.popup li {
+    list-style-type: none;
+    width: 100%;
+    margin: 20px 0 20px 0;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    width: 30em;
+}
+
+.close {
+    cursor: pointer;
+    float: right;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+
+body {
+  background-color: rgb(157, 155, 155);
+  margin: 0;
+  align-items: center;
+  font-family: 'Promo Regular';
+}
+
+.bg-image-page {
+  background-image: url('/assets/img/cateye.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  padding: 40px;
+
+}
+
+.content {
+  max-width: 550px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  margin-right: auto;
+  padding: 30px;
+}
+
+.docDiv {
+  max-width: 550px;
+  background-color: #D9D9D9;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  margin-right: auto;
+  margin-bottom: 20px;
+  padding: 30px;
+}
+
+.titlediv {
+  margin-bottom: 40px;
+}
+
+.titlediv label {
+  font-size: x-large;
+}
+
+input {
+  margin-top: 15px;
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: large;
+  box-sizing: border-box;
+}
+
+.uploadiv {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.uploadiv label {
+  font-size: x-large;
+  margin-bottom: 10px;
+}
+
+.upload-container {
+  margin-top: 15px;
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.upload-text {
+  font-size: 25px;
+  color: #333;
+  margin-left: 15px;
+}
+
+.file-icon {
+  width: 30px;
+  height: auto;
+}
+
+.uploadiv input[type="file"] {
+  display: none;
+}
+
+.filled-buttons {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  background-color: #5E17EB;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Promo Regular';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.more-buttons img {
+  width: 30px;
+  margin-left: 8px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.filled-buttons:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-font {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}

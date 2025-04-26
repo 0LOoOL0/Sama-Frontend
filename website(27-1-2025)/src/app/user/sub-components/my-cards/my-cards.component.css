@@ -1,0 +1,378 @@
+.body {
+  font-family: "Promo Regular";
+}
+
+/* Hero Section */
+.heroSection {
+  position: relative;
+  background: #60c3eb;
+  padding: 60px 0;
+  text-align: left;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* Background Styling with Wave Effect */
+.heroBackground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+}
+
+/* Hero Container */
+.hero-container {
+  padding-top: 5%;
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  margin-left: 80px;
+}
+
+/* Breadcrumb Navigation */
+.heroLinkContainer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #4b0082;
+}
+
+.hero-link {
+  text-transform: uppercase;
+  color: #4b0082;
+  text-decoration: none;
+}
+
+.hero-link.active {
+  color: #ff47a2;
+}
+
+.heroDot {
+  width: 10px;
+  height: 10px;
+  background: #ff47a2;
+  border-radius: 50%;
+}
+
+.heroSection::before {
+  content: '';
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.4);
+  position: absolute;
+  border-radius: 50%;
+  top: -100px;
+  animation: floatBubble 20s infinite linear;
+}
+
+.heroSection::after {
+  content: '';
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  border-radius: 50%;
+  top: -150px;
+  left: 50%;
+  animation: floatBubble 25s infinite linear;
+}
+
+@keyframes floatBubble {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+
+  50% {
+    transform: translateY(500px) translateX(50px);
+  }
+
+  100% {
+    transform: translateY(0) translateX(-50px);
+  }
+}
+
+/* Heading */
+.hero-heading {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #000;
+  margin-top: 10px;
+}
+
+/* Description */
+.hero-description {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+/* Pet Image Container */
+.heroImageContainer {
+  position: absolute;
+  right: -1.5%;
+  bottom: -102%;
+}
+
+.heroImage {
+  max-width: 600px;
+  height: auto;
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.breadcrumb a {
+  text-decoration: none;
+  color: #5a31f4;
+}
+
+/* CARD STYLING */
+#cardContent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0.15px;
+}
+
+.cardDisplay {
+  width: 100%;
+  height: 4in;
+  background-image: url('../../../../assets/img/card.jpeg');
+  background-size: cover;
+  border: 1.5px solid black;
+  border-radius: 7.5px;
+  box-shadow: 0 0 7.5px rgba(0, 0, 0, 0.2);
+  font-family: 'Promo Medium';
+}
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.info-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 75%;
+  font-family: 'Promo Regular';
+  font-size: 18px !important;
+  margin-top: 27px;
+  margin-bottom: 21px;
+}
+
+.image-section {
+  flex: 1;
+  max-width: 52.5%;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.details-section {
+  flex: 2;
+  font-size: 18px !important;
+}
+
+.details-section p {
+  margin: -1.5px;
+}
+
+
+.additional-info {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.qr-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+  margin-right: 40px;
+}
+
+.qr-code {
+  width: 60px;
+  height: 60px;
+  background-color: lightgray;
+  border: 1.5px solid black;
+  margin-bottom: 20px;
+}
+
+.info-text {
+  margin-top: 5px;
+  flex: 1;
+  font-size: 23px;
+}
+
+
+.additional-info p {
+  font-family: 'Promo Regular';
+  font-size: 21px !important;
+  margin-left: 70px;
+}
+
+.image-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+  text-align: center;
+  margin-right: 13px;
+}
+
+.image-section img {
+  max-width: 80%;
+  height: auto;
+  border-radius: 40px;
+  border: 3px solid #5c16ea;
+  display: block;
+  margin: 0;
+  margin-top: 90px;
+  margin-right: 6px;
+}
+
+.details-section {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 45px;
+  height: 100%;
+  font-size: 21px !important;
+  line-height: 1;
+}
+
+.details-section p {
+  margin-top: 10px;
+}
+
+.info-section p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.label {
+  width: 150px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.value {
+  flex-grow: 1;
+  text-align: left;
+}
+/* Coupon styling */
+
+
+.coupon-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 150px;
+  width: 80%;
+}
+
+.coupon-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+.divider {
+  width: 2px;
+  height: 150px;
+  background: repeating-linear-gradient(to bottom,
+      #ccc,
+      #ccc 5px,
+      transparent 5px,
+      transparent 10px);
+  margin: 0 15px;
+}
+
+.coupon-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: larger;
+  height: 150px;
+  overflow: hidden;
+}
+
+.coupon-content>* {
+  margin-bottom: 10px;
+}
+
+.discount-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #f39c12;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.coupon-card h3 {
+  margin: 0;
+  align-items: top;
+}
+
+.coupon-card p {
+  font-size: medium;
+  margin: 10px 0;
+  color: #555;
+  overflow-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+  box-orient: vertical;
+  width: 450px;
+}
+
+
+.redeem-button {
+  background-color: #f39c12;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Promo Regular';
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+}
+
+.redeem-button:hover {
+  background-color: #e67e22;
+}

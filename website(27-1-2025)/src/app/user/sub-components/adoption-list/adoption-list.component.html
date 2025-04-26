@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adoption List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <app-navbar></app-navbar>
+    <div class="header">
+      <h1>Adoption Center</h1>
+      <p>HOME > ADOPTION</p>
+      <img src="assets/cat.png" alt="Cat Image">
+    </div>
+
+    <div class="navigation-section">
+      <button class="active">Adoption</button>
+      <button>Lost Pets</button>
+      <button>Matting</button>
+    </div>
+
+    <div class="search-section">
+      <input type="text" placeholder="Search for pets..." [formControl]="searchControl">
+    </div>
+
+    <div class="adoption-list">
+      <div class="adoption-card" *ngFor="let pet of filteredPets">
+        <img [src]="pet.image" alt="Pet Image">
+        <h3>{{ pet.name }}</h3>
+        <p>{{ pet.description }}</p>
+        <button class="view-btn">View</button>
+      </div>
+    </div>
+
+    <div class="pagination-section">
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+    </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

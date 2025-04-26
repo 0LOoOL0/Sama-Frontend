@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Care Services</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+
+<body>
+  <app-navbar></app-navbar>
+  <div class="header">
+    <img src="assets\overlay.png" class="overlay"> 
+    <div class="header-content">
+      <div class="left-side">
+        <img src="assets/mobile.png" alt="Mobile Preview" class="mobile-img">
+        <img src="assets/pink-circle.png" class="pink-circle">
+      </div>
+      <div class="center-cont">
+        <div class="text">
+          <h1>The World's Best Team for Pet Care Services</h1>
+          <p>The one-stop platform for all your pet care needs—services,<br> profiles, and exclusive discounts, all in one place </p>
+          <button (click)="discover()" class="primary-btn">
+            <img src="assets/paw.png">
+            Our Services
+          </button>
+          <button (click)="sub()" class="secondary-btn">
+            <img src="assets/paw.png">
+            Subscribe
+          </button>
+        </div>
+      </div>
+      <div class="right-side">
+        <img src="assets/cat.png" alt="Cat Image" class="cat-img">
+        <img src="assets/yellow-circle.png" class="yellow-circle">
+      </div>
+    </div>
+  </div>
+
+    <div class="services-section">
+      <h2>All Pet Care Services</h2>
+      <div class="services-list">
+        <div (click)="provider('vet clinics')"> <img src="assets\vetclinic.png"> <br> Vet Clinic </div>
+        <div (click)="visit('product-list')"> <img src="assets\petstore.png"> <br> Pet Shops </div>
+        <div (click)="provider('grooming')"> <img src="assets\grooming.png"> <br> Grooming </div>
+        <div (click)="visit('sama-store')"> <img src="assets\samastore.png"> <br> Sama Store </div>
+        <div (click)="provider('pet training')"> <img src="assets\traning.png"> <br> Pet Training </div>
+        <!--<div (click)="visit('market-place')"> <img src="assets\marketplace.png"> <br> Marketplace </div>-->
+        <div (click)="provider('accommodation')"> <img src="assets\accommodation.png"> <br> Accommodation </div>
+        <!--<div (click)="visit('collar-main')"> <img src="assets\collar.png"> <br> Collar </div>-->
+        <div (click)="visit('lost-pet-list')"> <img src="assets\lostpet.png"> <br> Lost Pets</div>
+        <div (click)="visit('adoption-list')"> <img src="assets\adoption.png"> <br> Adoption </div>
+        <!--<div (click)="visit('mate-list')"> <img src="assets\matting.png"> <br> Mating</div>-->
+      </div>
+    </div>
+
+    <div class="benefits-section">
+
+      <div class="ben-center">
+        <h2>Explore some of our Card Benefits</h2>
+        <div class="benefits-content">
+          <center>
+            <ul>
+              <li><strong>- Exclusive Discounts</strong></li>
+              <p class="description" style="margin-top: -10px;">Enjoy special discounts on grooming, veterinary care, pet boarding, and more at partnered service providers.</p>
+              <li><strong>- Wide Service Network</strong></li>
+              <p class="description" style="margin-top: -10px;">Unlimited access to a variety of pet care services from trusted providers in your area.</p>
+              <li><strong>- Free Coupons and Offers</strong></li>
+              <p class="description" style="margin-top: -10px;">Get free promotional coupons from service providers and enjoy additional savings.</p>
+              <li><strong>- Trackable Pet Profile</strong></li>
+              <p class="description" style="margin-top: -10px;">Link your pet’s profile to the Sama Pet Card to keep all their details, medical history, and appointments organized.</p>
+              <li><strong>- Exclusive Events</strong></li>
+              <p class="description" style="margin-top: -10px;">Receive invitations to pet-related events, workshops, and special gatherings.</p>
+              <li><strong>- Lost Pet Assistance</strong></li>
+              <p class="description" style="margin-top: -10px;">The Sama Pet Card includes a QR code that helps in identifying and returning lost pets quickly.</p>
+            </ul>
+          </center>
+          
+          <button (click)="scrollToHowToOrder()">
+            <img src="assets\paw.png">
+            Explore our packages</button>
+        </div>
+      </div>
+      <!-- <div class="ben-right">
+        <img src="assets\chatbot.png">
+      </div> -->
+    </div>
+
+    <div class="experience-section">
+      <div class="left-side">
+        <h2>Elevate Your Experience!</h2>
+        <p>Create personalized pet ID tags with QR codes at Sama Pet Care. Easily scan to locate your furry friend! Available in Bahrain and GCC regions.</p>
+        <button class="primary-btn" (click)="buyNow()">Buy Now!</button>
+        <button class="primary-btn" (click)="learn()">Learn More</button>
+      </div>
+      <div class="right-side">
+        <img src="assets\clip-one.png">
+        <img src="assets\clip-two.png">
+        <img src="assets\exp-mobile.png">
+      </div>
+    </div>
+
+    <div class="package-plan-section">
+      <h2 id="package_plan">Sama Pet Card Member</h2>
+      <p>Unlock exclusive benefits for you and your pet by choosing the perfect plan. 
+        <br>Enjoy discounts on services, free coupons, priority access, and so much more. 
+        <br> Select a plan that suits your needs and give your furry friend the care they deserve!</p>
+      <h3 id="package_plan">Package plan</h3>
+      
+      <div class="packages">
+        <div class="package">
+          <h3>Monthly</h3>
+          <p>$20/month</p>
+          <button (click)="sub()">Buy</button>
+        </div>
+        <div class="package">
+          <h3>Yearly</h3>
+          <p>$200/year</p>
+          <button (click)="sub()">Buy</button>
+        </div>
+        <div class="package">
+          <h3>Lifetime</h3>
+          <p>$500</p>
+          <button (click)="sub()">Buy</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonials-section">
+      <h2>Our Clients</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <p>"Vet Clinic services are exceptional!"</p>
+          <h4>- Pet Owner 1</h4>
+        </div>
+        <div class="testimonial">
+          <p>"Dog grooming made my dog happier!"</p>
+          <h4>- Pet Owner 2</h4>
+        </div>
+        <div class="testimonial">
+          <p>"The boarding service is fantastic."</p>
+          <h4>- Pet Owner 3</h4>
+        </div>
+      </div>
+    </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+
+  
+</body>
+
+
+
+</html>

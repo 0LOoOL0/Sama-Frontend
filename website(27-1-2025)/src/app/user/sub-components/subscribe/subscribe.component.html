@@ -1,0 +1,101 @@
+<app-navbar></app-navbar>
+
+<!-- Hero Section -->
+<section class="heroSection">
+  <div class="heroBackground"></div>
+  <div class="container-3xl">
+    <div class="hero-container">
+      <!-- Breadcrumb Navigation -->
+      <div class="heroLinkContainer">
+        <a href="home" class="hero-link">HOME</a>
+        <div class="heroDot"></div>
+        <a href="subscribe" class="hero-link active">SUBSCRIBE</a>
+      </div>
+
+      <!-- Hero Title -->
+      <h1 class="hero-heading">Join Sama Pets Now</h1>
+
+      <!-- Description -->
+      <p class="hero-description">
+        Unlock more care, more savings — become a Sama Pets member today
+      </p>
+    </div>
+
+    <!-- Pet Image -->
+    <div class="heroImageContainer">
+      <img src="./assets/img/owneranddog.png" alt="Be a Partner" class="heroImage">
+    </div>
+  </div>
+</section>
+
+<div class="membership-container">
+  <main class="main-content">
+    <section class="membership-section">
+      <h2>Unlock Exclusive Benefits with Sama Membership – Join Now!</h2>
+      <p>Become a Sama member and enjoy exclusive discounts, premium content, and priority services. Start with a free trial today!</p>
+
+      <!-- ✅ Dynamic membership packages from backend -->
+      <div class="membership-options">
+        <div class="option-card" *ngFor="let pkg of packages" (click)="choose(pkg)" role="button" tabindex="0" aria-pressed="false">
+          <span class="icon" aria-hidden="true">
+            {{ pkg.is_free_trial ? '🎁' : '✨' }}
+          </span>
+          <h3>{{ pkg.title }}</h3>
+          <p>{{ pkg.description }}</p>
+
+          <!-- Optional dynamic list if you ever add features per package -->
+          <ul class="feature-list" *ngIf="pkg.features">
+            <li *ngFor="let feature of pkg.features">{{ feature }}</li>
+          </ul>
+
+          <div class="price" [ngStyle]="{'margin-top': pkg.is_free_trial ? '36px' : '0'}">
+            {{ pkg.price === 0 ? 'Free' : pkg.price + 'BD' }}
+          </div>
+        </div>
+      </div>
+
+      <a href="#benefits" class="benefits-link">Benefits & Features</a>
+      <br><br>
+      <a class="skip-link" (click)="navigateProfile(); $event.preventDefault()">Skip</a>
+    </section>
+  </main>
+</div>
+
+<!-- footer section -->
+<footer class="footerSection">
+  <div class="container">
+    <div class="footerColumn footerInfo">
+      <img src="./assets/img/brand-logo-1.png" alt="Sama Pet Care Logo" class="footerLogo">
+      <p>Sama Pet Care is a comprehensive platform dedicated to enhancing pet care.</p>
+      <p class="phone"><i class="fas fa-phone-alt"></i> (973) 77690000</p>
+      <p>Got Questions? Call us 24/7</p>
+    </div>
+    <div class="footerColumn footerHours">
+      <h3>Working Hours</h3>
+      <p>Mon - Fri: 7am - 6pm</p>
+      <p>Saturday: 9am - 4pm</p>
+      <p>Sunday: Closed</p>
+    </div>
+    <div class="footerColumn footerLinks">
+      <h3>Useful Links</h3>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Delivery</a></li>
+        <li><a href="#">Sales</a></li>
+      </ul>
+    </div>
+    <div class="footerColumn footerNewsletter">
+      <h3>Newsletter</h3>
+      <p>Be first in the queue! Get our latest news straight to your inbox.</p>
+      <form>
+        <input type="email" placeholder="Email">
+        <button type="submit">➤</button>
+      </form>
+    </div>
+  </div>
+  <div class="footerCopyright">
+    <p>© 2025 Sama Pet Care. All rights reserved. Designed by Sama Pet.</p>
+  </div>
+</footer>

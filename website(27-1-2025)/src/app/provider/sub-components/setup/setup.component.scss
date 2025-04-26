@@ -1,0 +1,31 @@
+.popup-container {
+    width: 40%; 
+    max-width: 400px;
+    height: 60%; 
+    max-height: 600px; 
+}
+.pop-content {
+    padding: 1rem;
+    border: 1px solid white;
+    border-radius: 16px;
+    box-shadow: 10px 8px 18px rgba(0, 0, 0, 0.4);
+    background-color: white;
+    text-align: center;
+    justify-content: center; 
+    align-items: center; 
+    position: fixed; 
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.pop-content img {
+    width: 50%;
+    height: auto;
+    margin-top: 2rem;
+}
+
+.pop-content p {
+    margin-bottom: 2rem;
+}
+

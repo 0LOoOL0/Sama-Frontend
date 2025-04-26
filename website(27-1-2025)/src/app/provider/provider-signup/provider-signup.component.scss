@@ -1,0 +1,125 @@
+p {
+  font-family: "Outfit", sans-serif;
+  text-align: center;
+  color: black;
+}
+
+.signwith {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-with {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 1.2rem;
+  height: auto;
+  margin-right: 10px;
+}
+
+.btn {
+  border: 1px solid black;
+  border-radius: 40px;
+  width: 70%;
+  height: 2.6rem;
+  margin-bottom: 16px;
+  font-family: "Outfit", sans-serif;
+  background-color: white;
+}
+
+.svg-container {
+  margin-left: 10%;
+  text-align: center;
+}
+
+svg {
+  width: 70%;
+  height: auto;
+  margin-right: 10%;
+}
+
+label {
+  font-family: "Outfit", sans-serif;
+  color: #666666;
+  margin-left: 15%;
+}
+
+input {
+  font-family: "Outfit", sans-serif;
+  width: 70%;
+  height: 2.2rem;
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid darkgray;
+  margin-left: 15%;
+}
+
+.text-danger {
+  text-align: center;
+  color: darkred;
+  margin: auto;
+}
+
+.btn-primary {
+  margin: 5% 15%;
+  font-family: "Outfit", sans-serif;
+  font-size: medium;
+  font-weight: 400;
+}
+
+.btn-empty {
+  background-color: darkgray;
+  color: white;
+  border: 1px solid darkgray;
+}
+
+.btn-filled {
+  background-color: blue;
+  color: white;
+  border: 1px solid blue;
+}
+
+.loading-dots {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.2rem;
+  font-weight: light;
+  text-align: center;
+}
+
+.dot {
+  opacity: 0;
+  animation: blink 1.5s infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes blink {
+  0%, 20% {
+    opacity: 0;
+  }
+  30%, 100% {
+    opacity: 1;
+  }
+}
+
+a {
+  text-decoration: underline;
+  font-family: "Outfit", sans-serif;
+  color: black;
+}

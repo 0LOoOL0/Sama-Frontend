@@ -1,0 +1,219 @@
+/* General Styling */
+.productServiceSection {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Tab Buttons */
+.productTabContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.tabbtn {
+  padding: 12px 20px;
+  font-size: 18px;
+  border: 2px solid #cdccce;
+  background: transparent;
+  color: #333;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.tabbtn.active {
+  background: #5e17eb;
+  color: white;
+}
+.tabbtn:hover {
+  background: #7c58d3;
+  color: white;
+}
+
+/* Filter Buttons */
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.filter-btn {
+  padding: 10px 16px;
+  background: #e6e6e6;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.filter-btn.active, .filter-btn:hover {
+  background: #5e17eb;
+  color: white;
+}
+
+/* Grid Layout */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 10px;
+}
+
+/* Product & Service Cards */
+.product-card, .service-card {
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.product-image, .service-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+}
+.new-price {
+  color: red;
+  font-weight: bold;
+}
+/* General Styling */
+.productServiceSection {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+/* Section Titles */
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Tab Buttons */
+.productTabContainer {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.tabbtn {
+  padding: 14px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 2px solid #cdccce;
+  background: transparent;
+  color: #333;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
+.tabbtn.active {
+  background: #5e17eb;
+  color: white;
+}
+.tabbtn:hover {
+  background: #7c58d3;
+  color: white;
+}
+
+/* Grid Layout */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 10px;
+  justify-content: center;
+}
+
+/* Product & Service Cards */
+.product-card, .service-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  position: relative;
+}
+.product-card:hover, .service-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Images */
+.product-image, .service-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* Product and Service Text */
+h3 {
+  font-size: 16px;
+  margin: 10px 0 5px;
+  color: #333;
+}
+.product-description, .service-description {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Price Styling */
+.price {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.old-price {
+  text-decoration: line-through;
+  color: #999;
+}
+.new-price {
+  color: red;
+  font-weight: bold;
+}
+
+/* Buttons */
+.buy-btn, .book-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Buy Now Button */
+.buy-btn {
+  background: #5e17eb;
+  color: white;
+}
+.buy-btn:hover {
+  background: #7c58d3;
+  transform: scale(1.05);
+}
+
+/* Book Service Button */
+.book-btn {
+  background: #ff5733;
+  color: white;
+}
+.book-btn:hover {
+  background: #ff2e00;
+  transform: scale(1.05);
+}
+.productImage{
+  width: 150px;
+}

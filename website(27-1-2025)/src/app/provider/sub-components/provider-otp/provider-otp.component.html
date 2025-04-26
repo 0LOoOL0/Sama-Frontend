@@ -1,0 +1,43 @@
+<link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
+
+<div class="page">
+    <div class="content">
+        <!-- OTP Section -->
+        <div class="otp-wrapper">
+            <div class="title-container">
+                <h2>Verify Your Email</h2>
+                <p>Please enter the 6 digit code sent to Youremail</p>
+            </div>
+        
+            <div class="otp-container">
+                <div class="otp-inputs">
+                    <input type="text" maxlength="1" class="otp-input" />
+                    <input type="text" maxlength="1" class="otp-input" />
+                    <input type="text" maxlength="1" class="otp-input" />
+                    <input type="text" maxlength="1" class="otp-input" />
+                    <input type="text" maxlength="1" class="otp-input" />
+                    <input type="text" maxlength="1" class="otp-input" />
+                </div>
+        
+                <div class="countdown">
+                    <span id="timer">01:00</span>
+                    <a href="#" id="resend" (click)="resendCode()">Send Again</a>
+                </div>
+            </div>
+        
+            <div class="button-container">
+                <button (click)="verify()">verify</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="icon-container">
+    <div class="icons whatsapp">
+        <img src="assets/whatsapp.svg">
+    </div>
+    <div class="icons arrow">
+        <img src="assets/arrow-up.svg">
+    </div>
+</div>

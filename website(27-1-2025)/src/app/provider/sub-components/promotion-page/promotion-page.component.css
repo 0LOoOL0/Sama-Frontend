@@ -1,0 +1,122 @@
+/* General Page Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  /* Header Styling */
+  /* Add your header styling here */
+  
+  /* Promotion Container */
+.promotion-container {
+  background-color: #ffffff;
+  margin: 50px auto;
+  padding: 30px;
+  width: 70%;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+}
+
+.toggle-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.toggle-btn {
+  padding: 15px 30px;
+  border: none;
+  background-color: #e0e0e0;
+  color: #4a4a4a;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border-radius: 30px;
+}
+
+.toggle-btn.active {
+  background-color: #7c27aa;
+  color: white;
+}
+
+.toggle-btn:not(:last-child) {
+  margin-right: 10px;
+}
+
+.illustration-image {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.promotion-options, .coupon-options {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.option-card, .coupon-card {
+  width: 45%;
+  background-color: #7c27aa;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.option-card:hover, .coupon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.option-card h3, .coupon-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.option-card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.option-card p, .coupon-card p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  background-color: #7c27aa;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.submit-btn:hover {
+  background-color: #5b1a78;
+}
+
+.benefits-link {
+  display: block;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #7c27aa;
+  text-decoration: underline;
+}
+  
+  /* Floating Icons */
+  /* Add your floating icons CSS here */
+  

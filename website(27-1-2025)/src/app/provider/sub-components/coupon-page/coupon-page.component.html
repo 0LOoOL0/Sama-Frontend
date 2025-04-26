@@ -1,0 +1,121 @@
+<div class="coupon-page">
+    <h1>Coupon Page</h1>
+  
+    <!-- Filter Section -->
+    <div class="filter-section">
+      <div class="filter-header">
+        <mat-icon class="filter-icon">filter_list</mat-icon>
+        <span class="filter-label">Filter</span>
+      </div>
+      <div class="filter-fields">
+        <mat-form-field appearance="outline" class="filter-input">
+          <mat-label>Date From</mat-label>
+          <input matInput type="date" [(ngModel)]="dateFrom">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="filter-input">
+          <mat-label>To</mat-label>
+          <input matInput type="date" [(ngModel)]="dateTo">
+        </mat-form-field>
+  
+        <mat-form-field appearance="outline" class="filter-input">
+          <mat-label>Provider Name</mat-label>
+          <input matInput type="text" [(ngModel)]="providerName" placeholder="Provider Name">
+        </mat-form-field>
+      </div>
+    </div>
+  
+    <!-- Search Section -->
+    <div class="search-section">
+      <mat-form-field appearance="outline" class="search-input full-width">
+        <mat-label>Search</mat-label>
+        <input matInput type="text" [(ngModel)]="searchTerm" placeholder="Search for coupons...">
+        <button mat-icon-button matSuffix>
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  
+    <!-- Add Coupon Button -->
+    <div class="actions">
+      <button mat-raised-button color="primary" class="add-coupon-button" (click)="addCoupon()">Add Coupon</button>
+    </div>
+  
+    <!-- Table -->
+    <table mat-table [dataSource]="coupons" class="mat-elevation-z8 colorful-table">
+      <!-- Created Date Column -->
+      <ng-container matColumnDef="createdDate">
+        <th mat-header-cell *matHeaderCellDef> Created Date </th>
+        <td mat-cell *matCellDef="let coupon"> {{coupon.createdDate}} </td>
+      </ng-container>
+  
+      <!-- Expired Date Column -->
+      <ng-container matColumnDef="expiredDate">
+        <th mat-header-cell *matHeaderCellDef> Expired Date </th>
+        <td mat-cell *matCellDef="let coupon"> {{coupon.expiredDate}} </td>
+      </ng-container>
+  
+      <!-- Logo Column -->
+      <ng-container matColumnDef="logo">
+        <th mat-header-cell *matHeaderCellDef> Logo </th>
+        <td mat-cell *matCellDef="let coupon">
+          <img [src]="coupon.logo" width="40" height="40" class="coupon-logo">
+        </td>
+      </ng-container>
+  
+      <!-- Provider Name Column -->
+      <ng-container matColumnDef="providerName">
+        <th mat-header-cell *matHeaderCellDef> Provider Name </th>
+        <td mat-cell *matCellDef="let coupon"> {{coupon.providerName}} </td>
+      </ng-container>
+  
+      <!-- Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let coupon"> {{coupon.description}} </td>
+      </ng-container>
+  
+      <!-- Quantity Column -->
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> Qty </th>
+        <td mat-cell *matCellDef="let coupon"> {{coupon.quantity}} </td>
+      </ng-container>
+  
+      <!-- Contact Column -->
+      <ng-container matColumnDef="contact">
+        <th mat-header-cell *matHeaderCellDef> Contact </th>
+        <td mat-cell *matCellDef="let coupon">
+          <a href="mailto:{{coupon.contact}}">{{coupon.contact}}</a>
+        </td>
+      </ng-container>
+  
+      <!-- Membership Column -->
+      <ng-container matColumnDef="membership">
+        <th mat-header-cell *matHeaderCellDef> Membership </th>
+        <td mat-cell *matCellDef="let coupon"> {{coupon.membership}} </td>
+      </ng-container>
+  
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let coupon">
+          <button mat-icon-button color="primary" (click)="editCoupon(coupon.id)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteCoupon(coupon.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <!-- Header Row -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <!-- Data Rows -->
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <footer class="footer">
+      © 2023 PetChain
+    </footer>
+  </div>
+<object data="" type=""></object>  

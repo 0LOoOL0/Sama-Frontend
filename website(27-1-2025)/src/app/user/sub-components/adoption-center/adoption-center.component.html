@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <app-navbar></app-navbar>
+    <!-- hero section -->
+    <section class="heroSection  adoptioHeroSection">
+        <img src="./assets/img/updated-adoption-hero-bg.png" alt="hero-bg" class="heroSectionBg">
+        <div class="container-3xl">
+            <div class="hero-container">
+                <div class="heroLinkContainer p-0 m-0">
+                    <a href="home" class="hero-link active">Home</a>
+                    <div class="heroDot"></div>
+                    <a href="/user-main-component/adoption-center" class="hero-link  ">Adoption / Lost</a>
+                </div>
+                <!--<h1 class="hero-heading p-0">Adoption/Lost</h1>
+                <p class="mainText">Adopt a Pet or Reunite with a Lost Companion; Sama Care’s Adoption Center helps you find adoptable pets<br> or reconnect lost
+                    animals  with their owners. Explore loving cats, dogs, and more, or use our Lost & Found<br> section to bring companions back home.
+                    Together,  let’s support pets in Bahrain.</p>-->
+
+            <!-- Hero heading updated dynamically -->
+            <h1 class="hero-heading1" [innerHTML]="heroHeadingText"></h1>
+           <!-- Main text updated dynamically with line breaks -->
+           <p class="mainText" [innerHTML]="mainText"></p>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ADOPTION ERROR SERCH SECTION -->
+    <section class="adoptionErrorSearchSection">
+        <div class="container-3xl">
+            <div class="productListContainer">
+                <div class="productSearchInputContainer flex row-between gap-1-5 width-full">
+                    <div class="inputHolder flex flex-1 row-between gap-1">
+                        <img src="./assets/icons/search.svg" alt="search" class="searchIcon">
+                        <input type="text" class="inputArea flex-1" placeholder="Search for Pets" [(ngModel)]="searchTerm" (input)="filterPets()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- product Listing section -->
+    <section class="productListingSection adoptionErrorProductListingSection">
+        <div class="container-3xl">
+            <div class="productListingContainer">
+                <div class="grid-layout-2">
+                    <div class="grid-col-9 col-xl">
+                        <div class="adoptionProfileTabContainer">
+                           <!-- <div class="productTabContainer flex  gap-half"> -->
+                                 <!-- <button class="tabbtn" [class]="direction == 1? 'active' : ''" data-tab="#adoptionTab" (click)="loadDirection(1)">Adoption</button> -->
+                               <!--  <button class="tabbtn" [class]="direction == 2? 'active' : ''" data-tab="#lostPetTab" (click)="loadDirection(2)">Lost Pets</button> -->
+                                <!-- <button class="tabbtn" [class]="direction == 3? 'active' : ''" data-tab="#mattingTab" (click)="loadDirection(3)">Matting</button> -->
+                               <!-- <button class="tabbtn" *ngIf="direction === 2" (click)="goToLostForm()">Lost Form</button> -->
+                           <!--</div> --> 
+
+                            <div class="productTabContainer flex gap-half">
+                                <!-- Adoption Tab -->
+                                <button class="tabbtn" [class.active]="direction == 1" (click)="changeToAdoption()">Adoption</button>
+                                <!-- Lost Pets Tab -->
+                                <button class="tabbtn" [class.active]="direction == 2" (click)="changeToLostPets()">Lost Pets</button>
+                                <!-- Lost Form button (only visible when "Lost Pets" is active) -->
+                                <button class="tabbtn" *ngIf="direction === 2" (click)="goToLostForm()">Lost Form</button>
+                            </div>
+
+                            <!-- product tab buttons in productTabContainer -->
+
+                            <div class="tabContentContainer">
+                                <div class="tabContentItem active" id="adoptionTab">                                    
+                                    <div class="gridContainer">
+                                        <div class="gridItem-sm-4" *ngIf="paginatedPets.length > 0; else noPetsImage">
+                                          <div *ngFor="let pet of paginatedPets">
+                                            <div class="productCard" >
+                                                <img [src]="pet.image" alt="Pet Image"
+                                                    class="adoptionCardImage">
+                                                <div class="productCardContent">
+                                                    <h3 class="mdHeading">{{pet.name}}</h3>
+                                                    <p class="smText">{{pet?.pet_type}}</p>
+                                                    <button class="main-btn" (click)="pet?.role == 'Founder' ? goToLostForm(pet.id) : navigateToDetailsPage(pet.id)">{{pet?.role == 'Founder' ? 'By Founder' : 'View'}}</button>
+                                                </div>
+                                            </div>
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                    <ng-template #noPetsImage>
+                                      <div class="no-pets">
+                                        <img src="assets/dog.png" alt="no results illustration" style="height: 300px; max-width: 300px;" />
+                                        <p>No pets to display at the moment.</p>
+                                      </div>
+                                    </ng-template>
+                                </div>
+                                <div class="paginationContainer">
+                                    <button *ngFor="let page of pages" class="paginationBtn" (click)="setPage(page)"
+                                        [class.active]="currentPage === page">{{page}}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-col-3 col-xl">
+                        <div class="productFilterContainer vetClinicProductFilterContainer">
+                            <div class="productFilterCard">
+                                <h3 class="mdHeading flex row-between">Pet Type
+                                </h3>
+                                <div class="filterBtnContainer ">
+                                    <button class="main-btn" [class]="type == selectedPetType ? 'active' : ''" *ngFor="let type of petTypes" (click)="selectedPetType = type; onPetTypeChange(type)">{{type}}</button>
+                                    <button class="main-btn" (click)="selectedPetType = ''; applyFilters()">All</button>
+                                </div>
+                            </div>
+
+                                <div class="productFilterCard filterFormCard p-0">
+                                    <h3 class="mdHeading flex row-between">Gender
+                                    </h3>
+
+                                    <div class="optionInputHolder flex gap-1-5">
+                                      <div class="checkRadioWraper flex gap-half">
+                                        <input type="radio" checked name="gender" id="all" (change)="selectedGender = ''; applyFilters()" class="checkRadioInput">
+                                        <label class="checkRadioCustom" for="all"></label>
+                                        <label class="checkRadioLabel">All</label>
+                                      </div>
+                                      <div class="checkRadioWraper flex gap-half" *ngFor="let gender of ['m', 'f']">
+                                          <input type="radio" name="gender" [id]="gender === 'm' ? 'male' : 'female'" (change)="selectedGender = gender; applyFilters()" class="checkRadioInput">
+                                          <label class="checkRadioCustom" [for]="gender === 'm' ? 'male' : 'female'"></label>
+                                          <label class="checkRadioLabel">{{ gender === 'm' ? 'Male' : 'Female' }}</label>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="productFilterCard filterFormCard p-0">
+                                    <h3 class="mdHeading flex row-between">Breed
+                                    </h3>
+
+                                    <div class="inputHolder">
+                                        <select name="breed" id="breed" class="inputArea width-full" (change)="breedChange($event)" placeholder="Selected a Breed">
+                                            <option value="all">All</option>
+                                            <option *ngFor="let breed of filteredBreeds" [value]="breed.value">{{breed}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="productFilterCard filterFormCard p-0">
+                                    <h3 class="mdHeading flex row-between">Age
+                                    </h3>
+
+                                    <!-- HTML -->
+                                    <div class="inputRngeHolder">
+                                        <div class="range">
+                                            <input type="range" name="age" id="age" class="inputArea width-full" min="1"
+                                                max="100" value="50">
+                                                <input type="number" min="0" value="0" (input)="selectedAge = $event.target.valueAsNumber; applyFilters()">
+                                        </div>
+                                        <div class="rangeValueHolder flex row-between">
+                                            <span class="rangeValue" id="minAge">1m</span>
+                                            <span class="rangeValue" id="maxAge">+12Y</span>
+                                        </div>
+                                    </div>
+                                </div>   
+                                <button class="main-btn" (click)="resetFilters()" >Clear Filters</button>                                                                                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+  

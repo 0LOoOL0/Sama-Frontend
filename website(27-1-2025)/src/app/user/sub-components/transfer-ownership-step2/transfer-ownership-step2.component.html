@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transfer Ownership - Step 2</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+</head>
+
+<body>
+  <app-navbar></app-navbar>
+  <div class="header">
+    <img src="assets/logo.png" alt="Logo">
+    <h1>Transfer Ownership</h1>
+    <div class="user-info">
+      <p>Hi, Sarah!</p>
+      <img src="assets/user.png" alt="User Image">
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <img src="assets/user_profile.png" alt="User Profile">
+    <h2>Sarah Newland</h2>
+    <p>#1234</p>
+    <p>Joined: 22/06/2023</p>
+  </div>
+
+  <div class="transfer-section">
+    <h2>Select Pets</h2>
+    <div class="progress-bar">
+      <div class="completed"></div>
+      <div class="in-progress"></div>
+      <div></div>
+    </div>
+    <p>Caring transfer of your beloved pet to their new loving home, we make the process easy and worry-free.</p>
+    <div class="select-pets">
+      <table>
+        <thead>
+          <tr>
+            <th>Select all</th>
+            <th>Pet</th>
+            <th>Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pet of petSelectionForm.controls.pets.controls">
+            <td><input type="checkbox" [formControl]="pet"></td>
+            <td><img [src]="pet.value.imageUrl" alt="Pet Image" width="50"></td>
+            <td>{{ pet.value.name }}</td>
+            <td><i class="fas fa-edit"></i></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="add-pet-btn" (click)="addMorePets()">+ Add More Pets</button>
+    </div>
+    <button class="next-step-btn" (click)="onSubmit()">Next step</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+.order-list-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f5f7;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #6a0dad;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  .order-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .summary-card {
+    flex: 1;
+    min-width: 180px;
+    height: 120px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .completed {
+    background-color: #3b166c;
+  }
+  
+  .pending {
+    background-color: #28a745;
+  }
+  
+  .cancelled {
+    background-color: #dc3545;
+  }
+  
+  .pending-payment {
+    background-color: #ffc107;
+  }
+  
+  .refund {
+    background-color: #ff6600;
+  }
+  
+  .summary-card .title {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  
+  .summary-card .amount, .summary-card .count {
+    font-size: 16px;
+  }
+  
+  .btn-add-order {
+    background-color: #6a0dad;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-add-order:hover {
+    background-color: #5400a5;
+  }
+  
+  .search-bar {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .search-bar:focus {
+    border-color: #6a0dad;
+    box-shadow: 0 0 8px rgba(106, 13, 173, 0.3);
+    outline: none;
+  }
+  
+  .order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .order-table th, .order-table td {
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 16px;
+    vertical-align: middle;
+  }
+  
+  .order-table th {
+    background-color: #6a0dad;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 2px solid #5400a5;
+  }
+  
+  .order-table td {
+    background-color: #fff;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .order-table tr:hover td {
+    background-color: #f1f1f1;
+  }
+  
+  .payment-status {
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 5px 10px;
+  }
+  
+  .payment-status.paid {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .payment-status.pending {
+    background-color: #ffc107;
+    color: black;
+  }
+  
+  .status {
+    font-weight: bold;
+    border-radius: 4px;
+    padding: 5px 10px;
+  }
+  
+  .status.out-for-delivery {
+    background-color: #17a2b8;
+    color: white;
+  }
+  
+  .status.delivered {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .delivered {
+    font-weight: bold;
+  }
+  
+  .delivered.yes {
+    color: #28a745;
+  }
+  
+  .delivered.no {
+    color: #dc3545;
+  }
+  

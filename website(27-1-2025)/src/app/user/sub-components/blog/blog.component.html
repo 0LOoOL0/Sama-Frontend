@@ -1,0 +1,78 @@
+<app-navbar></app-navbar>
+
+<!-- header section -->
+<section class="heroSection">
+  <div class="heroBackground"></div>
+  <div class="space-between">
+    <div class="hero-container">
+      <div class="heroLinkContainer"> <a href="home" class="hero-link">HOME</a>
+        <div class="heroDot"></div>
+        Blogs
+      </div>
+      <!-- Hero heading updated dynamically -->
+      <h1 class="hero-heading" [innerHTML]="heroHeadingText"></h1>
+      <!-- Main text updated dynamically with line breaks -->
+      <p class="hero-description">Sed lectus vestibulum mattis ullamcorper velit sed ullamcorper. Amet purus gravida quis
+        blandit
+        turpis.</p>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <!-- blog side -->
+  <section class="blogs">
+    <div *ngIf="filteredPosts.length === 0" class="no-posts">
+      <p>No posts yet.</p>
+    </div>
+    <div class="post" *ngFor="let post of filteredPosts">
+      <div class="tag">
+        {{ post.tag }}
+      </div>
+      <ul>
+        <li *ngIf="post.image"><img [src]="post.image" alt="Blog image"></li>
+
+        <li class="date">
+          <p>By {{ post.author }} · {{ post.date }}</p>
+        </li>
+        <li>
+          <h2>{{ post.title }}</h2>
+        </li>
+        <li>
+          <p>{{ post.content }}</p>
+        </li>
+        <li><button (click)="navigateToPost(post)">Read Post</button></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Filtering size -->
+  <section class="filters">
+    <div class="sidebar-section">
+      <h4>Categories</h4>
+      <ul>
+        <li class="tab-item" *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="activeTab === tab">
+          <span>{{ tab }}</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+</div>
+  <!-- Membership Banner -->
+  <div class="membership-banner">
+    <div class="banner-content">
+      <div class="banner-text">
+        <h1>Your Pets Deserve the Best, Be a member!</h1>
+        <p>
+          Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum.
+          Ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit.
+        </p>
+        <button class="subscribe-button">Subscribe</button>
+      </div>
+      <div class="banner-images">
+        <img src="./assets/img/flyingtiger.png" alt="Cat" class="cat-image">
+        <img src="./assets/img/doggiedog.png" alt="Dog" class="dog-image">
+      </div>
+    </div>
+  </div>
+<app-footer></app-footer>

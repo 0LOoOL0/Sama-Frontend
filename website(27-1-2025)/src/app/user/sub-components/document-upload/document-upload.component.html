@@ -1,0 +1,45 @@
+<app-navbar></app-navbar>
+<body class="bg-image-page">
+  <main class="content">
+    <!-- Title -->
+    <div class="title">
+      <label class="title-font">Upload Pet Documents</label>
+    </div>
+    <br />
+    <!-- Form Inputs -->
+    <form [formGroup]="docForm" (ngSubmit)="uploadDocument()">
+      <div class="docDiv">
+        <!-- Doc Title -->
+        <div class="titlediv">
+          <label>Document Title</label>
+          <input type="text" placeholder="Enter Document Title" formControlName="documentTitle" />
+        </div>
+
+        <!-- Upload Doc -->
+        <div class="uploadiv">
+          <label class="body-font upload-label" for="fileInput">
+            Upload Your Document
+          </label>
+          <div class="upload-container" (click)="triggerFileInput()">
+            <img src="/assets/img/upload.png" alt="Upload Icon" class="file-icon" />
+            <span class="upload-text">Click here to upload</span>
+          </div>
+          <!-- Hide the file input and trigger via the container -->
+          <input type="file" id="fileInput" class="file-input" (change)="onFileSelected($event)" hidden />
+        </div>
+        <br />
+
+        <!-- Add More -->
+        <div class="buttons">
+          <button class="more-buttons" type="button" (click)="addMore()">Add More <img src="/assets/img/whiteAdd.png" /></button>
+        </div>
+      </div>
+      <!-- Buttons -->
+      <div class="button-container">
+        <!-- Remove the (click) here so navigation only happens after a successful upload -->
+        <button class="filled-buttons" type="submit">Next</button>
+        <button class="filled-buttons" type="button" (click)="skip()">Skip</button>
+      </div>
+    </form>
+  </main>
+</body>

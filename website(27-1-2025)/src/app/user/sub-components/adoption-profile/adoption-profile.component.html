@@ -1,0 +1,91 @@
+<app-navbar></app-navbar>
+<!-- Banner Section -->
+<div class="banner-section">
+    <h1>{{direction}} Profile</h1>
+    <p *ngIf="direction == 'Adoption'">Looking to adopt a pet in Bahrain? Discover adorable cats, dogs, and other pets at Sama Pet Care's Adoption Center.
+       View profiles, learn about their needs, and give them a loving home!</p>
+    <p *ngIf="direction == 'Lost Pet'">Find lost pets in Bahrain or report your missing pet on Sama Pet Care. View profiles of found pets like Mochi and help bring them home. Act now to help reunite families!"</p>
+    <img class="cat-img" src="assets/cat.png" alt="Cat Image">
+  </div>
+  
+  <!-- Main Content: Adoption Center Section -->
+  <div class="container pet-adoption-section">
+    <div class="row align-items-center">
+      <!-- Left Column: Image Carousel -->
+      <div class="col-md-4 product-carousel">
+        <div class="main-image-container">
+          <img [src]="petProfile?.image" alt="Pet Image" class="main-pet-img">
+        </div>
+      </div>
+  
+      <!-- Right Column: Pet Details -->
+      <div class="col-md-8 pet-details">
+        <h2>{{petProfile?.name}}</h2>
+        <div class="contact-share">
+          <span>Share:</span>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a [href]="'tel:+973' + owner?.phone" class="contact-seller"><i class="fas fa-phone"></i></a>
+        </div>
+        <div class="contact-buttons">
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fas fa-arrow-up"></i></a>
+        </div>
+        <div class="pet-attributes">
+          <div class="attribute"><span>Pet Type</span><div>{{petProfile?.pet_type}}</div></div>
+          <div class="attribute"><span>Gender</span><div>{{petProfile?.gender === 'f' ? 'Female' : petProfile?.gender === 'm' ? 'Male' : 'Unknown'}}</div></div>
+          <div class="attribute"><span>Colour</span><div>{{petProfile?.color}}</div></div>
+          <div class="attribute"><span>Breed</span><div>{{petProfile?.breed}}</div></div>
+          <div class="attribute"><span>Age</span><div>{{calculateAge(petProfile?.age)}}</div></div>
+          <div class="attribute"><span>Weight</span><div>{{petProfile?.weight}}</div></div>
+          <div class="attribute"><span>Height</span><div>{{petProfile?.height}}</div></div>
+          <div class="attribute"><span>Vaccinated</span><div>{{petProfile?.is_vaccinated}}</div></div>
+          <div class="attribute"><span>Microchipped</span><div>{{petProfile?.is_microchipped}}</div></div>
+          <div class="attribute"><span>Neutered</span><div>{{petProfile?.is_neutered}}</div></div>
+        </div>
+      </div>
+    </div>
+  </div>  
+  
+  <!-- Offer Section -->
+  <div class="offer-section">
+    <div class="offer-content">
+      <h3>UP TO 40% OFF</h3>
+      <h2>Stop Overpaying and Start Saving BIG</h2>
+      <p>Massa placerat dui ultricies lacus. Aliquet bibendum enim facilisis gravida neque convallis.</p>
+      <button class="subscribe-btn">Subscribe</button>
+    </div>
+    <img src="assets/pet-food.jpg" alt="Pet Food" class="offer-img">
+  </div>
+  
+  <!-- Footer Section -->
+  <div class="footer">
+    <div class="container footer-content">
+      <div class="working-hours">
+        <h4>Working Hours</h4>
+        <ul>
+          <li>Mon - Fri: 7am - 6pm</li>
+          <li>Saturday: 9am - 4pm</li>
+          <li>Sunday: Closed</li>
+        </ul>
+      </div>
+      <div class="useful-links">
+        <h4>Useful Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="newsletter">
+        <h4>Newsletter</h4>
+        <form>
+          <input type="email" placeholder="Enter your email">
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+    </div>
+  </div>

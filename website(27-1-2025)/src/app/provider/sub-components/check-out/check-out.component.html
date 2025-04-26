@@ -1,0 +1,113 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<header>
+    <nav></nav>
+</header>
+<body>
+
+
+    <div class="ncontainer box">
+        <div class="box">
+            <h1>Checkout</h1>
+            <div class="content">
+                <div class="">
+                    <div class="container">
+                        <label class="titel">Delivery Address
+
+
+                        </label>
+
+                    </div>
+                    <button class="icon-button">
+                        <img src="assets/edit-icon.svg" slot="end">
+                    </button>
+                    <div class="addres-card">
+                        <ul class="address-list">
+                            <li class="address-item">
+                                <div class="address-details">
+                                    <label>Provider Address</label>
+                                    <p>{{ providerAddress }}</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="btn-primary-add">+ Add Address</button>
+
+
+                <form [formGroup]="checkoutForm" (ngSubmit)="applyCoupon()">
+                    <div class="coupon-container">
+                        <label for="coupon" class="titel">Coupon</label>
+                        <div class="coupon-input">
+                            <input type="text" id="coupon" formControlName="couponCode"
+                                placeholder="Enter Coupon code here" />
+                            <button type="submit" class="apply-button">Apply</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- <div class="coupon-section">
+            <h3>Coupon</h3>
+            <div class="card">
+                <div class="form-field coupon-field">
+                    <label for="coupon">Enter Coupon code here</label>
+                    <input id="coupon" type="text">
+                    <button class="btn primary">Apply</button>
+                </div>
+            </div>
+        </div> -->
+
+
+                <!-- Error message for coupon -->
+
+                <div *ngIf="couponError" class="error-message">
+                    {{ couponError }}
+                </div>
+
+                <div class="payment-section">
+                    <label class="titel">Pay with</label>
+                    <div class="card">
+                        <div class="payment-options">
+                            <label>
+                                <input type="radio" formControlName="paymentMethod" value="cash" [checked]="true">
+                                <img src="assets/cash.svg" class="payment-icon"> Cash on Delivery
+                            </label>
+                            <label>
+                                <input type="radio" formControlName="paymentMethod" value="credit" [disabled]="true">
+                                <img src="assets/MasterCard.svg" class="payment-icon"> Credit Card
+                            </label>
+                            <label>
+                                <input type="radio" formControlName="paymentMethod" value="debit" [disabled]="true">
+                                <img src="assets/card-add.svg" class="payment-icon">add new card
+                            </label>
+                            <label>
+                                <input type="radio" formControlName="paymentMethod" value="benefit" [disabled]="true">
+                                <img src="assets/benefit.svg" class="payment-icon">Benefit
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="summary-section">
+                    <div class="summary-item">Subtotal {{ bill.subtotal }} BD</div>
+                    <div class="summary-item">Delivery {{ bill.deliveryFee === 0 ? 'Free' : bill.deliveryFee + ' BD' }}
+                    </div>
+                    <div class="summary-item">Tax & Fee {{ bill.taxAndFee }} BD</div>
+                    <div class="summary-item">Discount -{{ bill.discount }} BD</div>
+                    <div class="summary-item total">Total {{ bill.total }} BD</div>
+                </div>
+
+                <div *ngIf="paymentError" class="error-message">
+                    {{ paymentError }}
+                </div>
+
+                <div>
+                    <button class="add" (click)="checkout()">CheckOut</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

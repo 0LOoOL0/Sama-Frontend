@@ -1,0 +1,10 @@
+<nav *ngIf="showNavbar">
+  <ul (click)="hideNavbar()">
+    <li><a [routerLink]="'/user-main-component'">user components</a></li>
+    <li><a [routerLink]="'/admin-main'">admin components</a></li>
+    <li><a [routerLink]="'/provider-main'">provider components</a></li>
+    <li><a [routerLink]="'/home'">Home</a></li>
+    <li><a [routerLink]="'/our-services'">services</a></li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>

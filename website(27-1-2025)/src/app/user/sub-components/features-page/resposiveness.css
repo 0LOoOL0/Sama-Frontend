@@ -1,0 +1,333 @@
+/* media query */
+@media (max-width: 1600px) {
+  .nav-link {
+    font-size: 1em;
+    padding: 0rem;
+  }
+  .nav-icon-btn {
+    gap: 1rem;
+  }
+  .nav-icon {
+    width: 1.2rem;
+    height: auto;
+  }
+  .nav-link-icon {
+    margin-left: 0rem;
+  }
+  .logo-chane {
+    width: 2.2rem;
+    height: auto;
+  }
+  .featureMobileSection {
+    padding: 5rem 2rem;
+  }
+  .featureWorkSection {
+    padding: 16rem 0;
+    padding-top: 10rem;
+    margin-bottom: 5rem;
+    background-size: cover;
+  } 
+} 
+
+/* media query for 1200px */
+@media (max-width: 1200px) {
+  .top-header-right {
+    display: none;
+  }
+  .top-header {
+    justify-content: center;
+  }
+  .nav-list {
+    display: none;
+  }
+  .brand-logo {
+    width: 6.8rem;
+    height: auto;
+  }
+  .navUserProfileContainer {
+    display: none;
+  }
+  .hamberger-icon {
+    display: block;
+    width: 1.2rem;
+    height: auto;
+  }
+  .nav-bar {
+    padding: 1rem;
+    row-gap: 0.4rem;
+  }
+  .notficationDropDown {
+    right: -7.5rem;
+    width: 330px;
+    padding: 1.4rem 1rem;
+    border-radius: 15px;
+  }
+  .notficationDropDown .mdHeading {
+    font-size: 1.1rem;
+  }
+  .notification-wrpper {
+    padding: 0.7rem 0.5rem;
+  }
+  .notification-wrpper .mdHeading {
+    font-size: 0.9rem;
+  }
+  .notificationImage {
+    width: 2.1rem;
+  }
+  .profilePicWrpaer {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+  .side-menu .nav-list {
+    display: flex;
+  }
+  .side-menu .navUserProfileContainer {
+    display: flex;
+  } 
+  
+  .footerSection .grid-layout-2 {
+    flex-wrap: wrap;
+    row-gap: 1.5rem;
+  }
+  .footerSection .grid-layout-2 .grid-col-3 {
+    flex: 0 0 49%;
+  }
+  .clinicDetailsSection .grid-layout-2 {
+    flex-wrap: wrap;
+  }
+  .clinicDetailsSection {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .getServiceSection {
+    padding: 4rem 0;
+  }
+  .getServiceTextContainer {
+    padding: 2rem 1rem;
+  }
+  .getServiceTextContainer .mdHeading {
+    font-size: 2.6rem;
+  }
+  .getServiceTextContainer .mainText {
+    font-size: 1rem;
+  }
+  .getServiceTextContainer .socialMediaContainer {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .socialMediaIcon {
+    width: 10rem;
+    height: auto;
+  } 
+
+  /* feature main page */
+  .featureMainPageHeroSection {
+    padding: 6rem 1rem;
+  }
+  .featureDownLoadSection .flex-col-4 {
+    width: 100%;
+    flex-basis: 100%;
+    padding: 1rem;
+  }
+  .featureHeroImgCol {
+    padding: 2rem 0;
+  }
+  .featureHeroImgCol .mdHeading {
+    font-size: 2rem;
+  }
+  .featureSelPhoneImg {
+    max-width: 100%;
+    height: auto;
+  }
+  .featureMobileSection {
+    padding: 5rem 1rem;
+  }
+
+  /* featureWorkSection */
+  .featureWorkSection .mdHeading {
+    margin-bottom: 6rem;
+    font-size: 2.4rem;
+  }
+  /* featureWorkCard */
+  .featureWorkCard {
+    margin-bottom: 2rem;
+  }
+  .cardConectCirle {
+    display: none;
+  }
+  .cardConnectLine {
+    display: none;
+  }
+  .featureWorkCard .mdHeading {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+  .featureWorkCard .mainText {
+    font-size: 0.9em;
+  }
+
+  
+}
+
+@media (max-width: 775px) {
+  .footerSection .grid-layout-2 .footerCol-lg {
+    flex: 0 0 100%;
+  }
+  .footerSocialMediaContainer {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+  }
+  .footerSocialMediaContainer .footerSocialMediaRight {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .footerCopyWrite .smText {
+    font-size: 0.8rem;
+  }
+  .footerContactText .mdHeading {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  .footerContactText .smText {
+    font-size: 0.7rem;
+  }
+  
+  .featureDownLoadSection {
+    padding: 3rem 0;
+  }
+  .featureDownLoadSection .socialMediaContainer {
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .featureMobileCol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .featureMobileCard {
+    flex: 1;
+    width: 100%;
+  }
+  .featureMobileImg {
+    width: 100%;
+    height: auto;
+  }
+  .featureMobileCard .mdHeading {
+    font-size: 1.2rem;
+  }
+  .featureMobileCard .mainText {
+    font-size: 0.8rem;
+    margin-bottom: 3rem;
+  }
+  .featureMobileCard .moreBtn {
+    font-size: 1rem;
+  }
+  .featureWorkSection {
+    padding: 10rem 0;
+  }
+  .errorImgeContainer .mdHeading {
+    font-size: 1.5rem;
+  }
+  .filterFormCard .mdHeading {
+    font-size: 1rem;
+  }
+  .filterFormCard .inputHolder .inputArea {
+    padding: 0.5rem 0;
+    font-size: 1rem;
+  }
+   
+}
+
+/* media query for 554px */
+@media (max-width: 554px) {
+  .productSearchInputContainer {
+    gap: 0.6rem;
+  }
+  .productSearchInputContainer .main-btn {
+    padding: 0.4rem 1.5rem;
+  }
+  .inputHolder {
+    padding: 0.3rem 0.5rem;
+  }
+  .inputArea {
+    font-size: 0.9rem;
+  }
+  .searchIcon {
+    width: 1.9rem;
+    height: auto;
+  }
+  .footerCol-lg {
+    flex: 0 0 100%;
+  }
+  .productListingContainer .grid-layout-2 {
+    margin: 0rem;
+    justify-content: center;
+  }
+  .adoptionProfileTabContainer .productCard {
+    padding: 0rem;
+    padding-bottom: 1.5rem;
+  }
+  .adoptionProfileTabContainer .productCard .mdHeading {
+    font-size: 1.1rem;
+  }
+  .adoptionProfileTabContainer .productCard .smText {
+    font-size: 0.8rem;
+  }
+  .fixLinkContainer {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  .fixIcon {
+    width: 1.8rem;
+    height: auto;
+  }
+}
+
+/* media query for  small mobile */
+@media (max-width: 375px) {
+  .nav-bar {
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+  .nav-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .notficationDropDown {
+    width: 96vw;
+    padding: 1.4rem 1rem;
+    border-radius: 15px;
+  }
+  .productSearchInputSection {
+    padding-top: 4rem;
+  }
+  .productSearchInputContainer {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+    justify-content: center;
+  }
+  .footerLinksCard,
+  .footerCard {
+    padding-right: 0rem;
+  }
+  .newsletterForm {
+    width: 100%;
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+  }
+  .footerLinksCard {
+    width: 100%;
+  }
+  .footerSection .grid-layout-2 .grid-col-3 {
+    flex: 0 0 100%;
+  }
+}

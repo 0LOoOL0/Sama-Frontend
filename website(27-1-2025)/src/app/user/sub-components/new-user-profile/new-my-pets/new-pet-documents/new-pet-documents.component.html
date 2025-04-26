@@ -1,0 +1,58 @@
+<div class="pet-details">
+    <div class="document-grid">
+        <button (click)="addDocument()">Add document</button>
+      
+        <div *ngFor="let doc of documents" class="document-item" (click)="downloadFile(doc.documentPath)">
+          <p class="document-title">{{ doc.documentTitle }}</p>
+          <button class="document-options">⋮</button>
+        </div>
+      </div>
+      
+      
+      
+  </div>
+  
+
+<div class="popup" *ngIf="isPopupVisible">
+    <div class="popup-content">
+        <h2>Document upload</h2>
+        <form [formGroup]="docForm" (ngSubmit)="uploadDocument()">
+            <div class="docDiv">
+                <!-- Doc Title -->
+                <div class="titlediv">
+                    <label>Document Title</label>
+                    <input type="text" placeholder="Enter Document Title" formControlName="documentTitle" />
+                </div>
+
+                <!-- Upload Doc -->
+                <div class="uploadiv">
+                    <label class="body-font upload-label" for="fileInput">
+                        Upload Your Document
+                    </label>
+                    <div class="upload-container" (click)="triggerFileInput()">
+                        <img src="/assets/icons/upload-image-icon.svg" alt="Upload Icon" class="file-icon" />
+                        <span class="upload-text">Click here to upload</span>
+                    </div>
+                    <input type="file" id="fileInput" class="file-input" (change)="onFileSelected($event)" hidden />
+                    
+                    <input 
+                        type="text" 
+                        [value]="selectedFile ? selectedFile.name : ''" 
+                        placeholder="Selected file name will appear here" 
+                        class="file-name-input" 
+                        readonly 
+                    />
+                </div>
+                <br />
+
+                <!-- Add More -->
+                <div class="buttons">
+                    <button type="submit">Save</button>
+
+                    <button style="background-color: red;" (click)="closePopup()">Cancel</button>
+                </div>
+            </div>
+            <!-- Buttons -->
+        </form>
+    </div>
+</div> 

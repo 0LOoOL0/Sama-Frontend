@@ -1,0 +1,31 @@
+.navbar {
+    text-align: center;
+    width: 100%;
+}
+
+.active-tab {
+    background-color: #5E17EB; 
+    color: white;
+    padding: 20px;
+    padding-bottom: 20px;
+    border-radius: 5px 5px 0 0 ;
+}
+
+.main-content {
+    background-color: #f1f1f1;
+    border-radius: 0 10px 10px 10px;
+    border: 20px solid #5E17EB;
+    box-shadow: 8px 8px 14.4px rgba(94, 23, 235, 0.2);
+    height: 45em;
+    overflow-y: auto;
+    
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    font-size: 24px;
+    padding: 20px;
+    background-color: #f1f1f1;
+    border-radius: 5px 5px 0 0 ;
+}

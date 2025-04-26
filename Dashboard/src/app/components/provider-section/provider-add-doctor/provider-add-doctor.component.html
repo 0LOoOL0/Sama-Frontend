@@ -1,0 +1,482 @@
+<div class="bg-white">
+
+
+
+    <div   *ngIf="!isFormVisible">
+    
+      <div class="btn flex pt-4  justify-between items-center">
+       
+        <button class="py-2 m- m-4  px-5 rounded-2xl blue-bg text-white "  (click)="toggleForm()">
+            
+         Add New Doctor
+        
+        </button>
+
+        <button class="bg-[#FB4848] text-white py-2 m- m-4  px-5 rounded-2xl  shadow-md" (click)="deleteAllDoctor()">
+          Delete All 
+        </button>
+    
+      
+    
+    
+     </div>
+    
+     
+     <div class="p-2 mt-6 bg-gray-100 rounded-md m-2 overflow-hidden">
+      <div class="relative">
+        <!-- Previous Button -->
+        <button
+          (click)="prevSlide()"
+          class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white shadow-xl p-1.5 rounded-full flex justify-center items-center hover:scale-105 transition-transform z-10"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+    
+        <!-- Slider Container -->
+        <div
+          class="flex transition-transform p-4 duration-300"
+          [style.transform]="'translateX(-' + currentSlide * (100 / cardsPerSlide) + '%)'"
+        >
+          <!-- Profile Cards -->
+          <ng-container *ngFor="let doctor of DoctorDeatils">
+            <div class="relative doc-profile p-2 flex justify-center items-center"  [ngStyle]="{'flex': '0 0 calc(100% / ' + cardsPerSlide + ')'}">
+              <!-- Delete Icon -->
+              <img
+                src="biin.png"
+                alt="Bin"
+                class="absolute top-6 right-9 h-5 cursor-pointer"
+                (click)="onDeleteDoctor(doctor.id)"
+              />
+    
+              <!-- Doctor Profile -->
+              <div class="flex flex-col m-2 items-center group" (click)="getDoctorById(doctor.id ?? '')">
+                <img
+                  *ngIf="doctor.imageUrl"
+                  [src]="doctor.imageUrl"
+                  alt="{{ doctor.nameEng }}"
+                  class="rounded-full cursor-pointer h-24 w-24"
+                />
+                <p class="text-gray-700 text-sm font-semibold mt-2">{{ doctor.nameEng }}</p>
+                <p class="text-gray-600 text-sm">{{ doctor.educationEng }}</p>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+    
+        <!-- Next Button -->
+        <button
+          (click)="nextSlide()"
+          class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white shadow-xl p-1.5 rounded-full flex justify-center items-center hover:scale-105 transition-transform z-10"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+        <div class="p-4">
+          <div class="flex w-full justify-between ">
+          <h2 class="text-xl font-semibold text-gray-800 mb-4">Doctors</h2>
+
+          <div class="flex items-center bg-gray-100 m-4 justify-start border rounded-lg px-4 py-2">
+            <i class="fas fa-search text-gray-500"></i>
+            <input 
+              type="text" 
+              placeholder="Search..." 
+              [(ngModel)]="searchTerm" 
+              (keyup.enter)="onSearch()" 
+              class="ml-2 w-full outline-none bg-gray-100 text-gray-700 placeholder-gray-400"
+            />
+          </div>
+        </div>
+          <div class="overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+            <table class="min-w-full bg-white text-left text-sm text-gray-700">
+              <!-- Table Header -->
+              <thead class="bg-gray-100 text-gray-600">
+                <tr>
+                  <th class="px-4 py-3">
+                    <input type="checkbox" class="rounded border-gray-300 focus:ring-blue-500">
+                  </th>
+                  <th class="px-4 py-3 font-medium">Doctors</th>
+                  <th class="px-4 py-3 font-medium">Next Booking</th>
+                  <th class="px-4 py-3 font-medium">Specialization</th>
+                  <th class="px-4 py-3 font-medium"><button>
+                    Delete All
+                  </button></th>
+                </tr>
+              </thead>
+        
+              <!-- Table Body -->
+              <tbody class="divide-y divide-gray-200">
+                <!-- Row 1 -->
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-3">
+                    <input type="checkbox" class="rounded border-gray-300 focus:ring-blue-500">
+                  </td>
+                  <td class="px-4 py-3 font-medium text-blue-600">Sarah Eastern</td>
+                  <td class="px-4 py-3">2023/09/17</td>
+                  <td class="px-4 py-3">Cardiolog</td>
+                </tr>
+        
+                <!-- Row 2 -->
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-3">
+                    <input type="checkbox" class="rounded border-gray-300 focus:ring-blue-500">
+                  </td>
+                  <td class="px-4 py-3 font-medium text-blue-600">Sarah Eastern</td>
+                  <td class="px-4 py-3">2023/09/17</td>
+                  <td class="px-4 py-3">Cardiolog</td>
+                </tr>
+        
+                <!-- Add more rows as needed -->
+                <tr class="hover:bg-gray-50">
+                  <td class="px-4 py-3">
+                    <input type="checkbox" class="rounded border-gray-300  focus:ring-blue-500">
+                  </td>
+                  <td class="px-4 py-3 font-medium text-blue-600">Sarah Eastern</td>
+                  <td class="px-4 py-3">2023/09/17</td>
+                  <td class="px-4 py-3">Cardiolog</td>
+                </tr>
+        
+                <!-- Active Row -->
+                <tr class="bg-blue-50 hover:bg-blue-100">
+                  <td class="px-4 py-3">
+                    <input type="checkbox" class="rounded border-gray-300 focus:ring-blue-500">
+                  </td>
+                  <td class="px-4 py-3 font-medium text-blue-600">Sarah Eastern</td>
+                  <td class="px-4 py-3">2023/09/17</td>
+                  <td class="px-4 py-3">Cardiolog</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    
+          <div class="flex items-center justify-end space-x-4 p-2 bg-white">
+            <!-- Previous Button -->
+            <button class="flex items-center justify-center w-6 h-6 text-blue-500 hover:text-blue-700">
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+          
+            <!-- Pagination Numbers -->
+            <div class="flex space-x-2 ">
+              <button class="w-6 h-6 flex items-center justify-center rounded-lg bg-blue-700 text-white font-medium">
+                1
+              </button>
+              <button class="w-6 h-6 flex items-center justify-center rounded-lg text-blue-700 hover:bg-blue-800 hover:text-white font-medium">
+                2
+              </button>
+              <button class="w-6 h-6 flex items-center justify-center rounded-lg text-blue-700 hover:bg-blue-800 hover:text-white font-medium">
+                3
+              </button>
+              <button class="w-6 h-6 flex items-center justify-center rounded-lg text-blue-700 hover:bg-blue-800 hover:text-white font-medium">
+                4
+              </button>
+            </div>
+          
+            <!-- Next Button -->
+            <button class="flex items-center justify-center w-6 h-6 text-blue-700 hover:text-blue-700">
+              <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+    
+        </div>
+    
+    
+    
+    
+        
+    
+      </div>
+    
+    
+    
+    
+      <!-- form  -->
+      <div class="flex flex-col items-center mt-6   min-h-screen p-6 bg-white" *ngIf="isFormVisible" >
+        <!-- Profile Picture Section -->
+        <div class=" flex  items-center sm:w-10/12 w-full ">
+         <p class="text-2xl font-semibold text-gray-700 w-fit">
+          Add Doctors
+         </p>
+    
+    
+         <div class="flex justify-center mb- w-1/2 relative">
+          <!-- Display image -->
+          <img
+            id="imagePreview"
+        [src]="doctorForm.imageUrl || 'Image/men.png'" 
+            alt="Two puppies"
+            class="w-32 h-32 rounded-full"
+          />
+          
+          <!-- Edit Button (Pencil Icon) -->
+          <a 
+            class="absolute  top-24   rounded-full p-2"
+            (click)="fileInput.click()" 
+            type="button"
+            accept=".png, .jpg, .jpeg"
+    
+          >
+           <img src="edit-pic.png" alt="">
+        </a>
+        
+          <!-- Hidden file input -->
+          <input
+            #fileInput
+            type="file"
+            class="hidden"
+            (change)="onFileSelected($event)"
+          />
+        </div>
+
+        <label class="relative inline-flex items-center cursor-pointer">
+          <input type="checkbox" class="sr-only peer"    [checked]="doctorForm.status === 'active'" (change)="controlDoctor(doctorForm.id)" />
+          <div
+            class="w-10 h-5 bg-red-500 rounded-full peer-checked:bg-green-500 peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-blue-700 transition-colors duration-300"
+          ></div>
+          <span
+            class="w-3 h-3 bg-white rounded-full shadow-md transform peer-checked:translate-x-6 peer-checked:bg-green-100 absolute left-1 top-1 transition-transform duration-300"
+          ></span>
+        </label>
+        
+         
+        </div>
+        <form 
+        #form="ngForm" enctype="multipart/form-data">
+          <!-- Input Fields -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 w-full max-w-3xl">
+            <!-- Left Column -->
+            <div class="space-y-4">
+              <!-- Dr. Name -->
+              <div class="flex flex-col sm:flex-row items-center">
+                <label class="sm:w-1/4 text-gray-600">Dr. Name</label>
+                <input
+                  type="text"
+                  name="nameEng"
+                  [(ngModel)]="doctorForm.nameEng"
+                  required
+                  placeholder="Charlene Reed"
+                  class="w-full sm:w-3/4 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring focus:ring-blue-200"
+                />
+              </div>
+
+              <input
+              type="hidden"
+              id="product-Id"
+              [(ngModel)]="doctorForm.id"
+              name="productId"
+              value=""
+            />
+        
+              <!-- Education -->
+              <div class="flex flex-col sm:flex-row items-center">
+                <label class="sm:w-1/4 text-gray-600">Education</label>
+                <input
+                  type="text"
+                  name="educationEng"
+                  [(ngModel)]="doctorForm.educationEng"
+                  required
+                  placeholder="Education details"
+                  class="w-full sm:w-3/4 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring focus:ring-blue-200"
+                />
+              </div>
+        
+              <!-- No. of Years -->
+              <div class="flex flex-col sm:flex-row items-center">
+                <label class="sm:w-1/4 text-gray-600">No. of Years</label>
+                <input
+                  type="number"
+                  name="noOfYearEng"
+                  [(ngModel)]="doctorForm.noOfYearEng"
+                  required
+                  min="0"
+                  placeholder="5"
+                  class="w-full sm:w-3/4 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring focus:ring-blue-200"
+                />
+              </div>
+        
+              <!-- Mobile Number -->
+              <div class="flex flex-col sm:flex-row items-center">
+                <label class="sm:w-1/4 text-gray-600">📞</label>
+                <input
+                  type="tel"
+                  name="contantEng"
+                  [(ngModel)]="doctorForm.contantEng"
+                  required
+                  placeholder="12345678"
+                  class="w-full sm:w-3/4 px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring focus:ring-blue-200"
+                />
+              </div>
+        
+              <!-- Availability Day -->
+              <div class="form-group w-full">
+                <label for="availability block">Availability Days:</label>
+                <div class="grid grid-cols-3 gap-1 mt-1">
+                  <div *ngFor="let day of availabilityDays">
+                    <input
+                      type="checkbox"
+                      [id]="day"
+                      [value]="day"
+                      (change)="toggleAvailabilityDay(day)"
+                      [checked]="selectedDays.has(day)"
+                    />
+                    <label [for]="day">{{ day }}</label>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+        
+            <!-- Right Column -->
+            <div class="space-y-4">
+              <!-- Arabic Dr. Name -->
+              <div class="flex flex-col sm:flex-row items-center">
+                <input
+                  type="text"
+                  name="nameAra"
+                  [(ngModel)]="doctorForm.nameAra"
+                  required
+                  placeholder="Charlene Reed"
+                  class="w-full sm:w-3/4 px-4 py-2 border border-gray-300 rounded-xl text-right focus:outline-none focus:ring focus:ring-blue-200"
+                />
+                <label class="sm:w-1/4 text-gray-600 text-right">اسم الطبيب</label>
+              </div>
+        
+              <!-- Arabic Education -->
+              <div class="flex flex-col sm:flex-row items-center">
+                <input
+                  type="text"
+                  name="educationAra"
+                  [(ngModel)]="doctorForm.educationAra"
+                  required
+                  placeholder="التعليم"
+                  class="w-full sm:w-3/4 px-4 py-2 border border-gray-300 rounded-xl text-right focus:outline-none focus:ring focus:ring-blue-200"
+                />
+                <label class="sm:w-1/4 text-gray-600 text-right">التعليم</label>
+              </div>
+        
+              <!-- Arabic No. of Years -->
+              <div class="flex flex-col sm:flex-row items-center">
+                <input
+                  type="number"
+                  name="noOfYearAra"
+                  [(ngModel)]="doctorForm.noOfYearAra"
+                  required
+                  min="0"
+                  placeholder="عدد السنوات"
+                  class="w-full sm:w-3/4 px-4 py-2 border border-gray-300 rounded-xl text-right focus:outline-none focus:ring focus:ring-blue-200"
+                />
+                <label class="sm:w-1/4 text-gray-600 text-right">عدد السنوات</label>
+              </div>
+        
+              <!-- Arabic Mobile Number -->
+              <div class="flex flex-col sm:flex-row items-center">
+                <input
+                  type="tel"
+                  name="contentAra"
+                  [(ngModel)]="doctorForm.contentAra"
+                  required
+                  placeholder="12345678"
+                  class="w-full sm:w-3/4 px-4 py-2 border border-gray-300 rounded-xl text-right focus:outline-none focus:ring focus:ring-blue-200"
+                />
+                <label class="sm:w-1/4 text-gray-600 text-right">📞</label>
+              </div>
+            </div>
+          </div>
+        
+          <!-- Date and Time -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 w-full max-w-3xl">
+            <div>
+              <label class="block text-gray-600">Filter Date</label>
+              <input
+                type="date"
+                name="filterDate"
+                [(ngModel)]="doctorForm.filterDate"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring focus:ring-blue-200"
+              />
+            </div>
+            <div>
+              <label class="block text-gray-600">Filter Time</label>
+              <input
+                type="time"
+                name="filterTime"
+                [(ngModel)]="doctorForm.filterTime"
+                required
+                class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring focus:ring-blue-200"
+              />
+            </div>
+          </div>
+        
+          <!-- Introduction Section -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 w-full max-w-3xl">
+            <div>
+              <label class="block text-gray-600">Introduction in English</label>
+              <textarea
+                name="introEng"
+                [(ngModel)]="doctorForm.introEng"
+                required
+                rows="4"
+                class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring focus:ring-blue-200"
+              ></textarea>
+            </div>
+            <div>
+              <label class="block text-gray-600 text-right">مقدمة باللغة العربية</label>
+              <textarea
+                name="introAra"
+                [(ngModel)]="doctorForm.introAra"
+                required
+                rows="4"
+                class="w-full px-4 py-2 border border-gray-300 rounded-xl text-right focus:outline-none focus:ring focus:ring-blue-200"
+              ></textarea>
+            </div>
+          </div>
+        
+          <!-- Buttons -->
+          <div class="flex justify-center items-center mt-8">
+            <button
+              type="submit"
+              *ngIf="!isEditMode"
+               (click)="onsubmit()"
+              class="blue-bg text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-900"
+            >
+              Submit
+            </button>
+            <button
+            type="submit"
+            *ngIf="isEditMode"
+            (click)="updateDoctor()"
+  
+            class="blue-bg text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-900"
+          >
+          Update Product   </button>
+            <button
+              type="button"
+              (click)="saveAndReset()"
+              class="bg-red-500 text-white px-6 py-2 rounded-lg font-semibold hover:bg-red-600 ml-4"
+            >
+              Add More
+            </button>
+          </div>
+        </form>
+        
+      </div>
+    
+    
+    </div>

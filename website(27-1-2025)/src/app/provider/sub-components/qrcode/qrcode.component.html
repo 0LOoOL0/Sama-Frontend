@@ -1,0 +1,17 @@
+<div class="card-container">
+    <div class="card-content">
+      <img class="card-image" src="../../assets/pet-card.jpeg" alt="Digital Card" />
+      <!-- Pet Details Overlay -->
+      <div class="card-overlay">
+        <h3>Breed: {{ petDet?.name }}</h3>
+        <p>Country: Bahrain</p>
+        <p>Gender: {{ petDet?.gender }}</p>
+        <p>Valid date: TBA years</p>
+        <p>Owner's name: TBA</p>
+        <img *ngIf="petDet" 
+             [src]="petDet.imageUrl ? petDet.imageUrl : 'assets/default-image.png'" 
+             alt="{{ petDet.name }}" 
+             style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover;" />
+      </div>
+    </div>
+  </div>

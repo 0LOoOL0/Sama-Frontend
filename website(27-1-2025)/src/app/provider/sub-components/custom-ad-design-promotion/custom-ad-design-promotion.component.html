@@ -1,0 +1,71 @@
+<div class="header">
+  <app-navbar></app-navbar>
+</div>
+
+<div class="promotion-container">
+  <button class="back-button" (click)="goBack()">← Custom Ad Design Promotion</button>
+  <form [formGroup]="promotionForm" (ngSubmit)="onSubmit()">
+    <div class="upload-section" (click)="logoFileInput.click()">
+      <label>High Quality Logo Image</label>
+      <div class="upload-box" [class.has-image]="logoPreview">
+        <img *ngIf="!logoPreview" src="path_to_camera_icon" alt="Upload" />
+        <img *ngIf="logoPreview" [src]="logoPreview" alt="Logo Preview" class="image-preview" />
+        <span *ngIf="!logoPreview">Add Logo image</span>
+        <p *ngIf="!logoPreview">Accepted File Types: JPG, PNG, Docx</p>
+        <p *ngIf="!logoPreview">Max size: 2 MB</p>
+      </div>
+      <input type="file" #logoFileInput style="display:none" (change)="onLogoImageSelected($event)" accept="image/*">
+    </div>
+
+    <div class="upload-section" (click)="businessFileInput.click()">
+      <label>Other Pictures Of The Business</label>
+      <div class="upload-box" [class.has-image]="businessPreview">
+        <img *ngIf="!businessPreview" src="path_to_camera_icon" alt="Upload" />
+        <img *ngIf="businessPreview" [src]="businessPreview" alt="Business Preview" class="image-preview" />
+        <span *ngIf="!businessPreview">Add Business image</span>
+        <p *ngIf="!businessPreview">Accepted File Types: JPG, PNG, Docx</p>
+        <p *ngIf="!businessPreview">Max size: 2 MB</p>
+      </div>
+      <input type="file" #businessFileInput style="display:none" (change)="onBusinessImageSelected($event)" accept="image/*">
+    </div>
+
+    <div class="form-group">
+      <label for="businessName">Business Name</label>
+      <input type="text" id="businessName" formControlName="businessName" required>
+      <div *ngIf="promotionForm.get('businessName')?.invalid && promotionForm.get('businessName')?.touched" class="error-message">
+        Business Name is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="adDescription">Ad Description</label>
+      <textarea id="adDescription" formControlName="adDescription" required></textarea>
+      <div *ngIf="promotionForm.get('adDescription')?.invalid && promotionForm.get('adDescription')?.touched" class="error-message">
+        Ad Description is required
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input type="tel" id="phoneNumber" formControlName="phoneNumber" required placeholder="+973">
+      <div *ngIf="promotionForm.get('phoneNumber')?.invalid && promotionForm.get('phoneNumber')?.touched" class="error-message">
+        Please enter a valid 8-digit Bahraini phone number
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="socialMedia">Social Media</label>
+      <input type="text" id="socialMedia" formControlName="socialMedia" required>
+      <div *ngIf="promotionForm.get('socialMedia')?.invalid && promotionForm.get('socialMedia')?.touched" class="error-message">
+        Social Media is required
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="promotionForm.invalid || !logoImage || !businessImage">Next</button>
+  </form>
+</div>
+
+<div class="floating-icons">
+  <a href="#"><img src="path_to_whatsapp_icon" alt="WhatsApp" /></a>
+  <a href="#"><img src="path_to_arrow_icon" alt="Scroll Up" /></a>
+</div>

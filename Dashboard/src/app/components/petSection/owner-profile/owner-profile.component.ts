@@ -1,14 +1,15 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
 import { PetSectionService } from '../service/PetSectionServices';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-owner-profile',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './owner-profile.component.html',
   styleUrls: ['./owner-profile.component.css'],
 })
@@ -19,7 +20,10 @@ export class OwnerProfileComponent implements OnInit {
   profileImageFileName: string = 'No file chosen';
   profileImageBase64: string | null = null;
   isEditMode = false;
-
+  selectedTab: number = 1;
+  membershipPets: any[] = [];
+  error: string = '';
+  
   // Pet counts
   memberCount: number = 0;
   nonMemberCount: number = 0;
@@ -28,6 +32,12 @@ export class OwnerProfileComponent implements OnInit {
   // Array to store selected pets for invoice printing
   selectedPets: any[] = [];
   ownerOrders: any[] = [];
+
+
+
+  collarCode: string = '';  // To store the entered collar code
+  showModal: boolean = false;  // Modal visibility flag
+  selectedPetId: number | null = null;  // Store selected pet ID
 
 
   @ViewChild('fileInput') fileInput!: ElementRef;
@@ -72,6 +82,7 @@ export class OwnerProfileComponent implements OnInit {
 
     const ownerId = this.petSectionService.getOwnerId();
     if (ownerId) {
+      this.loadMembershipPets(ownerId);
       this.petSectionService.getOwner(ownerId).subscribe(
         (response: any) => {
           const owner = response.data ? response.data : response;
@@ -101,11 +112,11 @@ export class OwnerProfileComponent implements OnInit {
       }
     }
   }
-  
+
   editPet(pet: any): void {
     this.router.navigate(['/add-pet'], { state: { petData: pet } });
   }
-  
+
   populateForm(owner: any): void {
     this.ownerForm.patchValue({
       first_name: owner.first_name || (owner.ownerName ? owner.ownerName.split(' ')[0] : ''),
@@ -223,9 +234,9 @@ export class OwnerProfileComponent implements OnInit {
       this.selectedPets = this.selectedPets.filter((selected: any) => selected.id !== pet.id);
     }
   }
-  
-  
-  
+
+
+
 
   // Optional: Toggle select/deselect all pets.
   toggleSelectAll(event: any): void {
@@ -240,73 +251,73 @@ export class OwnerProfileComponent implements OnInit {
 
   // When Print Info is clicked, check selected pets and send info.
   printInfo(): void {
-  if (this.selectedPets.length === 0) {
-    console.error('No pets selected.');
-    return;
-  }
-
-  const owner = this.ownerData || {};
-  
-  const formattedPets = this.selectedPets.map(pet => ({
-    name: pet.name,
-    membership: {
-      // Use pay_type for package name instead of package.title
-      pay_type: pet.membership?.pay_type || 'N/A',
-      price: pet.membership?.price || 0,
-      start_date: pet.membership?.start_date,
-      end_date: pet.membership?.end_date,
-      status: pet.membership?.status,
-      period: pet.membership?.period,
+    if (this.selectedPets.length === 0) {
+      console.error('No pets selected.');
+      return;
     }
-  }));
-  
 
-  const invoiceData = {
-    selectedPets: formattedPets,
-    mode: 'pet',
-    ownerData: {
-      ownerName: `${this.ownerForm.value.first_name} ${this.ownerForm.value.last_name}`,
-      city: this.ownerForm.value.city,
-      location: this.ownerForm.value.address || '',
-      contactNumber: this.ownerForm.value.phone,
-      email: this.ownerForm.value.email,
+    const owner = this.ownerData || {};
+
+    const formattedPets = this.selectedPets.map(pet => ({
+      name: pet.name,
+      membership: {
+        // Use pay_type for package name instead of package.title
+        pay_type: pet.membership?.pay_type || 'N/A',
+        price: pet.membership?.price || 0,
+        start_date: pet.membership?.start_date,
+        end_date: pet.membership?.end_date,
+        status: pet.membership?.status,
+        period: pet.membership?.period,
+      }
+    }));
+
+
+    const invoiceData = {
+      selectedPets: formattedPets,
+      mode: 'pet',
+      ownerData: {
+        ownerName: `${this.ownerForm.value.first_name} ${this.ownerForm.value.last_name}`,
+        city: this.ownerForm.value.city,
+        location: this.ownerForm.value.address || '',
+        contactNumber: this.ownerForm.value.phone,
+        email: this.ownerForm.value.email,
+      }
+    };
+
+    console.log('Invoice data:', invoiceData);
+
+    this.router.navigate(['/invoice'], { state: invoiceData });
+  }
+
+
+
+
+  navigateToOrderInfo(orderId: number): void {
+    this.router.navigate(['/order-info', orderId]);
+  }
+
+
+
+  // New function for printing the card
+  printCard(): void {
+    if (this.selectedPets.length === 0) {
+      this.toastr.error('Please select at least one pet to print a card.');
+      return;
     }
-  };
 
-  console.log('Invoice data:', invoiceData);
+    // Ensure all selected pets have memberships
+    const invalidPets = this.selectedPets.filter(pet => !pet.membership);
+    if (invalidPets.length > 0) {
+      this.toastr.error('Only pets with active memberships can print cards.');
+      return;
+    }
 
-  this.router.navigate(['/invoice'], { state: invoiceData });
-}
+    // Save the original page content
+    const backupContent = document.body.innerHTML;
+    let cardsHtml = '';
 
-  
-  
-  
-navigateToOrderInfo(orderId: number): void {
-  this.router.navigate(['/order-info', orderId]);
-}
-
-
-
-// New function for printing the card
-printCard(): void {
-  if (this.selectedPets.length === 0) {
-    this.toastr.error('Please select at least one pet to print a card.');
-    return;
-  }
-
-  // Ensure all selected pets have memberships
-  const invalidPets = this.selectedPets.filter(pet => !pet.membership);
-  if (invalidPets.length > 0) {
-    this.toastr.error('Only pets with active memberships can print cards.');
-    return;
-  }
-
-  // Save the original page content
-  const backupContent = document.body.innerHTML;
-  let cardsHtml = '';
-
-  this.selectedPets.forEach((pet, index) => {
-    cardsHtml += `
+    this.selectedPets.forEach((pet, index) => {
+      cardsHtml += `
     <div style="width: 3.375in; height: 2.125in; background-color: white; border: 1px solid black; border-radius: 5px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); font-family: 'Promo Medium', sans-serif; padding: 10px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
         <div class="card">
             <div class="logo" style="position: absolute; top: 5px; right: 10px;">
@@ -341,66 +352,55 @@ printCard(): void {
     </div>
     ${index !== this.selectedPets.length - 1 ? '<div style="page-break-after: always;"></div>' : ''}
     `;
-  });
+    });
 
-  // Temporarily replace body for print
-  document.body.innerHTML = cardsHtml;
+    // Temporarily replace body for print
+    document.body.innerHTML = cardsHtml;
 
-  window.print();
+    window.print();
 
-  setTimeout(() => {
-    document.body.innerHTML = backupContent;
-    location.reload();
-  }, 100);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-printContent(type: string) {
-  let printContent: HTMLElement | null;
-  
-  if (type === 'invoice') {
-    printContent = document.getElementById('invoiceContent');
-  } else if (type === 'card') {
-    printContent = document.getElementById('cardContent');
-  } else {
-    console.error('Unknown content type');
-    return;
+    setTimeout(() => {
+      document.body.innerHTML = backupContent;
+      location.reload();
+    }, 100);
   }
 
-  if (!printContent) return;
 
-  // Clone the element and force it to display
-  const printContentClone = printContent.cloneNode(true) as HTMLElement;
-  printContentClone.style.display = 'block';
+  printContent(type: string) {
+    let printContent: HTMLElement | null;
 
-  const originalBody = document.body.innerHTML;
-  document.body.innerHTML = printContentClone.innerHTML;
+    if (type === 'invoice') {
+      printContent = document.getElementById('invoiceContent');
+    } else if (type === 'card') {
+      printContent = document.getElementById('cardContent');
+    } else {
+      console.error('Unknown content type');
+      return;
+    }
 
-  window.print();
+    if (!printContent) return;
 
-  setTimeout(() => {
-    document.body.innerHTML = originalBody;
-    location.reload();
-  }, 100);
-}
+    // Clone the element and force it to display
+    const printContentClone = printContent.cloneNode(true) as HTMLElement;
+    printContentClone.style.display = 'block';
+
+    const originalBody = document.body.innerHTML;
+    document.body.innerHTML = printContentClone.innerHTML;
+
+    window.print();
+
+    setTimeout(() => {
+      document.body.innerHTML = originalBody;
+      location.reload();
+    }, 100);
+  }
 
 
-get selectedPet() {
-  return this.selectedPets.length > 0 ? this.selectedPets[0] : null;
-}
+  get selectedPet() {
+    return this.selectedPets.length > 0 ? this.selectedPets[0] : null;
+  }
 
-  
+
 
   resetForm(): void {
     this.ownerForm.reset();
@@ -408,4 +408,95 @@ get selectedPet() {
     this.profileImageBase64 = null;
     this.profileImageFileName = 'No file chosen';
   }
+  // navigate tabs
+  selectTab(tabIndex: number): void {
+    this.selectedTab = tabIndex;
+  }
+  loadMembershipPets(ownerId: number): void {
+    this.petSectionService.getPetsWithMembershipByOwner(ownerId).subscribe(
+      (data: any[]) => {
+        this.error = ''; // ✅ Clear previous error if any
+        this.membershipPets = data;
+        console.log('Pets with membership:', this.membershipPets);
+
+        this.membershipPets.forEach(pet => {
+          if (pet.membership && pet.membership.package) {
+            pet.membership.packageName = pet.membership.package.title || 'No package title';
+          }
+        });
+      },
+      (error: any) => {
+        console.error('Error fetching membership pets:', error);
+        this.error = 'Failed to load membership pets.'; // ✅ Set error message
+      }
+    );
+  }
+
+
+
+  showAlert(petId: number): void {
+    console.log('Collar button clicked for pet ID:', petId);
+    this.selectedPetId = petId;  // Store the selected pet's ID
+    this.showModal = true;  // Show the modal
+    console.log('showModal:', this.showModal);  // Add this line to verify the modal visibility flag
+  }
+  
+  
+  
+
+  
+  
+  closeAlert(): void {
+    const modal = document.getElementById('customAlert'); // fixed to match the correct ID
+    if (modal) {
+      modal.style.display = 'none';
+    }
+  }
+
+  // Update the collar code in the pet's data
+  updateCollarCode(): void {
+    if (this.selectedPetId !== null && this.collarCode) {
+      const pet = this.ownerData.pets.find((p: any) => p.id === this.selectedPetId);
+      if (pet) {
+        pet.collarCode = this.collarCode;  // Update the collar code for the selected pet
+  
+        // Call your service to update the collar code in the database
+        this.petSectionService.updatePetCollarCode(this.selectedPetId, this.collarCode).subscribe(
+          (response: any) => {
+            this.toastr.success('Collar code updated successfully!', 'Success');
+            this.showModal = false;  // Close the modal
+            this.collarCode = '';  // Reset the collar code input
+            console.log('Modal closed and collar code updated');  // Add this line for debugging
+          },
+          (error: any) => {
+            this.toastr.error('Failed to update collar code. Please try again.', 'Error');
+            console.error('Error updating collar code:', error);
+          }
+        );
+      }
+    }
+  }
+  
+
+  
+
+  
+  
+  // loadMembershipPets(ownerId: number): void {
+  //   this.petSectionService.getPetsWithMembershipByOwner(ownerId).subscribe(
+  //     (data: any[]) => {
+  //       this.membershipPets = data;
+  //       console.log('Pets with membership:', this.membershipPets);
+
+  //       this.membershipPets.forEach(pet => {
+  //         if (pet.membership && pet.membership.package) {
+  //           pet.membership.packageName = pet.membership.package.title || 'No package title';
+  //         }
+  //       });
+  //     },
+  //     (error: any) => {
+  //       console.error('Error fetching membership pets:', error);
+  //     }
+  //   );
+  // }
 }

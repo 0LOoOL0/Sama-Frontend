@@ -1,0 +1,180 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Header Styling */
+  .header {
+    background-color: #f8cf4b;
+  }
+  
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+  }
+  
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
+  
+  .contact-info span {
+    margin-left: 20px;
+  }
+  
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #ffffff;
+  }
+  
+  .logo-section .logo {
+    height: 60px;
+  }
+  
+  .navigation ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navigation ul li {
+    margin: 0 15px;
+  }
+  
+  .navigation ul li a {
+    text-decoration: none;
+    color: #7c27aa;
+    font-weight: bold;
+  }
+  
+  .login-button .login-btn {
+    background-color: #ffb74d;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #7c27aa;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Content Section */
+  .content {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 50px;
+    flex-grow: 1;
+  }
+  
+  .profile-card, .details-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 45%;
+  }
+  
+  .profile-card {
+    text-align: center;
+  }
+  
+  .profile-image {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+  }
+  
+  .profile-info h2 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+  
+  .details-card .details p {
+    margin: 10px 0;
+  }
+  
+  .edit-link {
+    text-align: right;
+    display: block;
+    color: #7c27aa;
+    text-decoration: none;
+    margin-top: 20px;
+  }
+  
+  /* Footer Section */
+  .footer {
+    background-color: #7c27aa;
+    color: #ffffff;
+    padding: 30px 50px;
+    text-align: left;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .footer-section {
+    flex-basis: 24%;
+  }
+  
+  .footer-section h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul li a {
+    text-decoration: none;
+    color: #ffffff;
+  }
+  
+  .footer-section .newsletter form {
+    display: flex;
+    align-items: center;
+  }
+  
+  .footer-section .newsletter input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+  
+  .footer-section .newsletter button {
+    background-color: #ffb74d;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #7c27aa;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px solid #ffffff;
+    padding-top: 10px;
+  }
+  

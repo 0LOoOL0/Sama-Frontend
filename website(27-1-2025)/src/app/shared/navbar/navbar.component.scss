@@ -1,0 +1,132 @@
+nav {
+    max-height: 133px;
+}
+
+.nav-top {
+    background-color: #FFDA47;
+    height: 44px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-bottom {
+    background-color: #FFFFFF;
+    height: 89px;
+    border: 1px solid #FFDA47;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.social {
+    margin-left: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 150px;
+}
+
+
+.face {
+    padding-left: 10px;
+    width: 10px;
+    height: 17px;
+    background-image: url(../../../../assets/facebook.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.insta {
+    padding-left: 10px;
+    width: 10px;
+    height: 17px;
+    background-image: url(../../../../assets/instagram.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.twitt {
+    padding-left: 10px;
+    width: 10px;
+    height: 17px;
+    background-image: url(../../../../assets/twitter.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.whats {
+    padding-left: 10px;
+    width: 10px;
+    height: 17px;
+    background-image: url(../../../../assets/whatsapp.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.contact {
+    margin-right: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 150px;
+}
+
+.phone {
+    align-items: center;
+
+    padding-left: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.email {
+    align-items: center;
+    padding-left: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+    background-image: url(../../../../assets/logo.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 100px;
+}
+
+.menu ul {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu ul li {
+    list-style-type: none;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #5E17EB;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #5E17EB;
+}
+
+.login {
+    margin-left: 150px;
+    padding-top: 10px;
+}
+
+button {
+    width: 120px;
+    height: 49px;
+    background-color: #FFDA47;
+    border: none;
+    border-radius: 8px;
+
+}

@@ -1,0 +1,64 @@
+<app-navbar></app-navbar>
+
+<div class="profile-container">
+  <div class="sidebar">
+    <div class="profile-image">
+      <img [src]="userProfile?.profile_image" alt="Profile Image">
+    </div>
+    <h2 class="profile-id">#{{userProfile?.id}}</h2>
+    <h1 class="profile-name">{{userProfile?.first_name}} {{userProfile?.last_name}}</h1>
+    <p class="join-date">Joined: {{userProfile?.created_at | date: 'yyyy-MM-dd'}}</p>
+  </div>
+
+  <div class="main-content">
+    <nav class="profile-nav">
+      <ul>
+        <li class="active"><a href="/user-main-component/my-profile"><span>My Profile</span></a></li>
+        <li><a href="/user-main-component/pet-info"><span>My Pets</span></a></li>
+        <li><a href="/user-main-component/my-orders"><span>My Orders</span></a></li>
+        <li><a href="/user-main-component/discount-history"><span>Discount History</span></a></li>
+        <li><a href="/user-main-component/status-tracker"><span>Status Tracker</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="profile-details">
+      <div class="header">
+        <h2><a href="/user-main-component/transfer-1">Transfer Ownership</a></h2>
+        <a href="/user-main-component/create-owner-profile" class="edit-link">Edit</a>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Phone number</span>
+        <span class="value">{{userProfile?.phone}}</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Email</span>
+        <span class="value">{{userProfile?.email}}</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Gender</span>
+        <span class="value">{{userProfile?.Gender === 'f' ? 'Female' : 'Male'}}</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Date of birth</span>
+        <span class="value">{{userProfile?.date_of_birth}}</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Nationality</span>
+        <span class="value">{{userProfile?.nationality}}</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Locations</span>
+        <span class="value">
+          {{displayedAdd}}
+          <i class="fas fa-chevron-down"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

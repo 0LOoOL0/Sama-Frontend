@@ -1,0 +1,482 @@
+/* media query */
+@media (max-width: 1600px) {
+  .nav-link {
+    font-size: 1em;
+    padding: 0rem;
+  }
+  .nav-icon-btn {
+    gap: 1rem;
+  }
+  .nav-icon {
+    width: 1.2rem;
+    height: auto;
+  }
+  .nav-link-icon {
+    margin-left: 0rem;
+  }
+  .logo-chane {
+    width: 2.2rem;
+    height: auto;
+  }
+  .featureMobileSection {
+    padding: 5rem 2rem;
+  }
+  .featureWorkSection {
+    padding: 16rem 0;
+    padding-top: 10rem;
+    margin-bottom: 5rem;
+    background-size: cover;
+  }
+  .adoptionCard {
+    padding: 1rem;
+    padding-bottom: 2.4rem;
+    border-radius: 34px;
+  }
+  .adoptionCard .mdHeading {
+    font-size: 1.3rem;
+  }
+  .adoptionCard .smText {
+    font-size: 1.3rem;
+  }
+  .vetClinicHeroSection {
+    background-size: contain 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+
+@media (max-width: 1400px) {
+  .vetClinicHeroSection {
+    background-size: cover;
+  }
+}
+
+/* media query for 1200px */
+@media (max-width: 1200px) {
+  .top-header-right {
+    display: none;
+  }
+  .top-header {
+    justify-content: center;
+  }
+  .nav-list {
+    display: none;
+  }
+  .brand-logo {
+    width: 6.8rem;
+    height: auto;
+  }
+  .navUserProfileContainer {
+    display: none;
+  }
+  .hamberger-icon {
+    display: block;
+    width: 1.2rem;
+    height: auto;
+  }
+  .nav-bar {
+    padding: 1rem;
+    row-gap: 0.4rem;
+  }
+  .notficationDropDown {
+    right: -7.5rem;
+    width: 330px;
+    padding: 1.4rem 1rem;
+    border-radius: 15px;
+  }
+  .notficationDropDown .mdHeading {
+    font-size: 1.1rem;
+  }
+  .notification-wrpper {
+    padding: 0.7rem 0.5rem;
+  }
+  .notification-wrpper .mdHeading {
+    font-size: 0.9rem;
+  }
+  .notificationImage {
+    width: 2.1rem;
+  }
+  .profilePicWrpaer {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+  .side-menu .nav-list {
+    display: flex;
+  }
+  .side-menu .navUserProfileContainer {
+    display: flex;
+  } 
+  /* heroSection */
+  .heroSection {
+    padding-bottom: 10rem;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .heroSectionBg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;  
+    height: 100%;
+    object-fit: cover;
+  }
+  .heroSection .flex-col-5 {
+    width: 100%;
+  }
+  .hero-heading {
+    font-size: 3rem;
+  }
+  .hero-container {
+    padding-left: 2rem;
+  }
+  .heroLinkContainer {
+    flex-wrap: wrap;
+  }
+  .hero-link {
+    font-size: 1.2rem;
+  }
+  .heroDot {
+    width: 11px;
+    height: 11px;
+  }
+  .productSearchInputContainer,
+  .productServiceContainer {
+    width: 100%;
+  }
+  .productTabContainer {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+  }
+  .tabbtn {
+    padding: 1.1rem 2.3rem;
+    font-size: 1.3rem;
+    margin-left: 0rem;
+  }
+  /* productListingSection */
+  .productListingSection .grid-col-9,
+  .productListingSection .grid-col-3 {
+    width: 100%;
+    flex: 0 0 100%;
+  }
+  .footerSection .grid-layout-2 {
+    flex-wrap: wrap;
+    row-gap: 1.5rem;
+  }
+  .footerSection .grid-layout-2 .grid-col-3 {
+    flex: 0 0 49%;
+  }
+  .clinicDetailsSection .grid-layout-2 {
+    flex-wrap: wrap;
+  }
+  .clinicDetailsSection {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  /* vetClinicServicesHeading */
+  .vetClinicServicesHeading {
+    width: 100%;
+  }
+  .vetClinicServicesSection {
+    padding: 8rem 0;
+    background: #fbf9ff;
+  }
+  .vetClinicServicesHeading {
+    margin-bottom: 4rem;
+  }
+  .vetClinicServicesHeadingText {
+    display: flex;
+    justify-content: space-between;
+    align-items: first baseline;
+  }
+  .vetClinicServicesHeadingTextHeading {
+    flex: 1;
+  }
+  .vetClinicServicesSection .subHeading {
+    margin-left: 0rem;
+    font-size: 1rem;
+  }
+  .vetClinicServicesHeadingTextHeading .mdHeading {
+    font-size: 2rem;
+    line-height: 0.9;
+  }
+  .vetClinicServicesHeadingTextHeading .mainText {
+    font-size: 0.8rem;
+  }
+  .vetClinicServicesCard {
+    padding: 1.2rem;
+  }
+  /* vetCardTab */
+  .vetCardTab .mdHeading {
+    font-size: 1rem;
+  }
+  .vetCardTab .mainText {
+    font-size: 0.7rem;
+  }
+  .vetCardTab .subHeading {
+    display: flex;
+    justify-content: flex-end;
+    row-gap: 0.1rem;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+  .vetCardTab .subHeading span {
+    padding-right: 0rem;
+  }
+  .vetCardTabImage {
+    width: 2.5rem;
+    height: auto;
+  }
+  .fixLinkContainer {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  .fixIcon {
+    width: 1.8rem;
+    height: auto;
+  }
+}
+
+@media (max-width: 775px) {
+  .footerSection .grid-layout-2 .footerCol-lg {
+    flex: 0 0 100%;
+  }
+  .footerSocialMediaContainer {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+  }
+  .footerSocialMediaContainer .footerSocialMediaRight {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  .footerCopyWrite .smText {
+    font-size: 0.8rem;
+  }
+  .footerContactText .mdHeading {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+  .footerContactText .smText {
+    font-size: 0.7rem;
+  }
+  .membershipContainer {
+    width: 100%;
+    padding: 5rem 1rem;
+  }
+  .membershipContainer .flex-col-6 {
+    width: 100%;
+  }
+  .membershipContainer .mdHeading {
+    font-size: 1.7rem;
+  }
+  .membershipContainer .mainText {
+    font-size: 0.9rem;
+  }
+  .fixLinkContainer {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  .fixIcon {
+    width: 1.8rem;
+    height: auto;
+  }
+  .timeTableBtnWrpper {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+  }
+  .otherServicesSection {
+    padding: 5rem 0;
+  }
+  .otherServicesSection .mdHeading {
+    margin-bottom: 4rem;
+    font-size: 2.1rem;
+  }
+  .otherServicesSection .subHeading {
+    font-size: 1rem;
+  }
+  .otherServicesSection .productCard .smText {
+    font-size: 1.5rem;
+  }
+  .otherServicesSection .grid-layout {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .featureDownLoadSection {
+    padding: 3rem 0;
+  }
+  .featureDownLoadSection .socialMediaContainer {
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .featureMobileCol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .featureMobileCard {
+    flex: 1;
+    width: 100%;
+  }
+  .featureMobileImg {
+    width: 100%;
+    height: auto;
+  }
+  .featureMobileCard .mdHeading {
+    font-size: 1.2rem;
+  }
+  .featureMobileCard .mainText {
+    font-size: 0.8rem;
+    margin-bottom: 3rem;
+  }
+  .featureMobileCard .moreBtn {
+    font-size: 1rem;
+  }
+  .featureWorkSection {
+    padding: 10rem 0;
+  }
+  .errorImgeContainer .mdHeading {
+    font-size: 1.5rem;
+  }
+  .filterFormCard .mdHeading {
+    font-size: 1rem;
+  }
+  .filterFormCard .inputHolder .inputArea {
+    padding: 0.5rem 0;
+    font-size: 1rem;
+  }
+  .adoptionMobileSearchSection {
+    padding: 4rem 1rem;
+  }
+  .adoptionImgaesCol,
+  .adoptionTextCol {
+    padding: 0rem;
+  }
+
+  .myCardCouponsSection {
+    padding: 5rem 1rem;
+  }
+  /* couponsCardItem */
+  .couponsCardItem {
+    padding: 2rem 1rem;
+  }
+  .couponsCardHeader {
+    flex-wrap: wrap !important;
+    row-gap: 0.3rem;
+  }
+  .couponsCardHeader .mdHeading {
+    font-size: 1.8rem;
+  }
+  .couponsCardHeader .main-btn {
+    font-size: 0.9rem;
+  }
+  .coupusownerItem .smHeading {
+    font-size: 1.4rem;
+  }
+  .ownerCard {
+    padding: 0rem 1rem;
+  }
+  .ownerCardText {
+    padding: 1rem 1rem;
+  }
+  .ownerCardText .mdHeading {
+    font-size: 1.1rem;
+  }
+  .ownerCardText .mainText {
+    font-size: 0.78rem;
+  }
+  .cardBtn {
+    padding: 0.2rem 1.4rem;
+    font-size: 0.7rem;
+  }
+  .ownerCardBtnContainer {
+    flex-wrap: wrap;
+  }
+  .cardDropDwon .mdHeading {
+    font-size: 1.4rem;
+  }
+  .cardPageMemberShipSection {
+    padding-top: 0;
+  }
+}
+
+/* media query for 554px */
+@media (max-width: 554px) {
+  .productSearchInputContainer {
+    gap: 0.6rem;
+  }
+  .productSearchInputContainer .main-btn {
+    padding: 0.4rem 1.5rem;
+  }
+  .inputHolder {
+    padding: 0.3rem 0.5rem;
+  }
+  .inputArea {
+    font-size: 0.9rem;
+  }
+  .searchIcon {
+    width: 1.9rem;
+    height: auto;
+  }
+  .footerCol-lg {
+    flex: 0 0 100%;
+  }
+  .productListingContainer .grid-layout-2 {
+    margin: 0rem;
+    justify-content: center;
+  }
+  .adoptionProfileTabContainer .productCard {
+    padding: 0rem;
+    padding-bottom: 1.5rem;
+  }
+  .adoptionProfileTabContainer .productCard .mdHeading {
+    font-size: 1.1rem;
+  }
+  .adoptionProfileTabContainer .productCard .smText {
+    font-size: 0.8rem;
+  }
+}
+
+/* media query for  small mobile */
+@media (max-width: 375px) {
+  .nav-bar {
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+  .nav-right {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .notficationDropDown {
+    width: 96vw;
+    padding: 1.4rem 1rem;
+    border-radius: 15px;
+  }
+  .productSearchInputSection {
+    padding-top: 4rem;
+  }
+  .productSearchInputContainer {
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+    justify-content: center;
+  }
+  .footerLinksCard,
+  .footerCard {
+    padding-right: 0rem;
+  }
+  .newsletterForm {
+    width: 100%;
+    flex-wrap: wrap;
+    row-gap: 0.6rem;
+  }
+  .footerLinksCard {
+    width: 100%;
+  }
+  .footerSection .grid-layout-2 .grid-col-3 {
+    flex: 0 0 100%;
+  }
+}

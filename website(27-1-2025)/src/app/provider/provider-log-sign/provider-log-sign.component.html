@@ -1,0 +1,24 @@
+<div class="page">
+    <div class="form">
+        <div class="segment">
+            <button class="segment-button" [class.active]="segment === 'login'" (click)="changeSegment('login')">
+                Login
+            </button>
+            <button class="segment-button" [class.active]="segment === 'signup'" (click)="changeSegment('signup')">
+                Sign Up
+            </button>
+        </div>
+    
+        <app-provider-login *ngIf="segment === 'login'" (segmentChange)="changeSegment('signup')"></app-provider-login>
+        <app-provider-signup *ngIf="segment === 'signup'" (segmentChange)="changeSegment('login')"></app-provider-signup>
+    </div>
+</div>
+
+<div class="icon-container">
+    <div class="icons whatsapp">
+        <img src="assets/whatsapp.svg">
+    </div>
+    <div class="icons arrow">
+        <img src="assets/arrow-up.svg">
+    </div>
+</div>

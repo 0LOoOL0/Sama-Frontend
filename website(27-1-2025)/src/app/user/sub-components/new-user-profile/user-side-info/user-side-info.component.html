@@ -1,0 +1,11 @@
+<!-- user-side-info.component.html -->
+<div class="side-profile-info">
+    <img [src]="userProfile?.imageUrl || '/assets/pfp.png'" alt="Profile Image">
+    <h2 class="profile-id">#{{ userProfile?.id }}</h2>
+    <h1 class="profile-name">{{ userProfile?.first_name }} {{ userProfile?.last_name }}</h1>
+    <p class="join-date">
+        Joined: {{ userProfile?.startDate | date:'yyyy-MM-dd' }}
+      </p>
+      
+  </div>
+  

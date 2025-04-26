@@ -1,0 +1,141 @@
+<div class="marketplace-container">
+    <!-- Header Section -->
+    <app-navbar></app-navbar>
+    
+    <!-- Main Content Section -->
+    <div class="main-content">
+      <!-- Sidebar for product images -->
+      <div class="product-sidebar">
+        <img src="path/to/product1.png" alt="Product 1">
+        <img src="path/to/product2.png" alt="Product 2">
+        <img src="path/to/product3.png" alt="Product 3">
+      </div>
+      
+      <!-- Product Details -->
+      <div class="product-details">
+        <img src="path/to/main-cat-image.png" alt="Main Product Image" class="main-product-image">
+        
+        <div class="product-info">
+          <h2>Mochi</h2>
+          <p class="price">Price: <span>400 BHD</span></p>
+          
+          <!-- Share and Contact Section -->
+          <div class="share-contact">
+            <p>Share:</p>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-whatsapp"></i></a>
+            <a href="tel:+97377690000" class="contact">Contact Seller: (+973) 77690000</a>
+          </div>
+          
+          <!-- Pet Details Grid -->
+          <div class="pet-details">
+            <div class="detail-item">Pet Type: Cat</div>
+            <div class="detail-item">Gender: Male</div>
+            <div class="detail-item">Colour: Black & White</div>
+            <div class="detail-item">Breed: Tabby</div>
+            <div class="detail-item">Age: 1 Year</div>
+            <div class="detail-item">Weight: 2 KG</div>
+            <div class="detail-item">Height: 27 cm</div>
+            <div class="detail-item">Vaccinated: Yes</div>
+            <div class="detail-item">Microchipped: Yes</div>
+            <div class="detail-item">Neutered: Yes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="top-products-container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <p>OUR PRODUCTS</p>
+      <h2>Top Products</h2>
+    </div>
+  
+    <!-- Product Carousel -->
+    <div class="product-carousel">
+      <!-- Product Card -->
+      <div class="product-card" *ngFor="let product of products">
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.name">
+          <span *ngIf="product.isOnSale" class="sale-badge">SALE</span>
+        </div>
+        <div class="product-details">
+          <p class="product-name">{{ product.name }}</p>
+          <p class="product-price">
+            <span *ngIf="product.isOnSale" class="original-price">{{ product.originalPrice }}</span>
+            <span>{{ product.price }}</span>
+          </p>
+          <div class="product-rating">
+            <span *ngFor="let star of product.stars">&#9733;</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Carousel Controls -->
+    <div class="carousel-controls">
+      <button (click)="prev()">&lt;</button>
+      <button (click)="next()">&gt;</button>
+    </div>
+  </div>
+  
+  <!-- Promotional Banner -->
+<div class="promo-banner">
+    <div class="promo-content">
+      <div class="promo-text">
+        <div class="discount-tag">UP TO 40% OFF</div>
+        <h2>Stop Overpaying and Start Saving BIG</h2>
+        <p>Massa placerat duis ultricies lacus. Aliquet bibendum enim facilisis gravida neque convallis.</p>
+        <button class="subscribe-btn">Subscribe</button>
+      </div>
+      <div class="promo-image">
+        <img src="path/to/promo-image.png" alt="Promo Image">
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer Section -->
+  <footer class="footer-container">
+    <div class="footer-content">
+      <!-- Company Info -->
+      <div class="footer-section company-info">
+        <img src="path/to/logo.png" alt="Logo" class="logo">
+        <p>Tristique nulla aliquet enim tortor at auctor urna nunc. Massa enim nec dui nunc mattis enim ut tellus.</p>
+        <p class="contact-info"><strong>(973) 77690000</strong><br>Got Questions? Call us 24/7</p>
+      </div>
+      
+      <!-- Working Hours -->
+      <div class="footer-section working-hours">
+        <h4>Working Hours</h4>
+        <p>Mon - Fri: <span>7am - 6pm</span></p>
+        <p>Saturday: <span>9am - 4pm</span></p>
+        <p>Sunday: <span>Closed</span></p>
+      </div>
+      
+      <!-- Useful Links -->
+      <div class="footer-section useful-links">
+        <h4>Useful Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">Delivery</a></li>
+          <li><a href="#">Sales</a></li>
+        </ul>
+      </div>
+      
+      <!-- Newsletter -->
+      <div class="footer-section newsletter">
+        <h4>Newsletter</h4>
+        <p>Be first in the queue! Get our latest news straight to your inbox.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Email">
+          <button type="submit">&#10132;</button>
+        </form>
+      </div>
+    </div>
+  </footer>

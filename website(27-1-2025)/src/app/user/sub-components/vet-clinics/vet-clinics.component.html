@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vet Clinic Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <app-navbar></app-navbar>
+
+    <section class="heroSection">
+        <div class="container-2xl">
+            <div class="hero-container">
+                <div class="heroLinkContainer">
+                    <a href="/home" class="hero-link active">Home</a>
+                    <div class="heroDot"></div>
+                    <a href="/our-services" class="hero-link">Service</a>
+                    <div class="heroDot"></div>
+                    <a href="#" class="hero-link">All Providers</a>
+                </div>
+                <h1 class="hero-heading1">{{ heroHeading }}</h1>
+                <p class="mainText1" [innerHTML]="heroText"></p>
+            </div>
+            <div class="heroImageContainer">
+            <img src="./assets/img/cutedarkdog.png" alt="Vet Clinic" class="heroImage">
+        </div>
+        </div>
+    </section>
+    
+
+    <section class="productListingSection vetClinicProductListingSection">
+        <div class="container-2xl">
+            <div class="productListingContainer">
+                <div class="grid-layout-2">
+                    <div class="grid-col-9">
+                        <div class="productListContainer">
+                            <div class="productSearchInputContainer flex row-between gap-1-5 width-full">
+                                <div class="inputHolder flex flex-1 row-between gap-1">
+                                    <img src="assets/icons/search.svg" alt="search" class="searchIcon">
+                                    <input type="text" class="inputArea flex-1" placeholder="Search" (input)="onSearch($event.target.value)">
+                                </div>
+                            </div>
+                            <div class="grid-layout-2">
+                                <div class="grid-col-4 col-sm" *ngFor="let provider of getDisplayedProviders()">
+                                    <div class="productListItemCard" (click)="viewProvider(provider.id)">
+                                        <img *ngIf="provider.profile_image && provider.profile_image !== 'null'"
+     [src]="sanitizeUrl(provider.profile_image)"
+     alt="{{ provider.provider_name_en }} profile image"
+     class="productListItemImage">
+
+                                   
+
+
+
+
+
+                                        <div class="productCardBody">
+                                            <h4 class="mdHeading">{{ provider.provider_name_en }}</h4>
+                                            <h4 class="inputArea flex-1">{{ provider.type_en || 'No Type Available' }}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="paginationContainer">
+                                <button class="paginationBtn" [class.active]="page == currentPage" *ngFor="let page of pages" (click)="changePage(page)">
+                                    {{ page }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-col-3">
+                        <div class="productFilterContainer vetClinicProductFilterContainer">
+                            <div class="productFilterCard">
+                                <h3 class="mdHeading flex row-between">Our services</h3>
+                                <div class="filterBtnContainer">
+                                    <button class="main-btn" (click)="applyFilter('groomer')" [class.active]="isFilterSelected('groomer')">Groomer</button>
+                                    <button class="main-btn" (click)="applyFilter('vet clinic')" [class.active]="isFilterSelected('vet clinic')">Pet Clinic</button>
+                                    <button class="main-btn" (click)="applyFilter('pet shop')" [class.active]="isFilterSelected('pet shop')">Pet Shop</button>
+                                    <button class="main-btn" (click)="applyFilter('trainer')" [class.active]="isFilterSelected('trainer')">Pet Training</button>
+                                    <button class="main-btn" (click)="applyFilter('doctor')" [class.active]="isFilterSelected('doctor')">Doctor</button>
+                                    <button class="main-btn" (click)="clearFilters()">Clear Filters</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footerSection">
+        <div class="container">
+            <div class="footerColumn footerInfo">
+                <img src="./assets/img/brand-logo-1.png" alt="Sama Pet Care Logo" class="footerLogo">
+                <p>Sama Pet Care is a comprehensive platform dedicated to enhancing pet care.</p>
+                <p class="phone"><i class="fas fa-phone-alt"></i> (973) 77690000</p>
+                <p>Got Questions? Call us 24/7</p>
+            </div>
+            <div class="footerColumn footerHours">
+                <h3>Working Hours</h3>
+                <p>Mon - Fri: 7am - 6pm</p>
+                <p>Saturday: 9am - 4pm</p>
+                <p>Sunday: Closed</p>
+            </div>
+            <div class="footerColumn footerLinks">
+                <h3>Useful Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Delivery</a></li>
+                    <li><a href="#">Sales</a></li>
+                </ul>
+            </div>
+            
+            <div class="footerColumn footerNewsletter">
+                <h3>Newsletter</h3>
+                <p>Be first in the queue! Get our latest news straight to your inbox.</p>
+                <form>
+                    <input type="email" placeholder="Email">
+                    <button type="submit">➤</button>
+                </form>
+            </div>
+        </div>
+        <div class="footerCopyright">
+            <p>© 2025 Sama Pet Care. All rights reserved. Designed by Sama Pet.</p>
+        </div>
+    </footer>
+        </body>
+</html>

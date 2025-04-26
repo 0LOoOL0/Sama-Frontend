@@ -1,0 +1,191 @@
+.display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/../assets/bluewave.svg");
+    background-size: cover;
+    background-position: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-optical-sizing: auto;
+  
+}
+
+.box {
+    width: 60%;
+    max-width: 600px;
+    padding: 2rem;
+    border: 1px solid white;
+    border-radius: 16px;
+    box-shadow: 10px 8px 18px rgba(0, 0, 0, 0.4);
+    background-color: white;
+    text-align: center;
+    
+}
+
+.card {
+    width: 350px;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    background-color: white;
+    padding: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-name {
+    font-weight: bold;
+}
+
+.messege-icon {
+    font-size: 18px;
+    margin-left: 10px;
+    color: #007bff;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: green;
+}
+
+.service-info {
+    margin-bottom: 15px;
+    
+    display: flex;
+    justify-content: space-between;
+}
+
+.service-info h2 {
+    
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+}
+.info{
+    margin-left: 6%;
+}
+.notes {
+    margin: 20px 0;
+}
+.appo{
+    
+    color :dimgrey;
+    justify-content: left;
+    text-align: left;
+margin-left: -30%;
+margin-right: 18%;
+    // margin-left: 15px;
+}
+.notes textarea {
+    margin-top: 10px;
+    width: 300px;
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    resize: none;
+    height: 150px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-optical-sizing: auto;
+
+}
+
+.end-btn {
+    background-color: #f15a24;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 90%;
+    border-radius: 30px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.end-btn:hover {
+    background-color: #e14b12;
+}
+.pet-pic {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+    text-align: right;
+}
+.date-space{
+    margin-left: 	6%;
+}
+.date-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date, .time {
+    display: flex;
+    align-items: center;
+    
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 8px;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center; 
+    flex-direction: column;
+    position: fixed;
+    margin-left: 80%;
+    bottom: 20px;
+    width: 100%; 
+    z-index: 10; 
+}
+
+.icons {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.icons img {
+    width: 30%;
+    height: 30%;
+}
+
+.whatsapp {
+    background-color: white;
+}
+
+.arrow {
+    background-color: white;
+}
