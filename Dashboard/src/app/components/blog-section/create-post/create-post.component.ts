@@ -33,10 +33,10 @@ export class CreatePostComponent implements OnInit {
     this.blogForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      title_ar: ['', Validators.required],
-      description_ar: ['', Validators.required],
+      title_ar: ['null', Validators.required],
+      description_ar: ['null', Validators.required],
       petType: ['', Validators.required],  // This field maps to backend's "tag"
-      petType_ar: ['', Validators.required],  // This field maps to backend's "tag"
+      petType_ar: ['null', Validators.required],  // This field maps to backend's "tag"
     });
   }
 
@@ -56,7 +56,8 @@ export class CreatePostComponent implements OnInit {
               description: response.description,
               title_ar: response.title_ar,
               description_ar: response.description_ar,
-              petType: response.tag // Map 'tag' to 'petType' in the form
+              petType: response.petType, // Map 'tag' to 'petType' in the form
+              petType_ar: response.petType_ar, // Map 'tag' to 'petType' in the form
             });
 
             // If the blog already has an image, load it:
