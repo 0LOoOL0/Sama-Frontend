@@ -9,7 +9,7 @@ export class PetSectionService {
   // Base URL for pet-related endpoints
   private petBaseUrl = 'http://127.0.0.1:8000/api';
   // Base URL for pet owner endpoints
-  private ownerBaseUrl = 'http://127.0.0.1:8000/api/owner';
+  private ownerBaseUrl = 'http://127.0.0.1:8000/api/pet_owners';
 
   // Variable to store the current owner's ID
   private ownerId: number | null = null;
