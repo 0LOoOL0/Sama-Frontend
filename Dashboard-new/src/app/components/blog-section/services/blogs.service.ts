@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IBlog } from '../../../models/blog.interface'; // Use the shared interface
+import { IBlog } from '../../models/blog.interface'; // Use the shared interface
 
 @Injectable({
   providedIn: 'root'

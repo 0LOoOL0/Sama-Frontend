@@ -27,7 +27,7 @@
     align-items: center;
     cursor: pointer;
   }
-  
+
   .slider {
     width: 2.6rem;
     height: 1.25rem;
@@ -35,11 +35,11 @@
     border-radius: 9999px;
     transition: background-color 0.3s;
   }
-  
+
   input:checked+.slider {
     background-color: #22c55e;
   }
-  
+
   .dot {
     position: absolute;
     top: 0.25rem;
@@ -50,7 +50,7 @@
     border-radius: 1rem;
     transition: transform 0.3s;
   }
-  
+
   input:checked+.slider+.dot {
     transform: translateX(1.35rem);
     background-color: #bbf7d0;
@@ -68,7 +68,7 @@
 
 .create-post-detail {
     margin: 30px 0;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .create-post-detail img{
@@ -90,7 +90,7 @@
 
 .wrap-content {
     display: flex;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -180,4 +180,86 @@
 
 .toggle-input:checked + .toggle-switch .toggle-circle {
     transform: translateX(20px);
+}
+
+
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+  text-align:center;
+}
+
+.modal-content h2 {
+  font-weight:bold;
+  padding:20px;
+}
+
+.modal-content p {
+
+  padding:20px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.space-around{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn-delete{
+  background-color: #ef4444;
+  color: white;
+  width: 120px;
+  height: 40px;
+  transition: background 0.3s;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.btn-edit{
+  background-color: #5E17EB;
+  color: white;
+  width: 120px;
+  height: 40px;
+  transition: background 0.3s;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+.btn-edit:hover {
+  background-color: #4c1d95;
+}
+
+.btn-delete:hover {
+  background-color: #dc2626;
 }

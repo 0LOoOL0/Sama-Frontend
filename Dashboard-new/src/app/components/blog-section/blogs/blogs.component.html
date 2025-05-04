@@ -1,78 +1,77 @@
+
+
+<!-- Your existing HTML code -->
+
 <div class="wrapper">
-    <div class="coupon-header">
-        <h1 class="coupon-title">All Blogs</h1>
-        <button class="add-provider-btn" (click)="navigateToCreatePost()">Create Post</button>
-    </div>
-    <!--filtering blogs-->
-    <div class="filters">
-        <ul class="categories-color">
-            <li>
-                <label for="">Category</label>
-                <select name="category" id="">
-                    <option value="" selected>Choose Option....</option>
-                    <option value="">Cat</option>
-                    <option value="">rabbit</option>
-                    <option value="">bird</option>
-                </select>
-            </li>
-            <li>
-                <label for="">Date Form</label>
-                <input type="date">
-            </li>
-            <li>
-                <label for="">To</label>
-                <input type="date">
-            </li>
-            <li>
-                <div class="space-between">
-                    <button class="btn-filter">Filter</button>
-                    <button class="btn-filter" style="background-color: orange;">Clear</button>
-                </div>
-            </li>
-        </ul>
-        <ul>
-            <li>
-                <label for="">Search</label>
-                <div class="space-between">
-                    <input type="search" class="search" placeholder="Search...">
-                    <button>Search</button>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <!--section displaying blogs-->
-    <div class="blog-posts">
-        <div class="post" *ngFor="let blog of blogs">
-            <img [src]="blog.image || 'Image/cat.png'" alt="Blog Image">
-
-            <ul>
-                <li>
-                    <h2>{{ blog.title }}</h2>
-                    <h3>{{ blog.created_at | date: 'longDate' }}</h3>
-                    <p>{{ blog.description }}</p>
-                    <div class="btn-action">
-                        <button (click)="navigateToEditPost(blog)">Edit</button>
-
-                        <button (click)="deleteBlog(blog)" style="background-color: red;">Delete</button>
-                    </div>
-                </li>
-            </ul>
+  <div class="coupon-header">
+      <h1 class="coupon-title">All Blogs</h1>
+      <button class="add-provider-btn" (click)="navigateToCreatePost()">Create Post</button>
+  </div>
+  <!--filtering blogs-->
+  <div class="filters">
+      <ul class="categories-color">
+          <li>
+              <label for="">Category</label>
+              <select name="category" id="">
+                  <option value="" selected>Choose Option....</option>
+                  <option value="">Cat</option>
+                  <option value="">rabbit</option>
+                  <option value="">bird</option>
+              </select>
+          </li>
+          <li>
+              <label for="">Date Form</label>
+              <input type="date">
+          </li>
+          <li>
+              <label for="">To</label>
+              <input type="date">
+          </li>
+          <li>
+              <div class="space-between">
+                  <button class="btn-filter">Filter</button>
+                  <button class="btn-filter" style="background-color: orange;">Clear</button>
+              </div>
+          </li>
+      </ul>
+      <ul>
+          <li>
+              <label for="">Search</label>
+              <div class="space-between">
+                  <input type="search" class="search" placeholder="Search...">
+                  <button>Search</button>
+              </div>
+          </li>
+      </ul>
+  </div>
+  <!--section displaying blogs-->
+  <div class="blog-posts">
+      <div class="post" *ngFor="let blog of blogs">
+          <img [src]="blog.image || 'Image/cat.png'" alt="Blog Image">
+          <ul>
+              <li>
+                  <h2>{{ blog.title }}</h2>
+                  <h3>{{ blog.created_at | date: 'longDate' }}</h3>
+                  <p>{{ blog.description }}</p>
+              </li>
+          </ul>
+          <div class="btn-action">
+            <button class="btn-edit" (click)="navigateToEditPost(blog)">Edit</button>
+            <button class="btn-delete" (click)="openModal(blog)">Delete</button>
         </div>
-        <!-- delete from here -->
-        <!-- <div class="post">
-            <img src="Image/cat.png" alt="">
-            <ul>
-                <li>
-                    <h2>Lay Down</h2>
-                    <h3>20 march 2021</h3>
-                    <p>Description about post Description about post Description about post</p>
-                    <div class="btn-action">
-                        <button>Edit</button>
-                        <button style="background-color: red;">Delete</button>
-                    </div>
-                </li>
-            </ul>
-        </div> -->
-        <!-- delete until here -->
+      </div>
+  </div>
+</div>
+
+<!-- Delete Confirmation Popup -->
+<div class="modal" id="deleteModal" *ngIf="isModalOpen">
+  <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>Confirm Deletion</h2>
+      <p>Are you sure you want to delete this blog?</p>
+      <div class="space-around">
+      <button class="btn-delete" (click)="confirmDelete()">Delete</button>
+      <button class="btn-edit" (click)="closeModal()">Cancel</button>
     </div>
+  </div>
 </div>

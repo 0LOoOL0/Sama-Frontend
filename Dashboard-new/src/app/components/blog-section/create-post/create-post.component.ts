@@ -1,15 +1,17 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common'; // Import CommonModule
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogsService } from '../services/blogs.service';
-import { IBlog } from '../../../models/blog.interface'; // Shared interface
+import { IBlog } from '../../models/blog.interface'; // Shared interface
 
 @Component({
   selector: 'app-create-post',
   templateUrl: './create-post.component.html',
-  styleUrls: ['./create-post.component.css'], 
+  styleUrls: ['./create-post.component.css'],
   standalone: true,
-  imports: [ReactiveFormsModule]
+  imports: [ReactiveFormsModule,CommonModule ]
 })
 export class CreatePostComponent implements OnInit {
   blogForm: FormGroup;
@@ -33,7 +35,10 @@ export class CreatePostComponent implements OnInit {
     this.blogForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      petType: ['', Validators.required]  // This field maps to backend's "tag"
+      title_ar: ['',],
+      description_ar: [''],
+      petType: ['', Validators.required],
+      petType_ar: ['',],
     });
   }
 
@@ -51,9 +56,12 @@ export class CreatePostComponent implements OnInit {
             this.blogForm.patchValue({
               title: response.title,
               description: response.description,
-              petType: response.tag // Map 'tag' to 'petType' in the form
+              title_ar: response.title_ar,
+              description_ar: response.description_ar,
+              petType: response.petType, // Map 'tag' to 'petType' in the form
+              petType_ar: response.petType_ar, // Map 'tag' to 'petType' in the form
             });
-        
+
             // If the blog already has an image, load it:
             if (response.image) {
               this.blogImageBase64 = response.image;
@@ -63,7 +71,7 @@ export class CreatePostComponent implements OnInit {
             console.error('Error fetching blog details', error);
           }
         );
-        
+
       }
     });
   }
@@ -100,6 +108,14 @@ export class CreatePostComponent implements OnInit {
 
 
   onSubmit() {
+
+  //    console.log('Form Valid:', this.blogForm.valid); // Check form validity
+  // if (this.blogForm.valid) {
+  //   // existing code...
+  // } else {
+  //   console.error('Form is invalid', this.blogForm.errors);
+  // }
+
     if (this.blogForm.valid) {
       const blogData: IBlog = {
         id: this.blogId ? this.blogId : 0, // For new posts, id is 0.

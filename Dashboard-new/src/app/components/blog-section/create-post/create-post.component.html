@@ -1,51 +1,59 @@
-<div class="wrapper">
-    <!-- <div class="coupon-header">
-        <h1 (click)="navigateToBlog()" class="coupon-title">Blog</h1>
-        <label class="switch">
-            <input type="checkbox" class="sr-only"/>
-            <div class="slider"></div>
-            <span class="dot"></span>
-          </label>
-    </div> -->
-    <div class="coupon-header">
-        <h1 (click)="navigateToBlog()" class="coupon-title">Blog</h1>
-        <label class="switch">
-            <input type="checkbox" class="sr-only" />
-            <div class="slider"></div>
-            <span class="dot"></span>
+ <div class="wrapper">
+  <!-- <div class="coupon-header">
+      <h1 (click)="navigateToBlog()" class="coupon-title">Blog</h1>
+      <label class="switch">
+          <input type="checkbox" class="sr-only"/>
+          <div class="slider"></div>
+          <span class="dot"></span>
         </label>
-    </div>
-    <div class="create-post-detail">
-        <!-- Blog image: clicking on the image triggers file selection -->
-        <img [src]="blogImageBase64 || 'Image/cat.png'" alt="Blog Image" style="cursor:pointer;"
-            (click)="triggerBlogFileInput()">
-        <!-- Hidden file input for blog image -->
-        <input type="file" #blogFileInput (change)="onBlogImageSelect($event)" hidden>
-        <div class="wrap-content">
-            <!-- Using display: contents so the form does not affect layout -->
-            <form [formGroup]="blogForm" (ngSubmit)="onSubmit()" style="display: contents;">
-                <div class="create-content">
-                    <h2>Details in English</h2>
+  </div> -->
+  <div class="coupon-header">
+      <h1 (click)="navigateToBlog()" class="coupon-title">Blog</h1>
+      <label class="switch">
+          <input type="checkbox" class="sr-only" />
+          <div class="slider"></div>
+          <span class="dot"></span>
+      </label>
+  </div>
+  <div class="create-post-detail">
+      <!-- Blog image: clicking on the image triggers file selection -->
+      <img [src]="blogImageBase64 || 'Image/cat.png'" alt="Blog Image" style="cursor:pointer;"
+          (click)="triggerBlogFileInput()">
+      <!-- Hidden file input for blog image -->
+      <input type="file" #blogFileInput (change)="onBlogImageSelect($event)" hidden>
+      <div class="wrap-content">
+          <!-- Using display: contents so the form does not affect layout -->
+          <form [formGroup]="blogForm" (ngSubmit)="onSubmit()" style="display: contents;">
+              <div class="create-content">
+                <h2>Details in English</h2>
                     <ul>
-                        <li>
-                            <label for="title">Title</label>
-                            <input id="title" formControlName="title" placeholder="Add Title..." required>
-                        </li>
-                        <li>
-                            <label for="description">Content</label>
-                            <textarea id="description" formControlName="description" placeholder="Add Description"
-                                required></textarea>
-                        </li>
+                      <li>
+                        <label for="title">Title</label>
+                        <input id="title" formControlName="title" placeholder="Add Title..." required>
+                        <span *ngIf="blogForm.get('title')?.invalid && (blogForm.get('title')?.touched || blogForm.get('title')?.dirty)" style="color: red;">
+                            Title is required.
+                        </span>
+                    </li>
+                    <li>
+                        <label for="description">Content</label>
+                        <textarea id="description" formControlName="description" placeholder="Add Description" required></textarea>
+                        <span *ngIf="blogForm.get('description')?.invalid && (blogForm.get('description')?.touched || blogForm.get('description')?.dirty)" style="color: red;">
+                            Description is required.
+                        </span>
+                    </li>
                         <li>
                             <label for="petType">Pet Type:</label>
                             <select id="petType" formControlName="petType" required>
-                                <option value="">Select a pet type</option>
+                                <option value="">--Please choose an option--</option>
                                 <option value="Dog">Dog</option>
                                 <option value="Cat">Cat</option>
                                 <option value="Bird">Bird</option>
                                 <option value="Reptile">Reptile</option>
                                 <option value="Other">Other</option>
                             </select>
+                            <span *ngIf="blogForm.get('petType')?.invalid && (blogForm.get('petType')?.touched || blogForm.get('petType')?.dirty)" style="color: red;">
+                              type is required.
+                          </span>
                         </li>
                     </ul>
                 </div>
@@ -53,29 +61,30 @@
                     <h2>Details in Arabic</h2>
                     <ul>
                         <li>
-                            <label for="">Title</label>
-                            <input type="text" placeholder="Add Title... (Optional)">
+                            <label for="title">Title</label>
+                            <input id="title_ar" formControlName="title_ar" type="text" placeholder="Add Title... (Optional)">
                         </li>
                         <li>
-                            <label for="">Content</label>
-                            <textarea name="" id="" placeholder="Add Description... (Optional)"></textarea>
+                            <label for="title">Content</label>
+                            <textarea id="description_ar" formControlName="description_ar" placeholder="Add Description... (Optional)"></textarea>
                         </li>
+                        <!-- not in use -->
                         <li>
-                            <label for="">Pet Type</label>
-                            <select name="" id="">
-                                <option value="" selected>Choose Option....</option>
-                                <option value="">قط</option>
-                                <option value="">كلب</option>
-                                <option value="">طائر</option>
-                                <option value="">اخرى</option>
+                            <label for="petType">Pet Type</label>
+                            <select name="petType_ar" formControlName="petType_ar">
+                                <option value="">--Please choose an option--</option>
+                                <option value="قط">قط</option>
+                                <option value="كلب">كلب</option>
+                                <option value="طائر">طائر</option>
+                                <option value="اخرى">اخرى</option>
                             </select>
                         </li>
                     </ul>
-                </div>
-                <div class="buttons">
-                    <button type="submit" class="btn-action">{{ submitButtonText }}</button>
-                </div>
-            </form>
-        </div>
-    </div>
+                    </div>
+              <div class="buttons">
+                  <button type="submit" class="btn-action">{{ submitButtonText }}</button>
+              </div>
+          </form>
+      </div>
+  </div>
 </div>
