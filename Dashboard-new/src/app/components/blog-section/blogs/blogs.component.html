@@ -38,12 +38,8 @@
           <li>
               <label for="">Search</label>
               <div class="space-between">
-                <input type="search" class="search" placeholder="Search..." [(ngModel)]="searchTerm">
-                <button (click)="onSearch()">Search</button>
-
-                <ul>
-                  <li *ngFor="let item of filteredItems">{{ item }}</li>
-                </ul>
+                  <input type="search" class="search" placeholder="Search...">
+                  <button>Search</button>
               </div>
           </li>
       </ul>
