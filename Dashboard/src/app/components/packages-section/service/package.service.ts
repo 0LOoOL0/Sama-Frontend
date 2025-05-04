@@ -6,6 +6,7 @@ import { catchError } from 'rxjs/operators';
 export interface Package {
   id: number;
   title: string;
+  name: string;
   description: string;
   price: number;
   duration: string;
