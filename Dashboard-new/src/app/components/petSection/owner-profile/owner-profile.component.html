@@ -1,0 +1,624 @@
+<div class="wrapper">
+    <div class="flex">
+      <!-- PART ONE: Owner Form & Member/Save-Spent Card -->
+      <div class="part-one rounded-[30px] w-[35%] m-1">
+        <!-- Owner Form -->
+        <form [formGroup]="ownerForm" (ngSubmit)="onSubmit()">
+          <div
+            class="dashMenu xl:col-span-3 xl:relative xl:w-fit xl:overflow-visible xl:bg-transparent xl:h-auto xl:left-auto xl:top-auto xl:p-0 p-2 fixed top-0 -left-[100%] w-full h-screen overflow-auto bg-white z-50 trasitionTime rounded-[30px]"
+            id="sideMenu">
+            <div class="menuCard p-4 bg-[#5E17EB] side-shadow rounded-[30px]">
+              <div class="flex justify-between items-center">
+                <h3 class="inter font-bold text-xs text-white">
+                  Joined Date: {{ ownerData?.joinedDate || '[Date]' }}
+                </h3>
+                <div class="flex items-center justify-center gap-3">
+                  <label class="relative inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="sr-only peer" formControlName="isActive" />
+                    <div
+                      class="w-10 h-5 bg-red-500 rounded-full peer-checked:bg-green-500 peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-blue-700 transition-colors duration-300">
+                    </div>
+                    <span
+                      class="w-3 h-3 bg-white rounded-full shadow-md transform peer-checked:translate-x-6 peer-checked:bg-green-100 absolute left--2 top-1 transition-transform duration-300"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Profile Image Section with File Input Trigger -->
+              <div class="profile w-32 h-32 mx-auto my-5 relative rounded-full cursor-pointer"
+                (click)="triggerFileInput()">
+                <img [src]="profileImageBase64 || 'Image/profile-mask.png'" alt="profile"
+                  class="w-full h-full object-cover" />
+                <img src="edit-pic.png" alt="edit icon" class="absolute right-0 bottom-0 cursor-pointer w-8 h-auto" />
+                <input type="file" #fileInput (change)="onProfileImageSelect($event)" hidden />
+              </div>
+
+              <!-- Owner Details -->
+              <div class="inputHolder mb-5">
+                <div class="flex gap-4">
+                  <div class="flex-1">
+                    <label class="text-white inter text-xs font-bold mb-1 block">First Name</label>
+                    <input type="text" formControlName="first_name"
+                      class="w-full py-2 px-4 border-[#DFEAF2] border rounded-2xl outline-none inter"
+                      placeholder="First Name" />
+                  </div>
+                  <div class="flex-1">
+                    <label class="text-white inter text-xs font-bold mb-1 block">Last Name</label>
+                    <input type="text" formControlName="last_name"
+                      class="w-full py-2 px-4 border-[#DFEAF2] border rounded-2xl outline-none inter"
+                      placeholder="Last Name" />
+                  </div>
+                </div>
+                <label class="text-white inter text-xs font-bold mb-1 block mt-4">Date of Birth</label>
+                <input type="date" formControlName="date_of_birth"
+                  class="w-full py-2 px-4 border-[#DFEAF2] border rounded-2xl outline-none inter" />
+              </div>
+              <div class="flex justify-between gap-4 flex-wrap">
+                <div class="inputHolder mb-3 flex-auto">
+                  <label class="text-white inter text-xs font-bold mb-1 block">Phone Number</label>
+                  <input type="text" formControlName="phone"
+                    class="w-full py-2 px-4 border-[#DFEAF2] border rounded-2xl outline-none inter"
+                    placeholder="Phone Number" />
+                </div>
+                <div class="inputHolder mb-5 flex-auto">
+                  <label class="text-white inter text-xs font-bold mb-1 block">Email</label>
+                  <input type="email" formControlName="email"
+                    class="w-full py-2 px-4 border-[#DFEAF2] border rounded-2xl outline-none inter"
+                    placeholder="Email" />
+                </div>
+              </div>
+              <div class="flex justify-between gap-4 md:flex-row flex-col">
+                <div class="inputHolder flex-1">
+                  <label class="text-white inter text-xs font-bold mb-1 block">Nationality</label>
+                  <input type="text" formControlName="nationality"
+                    class="w-full py-2 px-4 border-[#DFEAF2] border rounded-2xl outline-none inter"
+                    placeholder="Nationality" />
+                </div>
+                <div class="inputHolder flex-1">
+                  <label class="text-white inter text-xs font-bold mb-1 block">Gender</label>
+                  <select formControlName="gender"
+                    class="w-full py-2 px-4 border-[#DFEAF2] border rounded-2xl outline-none inter bg-white text-black">
+                    <option value="" disabled>Select Gender</option>
+                    <option value="m">Male</option>
+                    <option value="f">Female</option>
+                  </select>
+                </div>
+                <!-- Conditional Password Field (only shown if not in edit mode) -->
+                <div class="inputHolder flex-1" *ngIf="!isEditMode">
+                  <label class="text-white inter text-xs font-bold mb-1 block">Password</label>
+                  <input type="password" formControlName="password"
+                    class="w-full py-2 px-4 border-[#DFEAF2] border rounded-2xl outline-none inter" />
+                </div>
+              </div>
+              <br>
+              <label class="text-white inter text-xs font-bold mb-2 block">Address:</label>
+              <div class="flex justify-between gap-3 md:flex-row flex-col">
+                <div class="inputHolder mb-5 flex-auto">
+                  <label class="text-white inter text-[10px] font-normal mb-1 block">Building</label>
+                  <input type="text" formControlName="building" placeholder="No Data"
+                    class="w-full py-2 px-4 border-[#DFEAF2] border rounded-2xl outline-none inter" />
+                </div>
+                <div class="inputHolder mb-5 flex-auto">
+                  <label class="text-white inter text-[10px] font-normal mb-1 block">Road</label>
+                  <input type="text" formControlName="road" placeholder="No Data"
+                    class="w-full py-2 px-4 border-[#DFEAF2] border rounded-2xl outline-none inter text-center" />
+                </div>
+                <div class="inputHolder mb-5 flex-auto">
+                  <label class="text-white inter text-[10px] font-normal mb-1 block">Block</label>
+                  <input type="text" formControlName="block" placeholder="No Data"
+                    class="w-full py-2 px-4 border-[#DFEAF2] border rounded-2xl outline-none inter text-center" />
+                </div>
+                <div class="inputHolder mb-5 flex-auto">
+                  <label class="text-white inter text-[10px] font-normal mb-1 block">City</label>
+                  <input type="text" formControlName="city" placeholder="No Data"
+                    class="w-full py-2 px-4 border-[#DFEAF2] border rounded-2xl outline-none inter text-center" />
+                </div>
+              </div>
+              <!-- Submit Button -->
+              <div class="inputHolder">
+                <button type="submit" class="w-full py-2 px-4 bg-green-500 text-white rounded-2xl">
+                  {{ isEditMode ? 'Update Profile' : 'Create Profile' }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+        <!-- Member / Saved-Spent Card -->
+        <div
+          class="menuCard p-4 bg-[#5E17EB] side-shadow rounded-[30px] py-6 flex items-center justify-center flex-col w-full mt-5">
+          <div class="flex space-x-3 w-full mb-5">
+            <button
+              class="w-full md:w-1/3 border-4 bg-pink rounded-[50px] py-2 text-center cursor-pointer inter font-normal text-16 text-white duration-[3000]">
+              Member No. {{ memberCount }}
+            </button>
+            <button
+              class="w-full md:w-1/3 border-4 bg-pink rounded-[50px] py-2 text-center cursor-pointer inter font-normal text-16 text-white duration-[3000]">
+              Non Member No. {{ nonMemberCount }}
+            </button>
+            <button
+              class="w-full md:w-1/3 border-4 bg-pink rounded-[50px] py-2 text-center cursor-pointer inter font-normal text-16 text-white duration-[3000]">
+              Free Trial No. {{ freeTrialCount }}
+            </button>
+          </div>
+          <form>
+            <div class="flex space-x-4 w-full">
+              <div class="inputHolder mb-5 w-full md:w-1/2">
+                <label class="text-white inter text-xs font-bold mb-1 block">Saved</label>
+                <input type="number" placeholder="Saved Amount"
+                  class="w-full py-4 px-4 border-[#DFEAF2] border-1 rounded-2xl outline-none inter" />
+              </div>
+              <div class="inputHolder mb-5 w-full md:w-1/2">
+                <label class="text-white inter text-xs font-bold mb-1 block">Spent</label>
+                <input type="number" placeholder="Spent Amount"
+                  class="w-full py-4 px-4 border-[#DFEAF2] border-1 rounded-2xl outline-none inter" />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- PART TWO: Membership & Pet List -->
+      <div class="part-two rounded-[30px] w-[65%] m-1 p-2">
+        <div class="tabsContainer">
+          <div class="tabContent" id="Membership">
+            <!-- NAVIGATION TABS -->
+            <div class="relative">
+              <div
+                class="table-list flex justify-start items-center mt-2 mb-5 flex-col md:flex-row border-b-2 border-blue-600 w-full">
+
+                <!-- Tabs -->
+                <a class="text-2xl px-10 py-1 rounded-t-md cursor-pointer" [ngClass]="{'active-tab': selectedTab === 1}"
+                  (click)="selectTab(1)">
+                  Membership
+                </a>
+                <a class="text-2xl px-10 py-1 rounded-t-md cursor-pointer" [ngClass]="{'active-tab': selectedTab === 2}"
+                  (click)="selectTab(2)">
+                  History
+                </a>
+                <div class="relative ml-auto">
+                  <input type="text" placeholder="Search by Pet Name..."
+                    class="border border-gray-300 rounded-full py-2 pl-8 pr-4 w-64 text-sm focus:ring-blue-500 focus:border-blue-500" />
+                  <img src="Image/search.png" alt="Search Icon" class="absolute top-3.5 left-2.5 h-3.5" />
+                </div>
+
+              </div>
+            </div>
+
+            <!-- MEMBERSHIP TAB CONTENT-->
+            <div *ngIf="selectedTab === 1">
+
+              <!-- PETS LIST SECTION -->
+              <hr class="m-5" />
+              <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-semibold text-[#5E17EB] text-left ml-3">
+                  Pets & Memberships
+                </h1>
+                <div class="mb-6s mt-6">
+                  <div class="flex items-center justify-end md:gap-3 gap-2 flex-wrap">
+                    <button (click)="navigateToAddPet()"
+                      class="md:py-3 md:px-10 py-1 px-3 bg-[#80CD66] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]">
+                      Add Pet
+                    </button>
+                    <!-- New button: Add Member (no click binding) -->
+                    <button
+                      class="md:py-3 md:px-10 py-1 px-3 bg-[#80CD66] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]">
+                      Add Member
+                    </button>
+                    <!-- Print Info button now calls printInfo() -->
+                    <button (click)="printInfo()"
+                      class="md:py-3 md:px-10 py-1 px-3 bg-[#80CD66] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]">
+                      Print Info
+                    </button>
+                    <button
+                      class="md:py-3 md:px-10 py-1 px-3 bg-[#80CD66] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]"
+                      (click)="printCard()">
+                      Print Card
+                    </button>
+
+
+                  </div>
+                </div>
+                <!-- <h1 class="font-semibold text-lg text-[#5E17EB] mb-4 mr-3 text-right">
+                    Pets No. {{ ownerData?.pets?.length || '[Count]' }}
+                  </h1> -->
+              </div>
+              <br />
+              <div class="tableWrapper lg:w-full lg:overflow-visible overflow-x-auto flex justify-center items-center">
+                <table class="w-[98%] mx-auto bg-white">
+                  <thead>
+                    <tr class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">
+                      <th>
+                        <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded focus:ring-blue-500"
+                          (change)="toggleSelectAll($event)" />
+                      </th>
+                      <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Pet Name</th>
+                      <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Issue Date</th>
+                      <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Expiry Date</th>
+                      <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Status</th>
+                      <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Period</th>
+                      <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Package</th>
+                      <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Amount</th>
+                      <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Delivery Total</th>
+                      <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Collar</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-center">
+                    <tr *ngFor="let pet of ownerData?.pets">
+                      <td class="m-4 h-12">
+                        <input type="checkbox" class="form-checkbox h-4 w-4 text-blue-600 rounded focus:ring-blue-500"
+                          [checked]="selectedPets.includes(pet)" (change)="onPetSelectionChange(pet, $event)" />
+
+                      </td>
+                      <td class="m-4 h-12" (click)="editPet(pet)" style="cursor:pointer;">
+                        {{ pet.name || 'No Data Yet' }}
+                      </td>
+                      <td class="m-4 h-12">
+                        <ng-container *ngIf="pet.membership; else noMember">
+                          {{ pet.membership.start_date ? (pet.membership.start_date | date:'shortDate') : '-' }}
+                        </ng-container>
+                        <ng-template #noMember>-</ng-template>
+                      </td>
+                      <td class="m-4 h-12">
+                        <ng-container *ngIf="pet.membership; else noMemberExpiry">
+                          {{ pet.membership.end_date ? (pet.membership.end_date | date:'shortDate') : '-' }}
+                        </ng-container>
+                        <ng-template #noMemberExpiry>-</ng-template>
+                      </td>
+                      <td class="m-4 h-12">
+                        <ng-container *ngIf="pet.membership; else noMemberStatus">
+                          {{ pet.membership.status || '-' }}
+                        </ng-container>
+                        <ng-template #noMemberStatus>-</ng-template>
+                      </td>
+                      <td class="m-4 h-12">
+                        <ng-container *ngIf="pet.membership; else noMemberPeriod">
+                          {{ pet.membership.period || '-' }}
+                        </ng-container>
+                        <ng-template #noMemberPeriod>-</ng-template>
+                      </td>
+                      <td class="m-4 h-12">
+                        <ng-container *ngIf="pet.membership && pet.membership.package">
+                          {{ pet.membership.package.title || '-' }}
+                        </ng-container>
+                        <ng-template #noMemberPackage>-</ng-template>
+                      </td>
+                      <td class="m-4 h-12">
+                        <ng-container *ngIf="pet.membership; else noMemberAmount">
+                          {{ pet.membership.price || '-' }}
+                        </ng-container>
+                        <ng-template #noMemberAmount>-</ng-template>
+                      </td>
+                      <td class="m-4 h-12">[Delivery Total]</td>
+                      <td class="m-4 h-12">
+                        <button class="styled-button" (click)="showAlert(pet.id)">Collar</button>
+
+                      </td>
+                    </tr>
+                    <tr *ngIf="!ownerData?.pets || ownerData.pets.length === 0">
+                      <td colspan="10">No pets found for this owner.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <hr class="m-5" />
+              <br />
+
+              <!-- PET SUMMARY CARDS -->
+              <div class="bg-white shadow-md mb-10 ml-5 rounded-xl p-6 w-[20%] max-w-sm border border-gray-200">
+                <p class="text-lg font-semibold mb-2">Pet Name</p>
+                <p class="text-lg text-gray-700">Total Spent: <span class="font-medium text-red-500">BHD
+                    0.00</span></p>
+                <p class="text-lg text-gray-700 mb-1">Total Saved: <span class="font-medium text-green-600">BHD
+                    0.00</span></p>
+
+              </div>
+
+              <!-- ORDER HISTORY SECTION -->
+              <hr class="m-5" />
+              <h1 class="text-3xl font-semibold text-[#5E17EB] text-left ml-3">Order History</h1>
+              <br />
+              <div class="tableWrapper lg:w-full lg:overflow-visible overflow-x-auto flex justify-center items-center">
+                <table class="w-[98%] mx-auto bg-white">
+                  <thead class="bg-[#5E17EB]">
+                    <tr class="font-bold text-[1rem] text-white py-4 px-1">
+                      <th class="table-cell">Order No.</th>
+                      <th class="table-cell">Status</th>
+                      <th class="table-cell">Date</th>
+                      <th class="table-cell">Total Amount</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-center">
+                    <tr *ngFor="let order of ownerOrders" class="table-row">
+                      <td class="m-4 h-12 cursor-pointer" (click)="navigateToOrderInfo(order.id)">
+                        {{ order.id }}
+                      </td>
+
+                      <td class="m-4 h-12">{{ order.status }}</td>
+                      <td class="m-4 h-12">{{ order.invoice_date | date:'shortDate' }}</td>
+                      <td class="m-4 h-12">{{ order.total_amount | currency:'BHD':'symbol':'1.2-2' }}
+                      </td>
+                    </tr>
+                    <tr *ngIf="ownerOrders.length === 0">
+                      <td colspan="4">No orders found for this owner.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="flex justify-end gap-4 mt-5 mr-5">
+                <button
+                  class="md:py-3 md:px-10 py-1 px-3 bg-[#80CD66] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]">
+                  Print Invoice
+                </button>
+                <button
+                  class="md:py-3 md:px-10 py-1 px-3 bg-[#80CD66] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]">
+                  Print Card
+                </button>
+              </div>
+            </div>
+
+            <!-- HISTORY TAB CONTENT-->
+            <div *ngIf="selectedTab === 2">
+
+              <!-- FILTERS -->
+              <div class="grid grid-cols-6 gap-4 mb-10">
+                <!-- From -->
+                <div class="xl:col-span-2 sm:col-span-4 col-span-12">
+                  <div class="fillterCard">
+                    <label class="font-normal text-[15px] text-[#232323] block mb-1">From:</label>
+                    <div class="border-[1px] border-[#CED1D5] px-3 py-2 rounded-[20px] w-full bg-white">
+                      <input id="from-date" type="date"
+                        class="w-full text-xs text-[#718EBF] font-normal outline-none focus:ring-purple-500 focus:border-purple-500" />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- To -->
+                <div class="xl:col-span-2 sm:col-span-4 col-span-12">
+                  <div class="fillterCard">
+                    <label class="font-normal text-[15px] text-[#232323] block mb-1">To:</label>
+                    <div class="border-[1px] border-[#CED1D5] px-3 py-2 rounded-[20px] w-full bg-white">
+                      <input id="to-date" type="date"
+                        class="w-full text-xs text-[#718EBF] font-normal outline-none focus:ring-blue-500 focus:border-blue-500" />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Provider -->
+                <div class="xl:col-span-2 sm:col-span-4 col-span-12">
+                  <div class="fillterCard">
+                    <label class="font-normal text-[15px] text-[#232323] block mb-1">Provider:</label>
+                    <div class="border-[1px] border-[#CED1D5] px-3 py-2 rounded-[20px] w-full bg-white relative">
+                      <input type="text" placeholder="Search Provider Name..."
+                        class="w-full text-xs text-[#718EBF] font-normal outline-none focus:ring-blue-500 focus:border-blue-500 pl-8 pr-4" />
+                      <img src="Image/search.png" alt="Search Icon"
+                        class="absolute top-1/2 left-2 transform -translate-y-1/2 h-3.5" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="m-5" />
+              <!-- MEMBERSHIP HISTORY -->
+              <h1 class="text-3xl font-semibold text-[#5E17EB] text-left ml-3 mb-6">Membership History
+              </h1>
+              <div class="tableWrapper lg:w-full lg:overflow-visible overflow-x-auto flex justify-center items-center ">
+                <table class="w-[98%] mx-auto bg-white" *ngIf="membershipPets && membershipPets.length > 0">
+                  <thead class="bg-[#5E17EB]">
+                    <tr class="font-bold text-[1rem] text-white py-4 px-1">
+                      <th class="table-cell">Date</th>
+                      <th class="table-cell">Pet Name</th>
+                      <th class="table-cell">Package</th>
+                      <th class="table-cell">Amount Paid</th>
+                      <th class="table-cell">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-center">
+                    <tr class="table-row" *ngFor="let pet of membershipPets">
+                      <td class="m-4 h-12">{{ pet?.created_at ? pet.created_at.split('T')[0] : 'No
+                        Data' }}</td>
+                      <td class="m-4 h-12">{{pet.name}}</td>
+                      <td class="m-4 h-12">{{ pet.membership?.packageName || 'No package' }}</td>
+                      <td class="m-4 h-12">{{ pet.membership?.price || 'No price' }}</td>
+                      <td class="m-4 h-12">{{ pet.membership?.status || 'No status' }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p *ngIf="membershipPets && membershipPets.length === 0">No membership pets found for
+                  this owner.</p>
+                <p *ngIf="error" class="text-red-500">{{ error }}</p>
+              </div>
+              <hr class="m-5" />
+
+              <!-- DISCOUNT USAGE -->
+              <h1 class="text-3xl font-semibold text-[#5E17EB] text-left ml-3 mb-6">Discount Usage</h1>
+              <div class="tableWrapper lg:w-full lg:overflow-visible overflow-x-auto flex justify-center items-center">
+                <table class="w-[98%] mx-auto bg-white">
+                  <thead class="bg-[#5E17EB]">
+                    <tr class="font-bold text-[1rem] text-white py-4 px-1">
+                      <th class="table-cell">Date</th>
+                      <th class="table-cell">Pet Name</th>
+                      <th class="table-cell">Provider Name</th>
+                      <th class="table-cell">Service</th>
+                      <th class="table-cell">Amount Paid</th>
+                      <th class="table-cell">Original Price</th>
+                      <th class="table-cell">Amount Saved</th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-center">
+                    <tr class="table-row">
+                      <td class="m-4 h-12"></td>
+                      <td class="m-4 h-12"></td>
+                      <td class="m-4 h-12"></td>
+                      <td class="m-4 h-12"></td>
+                      <td class="m-4 h-12"></td>
+                      <td class="m-4 h-12"></td>
+                      <td class="m-4 h-12"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Invoice Content -->
+  <div id="invoiceContent" class="invoice" style="display: none;">
+    <img src="Image/invoice-header.png" alt="Invoice Header" />
+    <div class="content">
+      <div class="date">
+        <ul>
+          <li>Invoice Date: [Invoice Date]</li>
+          <li>Invoice No: [Invoice No]</li>
+        </ul>
+        <div class="to-right">
+          <p>Total Due: [Total Due]</p>
+        </div>
+        <ul>
+          <li><b>Invoice</b></li>
+          <li>
+            <p>[Invoice Title]</p>
+          </li>
+          <li>[Invoice Address]</li>
+          <li>Mobile: [Mobile]</li>
+          <li>Phone: [Phone]</li>
+        </ul>
+        <table class="lg:w-full w-[1000px] bg-white">
+          <thead>
+            <tr>
+              <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Pet Name</th>
+              <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Issue Date</th>
+              <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Expiry Date</th>
+              <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Status</th>
+              <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Period</th>
+              <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Package</th>
+              <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Amount</th>
+              <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Delivery Total</th>
+              <th class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]">Collar</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr>
+              <td class="m-4">[Pet Name]</td>
+              <td class="m-4">[Issue Date]</td>
+              <td class="m-4">[Expiry Date]</td>
+              <td class="m-4">[Status]</td>
+              <td class="m-4">[Period]</td>
+              <td class="m-4">[Package]</td>
+              <td class="m-4">[Amount]</td>
+              <td class="m-4">[Delivery Total]</td>
+              <td class="m-4">
+                <button class="styled-button">Collar</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p>No pets found for this owner.</p>
+        <p class="text-red-500">[Error]</p>
+        <hr />
+        <div class="to-right-table">
+          <table>
+            <tr>
+              <td>Sub-total</td>
+              <td>[Sub-total]</td>
+            </tr>
+            <tr>
+              <td>Delivery</td>
+              <td>[Delivery]</td>
+            </tr>
+            <tr class="total">
+              <td>Total:</td>
+              <td>[Total]</td>
+            </tr>
+          </table>
+          <ul style="text-align: left;">
+            <li><b>Payment Method</b></li>
+            <li>[Payment Method]</li>
+          </ul>
+        </div>
+        <ul>
+          <li>Account Manager</li>
+          <li>[Account Manager Data]</li>
+        </ul>
+        <div style="text-align: center;">
+          <a href="">WWW.SamaPet.Com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="cardContent" class="invoice" style="display: none;">
+    <div
+      style="width: 3.375in; height: 2.125in; background-color: white; border: 1px solid black; border-radius: 5px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); font-family: 'Promo Medium', sans-serif;">
+      <div class="card">
+        <div class="logo">
+          <img src="Image/newLogo.png" alt="Logo" />
+        </div>
+        <!-- Info Section -->
+        <div class="info-section">
+          <!-- Image inside info section -->
+          <div class="image-section">
+            <img src="Image/cat.png" alt="Pet Image" class="rounded-2xl" />
+          </div>
+
+          <!-- Info details -->
+          <div class="details-section">
+            <p>
+              <span class="label">BREED</span>
+              <span class="value">: {{ selectedPet?.breed }}</span>
+            </p>
+            <p>
+              <span class="label">COUNTRY</span>
+              <span class="value">: {{ ownerData?.nationality }}</span>
+            </p>
+            <p>
+              <span class="label">GENDER</span>
+              <span class="value">: {{ selectedPet?.gender }}</span>
+            </p>
+            <p>
+              <span class="label">VALID DATE</span>
+              <span class="value">: {{ selectedPet?.membership?.end_date | date:'dd MMM yyyy' }}</span>
+            </p>
+            <p>
+              <span class="label">PET OWNER</span>
+              <span class="value">: {{ ownerData?.ownerName || (ownerData?.first_name + ' ' + ownerData?.last_name)
+                }}</span>
+            </p>
+
+          </div>
+        </div>
+
+        <!-- Name and code -->
+        <div class="additional-info">
+          <div class="info-text">
+            <p>{{ selectedPet?.name }}</p>
+            <p>SA001</p>
+          </div>
+          <div class="qr-container">
+            <div class="qr-code"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- CONFIRMATION POPUPS -->
+<!-- CONFIRMATION POPUPS -->
+<div id="customAlert" class="modal" [ngClass]="{ 'show': showModal }">
+  <div class="modal-content">
+    <h2>Add Collar Code</h2>
+    <br />
+    <input type="text" id="collarCode" name="collarCode" required
+      class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-600"
+      placeholder="Enter Code" [(ngModel)]="collarCode"/>
+    <br />
+    <button (click)="updateCollarCode()">Done</button>
+  </div>
+</div>
+
+  
+

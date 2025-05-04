@@ -1,0 +1,116 @@
+<div class="wrapper">
+    <h1 class="title">Generate Invoice</h1>
+    <div class="details-numbers">
+      <ul>
+        <li style="padding-top: 8px;">
+          <label for="status">Status</label>
+          <select id="status" [(ngModel)]="selectedStatus">
+            <option *ngFor="let status of statuses" [value]="status">{{ status }}</option>
+          </select>
+        </li>
+        <li style="width: 20%">
+          <label for="invoiceNo">Invoice NO: </label>
+          <input id="invoiceNo" type="number" [value]="invoiceNumber" readonly>
+        </li>
+        <li style="width: 20%">
+          <label for="orderNo">Order NO: </label>
+          <input id="orderNo" type="number" [value]="orderNumber" readonly>
+        </li>
+        <li style="width: 30%">
+          <label for="invoiceDate">Invoice Date: </label>
+          <input id="invoiceDate" type="date" [(ngModel)]="invoiceDate">
+        </li>
+      </ul>
+    </div>
+    <div class="details">
+      <ul>
+        <li>
+          <label for="customerName">Customer Name: </label>
+          <input id="customerName" type="text" [(ngModel)]="customerName">
+        </li>
+        <li>
+          <label for="existingCustomer">Existing Customer ?</label>
+          <select id="existingCustomer" [(ngModel)]="selectedExistingCustomer" (change)="onExistingCustomerChange()">
+            <option *ngFor="let customer of existingCustomers" [ngValue]="customer">
+              {{ customer.ownerName }}
+            </option>
+
+          </select>
+
+        </li>
+        <li style="width: 60%">
+          <label for="contactNo">Contact NO: </label>
+          <input id="contactNo" type="text" [(ngModel)]="contactNo">
+        </li>
+        <li>
+          <label for="email">Email: </label>
+          <input id="email" type="text" [(ngModel)]="email">
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <label for="address">Address: </label>
+          <input id="address" type="text" [(ngModel)]="address">
+        </li>
+      </ul>
+    </div>
+    <div class="details">
+      <ul>
+        <li>
+          <label for="product">Product:</label>
+          <select id="product" [(ngModel)]="selectedProduct" (change)="onProductChange()">
+            <option *ngFor="let product of products" [ngValue]="product">
+              {{ product.product_name_en }}
+            </option>
+          </select>
+        </li>
+        <li style="width: 33%">
+          <label for="quantity">Quantity: </label>
+          <input id="quantity" type="number" [(ngModel)]="productQuantity" (change)="onQuantityChange()">
+        </li>
+        <li style="width: 33%">
+          <label for="discountPercentage">Discount (%): </label>
+          <input id="discountPercentage" type="number" [(ngModel)]="discountPercentage" (change)="onProductChange()">
+        </li>
+        <li style="width: 33%">
+          <label for="productTotal">Total Amount: </label>
+          <input id="productTotal" type="text" [value]="productTotal" readonly>
+        </li>
+      </ul>
+      <button class="add" (click)="addProduct()">Add Product</button>
+    </div>
+
+    <div class="details">
+      <div class="content-table">
+        <table>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Amount</th>
+            <th>Action</th>
+          </tr>
+          <tr *ngFor="let item of invoiceItems; let i = index">
+            <td>{{ item.product_name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.total_price }}</td>
+            <td>
+              <div class="btn-img">
+                <img src="edit-pic.png" alt="edit" (click)="editProduct(i)">
+                <img src="biin.png" alt="delete" (click)="removeProduct(i)">
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="move-left">
+        <label for="delivery">Delivery</label>
+        <input id="delivery" type="text" [(ngModel)]="delivery" (change)="onDeliveryChange()">
+        <label for="invoiceTotal">Total Amount</label>
+        <input id="invoiceTotal" type="text" [value]="invoiceTotal" readonly>
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="submit" (click)="navigateToInvoice()">Submit</button>
+      <button class="print">Print</button>
+    </div>
+</div>

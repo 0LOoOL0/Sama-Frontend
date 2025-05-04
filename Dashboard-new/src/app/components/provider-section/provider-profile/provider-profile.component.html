@@ -1,0 +1,194 @@
+<span class="loader" id="loader" style="display: none;">
+</span>
+
+<div class="flex sidebar   w-full text-[#384551]" *ngIf="isSidebarVisible">
+  <!-- Sidebar -->
+  <div class="w-full  bg-white shadow-lg p-4">
+    <div class="close absolute right-5 top-5 sm:hidden block rounded p-2 cursor-pointer shadow-xl bg-slate-200 w-fit">
+      <p class=" text-2xl font-semibold" (click)="toggleSidebar()">X</p>
+    </div>
+    <div>
+      <form [formGroup]="profileForm" enctype="multipart/form-data">
+
+        <!-- Profile Names (English and Arabic) -->
+        <div class="flex w-full justify-start items-center gap-1 mb-6">
+          <div class="image-profile flex flex-col justify-end items-end w-fit relative">
+            <img [src]="imagePreview || 'Image/profile.png'" alt="Profile Image"
+              class="w-24 h-24 rounded-full border cursor-pointer" (click)="fileInput.click()" />
+            <input type="file" #fileInput accept=".png,.jpg,.jpeg" class="hidden" (change)="onFileChange($event)" />
+            <img src="edit-pic.png" alt="" class="absolute h-6 bottom-0 right-0" />
+          </div>
+          <div class="flex flex-col w-2/3">
+            <div class="flex flex-col justify-between items-start">
+              <p class="font-medium text-md">Provider Name (EN)</p>
+              <input type="text" formControlName="providerNameEn" placeholder="Sama Pet"
+                class="text-gray-700 text-sm rounded-2xl p-2 w-full border-gray-300 border" required />
+            </div>
+            <div class="flex flex-col items-start">
+              <p class="font-medium text-md text-right">Provider Name (AR)</p>
+              <input type="text" formControlName="providerNameAr" placeholder="سما پ"
+                class="text-gray-700 text-sm rounded-2xl p-2 w-full border-gray-300 border" required />
+            </div>
+          </div>
+        </div>
+
+
+        <!-- Start Date, End Date, and CR Number (Single Row) -->
+        <div class="flex w-full flex-col  mb-2">
+          <div class="w-full">
+            <label class="block text-gray-600 text-sm font-medium mb-1">Start Date</label>
+            <input type="date" formControlName="startDate" class="border rounded-lg px-5 py-2" />
+          </div>
+          <div class="w-full">
+            <label class="block text-gray-600 text-sm font-medium mb-1">End Date</label>
+            <input type="date" formControlName="endDate" class="border rounded-lg px-5 py-2" />
+          </div>
+        </div>
+
+        <!-- CR Number -->
+        <div class="mb-2">
+          <label class="block text-gray-600 text-sm font-medium mb-1">CR Number</label>
+          <input type="number" formControlName="crNumber" class="border rounded-lg px-3 py-2" placeholder="1233" />
+        </div>
+
+        <!-- Contact Information -->
+        <div class="flex flex-col gap-2 mb-2">
+          <div class="mb-2">
+            <label class="block text-gray-600 text-sm font-medium mb-1">Contact Number</label>
+            <input type="text" formControlName="phoneNumber" class="border rounded-lg px-3 py-2"
+              placeholder="+123456789" />
+          </div>
+          <div class="mb-2">
+            <label class="block text-gray-600 text-sm font-medium mb-1">Email Address</label>
+            <input type="email" formControlName="companyEmail" class="border rounded-lg px-3 py-2"
+              placeholder="example@example.com" />
+          </div>
+        </div>
+
+        <!-- Website and Instagram -->
+        <div class="mb-2">
+          <div class="flex flex-col">
+            <div class="mb-2">
+              <label class="block text-gray-600 text-sm font-medium mb-1">Website</label>
+              <input type="text" formControlName="website" class="border rounded-lg px-3 py-2"
+                placeholder="www.samapet.com" />
+            </div>
+            <div class="mb-2">
+              <label class="block text-gray-600 text-sm font-medium mb-1">Instagram</label>
+              <input type="text" formControlName="instagramUrl" class="border rounded-lg px-3 py-2"
+                placeholder="sama_pet" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Address Section -->
+        <div class="address" formGroupName="address">
+          <p class="text-md font-medium mb-1">Address</p>
+          <div class="grid grid-cols-1 gap-4 mb-2">
+            <div>
+              <label class="block text-gray-600 text-sm font-medium mb-1">Office/Building</label>
+              <input type="text" formControlName="office" class="border rounded-lg px-3 py-2"
+                placeholder="SamaPet Office" />
+            </div>
+            <div>
+              <label class="block text-gray-600 text-sm font-medium mb-1">Road</label>
+              <input type="text" formControlName="road" class="border rounded-lg px-3 py-2" placeholder="Road" />
+            </div>
+            <div>
+              <label class="block text-gray-600 text-sm font-medium mb-1">Block</label>
+              <input type="text" formControlName="block" class="border rounded-lg px-3 py-2" placeholder="A1" />
+            </div>
+            <div>
+              <label class="block text-gray-600 text-sm font-medium mb-1">City</label>
+              <input type="text" formControlName="city" class="border rounded-lg px-3 py-2" placeholder="Had Town" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Availability Days (Checkboxes) -->
+        <div class="mb-6">
+          <label class="block text-gray-600 text-sm font-medium mb-1">Availability Days</label>
+          <div class="grid grid-cols-4 items-center gap-4">
+            <div class="flex items-center" *ngFor="let day of ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']">
+              <input type="checkbox" [checked]="profileForm.get('availabilityDays')?.value?.includes(day)"
+                (change)="toggleAvailabilityDay(day)" />
+
+              <label [for]="day" class="ml-2 text-gray-600 text-sm">{{ day }}</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Availability Hours -->
+        <div class="mb-6" formGroupName="availabilityHours">
+          <label class="block text-gray-600 text-sm font-medium mb-1">Availability Hours</label>
+          <div class="flex justify-between items-center">
+            <input type="time" formControlName="start" class="border rounded-lg px-3 py-2" />
+            <input type="time" formControlName="end" class="border rounded-lg px-3 py-2" />
+          </div>
+        </div>
+
+
+        <!-- Authorized Person -->
+        <div formArrayName="authorizedPerson">
+          <div *ngFor="let person of authorizedPerson.controls; let i = index" [formGroupName]="i" class="mb-6">
+            <div class="flex justify-between p-2">
+              <p class="text-xl font-medium">Authorized Person</p>
+              <button type="button" (click)="addAuthorizedPerson()"
+                class="w-5 h-5 bg-blue-700 text-white rounded-full flex items-center justify-center">
+                <span class="text-lg font-bold">+</span>
+              </button>
+            </div>
+
+            <!-- Fill Section -->
+            <div class="fill">
+              <div class="flex flex-col gap-4 items-start">
+                <div class="w-1/2">
+                  <label class="block text-gray-600 text-sm font-medium mb-1">Name</label>
+                  <input type="text" formControlName="name" class="border rounded-lg px-3 py-2"
+                    placeholder="Muhammad Ali" />
+                </div>
+                <div class="w-1/2">
+                  <label class="block text-gray-600 text-sm font-medium mb-1">Position</label>
+                  <input type="text" formControlName="position" class="border rounded-lg px-3 py-2"
+                    placeholder="Marketing" />
+                </div>
+              </div>
+
+              <div class="flex flex-col gap-4 items-start">
+                <div class="w-1/2">
+                  <label class="block text-gray-600 text-sm font-medium mb-1">Contact Number</label>
+                  <input type="text" formControlName="contactNumber" class="border rounded-lg px-3 py-2"
+                    placeholder="093729293" />
+                </div>
+                <div class="w-1/2">
+                  <label class="block text-gray-600 text-sm font-medium mb-1">Email</label>
+                  <input type="email" formControlName="email" class="border rounded-lg px-3 py-2"
+                    placeholder="example@example.com" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="mb-6">
+          <div class="flex justify-end mt-4">
+            <button *ngIf="!hasProfileData" type="button" (click)="onSubmit()"
+              class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600">
+              Submit Profile
+            </button>
+            <button *ngIf="hasProfileData" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+              type="button" (click)="updateProvider()">Update Profile</button>
+          </div>
+
+
+        </div>
+      </form>
+
+
+
+    </div>
+
+
+  </div>

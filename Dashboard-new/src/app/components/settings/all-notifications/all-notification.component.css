@@ -1,0 +1,403 @@
+.wrapper {
+    margin-left: 230px;
+    padding: 1.5rem;
+    background-color: #f9fafb;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.coupon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.coupon-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #5E17EB;
+    text-align: left;
+}
+
+.add-provider-btn {
+    background-color: #ef4444;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background 0.3s;
+}
+
+.add-provider-btn:hover {
+    background-color: #dc2626;
+}
+
+
+/* Filter Section */
+.filter-section {
+    margin: 40px 10px;
+}
+
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+.filter-card {
+    width: 20%;
+    min-width: 100px;
+}
+
+.input-wrapper {
+    border: 1px solid #CED1D5;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+
+
+.filter-input {
+    width: 100%;
+    font-size: 0.75rem;
+    color: #718EBF;
+    font-weight: 400;
+    outline: none;
+    background: white;
+    border: none;
+}
+
+/* Search field styling */
+.search-wrapper {
+    width: 20%;
+    min-width: 200px;
+}
+
+.search-input-wrapper {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 0.8rem;
+    transform: translateY(-50%);
+    height: 16px;
+    width: 16px;
+    pointer-events: none;
+}
+
+/* Table Section */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.coupon-table {
+    width: 100%;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    table-layout: auto;
+}
+
+.coupon-table thead {
+    background-color: #5E17EB;
+    color: white;
+    text-align: center;
+}
+
+.coupon-table thead tr th {
+    background-color: #5E17EB;
+    color: white;
+    text-align: center;
+    padding: 24px;
+}
+
+.coupon-table th,
+.coupon-table td {
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid #D1D5DB;
+}
+
+.coupon-table tbody tr:hover {
+    background-color: #F9FAFB;
+}
+
+.filter-section {
+    margin: 40px 20px;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: end;
+}
+
+.filter-card {
+    width: 25%;
+    min-width: 200px;
+    position: relative;
+}
+
+.filter-label {
+    font-size: 15px;
+    color: #232323;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.filter-select {
+    border: 1px solid #CED1D5;
+    padding: 10px;
+    border-radius: 20px;
+    background: white;
+}
+
+.select-dropdown {
+    width: 100%;
+    font-size: 12px;
+    color: #718EBF;
+    font-weight: normal;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-input {
+    border: 1px solid #ccc;
+    border-radius: 9999px;
+    padding: 12px 12px 12px 40px;
+    width: 100%;
+    font-size: 14px;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    height: 16px;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin: 20px;
+}
+
+.notification-table {
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+.notification-table-head {
+    background-color: #5e16ea;
+    color: white;
+    text-align: center;
+}
+
+.notification-row {
+    border-top: 1px solid #ccc;
+    transition: background-color 0.3s;
+}
+
+.notification-row:hover {
+    background-color: #f9f9f9;
+}
+
+
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.slider {
+    width: 2.6rem;
+    height: 1.25rem;
+    background-color: #ef4444;
+    border-radius: 9999px;
+    transition: background-color 0.3s;
+}
+
+input:checked+.slider {
+    background-color: #22c55e;
+}
+
+.dot {
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: white;
+    border-radius: 1rem;
+    transition: transform 0.3s;
+}
+
+input:checked+.slider+.dot {
+    transform: translateX(1.35rem);
+    background-color: #bbf7d0;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.action-icon {
+    height: 20px;
+    cursor: pointer;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+}
+
+/* Pagination */
+.pagination-wrapper {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pagination-buttons {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 1.25rem;
+}
+
+.pagination-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pagination-button.active {
+    background-color: #5E17EB;
+    color: white;
+}
+
+.pagination-button:not(.active):hover {
+    background-color: #5E17EB;
+    color: white;
+}
+
+.arrow-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #5E17EB;
+    font-size: 0.75rem;
+    font-weight: 400;
+    transition: color 0.5s;
+}
+
+.arrow-button:hover {
+    color: black;
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 1024px) {
+    .wrapper {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .filter-card,
+    .search-wrapper {
+        width: 45%;
+    }
+
+    .coupon-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Small screens (phones) */
+@media (max-width: 768px) {
+
+    .filter-card,
+    .search-wrapper {
+        width: 100%;
+    }
+
+    .coupon-title {
+        font-size: 1.5rem;
+    }
+
+    .add-provider-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .pagination-buttons {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .filter-section {
+        margin: 20px 10px;
+    }
+
+    .search-input {
+        font-size: 0.75rem;
+    }
+
+    .filter-label {
+        font-size: 13px;
+    }
+
+    .pagination-button {
+        font-size: 0.625rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .coupon-table thead tr th,
+    .coupon-table td {
+        padding: 12px;
+    }
+}

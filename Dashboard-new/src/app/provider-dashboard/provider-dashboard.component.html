@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sama Pets System Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="provider-dashboard.component.css" />
+</head>
+
+<body>
+  <!-- <app-provider-header></app-provider-header> -->
+
+  <div class="wrapper">
+    <main class="content">
+      <h1 class="welcome-message">Welcome to Sama Pets System</h1>
+
+      <div class="logo-overlay-container">
+        <img src="Image/DogGrooming.png" alt="Provider Logo" class="provider-logo" />
+        <p class="provider-name">Dog Grooming</p>
+
+        <div class="policy-search-wrapper">
+          <button class="search-policy-button" (click)="showPolicyInput = !showPolicyInput">
+            <i class="fas fa-search"></i> Enter Policy Number
+          </button>
+
+          <div class="policy-form" [class.visible]="showPolicyInput">
+            <input type="text" [(ngModel)]="policyNumber" placeholder="Enter Policy Number" />
+            <button (click)="goToPetDetails()">Submit</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dashboard-overview">
+        <!-- Sales Overview Section -->
+        <section class="clickable" (click)="navigateToSalesReport()">
+          <h2><i class="fas fa-paw"></i> Sales Overview</h2>
+          <ul>
+            <li *ngIf="loadingSales">Loading sales data...</li>
+            <li *ngIf="!loadingSales">Total Services: {{ totalSales }}</li>
+            <li *ngIf="!loadingSales">Monthly Sales: ${{ totalAmountCollected }}</li>
+          </ul>
+        </section>
+
+        <!-- Products Overview Section -->
+        <section class="clickable" (click)="navigateToProductDetails()">
+          <h2><i class="fas fa-box"></i> Products Overview</h2>
+          <ul>
+            <li *ngIf="loadingProducts">Loading product data...</li>
+            <li *ngIf="!loadingProducts">Total Products: {{ totalProducts }}</li>
+          </ul>
+        </section>
+
+        <section class="clickable" (click)="navigateTo('promotion-details')">
+          <h2><i class="fas fa-tags"></i> Promotions Overview</h2>
+          <ul>
+            <li *ngIf="loadingPromotions">Loading promotions data...</li>
+            <li *ngIf="!loadingPromotions">Current Promotions: {{ totalPromotions }}</li>
+            <li *ngIf="!loadingPromotions">Last Created: {{ lastPromotionDate }}</li>
+          </ul>
+        </section>
+
+        <section class="clickable" (click)="navigateTo('coupon-details')">
+          <h2><i class="fas fa-ticket-alt"></i> Coupons Overview</h2>
+          <ul>
+            <li *ngIf="loadingCoupons">Loading coupon data...</li>
+            <li *ngIf="!loadingCoupons">Active Coupons: {{ totalActiveCoupons }}</li>
+            <li *ngIf="!loadingCoupons">Coupons Used: {{ totalUsedCoupons }}</li>
+          </ul>
+        </section>
+
+        <section class="full-width">
+          <h2><i class="fas fa-chart-line"></i> Recent Reports</h2>
+          <p style="font-weight: bold; color: #666">Last Report Generated: {{ lastReportDate }}</p>
+          <a (click)="goToReport()">View Report</a>
+        </section>
+
+
+      </div>
+    </main>
+  </div>
+</body>
+
+</html>

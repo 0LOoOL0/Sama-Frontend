@@ -1,0 +1,353 @@
+/* Wrapper */
+.wrapper {
+    margin-left: 230px;
+    padding: 1.5rem;
+    background-color: #f9fafb;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Header Section */
+.coupon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.coupon-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #5E17EB;
+    text-align: left;
+}
+
+.add-provider-btn {
+    background-color: #ef4444;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background 0.3s;
+}
+  
+.add-provider-btn:hover {
+    background-color: #dc2626;
+}
+
+/* Filter Section */
+.filter-section {
+    margin: 40px 10px;
+}
+
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: flex-end;
+}
+
+.filter-card {
+    width: 20%;
+    min-width: 100px;
+}
+
+.input-wrapper {
+    border: 1px solid #CED1D5;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+
+
+.filter-input {
+    width: 100%;
+    font-size: 0.75rem;
+    color: #718EBF;
+    font-weight: 400;
+    outline: none;
+    background: white;
+    border: none;
+}
+
+/* Search field styling */
+.search-wrapper {
+    width: 20%;
+    min-width: 200px;
+}
+
+.search-input-wrapper {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 0.8rem;
+    transform: translateY(-50%);
+    height: 16px;
+    width: 16px;
+    pointer-events: none;
+}
+
+/* Table Section */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.coupon-table {
+    width: 100%;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    table-layout: auto;
+}
+
+.coupon-table thead {
+    background-color: #5E17EB;
+    color: white;
+    text-align: center;
+}
+
+/* .coupon-table th,
+.coupon-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-top: 1px solid #D1D5DB;
+} */
+.coupon-table thead tr th{
+    background-color: #5E17EB;
+    color: white;
+    text-align: center;
+    padding: 24px;
+}
+
+.coupon-table th,
+.coupon-table td {
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid #D1D5DB;
+}
+
+.coupon-table tbody tr:hover {
+    background-color: #F9FAFB;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .slider {
+    width: 2.6rem;
+    height: 1.25rem;
+    background-color: #ef4444;
+    border-radius: 9999px;
+    transition: background-color 0.3s;
+  }
+  
+  input:checked+.slider {
+    background-color: #22c55e;
+  }
+  
+  .dot {
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: white;
+    border-radius: 1rem;
+    transition: transform 0.3s;
+  }
+  
+  input:checked+.slider+.dot {
+    transform: translateX(1.35rem);
+    background-color: #bbf7d0;
+  }
+
+/* Actions */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.action-icon {
+    height: 20px;
+    cursor: pointer;
+}
+
+/* No Data */
+.no-data {
+    text-align: center;
+    padding: 1rem;
+    color: #6B7280;
+}
+
+/* Pagination */
+.pagination-wrapper {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pagination-buttons {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 1.25rem;
+}
+
+.pagination-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pagination-button.active {
+    background-color: #5E17EB;
+    color: white;
+}
+
+.pagination-button:not(.active):hover {
+    background-color: #5E17EB;
+    color: white;
+}
+
+.arrow-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #5E17EB;
+    font-size: 0.75rem;
+    font-weight: 400;
+    transition: color 0.5s;
+}
+
+.arrow-button:hover {
+    color: black;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .coupon-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filter-section {
+        margin: 20px 0;
+    }
+
+    .filter-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .filter-card {
+        width: 100%;
+    }
+
+    .search-wrapper {
+        width: 100%;
+    }
+
+    .table-wrapper {
+        overflow-x: scroll;
+    }
+}
+
+@media (max-width: 768px) {
+    .coupon-header {
+        margin: 10px 0;
+    }
+
+    .coupon-title {
+        font-size: 1.5rem;
+    }
+
+    .add-provider-btn {
+        width: 100%;
+        padding: 0.75rem;
+    }
+
+    .filter-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .filter-card {
+        width: 100%;
+    }
+
+    .search-wrapper {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .coupon-table {
+        font-size: 0.875rem;
+    }
+
+    .pagination-controls {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .coupon-title {
+        font-size: 1.2rem;
+    }
+
+    .filter-section {
+        margin: 10px;
+    }
+
+    .filter-group {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .filter-card {
+        width: 100%;
+    }
+
+    .pagination-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .pagination-btn {
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .page-btn {
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .actions {
+        gap: 0.3rem;
+    }
+}

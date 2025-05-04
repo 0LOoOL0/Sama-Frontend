@@ -1,0 +1,40 @@
+<div class="steps-container">
+    <div class="steps-display">
+        <h1 id="step-title">{{ currentTitle }}</h1>
+        <!-- <label class="switch">
+            <input type="checkbox" class="sr-only" [checked]="provider.status === 'active'"
+              (change)="ControlProvider(provider.id)" />
+            <div class="slider"></div>
+            <span class="dot"></span>
+          </label> -->
+    </div>
+    <div class="steps-content">
+        <!-- Circles indicating steps -->
+        <!-- <div *ngFor="let step of stepTitles; let i = index" 
+             class="step-circle" 
+             [class.active]="i === currentStep">
+            {{ i + 1 }}
+        </div> -->
+        <ul>
+            <li><button (click)="previousStep()" [disabled]="currentStep === 0">Previous</button></li>
+            <li>
+                <div class="step-circle" [class.active]="currentStep === 0">1</div>
+            </li>
+            <li>
+                <div class="step-circle" [class.active]="currentStep === 1">2</div>
+            </li>
+            <li>
+                <div class="step-circle" [class.active]="currentStep === 2">3</div>
+            </li>
+            <li>
+                <div class="step-circle" [class.active]="currentStep === 3">4</div>
+            </li>
+            <li><button (click)="nextStep()" [disabled]="currentStep === stepTitles.length - 1">Next</button></li>
+        </ul>
+    </div>
+    <!-- choice -->
+    <!-- <div class="button-container">
+        <button (click)="previousStep()" [disabled]="currentStep === 0">Previous</button>
+        <button (click)="nextStep()" [disabled]="currentStep === stepTitles.length - 1">Next</button>
+    </div> -->
+</div>

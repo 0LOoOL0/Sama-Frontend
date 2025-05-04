@@ -1,0 +1,18 @@
+<div class="wrapper">
+    <h1 class="heading">Pet Services</h1>
+
+    <div class="navbar">
+
+        <button routerLink="adoption" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }"
+            class="nav-button">Adoption</button>
+        <button routerLink="mating" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }"
+            class="nav-button">Mating</button>
+        <button routerLink="lost" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }"
+            class="nav-button">Lost</button>
+        <button routerLink="sell" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }"
+            class="nav-button">Sell</button>
+    </div>
+    <div class="show-items">
+        <router-outlet></router-outlet>
+    </div>
+</div>

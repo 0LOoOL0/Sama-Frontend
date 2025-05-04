@@ -1,0 +1,109 @@
+<div class="wrapper">
+  <div class="table-wrapper">
+    <div class="mainhead">
+      <div class="head-left">
+        <div class="header-section">
+          <h1 class="title">Sama Products</h1>
+        </div>
+        <div class="button-section">
+          <div class="button-group">
+            <button class="action-button">Download Template</button>
+            <button class="action-button">Import Template</button>
+            <button class="action-button">Export Template</button>
+          </div>
+        </div>
+      </div>
+      <div class="actions-section">
+        <div class="action-buttons">
+          <button class="add-provider-btn" (click)="showPopupProduct()">Add Products</button>
+          <button class="add-provider-btn" (click)="showPopupCategory()">Add Category</button>
+        </div>
+      </div>
+    </div>
+    <div class="filtering">
+      <div class="filter-item">
+        <label for="category" class="filter-label">Category:</label>
+        <select id="category" class="filter-input">
+          <option value="">Select Category</option>
+          <option value="accessory">Accessory</option>
+          <option value="toy">Toy</option>
+        </select>
+      </div>
+
+      <div class="search-section">
+        <div class="search-box">
+          <input type="text" placeholder="Search Product Name..." class="search-input" />
+          <img src="Image/search.png" alt="" class="search-icon" />
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="providers-table">
+        <thead class="table-head">
+          <tr class="tableheadrow text-white">
+            <th><input type="checkbox" class="table-checkbox"></th>
+            <th>Image</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Stock</th>
+            <th>Quantity</th>
+            <th>Left</th>
+            <th>Price</th>
+            <th>Percentage</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody class="table-body">
+          <tr *ngFor="let product of products" class="owner-row">
+            <td><input type="checkbox" class="table-checkbox"></td>
+            <td>
+              <img *ngIf="product.image" [src]="product.image" alt="Product Image" class="product-image">
+            </td>
+            <td>{{ product.product_name_en }}</td>
+            <td>{{ product.category_id }}</td>
+            <td>{{ product.price_before }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>{{ product.quantity_left || product.quantity }}</td>
+            <td>BHD {{ product.price }}</td>
+            <td>{{ product.discount }}%</td>
+            <td>{{ product.status == 1 ? 'Active' : 'Inactive' }}</td>
+            <td>
+              <div class="action-icons">
+                <label class="switch">
+                  <input type="checkbox" class="sr-only"/>
+                  <div class="slider"></div>
+                  <span class="dot"></span>
+                </label>
+                <img src="biin.png" alt="" class="icon" (click)="deleteProduct(product.id)">
+                <img src="edit-pic.png" alt="" class="icon" (click)="editProduct(product)">
+              </div>
+            </td>
+          </tr>
+          <tr *ngIf="!products || products.length === 0">
+            <td colspan="11" class="no-data">No data available</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pagination-wrapper">
+      <div class="pagination-buttons">
+        <button class="arrow-button">
+          <img src="Image/left-arrow.svg" alt="arrow left" /> Previous
+        </button>
+
+        <button class="pagination-button active">1</button>
+        <button class="pagination-button">2</button>
+        <button class="pagination-button">3</button>
+        <button class="pagination-button">4</button>
+
+        <button class="arrow-button">
+          Next <img src="Image/right-arrow.svg" alt="arrow right" />
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

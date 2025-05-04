@@ -1,0 +1,449 @@
+
+.toggle-btn {
+    background: none;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+    color: #6c63ff;
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+  
+  .toggle-btn i {
+    transition: transform 0.3s ease;
+  }
+  
+
+
+
+/* General Container */
+.policy-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #fdfdfd;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    font-family: 'Inter', sans-serif;
+  }
+  
+  /* Status messages */
+  .loading,
+  .error-message {
+    text-align: center;
+    font-size: 1rem;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .error-message {
+    background-color: #ffe3e3;
+    color: #b00020;
+    font-weight: 600;
+  }
+  
+  .details-card {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 14px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  }
+  
+  /* Section Headings */
+  .section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 30px 0 16px;
+    color: #333;
+    position: relative;
+  }
+  
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #6c63ff;
+    border-radius: 2px;
+    margin-top: 6px;
+  }
+  
+  /* Detail line */
+  .detail-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed #d6d6d6;
+  }
+  
+  .detail-group label {
+    font-weight: 600;
+    color: #444;
+  }
+  
+  .detail-group span {
+    font-weight: 500;
+    color: #555;
+    text-align: right;
+  }
+  
+  /* Status badge */
+  .status-label {
+    display: inline-block;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 40px;
+    text-align: center;
+    min-width: 90px;
+    text-transform: uppercase;
+    border: none;
+    margin: 6px 0;
+  }
+  
+  .valid {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #c8e6c9;
+  }
+  
+  .expired {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ffcdd2;
+  }
+  
+  /* Back Button */
+  .back-button-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 16px;
+    margin: 32px auto 20px;
+    max-width: 800px; /* match the container width */
+  }
+  
+  .back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #6c63ff;
+    color: #ffffff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .back-button:hover {
+    background-color: #544fd9;
+    transform: translateY(-1px);
+  }
+  
+  .back-button i {
+    font-size: 1rem;
+  }
+  
+
+  /* Order Form */
+  .central-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 16px;
+  }
+  
+  .order-form {
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding: 25px 30px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    background: #f0f0f0;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .tabs button.active {
+    background-color: #6c63ff;
+    color: #fff;
+  }
+  
+
+  
+  .item-card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 12px 16px;
+    background-color: #fdfdfd;
+    transition: box-shadow 0.2s ease;
+  }
+  
+  .item-card:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+  }
+  
+  .item-card label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .item-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 10px;
+  }
+  
+  .item-name {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .item-price {
+    font-weight: 600;
+    color: #28a745;
+  }
+  
+  /* Submit Button */
+  .submit-order-button {
+    margin-top: 25px;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .submit-order-button:hover {
+    background-color: #218838;
+  }
+  
+  /* Expired Message */
+  .expired-warning {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 16px;
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-radius: 10px;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 600px) {
+    .detail-group {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .item-info {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .tabs {
+      flex-direction: column;
+    }
+  
+    .submit-order-button {
+      font-size: 0.95rem;
+    }
+  }
+  .checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+}
+
+/* reciept section */
+.receipt-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .receipt {
+    background: white;
+    padding: 24px 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .receipt h2 {
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .receipt p {
+    margin: 6px 0;
+    color: #444;
+    font-size: 0.95rem;
+  }
+  
+  .receipt ul {
+    padding-left: 18px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+  }
+  
+  .receipt-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .receipt-actions button {
+    padding: 8px 14px;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .receipt-actions button:hover {
+    background-color: #544fd9;
+  }
+  @media print {
+    /* Hide everything globally */
+    body * {
+      visibility: hidden !important;
+      box-shadow: none !important;
+    }
+  
+    /* Only show receipt container */
+    .receipt,
+    .receipt * {
+      visibility: visible !important;
+    }
+  
+    /* Override layout for print */
+    .receipt {
+      position: absolute !important;
+      top: 0;
+      left: 0;
+      width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 30px !important;
+      background: white !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+  
+    /* Remove buttons section */
+    .receipt-actions {
+      display: none !important;
+    }
+  
+    /* Optional: remove page header/footer */
+    @page {
+      margin: 0;
+    }
+  
+    /* Optional: Remove body background color if any */
+    body {
+      background: white !important;
+    }
+  }
+
+  /* Product card */
+
+  .product-card {
+    width: 160px;
+    height: 200px;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .product-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .product-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+  }
+  
+  .product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .card-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+  
+  

@@ -1,0 +1,61 @@
+<div class="wrapper">
+
+    <div class="coupon-header">
+        <h1 class="coupon-title">All Permissions</h1>
+        <button (click)="navigateToCreatePermission()" class="add-provider-btn">Add Permission</button>
+    </div>
+
+    <div class="category-badges">
+        <ul class="badge-list">
+            <li class="badge blue">Total Roles:</li>
+            <li class="badge orange">Total Users:</li>
+        </ul>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="coupon-table">
+            <thead>
+                <th>Role Name</th>
+                <th>Permission Type</th>
+                <th>status</th>
+                <th><button class="btn-delete">Actions</button></th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Manager</td>
+                    <td> Full Control</td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" class="sr-only" />
+                            <div class="slider"></div>
+                            <span class="dot"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <div class="btn-img">
+                            <img src="edit-pic.png" alt="edit" class="icon">
+                            <img src="biin.png" alt="delete" class="icon">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="pagination-wrapper">
+            <div class="pagination-buttons">
+                <button class="arrow-button">
+                    <img src="Image/left-arrow.svg" alt="arrow left" /> Previous
+                </button>
+
+                <button class="pagination-button active">1</button>
+                <button class="pagination-button">2</button>
+                <button class="pagination-button">3</button>
+                <button class="pagination-button">4</button>
+
+                <button class="arrow-button">
+                    Next <img src="Image/right-arrow.svg" alt="arrow right" />
+                </button>
+            </div>
+        </div>
+
+    </div>

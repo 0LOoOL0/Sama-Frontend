@@ -1,0 +1,230 @@
+.wrapper {
+    margin-left: 230px;
+    padding: 1.5rem;
+    background-color: #f9fafb;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Header Section */
+.coupon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.coupon-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #5E17EB;
+    text-align: left;
+}
+
+.add-provider-btn {
+    background-color: #ef4444;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background 0.3s;
+}
+
+.add-provider-btn:hover {
+    background-color: #dc2626;
+}
+
+/* Badges */
+.badge-list {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    list-style: none;
+    padding: 0;
+}
+
+.badge {
+    display: inline-block;
+    border-radius: 9999px;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+.blue {
+    background-color: #3b82f6;
+}
+
+.orange {
+    background-color: #fb923c;
+}
+
+/* Table Section */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.coupon-table {
+    width: 100%;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    table-layout: auto;
+}
+
+.coupon-table thead {
+    background-color: #5E17EB;
+    color: white;
+    text-align: center;
+    padding: 24px;
+}
+
+.coupon-table thead tr th {
+    background-color: #5E17EB;
+    color: white;
+    text-align: center;
+    padding: 24px;
+}
+
+.coupon-table th,
+.coupon-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-top: 1px solid #D1D5DB;
+}
+
+.coupon-table tbody tr:hover {
+    background-color: #F9FAFB;
+}
+
+.header-profile {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    margin: 0 0 0 0px;
+    color: black;
+
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-content h2 {
+    padding: 0 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #5E17EB;
+}
+
+.btn-img {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.btn-img .icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.slider {
+    width: 2.6rem;
+    height: 1.25rem;
+    background-color: #ef4444;
+    border-radius: 9999px;
+    transition: background-color 0.3s;
+}
+
+input:checked+.slider {
+    background-color: #22c55e;
+}
+
+.dot {
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: white;
+    border-radius: 1rem;
+    transition: transform 0.3s;
+}
+
+input:checked+.slider+.dot {
+    transform: translateX(1.35rem);
+    background-color: #bbf7d0;
+}
+
+/* Pagination */
+.pagination-wrapper {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pagination-buttons {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 1.25rem;
+}
+
+.pagination-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pagination-button.active {
+    background-color: #5E17EB;
+    color: white;
+}
+
+.pagination-button:not(.active):hover {
+    background-color: #5E17EB;
+    color: white;
+}
+
+.arrow-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #5E17EB;
+    font-size: 0.75rem;
+    font-weight: 400;
+    transition: color 0.5s;
+}
+
+.arrow-button:hover {
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .coupon-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .badge-list {
+        flex-direction: column;
+    }
+
+    .pagination-buttons {
+        justify-content: center;
+    }
+}

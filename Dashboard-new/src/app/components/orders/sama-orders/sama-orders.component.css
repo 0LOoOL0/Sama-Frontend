@@ -1,0 +1,243 @@
+.wrapper {
+    margin-left: 230px;
+    padding: 1.5rem;
+    background-color: #f9fafb;
+    min-height: 100vh;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Heading */
+.heading {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #5e17eb;
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+/* Tab Buttons */
+.tabContent-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.25rem;
+}
+
+.tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 2.5rem;
+}
+
+.tab-button {
+    width: 260px;
+    height: 90px;
+    padding: 0.75rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab-button-pending {
+    background-color: #f8cec7;
+}
+
+.tab-button-paid {
+    background-color: #71dd37;
+}
+
+.tab-button-done {
+    background-color: #a7a6fe;
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2rem auto;
+}
+
+.filter {
+    width: 25%;
+    min-width: 150px;
+}
+
+.filter-label {
+    font-size: 15px;
+    color: #232323;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.filter-input {
+    border: 1px solid #ced1d5;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    background-color: white;
+}
+
+.input-date {
+    width: 100%;
+    font-size: 0.875rem;
+    color: #718ebf;
+    font-weight: 400;
+    outline: none;
+}
+
+.input-date:focus {
+    border-color: #5f5f5f;
+    box-shadow: 0 0 0 2px rgba(94, 23, 235, 0.5);
+}
+
+/* Action Buttons */
+.tabContent-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.action-button {
+    width: 150px;
+    padding: 0.5rem;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-field {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 16rem;
+}
+
+.search-input {
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    width: 16rem;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+}
+
+.search-input:focus {
+    border-color: #5f5f5f;
+    box-shadow: 0 0 0 2px rgba(94, 23, 235, 0.5);
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+    height: 1rem;
+    pointer-events: none;
+}
+
+/* Table */
+.order-table {
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-collapse: collapse;
+}
+
+.table-header {
+    background-color: #5e16ea;
+    color: white;
+}
+
+.table-column,
+.table-checkbox {
+    padding: 1rem;
+    text-align: left;
+}
+
+.table-row:hover {
+    background-color: #f9fafb;
+}
+
+
+/* Pagination */
+.pagination-wrapper {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pagination-buttons {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 1.25rem;
+}
+
+.pagination-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pagination-button.active {
+    background-color: #5E17EB;
+    color: white;
+}
+
+.pagination-button:not(.active):hover {
+    background-color: #5E17EB;
+    color: white;
+}
+
+.arrow-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #5E17EB;
+    font-size: 0.75rem;
+    font-weight: 400;
+    transition: color 0.5s;
+}
+
+.arrow-button:hover {
+    color: black;
+}
+
+
+.no-data {
+    text-align: center;
+    padding: 1rem;
+    color: #6b7280;
+}

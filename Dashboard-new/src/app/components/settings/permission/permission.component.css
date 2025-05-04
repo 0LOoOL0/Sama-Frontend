@@ -1,0 +1,379 @@
+.wrapper {
+    margin-left: 230px;
+    padding: 1.5rem;
+    background-color: #f9fafb;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.coupon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 5rem;
+}
+
+.coupon-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #5E17EB;
+    text-align: left;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.head-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.role-input {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    width: 40%;
+    height: 3rem;
+}
+
+.section-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    width: 49%;
+}
+
+.section-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    align-items: flex-start;
+}
+
+.head-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    text-align: center;
+}
+
+.no-title {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #9B111E;
+    text-align: center;
+}
+
+.no-div {
+    margin-top: 6rem;
+}
+
+.checkboxtext {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.checkbox-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    margin-top: 1.5rem;
+}
+
+.checkbox-grid label {
+    width: calc(50% - 1rem);
+    /* two per row with gap */
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.checkbox {
+    margin-right: 0.5rem;
+}
+
+.checkboxtext {
+    white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+    .checkbox-grid label {
+        width: 100%;
+    }
+}
+
+.sub-section {
+    margin-top: 2rem;
+    background-color: #d1d5db;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.add-role-button {
+    background-color: #3b82f6;
+    color: #ffffff;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-role-button:hover {
+    background-color: #2563eb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .wrapper {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .coupon-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .section-container {
+        max-width: 100%;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .add-role-button {
+        width: 100%;
+    }
+}
+
+.wrapper {
+    margin-left: 230px;
+    padding: 1.5rem;
+    background-color: #f9fafb;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+    transition: margin-left 0.3s ease;
+}
+
+/* Responsive Margin for Sidebar Collapsing on Smaller Screens */
+@media (max-width: 1024px) {
+    .wrapper {
+        margin-left: 0;
+    }
+}
+
+.coupon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 5rem;
+    flex-wrap: wrap;
+}
+
+.coupon-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #5E17EB;
+    text-align: left;
+    flex: 1 1 auto;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.head-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.role-input {
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1.3rem;
+    height: 3rem;
+    width: 40%;
+    min-width: 250px;
+}
+
+.add-role-button {
+    background-color: #D7B37E;
+    color: #3A3A3A;
+    border: none;
+    padding: 0.5rem 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.add-role-button:hover {
+    background-color: #2563eb;
+}
+
+.section-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    align-items: last baseline;
+    justify-content: space-between;
+}
+
+.section-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    width: 49%;
+    flex: 1 1 49%;
+    box-sizing: border-box;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.checkbox {
+    height: 1.2rem;
+    width: 1.2rem;
+    accent-color: #D7B37E;
+    margin-right: 10px;
+}
+
+.toggle-button {
+    padding: 6px 12px;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.toggle-button {
+    background-color: #F0ECEF;
+    color: #3A3A3A;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+    background-color: #D7B37E;
+    color: #3A3A3A;
+}
+
+.checkbox-grid.hidden {
+    display: none;
+}
+
+
+/* Search field styling */
+.search-wrapper {
+    width: 20%;
+    min-width: 200px;
+}
+
+.search-input-wrapper {
+    position: relative;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    border: 1px solid #D1D5DB;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 0.8rem;
+    transform: translateY(-50%);
+    height: 16px;
+    width: 16px;
+    pointer-events: none;
+}
+
+/* Tablet View */
+@media (max-width: 900px) {
+    .section-container {
+        width: 100%;
+    }
+
+    .role-input {
+        width: 100%;
+    }
+}
+
+
+/* Small Devices */
+@media (max-width: 600px) {
+    .coupon-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .add-role-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .role-input {
+        width: 100%;
+    }
+
+    .section-title,
+    .head-title {
+        font-size: 1.25rem;
+        text-align: center;
+    }
+}

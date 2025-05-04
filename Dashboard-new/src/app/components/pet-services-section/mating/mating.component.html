@@ -1,0 +1,92 @@
+<div class="adoption">
+    <div class="adoption-left">
+
+
+        <div class="pet-total">
+            <table>
+                <tr>
+                    <td> Total No: {{ pets.length }} </td>
+                    <td> Total Mate: {{ pets.length }} </td>
+                    <td> Total Mating: {{ pets.length }} </td>
+                </tr>
+            </table>
+        </div>
+        <div class="pet-details">
+            <div class="pet-description">
+                <ul *ngFor="let pet of displayedPets">
+                    <li><img [src]="pet.image || 'Image/cat.png'" alt="pet image"></li>
+                    <li>
+                        <h2>{{ pet.name }}</h2>
+                    </li>
+                    <li>
+                        <h2>Date Mate</h2>
+                    </li>
+                    <li>{{ pet.dateMate ? (pet.dateMate | date:'yyyy-MM-dd') : '-' }}</li>
+                </ul>
+            </div>
+        </div>
+        <!-- <div class="center">
+        <button class="btn-action" (click)="togglePets()">
+            {{ showMore ? 'See less' : 'See more' }}
+        </button>
+    </div> -->
+    </div>
+
+    <div class="adoption-right">
+        <div class="pet-table-detail">
+            <div class="filtering">
+                <div class="filters">
+                    <ul>
+                        <li>
+                            <label for="">From:</label>
+                            <input type="date">
+                        </li>
+                        <li>
+                            <label for="">To:</label>
+                            <input type="date">
+                        </li>
+                        <li>
+                            <label for="">Pet Type:</label>
+                            <select name="type" id="">
+                                <option value="1">Cat</option>
+                                <option value="1">Dog</option>
+                                <option value="1">Bird</option>
+                            </select>
+                        </li>
+                    </ul>
+                </div>
+                <!-- <div class="btn-filter">
+                    <button>Filter</button>
+                    <button>Clear</button>
+                </div> -->
+            </div>
+            <div class="pet-table">
+                <table>
+                    <tr>
+                        <th> Pet picture </th>
+                        <th> Name </th>
+                        <th> Type </th>
+                        <th> Created Date</th>
+                        <th> Date Mate </th>
+                        <!-- <th> Owner Name </th>
+                        <th> Contact Number </th> -->
+
+                    </tr>
+                    <tr *ngFor="let pet of pets">
+                        <td><img [src]="pet.image || 'Image/cat.png'" alt="pet image"
+                                style="width:50px; height:50px; object-fit:cover;"></td>
+                        <td>{{ pet.name }}</td>
+                        <td>{{ pet.pet_type || '-' }}</td>
+                        <td>{{ pet.created_at | date:'yyyy-MM-dd' }}</td>
+                        <td>{{ pet.dateMate ? (pet.dateMate | date:'yyyy-MM-dd') : '-' }}</td>
+                        <td><!-- Owner Name if available --></td>
+                        <td><!-- Customer Name if available --></td>
+                        <td><!-- Contact Number if available --></td>
+                        <td><!-- Email if available --></td>
+                        <td><!-- In Out if available --></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

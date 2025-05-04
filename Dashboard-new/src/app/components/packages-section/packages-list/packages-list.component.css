@@ -1,0 +1,354 @@
+.wrapper {
+    margin-left: 230px;
+    padding: 1.5rem;
+    background-color: #f9fafb;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+/* Header Section */
+.coupon-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.coupon-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #5E17EB;
+    text-align: left;
+}
+
+.add-provider-btn {
+    background-color: #ef4444;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background 0.3s;
+}
+  
+.add-provider-btn:hover {
+    background-color: #dc2626;
+}
+/* Table Section */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.coupon-table {
+    width: 100%;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    table-layout: auto;
+}
+
+.coupon-table thead {
+    background-color: #5E17EB;
+    color: white;
+    text-align: center;
+    padding: 24px;
+}
+.coupon-table thead tr th{
+    background-color: #5E17EB;
+    color: white;
+    text-align: center;
+    padding: 24px;
+}
+.coupon-table th,
+.coupon-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-top: 1px solid #D1D5DB;
+}
+
+.coupon-table tbody tr:hover {
+    background-color: #F9FAFB;
+}
+.header-profile {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    margin: 0 0 0 0px;
+    color: black;
+       
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-content h2 {
+    padding: 0 20px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #5E17EB;
+}
+
+.profile-search {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profile-search input {
+    border-radius: 20px;
+    border: 1px solid gray;
+    /* margin: 0 20px; */
+    padding: 5px 30px;
+}
+
+.search-container {
+    position: relative;
+    width: 300px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 120px 10px 10px 40px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    font-size: 16px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+
+.button-container {
+    margin-left: 20px;
+    
+}
+
+.button-container img {
+    height:40px;
+    border-radius: 50px;
+    padding: 2px;
+    background-color: rgb(235, 235, 235);
+}
+
+.button-container ul {
+    list-style-type: none;
+    display: flex;
+    text-align: center;
+}
+
+.button-container li {
+    margin: 0 10px;
+}
+
+.all-packages {
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    text-align: end;
+}
+
+.add-btn { 
+    background-color: #5E17EB;
+    padding: 10px 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.add-btn:hover {
+    background-color: #4c12be;
+    
+}
+
+.package-types {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.package-content {
+    background-color: #5E17EB;
+    width: 300px;
+    height: auto;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.package-content h1 {
+    font-weight:100;
+    font-size: 20px;
+}
+
+.package-content h2 {
+    font-weight:200;
+    font-size: 30px;
+}
+
+.package-content button {
+    background-color: white;
+    padding: 5px 10px;
+    margin-top: auto;
+    margin-top: 50px;
+    border-radius: 15px;
+    width: 90%;
+    color: black;
+    align-self: center;
+}
+
+.package-content button:hover {
+    background-color: rgb(241, 241, 241);
+}
+
+
+
+.packages-table {
+    width: 100%;
+    margin: 20px auto; 
+    text-align: center;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.packages-table th {
+    background-color: #5E17EB;
+    padding: 10px 0;
+    font-weight: 400;
+}
+
+.packages-table td {
+    background-color: rgb(250, 250, 250);
+    font-weight: 200;
+    color: black;
+    padding: 10px 0;
+}
+
+.packages-table tr:hover td {
+    background-color: rgb(241, 241, 241);
+}
+
+.action-btn {
+    display: flex;
+    justify-content: center;
+    gap:40px;
+}
+
+.action-btn {
+    height: 20px;
+}
+
+
+.navigation {
+    padding-top: 40px;
+    list-style-type: none;
+    display: flex;
+    justify-content: end;
+}
+
+.navigation li {
+    
+    color: #5E17EB;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.navigation li:hover {
+    
+    background-color: #5E17EB;
+    color: white;
+    cursor: pointer;
+}
+.switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .slider {
+    width: 2.6rem;
+    height: 1.25rem;
+    background-color: #ef4444;
+    border-radius: 9999px;
+    transition: background-color 0.3s;
+  }
+  
+  input:checked+.slider {
+    background-color: #22c55e;
+  }
+  
+  .dot {
+    position: absolute;
+    top: 0.25rem;
+    left: 0.25rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    background-color: white;
+    border-radius: 1rem;
+    transition: transform 0.3s;
+  }
+  
+  input:checked+.slider+.dot {
+    transform: translateX(1.35rem);
+    background-color: #bbf7d0;
+  }
+/* Pagination */
+.pagination-wrapper {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pagination-buttons {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 1.25rem;
+}
+
+.pagination-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pagination-button.active {
+    background-color: #5E17EB;
+    color: white;
+}
+
+.pagination-button:not(.active):hover {
+    background-color: #5E17EB;
+    color: white;
+}
+
+.arrow-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #5E17EB;
+    font-size: 0.75rem;
+    font-weight: 400;
+    transition: color 0.5s;
+}
+
+.arrow-button:hover {
+    color: black;
+}

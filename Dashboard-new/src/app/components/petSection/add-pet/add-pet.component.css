@@ -1,0 +1,309 @@
+input {
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  margin-left: 10px;
+  padding: 5px;
+}
+.wrapper {
+  margin-left: 230px;
+  padding: 1.5rem;
+  background-color: #f9fafb;
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+textarea {
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  height: 100px;
+  width: 100%;
+  margin-left: 10px;
+  padding: 5px;
+  resize: none;
+}
+
+select {
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  height: 40px;
+  width: 100%;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.buttons {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.buttons-line {
+  text-align: right;
+}
+
+
+
+button {
+  border-radius: 10px;
+  padding: 15px;
+  width: 200px;
+  color: white;
+  margin: 15px;
+}
+
+.centering {
+  width: 400px;
+}
+
+.pet-profile-container {
+  width: 90em;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  margin: 0 20px;
+}
+
+/* pet owner */
+.pet-owner-detail {
+  background-color: #5E17EB;
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.pet-owner-detail img {
+  height: 100px;
+  border-radius: 100px;
+  border: 1px solid #5E17EB;
+}
+
+.pet-owner-detail table {
+  border-collapse: separate;
+  border-spacing: 20px;
+}
+
+.pet-owner-detail label {
+  padding-left: 10px;
+}
+
+
+h1 {
+  font-weight: bold;
+}
+
+
+/*Pets details*/
+
+.pet-detail img {
+  margin-top: 40px;
+  height: 150px;
+  border-radius: 100px;
+}
+
+.pet-detail {
+  background-color: #eeeeee;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.pet-inputs table {
+  border-collapse: separate;
+  border-spacing: 10px;
+  width: 100%;
+}
+
+.pet-inputs label {
+  margin-left: 10px;
+}
+
+.nospace {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px
+}
+
+
+/*Membership*/
+
+.membership-detail {
+  background-color: #eeeeee;
+  border-radius: 20px;
+  padding: 25px 10px;
+}
+
+.container {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px
+}
+
+
+.membership-inputs {
+  margin-top: 20px;
+}
+.membership-inputs table {
+  width: 100%;
+}
+
+
+
+.membership-inputs label {
+  margin-bottom: 5px;
+  display: block;
+  padding-left: 10px;
+}
+
+.membership-inputs input {
+  background-color: transparent;
+  color: #8aa4cc;
+}
+
+.membership-inputs table {
+  border-collapse: separate;
+  border-spacing: 10px;
+}
+
+.membership-inputs select {
+  background-color: transparent;
+  color: #8aa4cc;
+}
+
+.circle {
+  width: 50px;          
+  height: 50px;         
+  background-color: rgb(0, 255, 0);
+  border-radius: 50%;  
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.pet-activity {
+  background-color: #eeeeee;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.pet-activity button {
+  text-align: left;
+  font-size: 20px;
+}
+
+
+
+/* pet document */
+.pet-document {
+  border-radius: 20px;
+  padding: 30px;
+  margin: 20px 0;
+}
+
+.pet-document label {
+  margin-right: 20px;
+}
+
+
+.file-upload-container {
+ display: flex;
+}
+
+
+.file-upload-container input {
+  margin: 15px 0;
+  width: 300px ;
+  border-radius: 30px;
+  height: 40px;
+  
+}
+
+
+.btn-file{
+  background-color: #5E17EB;
+  color: white;
+  padding: 10px;
+  border-radius: 40px;
+  text-align: center;
+  width: 130px;
+}
+
+.text-file {
+  width: 600px;
+  background-color: #eeeeee;
+  height: 40px;
+  border-radius: 20px;
+  padding-left: 20px;
+}
+
+.btn-action {
+  padding-top: 5px;
+  display: flex;
+}
+
+
+.btn-action img{
+  margin: 10px 10px;
+  border-radius: 50px;
+  height: 30px;
+  width: auto;
+  padding: 2px;;
+}
+
+/* table discount */
+
+.filter-date{
+  display: flex;
+  gap: 30px;
+  font-weight: 400;
+}
+
+.filter-date label{
+  margin-left: 10px;
+}
+
+.btn-filter {
+  background-color: #5E17EB;
+  text-align: center;
+  width: 80px;
+  height: 60px;
+}
+
+.discount-table {
+  text-align: center;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.discount-table th {
+  background-color: #5E17EB;
+  padding: 10px 0;
+  font-weight: 400;
+  color: white;
+  height: 60px;
+}
+
+.discount-table td {
+  font-weight: 200;
+  color: black;
+  padding: 10px 0;
+}
+
+.discount-table td img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: 50px;
+  border-radius: 5px;
+}

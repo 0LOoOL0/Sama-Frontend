@@ -1,0 +1,295 @@
+/* General Page Styles
+body {
+  background: linear-gradient(to bottom right, #f9fafb, #e3e9f4);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+} */
+.wrapper {
+  margin-left: 230px;
+  padding: 1.5rem;
+  background-color: #f9fafb;
+  height: 100vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #7c3aed;
+  margin-bottom: 6rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* Section Containers */
+.section-container {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 1.25rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Make these span full width */
+.full-width {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+}
+
+/* For side-by-side section cards */
+.grid-item {
+  flex: 1 1 calc(50% - 0.75rem); /* Two per row with gap */
+  min-width: 300px;
+  box-sizing: border-box;
+}
+
+/* Section Row Layout */
+.section-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  align-items: flex-start;
+}
+
+/* Section Headers */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Grid Cards */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.25rem;
+}
+
+/* Cards */
+.dashboard-card,
+.status-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard-card:hover,
+.status-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-card span,
+.status-card span {
+  color: #6b7280;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.dashboard-card strong,
+.status-card strong {
+  color: #7c3aed;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.card-subtext {
+  font-size: 17px;
+  color: #444950;
+  margin-top: 0.25rem;
+}
+
+
+/* Toggle Button */
+.toggle-btn {
+  background-color: #f3f4f6;
+  color: #4f46e5;
+  font-size: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.07);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: #e0e7ff;
+  transform: scale(1.1);
+}
+
+/* Action Buttons */
+.btn-action {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-action:hover {
+  transform: translateY(-2px);
+}
+
+.btn-action.bg-purple-600 { background-color: #7c3aed; }
+.btn-action.bg-pink-600 { background-color: #ec4899; }
+.btn-action.bg-blue-600 { background-color: #3b82f6; }
+
+.btn-action.bg-purple-600:hover { background-color: #5b21b6; }
+.btn-action.bg-pink-600:hover { background-color: #be185d; }
+.btn-action.bg-blue-600:hover { background-color: #2563eb; }
+
+/* --- THEMED CARD BACKGROUNDS & TEXT --- */
+
+/* Sales Overview Cards */
+.dashboard-card:nth-child(1) {
+  background-color: #e4fec7; /* Light yellow */
+  color: #92400e;
+}
+.dashboard-card:nth-child(2) {
+  background-color: #e0f2fe; /* Light blue */
+  color: #0369a1;
+}
+.dashboard-card:nth-child(3) {
+  background-color: #ede9fe; /* Light indigo */
+  color: #5b21b6;
+}
+.dashboard-card:nth-child(4) {
+  background-color: #ffc0e39c; /* Light pink */
+  color: #be185d;
+}
+
+/* Users & Pets Cards */
+.dashboard-card:nth-child(1 of .dashboard-grid) {
+  background-color: #dcfce7; /* Light green */
+  color: #166534;
+}
+.dashboard-card:nth-child(2 of .dashboard-grid) {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+.dashboard-card:nth-child(3 of .dashboard-grid) {
+  background-color: #fef9c3;
+  color: #a16207;
+}
+
+/* Membership Status Cards */
+.status-card.bg-yellow-100 {
+  background-color: #fef9c3;
+  color: #a16207;
+}
+.status-card.bg-green-100 {
+  background-color: #dcfce7;
+  color: #166534;
+}
+.status-card.bg-blue-100 {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+.status-card.bg-red-100 {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* Orders */
+.status-card.bg-yellow-50 {
+  background-color: #fef9c3;
+  color: #a16207;
+}
+.status-card.bg-blue-50 {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+}
+.status-card.bg-purple-50 {
+  background-color: #f5f3ff;
+  color: #6b21a8;
+}
+.status-card.bg-red-50 {
+  background-color: #fef2f2;
+  color: #b91c1c;
+}
+
+/* Collars */
+.status-card.bg-indigo-50 {
+  background-color: #eef2ff;
+  color: #4338ca;
+}
+
+/* Adoptions */
+.status-card.bg-pink-200 {
+  background-color: #fef9c3;
+  color: #a16207;
+}
+.status-card.bg-pink-100 {
+  background-color: #ede9fe;
+  color: #6b21a8;
+}
+.status-card.bg-yellow-200 {
+  background-color: #ede9fe;
+  color: #6b21a8;
+}
+.status-card.bg-red-200 {
+  background-color: #ede9fe;
+  color: #6b21a8;
+}
+
+/* Providers */
+.status-card.bg-blue-50 {
+  background-color: #dbeafe;
+  color: #1e40af;
+}
+.status-card.bg-green-50 {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+.status-card.bg-red-50 {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+.status-card.bg-purple-100 {
+  background-color: #ede9fe;
+  color: #6b21a8;
+}
+
+/* Custom Section Backgrounds */
+.section-color-1 { background-color: #c9c2ef; }   /* Memberships */
+.section-color-2 { background-color: #91edc05c; }   /* Order Insights */
+.section-color-3 { background-color: #f9cdcd; }   /* Collars */
+.section-color-4 { background-color: #3ec84459; }   /* Providers */
+.section-color-5 { background-color: #b0c5ff; }   /* Adoption */
+.section-color-6 { background-color: #ff2b3b6e; }   /* Lost Pets */
+.section-color-7 { background-color: #459db559; }   /* Pets for Sale */
+.section-color-8 { background-color: #f55dff75; }   /* Mating Requests */

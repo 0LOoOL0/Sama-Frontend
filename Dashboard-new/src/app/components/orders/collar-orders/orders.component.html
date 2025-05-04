@@ -1,0 +1,127 @@
+<div class="wrapper">
+    <div class="overflow-x-auto">
+        <div class="flex flex-col gap-2">
+            <h1 class="section-heading">Collar Orders List</h1>
+        </div>
+
+        <div class="tabContent">
+            <!-- Tab Buttons -->
+            <div class="tab-buttons">
+                <button data-tab="Pending" class="tab-button pending">Pending No.</button>
+                <button data-tab="Paid" class="tab-button paid">Active No.</button>
+                <button data-tab="Done" class="tab-button done">Done No.</button>
+            </div>
+        </div>
+
+        <div class="w-3/4 mx-auto flex flex-wrap gap-4 items-end justify-between">
+            <!-- Filter From -->
+            <div class="w-1/4 min-w-[150px]">
+                <div class="fillterCard">
+                    <label>Filter From:</label>
+                    <div>
+                        <input id="from-date" type="date" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter To -->
+            <div class="w-1/4 min-w-[150px]">
+                <div class="fillterCard">
+                    <label>To:</label>
+                    <div>
+                        <input id="to-date" type="date" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Status -->
+            <div class="w-1/4 min-w-[150px]">
+                <div class="fillterCard">
+                    <label>Status:</label>
+                    <div>
+                        <select>
+                            <option value="#">Member</option>
+                            <option value="#">Free Trial</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabContentSearch flex items-center justify-between my-8">
+            <!-- Secondary Buttons -->
+            <div class="secondary-buttons flex gap-2">
+                <button data-tab="Dashboard" class="secondary-button">Dashboard</button>
+                <button data-tab="Export" class="secondary-button">Export</button>
+            </div>
+
+            <!-- Search Field -->
+            <div class="search-wrapper relative flex items-center">
+                <input type="text" placeholder="Search by Owner Name..." class="search-input pr-10" />
+                <img src="Image/search.png" alt="Search Icon"
+                    class="search-icon absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4" />
+            </div>
+        </div>
+
+
+        <!-- Table -->
+        <div class="table-wrapper">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>First Issue Date</th>
+                        <th>Issue Date</th>
+                        <th>Owner Name</th>
+                        <th>Pet Type</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Process</th>
+                        <th>Collar Code</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let collar of filteredCollars">
+                        <td>{{ collar.created_at | date: 'shortDate' }}</td>
+                        <td>{{ collar.updated_at | date: 'shortDate' }}</td>
+                        <td>{{ collar.pet.pet_owner.first_name }} {{ collar.pet.pet_owner.last_name }}</td>
+                        <td>{{ collar.pet.pet_type }}</td>
+                        <td>{{ collar.pet.pet_owner.phone }}</td>
+                        <td>{{ collar.pet.pet_owner.email }}</td>
+                        <td>{{ collar.product ? collar.product.name : 'N/A' }}</td>
+                        <td>{{ collar.pet.is_vaccinated ? 'Vaccinated' : 'Not Vaccinated' }}</td>
+                        <td>Pending</td>
+                        <td>{{ collar.url }}</td>
+                        <td>
+                            <div class="table-action-icons">
+                                <img src="biin.png" alt="Delete" />
+                                <img src="edit-pic.png" alt="Edit" />
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-wrapper">
+            <div class="pagination-buttons">
+                <button class="arrow-button">
+                    <img src="Image/left-arrow.svg" alt="arrow left" /> Previous
+                </button>
+
+                <button class="pagination-button active">1</button>
+                <button class="pagination-button">2</button>
+                <button class="pagination-button">3</button>
+                <button class="pagination-button">4</button>
+
+                <button class="arrow-button">
+                    Next <img src="Image/right-arrow.svg" alt="arrow right" />
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

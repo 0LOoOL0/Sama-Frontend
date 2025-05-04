@@ -1,0 +1,200 @@
+import { Routes } from '@angular/router';
+import { ProviderComponent } from './components/provider-section/provider/provider.component';
+import { ProviderGallaryComponent } from './components/provider-section/provider-gallary/provider-gallary.component';
+import { ProviderServiceComponent } from './components/provider-section/provider-service/provider-service.component';
+import { ProviderProductComponent } from './components/provider-section/provider-product/provider-product.component';
+import { ProviderDoctorComponent } from './components/provider-section/provider-doctor/provider-doctor.component';
+import { ProviderCategoryComponent } from './components/provider-section/provider-category/provider-category.component';
+import { AllProviderListComponent } from './components/provider-section/all-provider-list/all-provider-list.component';
+import { ProviderAddDoctorComponent } from './components/provider-section/provider-add-doctor/provider-add-doctor.component';
+import { AddNewOwnerComponent } from './components/petSection/add-new-owner/add-new-owner.component';
+import { MemberShipComponent } from './components/petSection/member-ship/member-ship.component';
+import { DiscountUsageComponent } from './components/petSection/discount-usage/discount-usage.component';
+import { OtherComponent } from './components/petSection/other/other.component';
+import { HistoryComponent } from './components/petSection/history/history.component';
+import { PetOwnerListComponent } from './components/petSection/pet-owner-list/pet-owner-list.component';
+import { AddPetComponent } from './components/petSection/add-pet/add-pet.component';
+import { PackagesListComponent } from './components/packages-section/packages-list/packages-list.component';
+import { PackagesCreateComponent } from './components/packages-section/packages-create/packages-create.component';
+import { OwnerProfileComponent } from './components/petSection/owner-profile/owner-profile.component';
+import { AllSuppliersComponent } from './components/supplier-section/all-suppliers/all-suppliers.component'; // for supplier section / all supplier
+import { CreateSupplierComponent } from './components/supplier-section/create-supplier/create-supplier.component'; // for supplier section / create supplier
+import { CreateOrderComponent } from './components/supplier-section/create-order/create-order.component'; // for supplier section / create order 
+import { CreateProductComponent } from './components/supplier-section/create-product/create-product.component'; // for supplier section / create product
+import { OrdersComponent } from './components/orders/collar-orders/orders.component';
+import { SamaOrdersComponent } from './components/orders/sama-orders/sama-orders.component';
+import { SamaProductsComponent } from './components/orders/sama-products/sama-products.component';
+import { CouponListComponent } from './components/provider-section/provider-coupon/coupon-list/coupon-list.component';
+import { OrderInfoComponent } from './components/orders/order-info/order-info.component';
+import { CustomerOrdersComponent } from './components/orders/cust-orders/cust-orders.component';
+import { PetNavigationComponent } from './components/pet-services-section/pet-navigation/pet-navigation.component'; // for pet service section
+import { AdoptionComponent } from './components/pet-services-section/adoption/adoption.component'; // for pet service section adoption
+import { MatingComponent } from './components/pet-services-section/mating/mating.component'; // for pet service section mating
+import { LostComponent } from './components/pet-services-section/lost/lost.component'; // for pet service section lost
+import { SellComponent } from './components/pet-services-section/sell/sell.component'; // for pet service section sell
+import { CreateInvoiceComponent } from './components/invoice-section/create-invoice/create-invoice.component'; // for invoice section / create invoice 
+import { InvoiceHistoryComponent } from './components/invoice-section/invoice-history/invoice-history.component'; // for invoice section / invoice 
+import { InvoiceComponent } from './components/invoice-section/invoice/invoice.component';
+import { BlogsComponent } from './components/blog-section/blogs/blogs.component'; // for pet blog section / blogs
+import { CouponsComponent } from './components/provider-section/provider-coupon/coupons/coupons.component';
+// import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { CreatePostComponent } from './components/blog-section/create-post/create-post.component'; // for pet blog section / create post
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard/admin-dashboard.component';
+import { ProviderDashboardComponent } from './provider-dashboard/provider-dashboard.component';
+import { PetPolicyDetailsComponent } from './pet-policy-details/pet-policy-details.component';
+import { SalesReportComponent } from './sales-report/sales-report.component';
+import { AllEmailComponent } from './components/settings/all-email/all-email.component';
+import { AllNotificationComponent } from './components/settings/all-notifications/all-notification.component';
+import { EmailComponent } from './components/settings/email/email.component';
+import { AccountComponent } from './components/settings/account/account.component';
+import { NotificationComponent } from './components/settings/notifications/notification.component';
+// import { ProviderProfileComponent } from './components/provider-section/provider-profile/provider-profile.component';
+import { AddNewOwnerProfileComponent } from './components/petSection/add-new-owner-profile/add-new-owner-profile.component';
+import { PermissionComponent } from './components/settings/permission/permission.component';
+import { AllRolesComponent } from './components/settings/all-roles/all-roles.component';
+import { AllUsersComponent } from './components/settings/all-users/all-users.component';
+import { CreateUserComponent } from './components/settings/create-user/create-user.component';
+
+export const routes: Routes = [
+
+  // {path:'',redirectTo:"list-all-provider",pathMatch: 'full'},
+  { path: '', redirectTo: 'admin-dashboard', pathMatch: 'full' },
+
+  {
+    path: 'list-all-provider',
+    component: AllProviderListComponent
+  },
+  {
+    path: 'test',
+    component: AddNewOwnerProfileComponent
+  },
+  {
+
+    path: 'add-new-provider',
+    component: ProviderComponent,
+    children: [
+      { path: '', redirectTo: 'gallary', pathMatch: 'full' }, // Default child route
+      // { path: 'providerprofile', component: ProviderProfileComponent }, // profile component
+      { path: 'gallary', component: ProviderGallaryComponent }, // Gallery component
+      { path: 'service', component: ProviderServiceComponent }, // Service component
+      { path: 'products', component: ProviderProductComponent }, // Products component
+      { path: 'doctors-and-booking', component: ProviderAddDoctorComponent }, // Doctors and Booking component
+      { path: 'category', component: ProviderCategoryComponent }, // Category component
+      { path: 'coupons', component: CouponsComponent }, // Coupon component
+
+    ],
+  },
+  { path: "Docotor-Booking", component: ProviderDoctorComponent },
+
+
+  {
+    path: "add-pet-owner", component: AddNewOwnerComponent, children: [
+      { path: '', redirectTo: 'membership', pathMatch: 'full' }, // Default child route
+      { path: 'membership', component: MemberShipComponent }, // Gallery component
+      { path: 'discountUsage', component: DiscountUsageComponent }, // Service component
+      { path: 'other', component: OtherComponent }, // Products component
+      { path: 'history', component: HistoryComponent }, // Doctors and Booking component
+    ]
+  },
+  { path: "pet-owner-list", component: PetOwnerListComponent },
+  { path: 'admin-dashboard', component: AdminDashboardComponent },
+
+  // i think you specify the compinent namae in import 
+  { path: 'add-pet', component: AddPetComponent },
+  { path: 'owner-profile', component: OwnerProfileComponent },
+
+
+  //packages
+  { path: 'packages-list', component: PackagesListComponent },
+  { path: 'packages-create', component: PackagesCreateComponent },
+
+  { path: 'owner-profile/:id', component: OwnerProfileComponent },
+
+
+
+
+  // Supplier Section
+  { path: 'all-suppliers', component: AllSuppliersComponent },
+  { path: 'create-supplier', component: CreateSupplierComponent },
+  { path: 'create-order', component: CreateOrderComponent },
+  { path: 'create-product', component: CreateProductComponent },
+
+
+  { path: 'orders', component: OrdersComponent },
+  { path: 'sama-orders', component: SamaOrdersComponent },
+  { path: 'sama-products', component: SamaProductsComponent },
+  { path: 'coupon-list', component: CouponListComponent },
+  { path: 'order-info/:id', component: OrderInfoComponent },
+  { path: 'cust-orders/:id', component: CustomerOrdersComponent },
+
+
+  //for pet section: pet navigation:
+  {
+    path: 'view-pet-section',
+    component: PetNavigationComponent,
+    children: [
+      { path: '', redirectTo: 'adoption', pathMatch: 'full' }, // Default child route
+      { path: 'adoption', component: AdoptionComponent },
+      { path: 'mating', component: MatingComponent },
+      { path: 'lost', component: LostComponent },
+      { path: 'sell', component: SellComponent },
+    ],
+  },
+
+  { path: 'create-invoice', component: CreateInvoiceComponent },
+  { path: 'invoice-history', component: InvoiceHistoryComponent },
+  { path: 'invoice', component: InvoiceComponent },
+  { path: 'invoice/:id', component: InvoiceComponent },
+
+
+  //path for blogs pages
+  { path: "all-blogs", component: BlogsComponent },
+  { path: "create-post", component: CreatePostComponent },
+  { path: 'create-post/:id', component: CreatePostComponent },
+
+  //settings
+  { path: "account", component: AccountComponent },
+  { path: "all-notification", component: AllNotificationComponent },
+  { path: "all-email", component: AllEmailComponent },
+  { path: "email", component: EmailComponent },
+  { path: "notification", component: NotificationComponent },
+  { path: "permission", component: PermissionComponent },
+  { path: "all-roles", component: AllRolesComponent },
+  { path: "all-users", component: AllUsersComponent },
+  { path: "create-user", component: CreateUserComponent },
+
+  {
+    path: 'provider-report',
+    loadComponent: () => import('./provider-report/provider-report.component').then(m => m.ProviderReportComponent)
+  },
+
+
+
+  {
+    path: 'coupon-details',
+    loadComponent: () => import('./coupon-details/coupon-details.component').then(m => m.CouponDetailsComponent)
+  },
+
+
+
+  {
+    path: 'promotion-details',
+    loadComponent: () => import('./promotion-details/promotion-details.component').then(m => m.PromotionDetailsComponent)
+  },
+
+
+  { path: 'product-details', loadComponent: () => import('./product-details/product-details.component').then(m => m.ProductDetailsComponent) },
+
+  { path: '', redirectTo: '/provider-dashboard', pathMatch: 'full' },
+  { path: 'provider-dashboard', loadComponent: () => import('./provider-dashboard/provider-dashboard.component').then(m => m.ProviderDashboardComponent) },
+  { path: 'sales-report', component: SalesReportComponent },
+
+  {
+    path: 'pet-policy-details/:policyNumber',
+    component: PetPolicyDetailsComponent
+  },
+
+  { path: 'provider-dashboard', component: ProviderDashboardComponent },
+
+
+];

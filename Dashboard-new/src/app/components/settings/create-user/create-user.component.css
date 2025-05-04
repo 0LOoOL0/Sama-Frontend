@@ -1,0 +1,128 @@
+.wrapper {
+    margin-left: 230px;
+    padding: 1.5rem;
+    background-color: #f9fafb;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.coupon-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.coupon-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #5E17EB;
+    text-align: center;
+}
+
+.create-package-content {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.package-container {
+    background-color: rgb(241, 241, 241);
+    padding: 20px;
+    border-radius: 20px;
+    width: 40em;
+    max-width: 100%;
+}
+
+.create-package-inputs {
+    margin-top: 20px;
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+}
+
+.create-package-inputs li {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.create-package-inputs li input,
+.create-package-inputs li select,
+.create-package-inputs li textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: white;
+}
+
+.create-package-inputs li textarea {
+    resize: none;
+    height: 6em;
+}
+
+.action-btn {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.create-btn,
+.cancel-btn {
+    color: white;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    border: none;
+    cursor: pointer;
+}
+
+.create-btn {
+    background-color: #5E17EB;
+}
+
+.cancel-btn {
+    background-color: #ff0000;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .wrapper {
+        margin-left: 0;
+        padding: 1rem;
+        height: auto;
+    }
+
+    .coupon-title {
+        font-size: 1.5rem;
+    }
+
+    .create-package-content {
+        margin: 10px;
+        padding: 10px;
+    }
+
+    .package-container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .action-btn {
+        gap: 20px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .create-btn,
+    .cancel-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}

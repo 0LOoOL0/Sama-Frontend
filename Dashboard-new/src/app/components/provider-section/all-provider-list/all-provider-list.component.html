@@ -1,0 +1,160 @@
+<span class="loader hidden" id="loader"></span>
+<div class="providers-wrapper">
+  <div class="mainhead w-full flex">
+    <div class="second">
+      <h1 class="heading">Providers List</h1>
+
+      <div class="category-badges">
+        <span *ngFor="let type of typeCounts" class="badge blue" [ngClass]="{
+          'bg-trainer': type.type_en === 'Trainer',
+          'bg-doctor': type.type_en === 'Doctors',
+          'bg-accommodation': type.type_en === 'Accommodation',
+          'bg-school': type.type_en === 'School and Training',
+          'bg-other': type.type_en === 'Other',
+          'bg-vet': type.type_en === 'Vet Clinic',
+          'bg-groomer': type.type_en === 'Groomer',
+          'bg-petshop': type.type_en === 'PetShop',
+        }">
+          {{ type.type_en }} No. {{ type.count }}
+        </span>
+      </div>
+      <div class="status-filters">
+        <span class="badge blue">Application No. {{ applicationCount }}</span>
+        <span class="badge orange">active No. {{ activeCount }}</span>
+        <span class="badge yellow">deactive No. {{ deactiveCount }}</span>
+        <span class="badge green">Approved No. {{ approvedCount }}</span>
+      </div>
+      
+      <!-- <div class="status-filters">
+        <span class="badge blue">Application No</span>
+        <span class="badge orange">Waiting No</span>
+        <span class="badge yellow">Preapproval No</span>
+        <span class="badge green">Approved No</span>
+      </div> -->
+    </div>
+
+    <div class="actions-section">
+      <div class="action-buttons">
+        <button class="add-provider-btn" routerLink="/add-new-provider">Add Provider</button>
+        <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600" routerLink="/provider-dashboard">
+          Go to Login
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="filter-grid">
+    <div class="filter-item">
+      <label for="from-date" class="filter-label">Filter From:</label>
+      <input id="from-date" type="date" (change)="filterByDateRange()" class="filter-input" />
+    </div>
+    <div class="filter-item">
+      <label for="to-date" class="filter-label">To:</label>
+      <input id="to-date" type="date" (change)="filterByDateRange()" class="filter-input" />
+    </div>
+
+    <div class="filter-item">
+      <label for="type-provider-1" class="filter-label">Type of Provider:</label>
+      <select id="type-provider-1" class="filter-input" (change)="filterByType($event)">
+        <option value="All">All</option>
+        <option value="Vet Clinic">Vet Clinic</option>
+        <option value="Grommer">Grommer</option>
+        <option value="PetShop">PetShop</option>
+        <option value="Docotor">Doctors</option>
+        <option value="Accomodation">Accommodation</option>
+        <option value="Trainer">Trainer</option>
+        <option value="School and Training">School and Training</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <div class="filter-item">
+      <label for="city" class="filter-label">City:</label>
+      <input id="city" type="text" placeholder="Search City..." (input)="filterByCity($event)" class="filter-input" />
+    </div>
+    <div class="filter-item">
+      <label for="status" class="filter-label">Status:</label>
+      <select id="status" class="filter-input" (change)="filterByStatus($event)">
+        <option value="All">All</option>
+        <option value="active">Active</option>
+        <option value="deactive">Deactive</option>
+        <option value="pending">Pending</option>
+        <option value="completed">Completed</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="import-export">
+    <input #fileInput type="file" accept=".csv" class="hidden" (change)="onFileImport($event)" />
+    <div class="import-buttons">
+      <button class="import-btn" (click)="triggerFileInput()">Import</button>
+      <button class="import-btn" (click)="exportToCSV()">Export</button>
+    </div>
+    <div class="search-box">
+      <input type="text" placeholder="Search Provider Name..." (input)="filterByName($event)" class="search-input" />
+      <img src="Image/search.png" alt="" class="search-icon" />
+    </div>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="providers-table">
+      <thead class="table-head">
+        <tr class="tableheadrow text-white">
+          <th><input type="checkbox" class="checkbox" /></th>
+          <th>Status</th>
+          <th>Joined Date</th>
+          <th>Provider Name</th>
+          <th>Contact</th>
+          <th>Email</th>
+          <th>Provider Type</th>
+          <th>Place</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="filteredProviders.length > 0; else noData">
+        <tr *ngFor="let provider of filteredProviders" class="provider-row">
+          <td><input type="checkbox" class="checkbox" /></td>
+          <td (click)="navigateToProfile(provider)"><span class="status-badge">{{provider.status ?? 'Data
+              Missing'}}</span></td>
+          <td (click)="navigateToProfile(provider)">{{ provider.created_at ?? 'No Data' | date:'dd MMMM yyyy' }}</td>
+          <td (click)="navigateToProfile(provider)">{{ provider.provider_name_en ?? 'No Data' }}</td>
+          <td (click)="navigateToProfile(provider)">{{ provider.contact_no ?? 'Data Missing' }}</td>
+          <td (click)="navigateToProfile(provider)">{{ provider.email ?? 'Data Missing' }}</td>
+          <td (click)="navigateToProfile(provider)">{{ provider.gallery?.type_en ?? 'No Data' }}</td>
+          <td (click)="navigateToProfile(provider)">{{ provider.city ?? 'No Data' }}</td>
+          <td class="action-icons">
+            <img src="edit-pic.png" alt="" class="icon" (click)="navigateToProfile(provider)" />
+            <label class="switch">
+              <input type="checkbox" class="sr-only" [checked]="provider.status === 'active'"
+                (change)="ControlProvider(provider.id)" />
+              <div class="slider"></div>
+              <span class="dot"></span>
+            </label>
+            <img src="biin.png" alt="" class="icon" (click)="deleteProvider(provider.id)" />
+          </td>
+        </tr>
+      </tbody>
+      <ng-template #noData>
+        <tr>
+          <td colspan="10" class="no-data">No data available</td>
+        </tr>
+      </ng-template>
+    </table>
+  </div>
+  <div class="pagination-wrapper">
+    <div class="pagination-buttons">
+      <button class="arrow-button">
+        <img src="Image/left-arrow.svg" alt="arrow left" /> Previous
+      </button>
+
+      <button class="pagination-button active">1</button>
+      <button class="pagination-button">2</button>
+      <button class="pagination-button">3</button>
+      <button class="pagination-button">4</button>
+
+      <button class="arrow-button">
+        Next <img src="Image/right-arrow.svg" alt="arrow right" />
+      </button>
+    </div>
+  </div>
+</div>

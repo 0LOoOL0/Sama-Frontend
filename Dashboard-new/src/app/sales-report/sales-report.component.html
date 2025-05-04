@@ -1,0 +1,37 @@
+<div class="report-container">
+  <button class="back-button" (click)="goBackToDashboard()">← Back to Dashboard</button>
+
+  <h2>🧾 Customer Sales Report</h2>
+
+  <div *ngIf="loading" class="status-msg">Loading sales data...</div>
+  <div *ngIf="error" class="error-msg">Error: {{ error }}</div>
+
+  <table *ngIf="!loading && !error" class="sales-table">
+    <thead>
+      <tr>
+        <th>Owner</th>
+        <th>Pets</th>
+        <th>Amount Paid</th>
+        <th>Discount</th>
+        <th>Final Amount</th>
+        <th>Payment Date</th>
+        <th>Items</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let sale of sales">
+        <td>{{ sale.owner }}</td>
+        <td>{{ sale.pets.join(', ') }}</td>
+        <td>${{ sale.amount_paid }}</td>
+        <td>${{ sale.discount }}</td>
+        <td>${{ sale.final_amount }}</td>
+        <td>{{ sale.payment_date | date:'medium' }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let item of sale.items">{{ item.name }} - ${{ item.price }}</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,74 @@
+<div class="wrapper">
+    <div class="coupon-wrapper">
+
+        <div class="coupon-header">
+            <h1 class="title">All Suppliers</h1>
+            <button class="add-provider-btn" (click)="navigateToCreateSupplier()">Add Supplier</button>
+        </div>
+        <div class="search-section">
+            <div class="search-box">
+                <input type="text" placeholder="Search Supplier Name..." (input)="filterByName($event)"
+                    class="search-input" />
+                <img src="Image/search.png" alt="" class="search-icon" />
+            </div>
+        </div>
+        <!-- suppliers table -->
+
+        <!-- <div class="supplier-table">
+            <table> -->
+        <div class="table-wrapper">
+            <table class="coupon-table">
+                <thead>
+                    <tr>
+                        <!-- <th><input type="checkbox"></th> -->
+                        <th>Logo</th>
+                        <th>Supplier Name</th>
+                        <th>Key Person</th>
+                        <th>Contact 1</th>
+                        <th>Contact 2</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th><button>Delete</button></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let supplier of filteredSuppliers">
+                        <!-- <td><input type="checkbox"></td> -->
+                        <td>
+                            <img [src]="supplier.profileImage || 'Image/profile-img.png'" alt="Profile Image"
+                                style="width: 50px; height: 50px; object-fit: cover;">
+                        </td>
+                        <td>{{ supplier.name }}</td>
+                        <td>{{ supplier.key_person }}</td>
+                        <td>{{ supplier.contact1 }}</td>
+                        <td>{{ supplier.contact2 }}</td>
+                        <td>{{ supplier.email }}</td>
+                        <td>{{ supplier.address }}</td>
+                        <td>
+                            <div class="action-btn">
+                                <img src="edit-pic.png" alt="edit" (click)="navigateToCreateSupplier(supplier)">
+                                <img src="biin.png" alt="delete" (click)="deleteSupplier(supplier.id)">
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination-wrapper">
+            <div class="pagination-buttons">
+                <button class="arrow-button">
+                    <img src="Image/left-arrow.svg" alt="arrow left" /> Previous
+                </button>
+
+                <button class="pagination-button active">1</button>
+                <button class="pagination-button">2</button>
+                <button class="pagination-button">3</button>
+                <button class="pagination-button">4</button>
+
+                <button class="arrow-button">
+                    Next <img src="Image/right-arrow.svg" alt="arrow right" />
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,114 @@
+<div class="wrapper">
+
+  <!-- Title, Count, and Add -->
+  <div class="mainhead">
+    <div class="head-left">
+      <h1 class="title">Pet Owners List</h1>
+      <div class="count-tags">
+        <span class="count blue">Member No.</span>
+        <span class="count orange">Non Member No.</span>
+        <span class="count yellow">Free Trial No.</span>
+      </div>
+    </div>
+
+    <div class="head-right">
+      <div class="add-button-wrapper">
+        <button class="add-button" routerLink="/owner-profile">Add Member</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="filters">
+    <div>
+      <label for="from-date" class="filter-label">From:</label>
+      <input id="from-date" type="date" class="filter-input" (change)="filterByDateRange()">
+    </div>
+    <div>
+      <label for="to-date" class="filter-label">To:</label>
+      <input id="to-date" type="date" class="filter-input" (change)="filterByDateRange()">
+    </div>
+    <div>
+      <label for="status" class="filter-label">Status:</label>
+      <select id="status" class="filter-input">
+        <option>All</option>
+        <option>Active</option>
+        <option>Pending</option>
+        <option>Completed</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Export and Search -->
+  <div class="actions">
+    <div class="export-buttons">
+      <button class="export">CVC</button>
+      <button class="export">Export</button>
+    </div>
+    <div class="search-wrapper">
+      <input type="text" placeholder="Search Pet Owner Name..." class="search-input" (input)="filterByOwner($event)" />
+      <img src="Image/search.png" alt="" class="search-icon">
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="table-wrapper">
+    <table class="data-table">
+      <thead class="table-head">
+        <tr class="tableheadrow">
+          <th><input type="checkbox" class="checkbox" /></th>
+          <th>Start Date</th>
+          <th>Image</th>
+          <th>Owner Name</th>
+          <th>Email</th>
+          <th>Contact Number</th>
+          <th>No. of Pets</th>
+          <th>City</th>
+          <th>No. of Memberships</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr *ngFor="let owner of filteredOwners" class="owner-row">
+          <td><input type="checkbox" class="checkbox" /></td>
+          <td>{{ owner.startDate | date:'dd MMMM yyyy' }}</td>
+          <td><img [src]="owner.imageUrl" alt="Owner Image" class="owner-img" /></td>
+          <td><a (click)="editOwner(owner)" class="owner-link">{{ owner.ownerName }}</a></td>
+          <td>{{ owner.email }}</td>
+          <td>{{ owner.contactNumber }}</td>
+          <td>{{ owner.noOfPets === 0 ? 'No Pets' : owner.noOfPets }}</td>
+          <td>{{ owner.city }}</td>
+          <td>{{ (membershipCounts[owner.id] || 0) === 0 ? 'No Membership' : membershipCounts[owner.id] }}</td>
+          <td>
+            <button [ngClass]="{
+                'status-active': owner.status === 'Active',
+                'status-pending': owner.status === 'Pending',
+                'status-completed': owner.status === 'Completed'
+              }" class="status-button">
+              {{ owner.status }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pagination-wrapper">
+    <div class="pagination-buttons">
+        <button class="arrow-button">
+            <img src="Image/left-arrow.svg" alt="arrow left" /> Previous
+        </button>
+
+        <button class="pagination-button active">1</button>
+        <button class="pagination-button">2</button>
+        <button class="pagination-button">3</button>
+        <button class="pagination-button">4</button>
+
+        <button class="arrow-button">
+            Next <img src="Image/right-arrow.svg" alt="arrow right" />
+        </button>
+    </div>
+</div>
+
+</div>

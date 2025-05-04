@@ -1,0 +1,330 @@
+<div class="wrapper">
+
+    <!-- Title & Search -->
+    <div class="coupon-header">
+        <h1 class="coupon-title">Permissions</h1>
+        <div class="search-wrapper ml-auto">
+            <div class="search-input-wrapper">
+                <img src="Image/search.png" alt="Search Icon" class="search-icon" />
+                <input type="text" placeholder="Search Permission..." class="search-input" [(ngModel)]="searchQuery" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Role Name -->
+    <div class="header">
+        <h2 class="head-title">Role Name</h2>
+        <input type="text" class="role-input" placeholder="Enter Role Name..." />
+        <button class="add-role-button">Add Role</button>
+    </div>
+
+    <!-- No Permission for Search -->
+    <div class="no-div" *ngIf="!sectionRowsVisible()">
+        <h2 class="no-title">No Matching Permissions!</h2>
+    </div>
+
+    <!-- Permission Sections -->
+    <div class="section-row">
+
+        <!-- Profile -->
+        <section class="section-container" *ngIf="isSectionVisible('profile')">
+            <div class="section-header">
+                <h2 class="section-title">Profile Management</h2>
+                <button (click)="toggleSection('profile')" class="toggle-button">
+                    {{ sectionVisibility['profile'] ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+            <div class="checkbox-grid" *ngIf="sectionVisibility['profile'] || searchQuery.trim() !== ''">
+                <label>
+                    <input type="checkbox" class="checkbox" (change)="onSelectAllChange($event, 'profile')"
+                        [checked]="isAllSelected('profile')" />
+                    <span class="checkboxtext">Select All</span>
+                </label>
+                <br />
+                <br />
+                <label *ngFor="let perm of getPermissionsForSection('profile')">
+                    <input type="checkbox" class="checkbox" [(ngModel)]="perm.selected" />
+                    <span class="checkboxtext">{{ perm.name }}</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- User -->
+        <section class="section-container" *ngIf="isSectionVisible('user')">
+            <div class="section-header">
+                <h2 class="section-title">User Management</h2>
+                <button (click)="toggleSection('user')" class="toggle-button">
+                    {{ sectionVisibility['user'] ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+            <div class="checkbox-grid" *ngIf="sectionVisibility['user'] || searchQuery.trim() !== ''">
+                <label>
+                    <input type="checkbox" class="checkbox" (change)="onSelectAllChange($event, 'user')"
+                        [checked]="isAllSelected('user')" />
+                    <span class="checkboxtext">Select All</span>
+                </label>
+                <br />
+                <br />
+                <label *ngFor="let perm of getPermissionsForSection('user')">
+                    <input type="checkbox" class="checkbox" [(ngModel)]="perm.selected" />
+                    <span class="checkboxtext">{{ perm.name }}</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Pet Owner -->
+        <section class="section-container" *ngIf="isSectionVisible('petOwner')">
+            <div class="section-header">
+                <h2 class="section-title">Pet Owner Management</h2>
+                <button (click)="toggleSection('petOwner')" class="toggle-button">
+                    {{ sectionVisibility['petOwner'] ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+            <div class="checkbox-grid" *ngIf="sectionVisibility['petOwner'] || searchQuery.trim() !== ''">
+                <label>
+                    <input type="checkbox" class="checkbox" (change)="onSelectAllChange($event, 'petOwner')"
+                        [checked]="isAllSelected('petOwner')" />
+                    <span class="checkboxtext">Select All</span>
+                </label>
+                <br />
+                <br />
+                <label *ngFor="let perm of getPermissionsForSection('petOwner')">
+                    <input type="checkbox" class="checkbox" [(ngModel)]="perm.selected" />
+                    <span class="checkboxtext">{{ perm.name }}</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Pet -->
+        <section class="section-container" *ngIf="isSectionVisible('pet')">
+            <div class="section-header">
+                <h2 class="section-title">Pet Management</h2>
+                <button (click)="toggleSection('pet')" class="toggle-button">
+                    {{ sectionVisibility['pet'] ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+            <div class="checkbox-grid" *ngIf="sectionVisibility['pet'] || searchQuery.trim() !== ''">
+                <label>
+                    <input type="checkbox" class="checkbox" (change)="onSelectAllChange($event, 'pet')"
+                        [checked]="isAllSelected('pet')" />
+                    <span class="checkboxtext">Select All</span>
+                </label>
+                <br />
+                <br />
+                <label *ngFor="let perm of getPermissionsForSection('pet')">
+                    <input type="checkbox" class="checkbox" [(ngModel)]="perm.selected" />
+                    <span class="checkboxtext">{{ perm.name }}</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Provider -->
+        <section class="section-container" *ngIf="isSectionVisible('provider')">
+            <div class="section-header">
+                <h2 class="section-title">Provider Management</h2>
+                <button (click)="toggleSection('provider')" class="toggle-button">
+                    {{ sectionVisibility['provider'] ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+            <div class="checkbox-grid" *ngIf="sectionVisibility['provider'] || searchQuery.trim() !== ''">
+                <label>
+                    <input type="checkbox" class="checkbox" (change)="onSelectAllChange($event, 'provider')"
+                        [checked]="isAllSelected('provider')" />
+                    <span class="checkboxtext">Select All</span>
+                </label>
+                <br />
+                <br />
+                <label *ngFor="let perm of getPermissionsForSection('provider')">
+                    <input type="checkbox" class="checkbox" [(ngModel)]="perm.selected" />
+                    <span class="checkboxtext">{{ perm.name }}</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Sama Store -->
+        <section class="section-container" *ngIf="isSectionVisible('samaStore')">
+            <div class="section-header">
+                <h2 class="section-title">Sama Store Management</h2>
+                <button (click)="toggleSection('samaStore')" class="toggle-button">
+                    {{ sectionVisibility['samaStore'] ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+            <div class="checkbox-grid" *ngIf="sectionVisibility['samaStore'] || searchQuery.trim() !== ''">
+                <label>
+                    <input type="checkbox" class="checkbox" (change)="onSelectAllChange($event, 'samaStore')"
+                        [checked]="isAllSelected('samaStore')" />
+                    <span class="checkboxtext">Select All</span>
+                </label>
+                <br />
+                <br />
+                <label *ngFor="let perm of getPermissionsForSection('samaStore')">
+                    <input type="checkbox" class="checkbox" [(ngModel)]="perm.selected" />
+                    <span class="checkboxtext">{{ perm.name }}</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Coupon -->
+        <section class="section-container" *ngIf="isSectionVisible('coupon')">
+            <div class="section-header">
+                <h2 class="section-title">Coupons & Promotions Management</h2>
+                <button (click)="toggleSection('coupon')" class="toggle-button">
+                    {{ sectionVisibility['coupon'] ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+            <div class="checkbox-grid" *ngIf="sectionVisibility['coupon'] || searchQuery.trim() !== ''">
+                <label>
+                    <input type="checkbox" class="checkbox" (change)="onSelectAllChange($event, 'coupon')"
+                        [checked]="isAllSelected('coupon')" />
+                    <span class="checkboxtext">Select All</span>
+                </label>
+                <br />
+                <br />
+                <label *ngFor="let perm of getPermissionsForSection('coupon')">
+                    <input type="checkbox" class="checkbox" [(ngModel)]="perm.selected" />
+                    <span class="checkboxtext">{{ perm.name }}</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Membership -->
+        <section class="section-container" *ngIf="isSectionVisible('membership')">
+            <div class="section-header">
+                <h2 class="section-title">Membership Management</h2>
+                <button (click)="toggleSection('membership')" class="toggle-button">
+                    {{ sectionVisibility['membership'] ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+            <div class="checkbox-grid" *ngIf="sectionVisibility['membership'] || searchQuery.trim() !== ''">
+                <label>
+                    <input type="checkbox" class="checkbox" (change)="onSelectAllChange($event, 'membership')"
+                        [checked]="isAllSelected('membership')" />
+                    <span class="checkboxtext">Select All</span>
+                </label>
+                <br />
+                <br />
+                <label *ngFor="let perm of getPermissionsForSection('membership')">
+                    <input type="checkbox" class="checkbox" [(ngModel)]="perm.selected" />
+                    <span class="checkboxtext">{{ perm.name }}</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Appointment -->
+        <section class="section-container" *ngIf="isSectionVisible('appointment')">
+            <div class="section-header">
+                <h2 class="section-title">Appointment Management</h2>
+                <button (click)="toggleSection('appointment')" class="toggle-button">
+                    {{ sectionVisibility['appointment'] ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+            <div class="checkbox-grid" *ngIf="sectionVisibility['appointment'] || searchQuery.trim() !== ''">
+                <label>
+                    <input type="checkbox" class="checkbox" (change)="onSelectAllChange($event, 'appointment')"
+                        [checked]="isAllSelected('appointment')" />
+                    <span class="checkboxtext">Select All</span>
+                </label>
+                <br />
+                <br />
+                <label *ngFor="let perm of getPermissionsForSection('appointment')">
+                    <input type="checkbox" class="checkbox" [(ngModel)]="perm.selected" />
+                    <span class="checkboxtext">{{ perm.name }}</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Pet Services -->
+        <section class="section-container" *ngIf="isSectionVisible('petService')">
+            <div class="section-header">
+                <h2 class="section-title">Pet Services Management</h2>
+                <button (click)="toggleSection('petService')" class="toggle-button">
+                    {{ sectionVisibility['petService'] ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+            <div class="checkbox-grid" *ngIf="sectionVisibility['petService']|| searchQuery.trim() !== ''">
+                <label>
+                    <input type="checkbox" class="checkbox" (change)="onSelectAllChange($event, 'petService')"
+                        [checked]="isAllSelected('petService')" />
+                    <span class="checkboxtext">Select All</span>
+                </label>
+                <br />
+                <br />
+                <label *ngFor="let perm of getPermissionsForSection('petService')">
+                    <input type="checkbox" class="checkbox" [(ngModel)]="perm.selected" />
+                    <span class="checkboxtext">{{ perm.name }}</span>
+                </label>
+            </div>
+        </section>
+
+        <!-- Reports -->
+        <section class="section-container" *ngIf="isSectionVisible('report')">
+            <div class="section-header">
+                <h2 class="section-title">Reports Management</h2>
+                <button (click)="toggleSection('report')" class="toggle-button">
+                    {{ sectionVisibility['report'] ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+            <div class="checkbox-grid" *ngIf="sectionVisibility['report'] || searchQuery.trim() !== ''">
+                <label>
+                    <input type="checkbox" class="checkbox" (change)="onSelectAllChange($event, 'report')"
+                        [checked]="isAllSelected('report')" />
+                    <span class="checkboxtext">Select All</span>
+                </label>
+                <br />
+                <br />
+                <label *ngFor="let perm of getPermissionsForSection('report')">
+                    <input type="checkbox" class="checkbox" [(ngModel)]="perm.selected" />
+                    <span class="checkboxtext">{{ perm.name }}</span>
+                </label>
+
+            </div>
+        </section>
+
+        <!-- Notifications & Emails -->
+        <section class="section-container" *ngIf="isSectionVisible('notiEmail')">
+            <div class="section-header">
+                <h2 class="section-title">Notifications & Emails Management</h2>
+                <button (click)="toggleSection('notiEmail')" class="toggle-button">
+                    {{ sectionVisibility['notiEmail'] ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+            <div class="checkbox-grid" *ngIf="sectionVisibility['notiEmail'] || searchQuery.trim() !== ''">
+                <label>
+                    <input type="checkbox" class="checkbox" (change)="onSelectAllChange($event, 'notiEmail')"
+                        [checked]="isAllSelected('notiEmail')" />
+                    <span class="checkboxtext">Select All</span>
+                </label>
+                <br />
+                <br />
+                <label *ngFor="let perm of getPermissionsForSection('notiEmail')">
+                    <input type="checkbox" class="checkbox" [(ngModel)]="perm.selected" />
+                    <span class="checkboxtext">{{ perm.name }}</span>
+                </label>
+
+            </div>
+        </section>
+
+        <!-- Blog -->
+        <section class="section-container" *ngIf="isSectionVisible('blog')">
+            <div class="section-header">
+                <h2 class="section-title">Blog Management</h2>
+                <button (click)="toggleSection('blog')" class="toggle-button">
+                    {{ sectionVisibility['blog'] ? 'Hide' : 'Show' }}
+                </button>
+            </div>
+            <div class="checkbox-grid" *ngIf="sectionVisibility['blog']|| searchQuery.trim() !== ''">
+                <label>
+                    <input type="checkbox" class="checkbox" (change)="onSelectAllChange($event, 'blog')"
+                        [checked]="isAllSelected('blog')" />
+                    <span class="checkboxtext">Select All</span>
+                </label>
+                <br />
+                <br />
+                <label *ngFor="let perm of getPermissionsForSection('blog')">
+                    <input type="checkbox" class="checkbox" [(ngModel)]="perm.selected" />
+                    <span class="checkboxtext">{{ perm.name }}</span>
+                </label>
+            </div>
+        </section>
+    </div>
+</div>

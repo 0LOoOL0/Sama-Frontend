@@ -1,0 +1,86 @@
+<div class="w-full h-full p-2">
+  <!-- Order Header -->
+  <div class="w-4/5 h-auto bg-white rounded-lg m-5 p-5 mx-auto">
+    <div class="flex flex-col">
+      <h2 class="text-2xl font-semibold text-[#5E17EB] text-left mb-2">
+        Order Details: #{{ order?.id }}
+      </h2>
+      <h4 class="font-semibold text-[#5E17EB] text-left mb-5">
+        {{ order?.invoice_date | date:'dd MMM yyyy' }}
+      </h4>
+      <!-- Order Status -->
+      <div class="flex items-center">
+        <span class="font-semibold text-[#5E17EB]">Status:</span>
+        <span [ngClass]="{
+              'bg-green-200 text-green-800': order?.status?.toLowerCase() === 'completed',
+              'bg-red-200 text-red-800': order?.status?.toLowerCase() !== 'completed'
+            }"
+            class="ml-2 px-4 py-2 rounded-full flex items-center">
+          <span>{{ order?.status }}</span>
+          <span *ngIf="order?.status?.toLowerCase() === 'completed'" class="ml-2">✔</span>
+        </span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Billing and Payment Information -->
+  <div class="w-4/5 h-auto bg-white rounded-lg m-5 p-5 mx-auto">
+    <div class="flex flex-col">
+      <div class="flex mb-4">
+        <!-- Billing -->
+        <div class="flex flex-col w-1/2 pr-4">
+          <p class="text-2xl font-semibold text-[#5E17EB] text-left mb-5">Billing Address:</p>
+          <p class="text-xl font-semibold text-[#5E17EB] text-left">
+            Customer Name: {{ order?.customer_name }}
+          </p>
+          <p class="text-xl font-semibold text-[#5E17EB] text-left">
+            Address: {{ order?.address }}
+          </p>
+          <p class="text-xl font-semibold text-[#5E17EB] text-left">
+            Contact Number: {{ order?.contact_no }}
+          </p>
+          <p class="text-xl font-semibold text-[#5E17EB] text-left">
+            Email: {{ order?.email }}
+          </p>
+        </div>
+        <!-- Payment -->
+        <div class="flex flex-col w-1/2 pl-4">
+          <p class="text-2xl font-semibold text-[#5E17EB] text-left mb-5">Payment Method:</p>
+          <p class="text-xl font-semibold text-[#5E17EB] text-left">
+            {{ order?.payment_method || 'Cash on Delivery' }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Order Products Table -->
+  <div class="w-4/5 h-auto bg-white rounded-lg m-5 p-5 mx-auto">
+    <div class="overflow-x-auto">
+      <table class="min-w-full bg-white rounded-lg shadow-md table-auto">
+        <thead class="bg-[#5e16ea] text-white">
+          <tr class="border-t last:border-b border-gray-300">
+            <th class="px-4 py-2 text-left">Product</th>
+            <th class="px-4 py-2 text-left">Qty</th>
+            <th class="px-4 py-2 text-left">Price</th>
+            <th class="px-4 py-2 text-left">Total</th>
+            <th class="px-4 py-2 text-left">Discount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of order?.orderProducts" class="border-t hover:bg-gray-50">
+            <td class="px-4 py-2">{{ item.product?.product_name_en }}</td>
+            <td class="px-4 py-2">{{ item.quantity }}</td>
+            <td class="px-4 py-2">{{ item.unit_price }} BHD</td>
+            <td class="px-4 py-2">{{ item.total_price }} BHD</td>
+            <td class="px-4 py-2">{{ item.discount_percentage || 0 }}%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,109 @@
+<div class="wrapper">
+
+    <div class="overflow-x-auto">
+        <div class="coupon-header">
+            <h1 class="coupon-title">Sama Email</h1>
+            <a class="add-provider-btn" href="/email">
+                Send Email
+            </a>
+
+        </div>
+        <div class="filter-section">
+            <div class="filter-group">
+                <div class="filter-card">
+                    <label>Audience:</label>
+                    <div class="input-wrapper">
+                        <select id="audience-select" class="filter-input">
+                            <option value="">Select Audience</option>
+                            <option value="accessory">Member</option>
+                            <option value="toy">Non-member</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="filter-card">
+                    <label>Process:</label>
+                    <div class="input-wrapper">
+                        <select id="process-select" class="filter-input">
+                            <option value="">Select Process</option>
+                            <option value="accessory">Automatic</option>
+                            <option value="toy">Custom</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="search-wrapper ml-auto">
+                    <label>Search:</label>
+                    <div class="search-input-wrapper">
+                        <img src="Image/search.png" alt="Search Icon" class="search-icon" />
+                        <input type="text" placeholder="Search by Subject..." class="search-input" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="coupon-table">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" /></th>
+                        <th>Subject</th>
+                        <th>Audience</th>
+                        <th>Status</th>
+                        <th>Process</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" class="checkbox-input" /></td>
+                        <td>Subject</td>
+                        <td>Audience</td>
+                        <td>
+                            <label class="switch">
+                                <input type="checkbox" class="sr-only" />
+                                <div class="slider"></div>
+                                <span class="dot"></span>
+                            </label>
+                        </td>
+                        <td>Process</td>
+                        <td>
+                            <div class="actions">
+                                <img src="biin.png" alt="Delete" class="action-icon" />
+                                <img src="edit-pic.png" alt="Edit" class="action-icon" />
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+
+                <ng-template #noData>
+                    <tr>
+                        <td colspan="10" class="no-data">
+                            No data available
+                        </td>
+                    </tr>
+                </ng-template>
+            </table>
+        </div>
+
+
+        <!-- Pagination -->
+        <div class="pagination-wrapper">
+            <div class="pagination-buttons">
+                <button class="arrow-button">
+                    <img src="Image/left-arrow.svg" alt="arrow left" /> Previous
+                </button>
+
+                <button class="pagination-button active">1</button>
+                <button class="pagination-button">2</button>
+                <button class="pagination-button">3</button>
+                <button class="pagination-button">4</button>
+
+                <button class="arrow-button">
+                    Next <img src="Image/right-arrow.svg" alt="arrow right" />
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,69 @@
+<div class="wrapper">
+
+    <div class="coupon-header">
+        <h1 class="coupon-title">All Users</h1>
+        <button (click)="navigateToCreateUser()" class="add-provider-btn">Add User</button>
+    </div>
+
+    <div class="category-badges">
+        <ul class="badge-list">
+            <li class="badge blue">Managers: </li>
+            <li class="badge orange">Marketings: </li>
+            <li class="badge green">Programmers: </li>
+            <li class="badge yellow">Admins: </li>
+        </ul>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="coupon-table">
+            <thead>
+                <th>Select</th>
+                <th>User Name</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="checkbox" /></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <label class="switch">
+                            <input type="checkbox" class="sr-only" />
+                            <div class="slider"></div>
+                            <span class="dot"></span>
+                        </label>
+                    </td>
+                    <td>
+                        <div class="btn-img">
+                            <img src="edit-pic.png" alt="edit" class="icon">
+                            <img src="biin.png" alt="delete" class="icon">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="pagination-wrapper">
+            <div class="pagination-buttons">
+                <button class="arrow-button">
+                    <img src="Image/left-arrow.svg" alt="arrow left" /> Previous
+                </button>
+
+                <button class="pagination-button active">1</button>
+                <button class="pagination-button">2</button>
+                <button class="pagination-button">3</button>
+                <button class="pagination-button">4</button>
+
+                <button class="arrow-button">
+                    Next <img src="Image/right-arrow.svg" alt="arrow right" />
+                </button>
+            </div>
+        </div>
+
+    </div>

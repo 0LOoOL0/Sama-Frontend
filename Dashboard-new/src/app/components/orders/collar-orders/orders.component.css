@@ -1,0 +1,361 @@
+.wrapper {
+    margin-left: 230px;
+    padding: 1.5rem;
+    background-color: #f9fafb;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* General Styles */
+.tabContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 2rem 0;
+    padding-bottom: 1.25rem;
+}
+
+.tabContentSearch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.secondary-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.secondary-button {
+    padding: 0.5rem 1rem;
+    background-color: #22c55e; /* green */
+    color: #fff;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    width: 16rem;
+    font-size: 0.875rem;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #5e17eb;
+    box-shadow: 0 0 0 2px rgba(94, 23, 235, 0.5);
+}
+
+.search-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1rem;
+    width: 1rem;
+}
+
+.section-heading {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #5E17EB;
+}
+
+.tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 2.5rem;
+}
+
+.tab-button {
+    width: 260px;
+    height: 90px;
+    padding: 0.75rem 1.5rem;
+    font-size: 19px;
+    text-align: center;
+    color: black;
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab-button.pending {
+    background-color: #F8CEC7;
+}
+
+.tab-button.paid {
+    background-color: #71DD37;
+}
+
+.tab-button.done {
+    background-color: #A7A6FE;
+}
+
+/* Filter Cards */
+.fillterCard label {
+    font-weight: normal;
+    font-size: 15px;
+    color: #232323;
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.fillterCard input,
+.fillterCard select {
+    width: 100%;
+    border: 1px solid #CED1D5;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    color: #718EBF;
+    outline: none;
+}
+
+.fillterCard input:focus,
+.fillterCard select:focus {
+    border-color: #5E17EB;
+    box-shadow: 0 0 0 2px rgba(94, 23, 235, 0.3);
+}
+
+/* Secondary Buttons */
+.secondary-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.secondary-button {
+    width: 150px;
+    padding: 0.5rem 1rem;
+    background-color: #22C55E; /* green-500 */
+    color: white;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+}
+
+/* Search Field */
+.search-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search-input {
+    border: 1px solid #d1d5db;
+    border-radius: 9999px;
+    padding: 0.5rem 1rem 0.5rem 2.5rem;
+    width: 16rem;
+    font-size: 0.875rem;
+}
+
+.search-input:focus {
+    border-color: #3B82F6; /* blue-500 */
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    left: 0.75rem;
+    transform: translateY(-50%);
+    height: 0.875rem; /* h-3.5 */
+    pointer-events: none;
+}
+
+/* Table */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.table thead {
+    background-color: #5E16EA;
+    color: white;
+}
+
+.table th,
+.table td {
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid #D1D5DB;
+}
+.table thead tr th{
+    background-color: #5E17EB;
+    color: white;
+    text-align: center;
+    padding: 24px;
+}
+
+
+.table tbody tr {
+    border-top: 1px solid #e5e7eb;
+}
+
+.table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+.table-action-icons img {
+    height: 1.25rem;
+    cursor: pointer;
+}
+
+/* Pagination */
+.pagination-wrapper {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pagination-buttons {
+    display: flex;
+    gap: 1.5rem;
+    padding: 0 1.25rem;
+}
+
+.pagination-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.pagination-button.active {
+    background-color: #5E17EB;
+    color: white;
+}
+
+.pagination-button:not(.active):hover {
+    background-color: #5E17EB;
+    color: white;
+}
+
+.arrow-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #5E17EB;
+    font-size: 0.75rem;
+    font-weight: 400;
+    transition: color 0.5s;
+}
+
+.arrow-button:hover {
+    color: black;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .wrapper {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .tab-button {
+        width: 45%;
+        font-size: 16px;
+    }
+
+    .search-input {
+        width: 12rem;
+    }
+
+    .table th, .table td {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .pagination-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .tab-button {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .secondary-button {
+        width: 100%;
+    }
+
+    .table th, .table td {
+        font-size: 0.875rem;
+    }
+
+    .pagination-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .pagination-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        padding: 0.5rem;
+    }
+
+    .tab-button {
+        width: 100%;
+        font-size: 14px;
+        padding: 0.5rem;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+
+    .table th, .table td {
+        font-size: 0.75rem;
+    }
+
+    .pagination-wrapper {
+        flex-direction: column;
+    }
+
+    .pagination-button {
+        width: 100%;
+    }
+}

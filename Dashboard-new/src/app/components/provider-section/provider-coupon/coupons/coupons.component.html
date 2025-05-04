@@ -1,0 +1,321 @@
+<div class="w-full p-2">
+    <div class="w-full h-full bg-white rounded-lg xl:p-8 px-4 py-6 ms-auto">
+
+        <div class="overflow-x-auto">
+            <!-- Add Coupon -->
+            <div class="flex items-center justify-between gap-4 m-5">
+                <div class="flex-1"></div>
+                <button (click)="showPopup()"
+                    class="w-[200px] px-3 py-3 bg-red-500 text-white rounded-full text-center flex justify-center items-center">
+                    Add Coupon
+                </button>
+            </div>
+
+            <!-- Tabs Header -->
+            <div
+                class="table-list flex justify-start items-center bg-white mt-2 flex-col md:flex-row border-b-2 border-blue-600">
+
+                <a class="text-2xl px-10 py-1 rounded-t-md cursor-pointer" [ngClass]="{'active-tab': selectedTab === 1}"
+                    (click)="selectTab(1)">
+                    Paid
+                </a>
+
+                <a class="text-2xl px-10 py-1 rounded-t-md cursor-pointer" [ngClass]="{'active-tab': selectedTab === 2}"
+                    (click)="selectTab(2)">
+                    Free
+                </a>
+
+                <a class="text-2xl px-10 py-1 rounded-t-md cursor-pointer" [ngClass]="{'active-tab': selectedTab === 3}"
+                    (click)="selectTab(3)">
+                    Expired
+                </a>
+                <a class="text-2xl px-10 py-1 rounded-t-md cursor-pointer" [ngClass]="{'active-tab': selectedTab === 4}"
+                    (click)="selectTab(4)">
+                    Used
+                </a>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="Show-Items">
+                <!-- paid coupons -->
+                <div *ngIf="selectedTab === 1" class="m-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div *ngIf="paidCoupons?.length === 0" class="w-full text-center">
+                            <p>No Paid Coupons Available</p>
+                        </div>
+                        <div class="relative w-full" *ngFor="let coupon of paidCoupons">
+                            <img src="Image/PaidCoupon.png" class="w-full h-full" />
+
+                            <!-- Text Overlay -->
+                            <div class="absolute bottom-0 left-1 text-white p-5 w-full h-[100%] flex justify-start">
+                                <div
+                                    class="w-[50%] h-full rounded-md text-left p-2 flex flex-col justify-between gap-0">
+                                    <h2 class="text-2xl font-bold m-0">{{coupon.title_en}}</h2>
+                                    <p class="text-sm m-0">{{coupon.description_en}}</p>
+
+                                    <div class="mt-3 flex flex-col justify-end h-[50%] m-0">
+                                        <p class="text-md m-0"><span class="font-semibold">Created Date:</span>
+                                            {{coupon.created_date}}</p>
+                                        <p class="text-md m-0"><span class="font-semibold">Valid Till:</span>
+                                            {{coupon.expiration_date}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="w-[25%] h-full rounded-md text-left">
+                                    <div class="mt-3 flex flex-col justify-between h-full p-3 text-center">
+                                        <p class="text-md"><span class="font-semibold">Discount:</span><br />
+                                            {{coupon.discount}}
+                                        </p>
+                                        <p class="text-md"><span class="font-semibold">Price Before:</span><br />
+                                            <s>{{coupon.price}}</s>
+                                        </p>
+                                        <p class="text-md"><span class="font-semibold">Price After:</span><br />
+                                            <span class="text-white font-bold">{{coupon.price_after}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="w-[25%] h-full rounded-md text-center">
+                                    <div class="mt-3 mb-5">
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" class="sr-only peer" />
+                                            <div
+                                                class="w-10 h-5 bg-red-500 rounded-full peer-checked:bg-green-500 peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-blue-700 transition-colors duration-300">
+                                            </div>
+                                            <span
+                                                class="w-3 h-3 bg-white rounded-full shadow-md transform peer-checked:translate-x-5 peer-checked:bg-green-100 absolute left-1 top-1 transition-transform duration-300"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mt-3">
+                                        <p class="text-md mb-10">
+                                            <span class="font-semibold">Quantity:</span><br /> {{coupon.quantity}}
+                                        </p>
+                                        <p class="text-md">
+                                            <span class="font-semibold">Code:</span><br />
+                                            <span
+                                                class="bg-yellow-500 text-black px-2 py-0.5 rounded ml-2">{{coupon.code}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- free Coupons -->
+                <div *ngIf="selectedTab === 2" class="m-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div *ngIf="freeCoupons?.length === 0" class="w-full text-center">
+                            <p>No Free Coupons Available</p>
+                        </div>
+                        <div class="relative w-full" *ngFor="let coupon of freeCoupons">
+                            <img src="Image/FreeCoupon.png" class="w-full h-full" />
+
+                            <!-- Text Overlay -->
+                            <div class="absolute bottom-0 left-1 text-white p-5 w-full h-[100%] flex justify-start">
+                                <div
+                                    class="w-[50%] h-full rounded-md text-left p-2 flex flex-col justify-between gap-0">
+                                    <h2 class="text-2xl font-bold m-0">{{coupon.title_en}}</h2>
+                                    <p class="text-sm m-0">{{coupon.description_en}}</p>
+
+                                    <div class="mt-3 flex flex-col justify-end h-[50%] m-0">
+                                        <p class="text-md m-0"><span class="font-semibold">Created Date:</span>
+                                            {{coupon.created_date}}</p>
+                                        <p class="text-md m-0"><span class="font-semibold">Valid Till:</span>
+                                            {{coupon.expiration_date}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="w-[25%] h-full rounded-md text-left">
+                                    <div class="mt-3 flex flex-col justify-between h-full p-3 text-center">
+                                        <p class="text-md"><span class="font-semibold">Discount:</span><br />
+                                            {{coupon.discount}}
+                                        </p>
+                                        <p class="text-md"><span class="font-semibold">Price Before:</span><br />
+                                            <s>{{coupon.price}}</s>
+                                        </p>
+                                        <p class="text-md"><span class="font-semibold">Price After:</span><br />
+                                            <span class="text-white font-bold">{{coupon.price_after}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="w-[25%] h-full rounded-md text-center">
+                                    <div class="mt-3 mb-5">
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" class="sr-only peer" />
+                                            <div
+                                                class="w-10 h-5 bg-red-500 rounded-full peer-checked:bg-green-500 peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-blue-700 transition-colors duration-300">
+                                            </div>
+                                            <span
+                                                class="w-3 h-3 bg-white rounded-full shadow-md transform peer-checked:translate-x-5 peer-checked:bg-green-100 absolute left-1 top-1 transition-transform duration-300"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mt-3">
+                                        <p class="text-md mb-10">
+                                            <span class="font-semibold">Quantity:</span><br /> {{coupon.quantity}}
+                                        </p>
+                                        <p class="text-md">
+                                            <span class="font-semibold">Code:</span><br />
+                                            <span
+                                                class="bg-yellow-500 text-black px-2 py-0.5 rounded ml-2">{{coupon.code}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- expired coupons -->
+                <div *ngIf="selectedTab === 3" class="m-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div *ngIf="expiredCoupons?.length === 0" class="w-full text-center">
+                            <p>No Expired Coupons Available</p>
+                        </div>
+                        <div class="relative w-full" *ngFor="let coupon of expiredCoupons">
+                            <img src="Image/ExpiredCoupon.png" class="w-full h-full" />
+
+                            <!-- Text Overlay -->
+                            <div class="absolute bottom-0 left-1 text-white p-5 w-full h-[100%] flex justify-start">
+                                <div
+                                    class="w-[50%] h-full rounded-md text-left p-2 flex flex-col justify-between gap-0">
+                                    <h2 class="text-2xl font-bold m-0">{{coupon.title_en}}</h2>
+                                    <p class="text-sm m-0">{{coupon.description_en}}</p>
+
+                                    <div class="mt-3 flex flex-col justify-end h-[50%] m-0">
+                                        <p class="text-md m-0"><span class="font-semibold">Created Date:</span>
+                                            {{coupon.created_date}}</p>
+                                        <p class="text-md m-0"><span class="font-semibold">Valid Till:</span>
+                                            {{coupon.expiration_date}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="w-[25%] h-full rounded-md text-left">
+                                    <div class="mt-3 flex flex-col justify-between h-full p-3 text-center">
+                                        <p class="text-md"><span class="font-semibold">Discount:</span><br />
+                                            {{coupon.discount}}
+                                        </p>
+                                        <p class="text-md"><span class="font-semibold">Price Before:</span><br />
+                                            <s>{{coupon.price}}</s>
+                                        </p>
+                                        <p class="text-md"><span class="font-semibold">Price After:</span><br />
+                                            <span class="text-white font-bold">{{coupon.price_after}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="w-[25%] h-full rounded-md text-center">
+                                    <div class="mt-3 mb-5">
+                                        <label class="relative inline-flex items-center cursor-pointer">
+                                            <input type="checkbox" class="sr-only peer" />
+                                            <div
+                                                class="w-10 h-5 bg-red-500 rounded-full peer-checked:bg-green-500 peer-focus:ring-2 peer-focus:ring-offset-2 peer-focus:ring-blue-700 transition-colors duration-300">
+                                            </div>
+                                            <span
+                                                class="w-3 h-3 bg-white rounded-full shadow-md transform peer-checked:translate-x-5 peer-checked:bg-green-100 absolute left-1 top-1 transition-transform duration-300"></span>
+                                        </label>
+                                    </div>
+                                    <div class="mt-3">
+                                        <p class="text-md mb-10">
+                                            <span class="font-semibold">Quantity:</span><br /> {{coupon.quantity}}
+                                        </p>
+                                        <p class="text-md">
+                                            <span class="font-semibold">Code:</span><br />
+                                            <span
+                                                class="bg-yellow-500 text-black px-2 py-0.5 rounded ml-2">{{coupon.code}}</span>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Used coupons list -->
+                <div *ngIf="selectedTab === 4" class="m-5">
+                    <div class="overflow-x-auto">
+                      <table class="min-w-full bg-white rounded-lg shadow-md table-auto">
+                        <thead class="bg-[#5e16ea] text-white text-center justify-center">
+                          <tr class="border-t last:border-b border-gray-300">
+                            <th class="px-4 py-2 text-left">Name</th>
+                            <th class="px-4 py-2 text-left">Qty</th>
+                            <th class="px-4 py-2 text-left">Left</th>
+                            <th class="px-4 py-2 text-left">Used</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <ng-container *ngFor="let c of usedCoupons">
+                            <tr class="border-t hover:bg-gray-50 cursor-pointer" (click)="toggleDetails(c.id)">
+                              <td class="px-4 py-2">{{ c.title_en }}</td>
+                              <td class="px-4 py-2">{{ c.qty }}</td>
+                              <td class="px-4 py-2">{{ c.left }}</td>
+                              <td class="px-4 py-2">{{ c.used }}</td>
+                            </tr>
+                            <tr *ngIf="showDetailsFor === c.id" class="text-left">
+                              <td colspan="4" class="px-4 py-2">
+                                <table class="table-auto w-[50%] mt-3 bg-white rounded-lg shadow-md mx-auto">
+                                  <thead class="bg-[#5e16ea] text-white text-left">
+                                    <tr>
+                                      <th class="px-4 py-2">Date Used</th>
+                                      <th class="px-4 py-2">Customer Name</th>
+                                      <th class="px-4 py-2">Contact</th>
+                                      <th class="px-4 py-2">Approve redeem</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr *ngFor="let usage of c.usages" class="border-t hover:bg-gray-50">
+                                        <td class="px-4 py-2">{{ usage.created_at | date: 'yyyy-MM-dd' }}</td>
+                                        <td class="px-4 py-2">{{ usage.owner?.first_name }} {{ usage.owner?.last_name }}</td>
+                                        <td class="px-4 py-2">{{ usage.owner?.phone }}</td>
+                                        <td><button class="styled-button">Approve</button></td>
+                                      </tr>
+                                      
+                                  </tbody>
+                                </table>
+                              </td>
+                            </tr>
+                          </ng-container>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  
+            </div>
+
+            <!-- Pagination -->
+            <div class="mt-12 flex justify-center items-center w-full">
+                <div class="flex items-center sm:justify-center sm:gap-6 gap-3 px-5 justify-center">
+                    <button
+                        class="flex items-center justify-center gap-2 cursor-pointer text-[#5E17EB] text-xs font-normal hover:text-black duration-500">
+                        <img src="Image/left-arrow.svg" alt="arrow left" />
+                        Previous
+                    </button>
+                    <div class="flex items-center">
+                        <button
+                            class="sm:py-3 sm:px-4 px-2 py-1 rounded-lg text-white font-normal text-xs bg-[#5E17EB] hover:bg-[#5E17EB] hover:text-white duration-1000">
+                            1
+                        </button>
+                        <button
+                            class="sm:py-3 sm:px-4 px-2 py-1 rounded-lg text-black font-normal text-xs hover:bg-[#5E17EB] hover:text-white duration-1000">
+                            2
+                        </button>
+                        <button
+                            class="sm:py-3 sm:px-4 px-2 py-1 rounded-lg text-black font-normal text-xs hover:bg-[#5E17EB] hover:text-white duration-1000">
+                            3
+                        </button>
+                        <button
+                            class="sm:py-3 sm:px-4 px-2 py-1 rounded-lg text-black font-normal text-xs hover:bg-[#5E17EB] hover:text-white duration-1000">
+                            4
+                        </button>
+                    </div>
+
+                    <button
+                        class="flex items-center justify-center gap-2 cursor-pointer text-[#5E17EB] text-xs font-normal hover:text-black duration-500">
+                        Next
+                        <img src="Image/right-arrow.svg" alt="arrow right" />
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,156 @@
+<div class="sidebar-container">
+  <div class="sidebar">
+    <nav class="sidebar-nav">
+
+      <!-- Logo -->
+      <div class="logo-wrapper">
+        <img src="Image/newLogo.png" alt="Full Logo" class="logo-image">
+      </div>
+
+      <!-- Search -->
+      <div class="search-bar">
+        <i class="fas fa-search text-gray-500"></i>
+        <input type="text" placeholder="Search..." class="search-input" />
+      </div>
+
+      <!-- Main Page -->
+      <div class="menu-item mt-4"  routerLink="/admin-dashboard">
+        <i><img src="Image/dashboard.svg" class="icon" /></i>
+        <span class="menu-text">Dashboard</span>
+      </div>
+
+      <!-- Users Managament -->
+      <div>
+        <div class="menu-item mt-4" (click)="toggleDropdown('usersManagementDropdown')">
+          <i><img src="Image/users.svg" class="icon" /></i>
+          <span class="menu-text">Users</span>
+        </div>
+        <div *ngIf="dropdownVisibility.usersManagementDropdown" class="submenu">
+          <div class="submenu-item" routerLink="/list-all-provider">
+            <span>Providers</span>
+          </div>
+          <div class="submenu-item" routerLink="/pet-owner-list">
+            <span>Pet Owners</span>
+          </div>
+          <div class="submenu-item" routerLink="/provider-dashboard">
+            <span>Providers Dashboard</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pet Services -->
+      <div class="menu-item mt-4" routerLink="/view-pet-section">
+        <i><img src="Image/pets.svg" class="icon" /></i>
+        <span class="menu-text">Pet Services</span>
+      </div>
+
+      <!-- Invoices -->
+      <div>
+        <div class="menu-item mt-4" (click)="toggleDropdown('reportsDropdown')">
+          <i><img src="Image/report.svg" class="icon" /></i>
+          <span class="menu-text">Reports & Invoices</span>
+        </div>
+        <div *ngIf="dropdownVisibility.reportsDropdown" class="submenu">
+          <div class="submenu-item" routerLink="/invoice-history">
+            <span>Invoices</span>
+          </div>
+          <div class="submenu-item">
+            <span>Reports</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sama Store -->
+      <div>
+        <div class="menu-item mt-4" (click)="toggleDropdown('samaStoreDropdown')">
+          <i><img src="Image/samastore.svg" class="icon" /></i>
+          <span class="menu-text">Sama Store</span>
+        </div>
+        <div *ngIf="dropdownVisibility.samaStoreDropdown" class="submenu">
+          <div class="submenu-item" routerLink="/sama-products">
+            <span>Sama Products</span>
+          </div>
+          <div class="submenu-item" routerLink="/sama-orders">
+            <span>Sama Orders</span>
+          </div>
+          <div class="submenu-item" routerLink="/coupon-list">
+            <span>Coupons</span>
+          </div>
+          <div class="submenu-item" routerLink="/orders">
+            <span>Collar Orders</span>
+          </div>
+          <div class="submenu-item" routerLink="/all-suppliers">
+            <span>Sama Suppliers</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Membership Managament -->
+      <div>
+        <div class="menu-item mt-4" (click)="toggleDropdown('membershipPackageDropdown')">
+          <i><img src="Image/membership.svg" class="icon" /></i>
+          <span class="menu-text">Membership</span>
+        </div>
+        <div *ngIf="dropdownVisibility.membershipPackageDropdown" class="submenu">
+          <div class="submenu-item" routerLink="/packages-list">
+            <span>Packages</span>
+          </div>
+          <div class="submenu-item" routerLink="/packages-list">
+            <span>Members List</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blogs -->
+      <div>
+        <div class="menu-item mt-4" routerLink='/all-blogs'>
+          <i><img src="Image/blog.svg" class="icon" /></i>
+          <span class="menu-text">Blogs</span>
+        </div>
+      </div>
+      <!-- Settings -->
+      <div>
+        <div class="menu-item mt-4" (click)="toggleDropdown('settingsDropdown')">
+          <i><img src="Image/settings.svg" class="icon" /></i>
+          <span class="menu-text">Settings</span>
+        </div>
+        <div *ngIf="dropdownVisibility.settingsDropdown" class="submenu">
+          <div class="submenu-item" routerLink="/account">
+            <span>Account</span>
+          </div>
+          <div class="submenu-item" routerLink="all-notification">
+            <span>Notifications</span>
+          </div>
+          <div class="submenu-item" routerLink="all-email">
+            <span>Emails</span>
+          </div>
+          <div class="submenu-item">
+            <span>Email Logs</span>
+          </div>
+          <div class="submenu-item" routerLink="all-roles">
+            <span>Permission</span>
+          </div>
+          <div class="submenu-item" routerLink="all-users">
+            <span>All Users</span>
+          </div>
+        </div>
+      </div>
+      <!-- Authentication -->
+      <div>
+        <div class="menu-item mt-4" (click)="toggleDropdown('authenticationDropdown')">
+          <i><img src="Image/authentication.svg" class="icon" /></i>
+          <span class="menu-text">Authentication</span>
+        </div>
+        <div *ngIf="dropdownVisibility.authenticationDropdown" class="submenu">
+          <div class="submenu-item">
+            <span>Reset Password</span>
+          </div>
+          <div class="submenu-item">
+            <span>Logout</span>
+          </div>
+        </div>
+      </div>
+
+    </nav>
+  </div>
+</div>

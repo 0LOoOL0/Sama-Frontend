@@ -1,0 +1,92 @@
+<div class="wrapper">
+
+  <div class="coupon-header">
+    <h1 class="coupon-title">List of Packages</h1>
+    <button class="add-provider-btn" (click)="navigateToCreatePackage()">Add New Package</button>
+  </div>
+
+
+
+  <div class="package-types">
+    <!-- Loop through active packages -->
+    <div class="package-content" *ngFor="let pkg of activePackages">
+      <div>
+        <label class="switch">
+          <input type="checkbox" class="sr-only" [checked]="pkg.status_user"
+          (change)="toggleStatus(pkg, 'status_user', $any($event.target).checked)" />
+          <div class="slider"></div>
+          <span class="dot"></span>
+        </label>
+
+        <!-- Display the package title in the middle -->
+        <h1>{{ pkg.title }}</h1>
+        <!-- For now, show 1 Month as fixed text -->
+        <h2>1 Month</h2>
+      </div>
+      <button (click)="editPackage(pkg)">Edit</button>
+    </div>
+  </div>
+
+
+  <div class="table-wrapper">
+    <table class="coupon-table">
+      <thead>
+        <tr>
+          <th>NO</th>
+          <th>Package Name</th>
+          <th>Status User</th>
+          <th>Status Staff</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pkg of packages; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ pkg.title }}</td>
+          <td>
+            <label class="switch">
+              <input type="checkbox" class="sr-only" [checked]="pkg.status_user"
+              (change)="toggleStatus(pkg, 'status_user', $any($event.target).checked)" />
+              <div class="slider"></div>
+              <span class="dot"></span>
+            </label>
+
+          </td>
+          <td>
+            <label class="switch">
+              <input type="checkbox" class="sr-only" [checked]="pkg.status_staff"
+              (change)="toggleStatus(pkg, 'status_staff', $any($event.target).checked)" />
+              <div class="slider"></div>
+              <span class="dot"></span>
+            </label>
+          </td>
+          <td>
+            <div class="action-btn">
+              <img src="edit-pic.png" alt="edit" (click)="editPackage(pkg)" />
+              <img src="biin.png" alt="delete" (click)="deletePackage(pkg)" />
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div class="pagination-wrapper">
+      <div class="pagination-buttons">
+        <button class="arrow-button">
+          <img src="Image/left-arrow.svg" alt="arrow left" /> Previous
+        </button>
+
+        <button class="pagination-button active">1</button>
+        <button class="pagination-button">2</button>
+        <button class="pagination-button">3</button>
+        <button class="pagination-button">4</button>
+
+        <button class="arrow-button">
+          Next <img src="Image/right-arrow.svg" alt="arrow right" />
+        </button>
+      </div>
+    </div>
+
+    <!-- </section> -->
+  </div>

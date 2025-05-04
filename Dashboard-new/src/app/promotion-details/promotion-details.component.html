@@ -1,0 +1,27 @@
+<div class="promotion-details-container">
+    <button class="back-button" (click)="goBackToDashboard()">← Back to Dashboard</button>
+    <h2>📢 Promotion Details</h2>
+  
+    <div *ngIf="loading">Loading promotion data...</div>
+    <div *ngIf="error" class="error-msg">{{ error }}</div>
+  
+    <table *ngIf="!loading && !error">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let promo of promotions">
+          <td>{{ promo.title }}</td>
+          <td>{{ promo.type }}</td>
+          <td>{{ promo.status }}</td>
+          <td>{{ promo.created_at }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

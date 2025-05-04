@@ -1,0 +1,121 @@
+<div class="wrapper">
+    <div class="coupon-wrapper">
+        <div class="coupon-header">
+            <h1 class="coupon-title">Coupons</h1>
+            <button (click)="showPopup()" class="add-provider-btn">Add Coupon</button>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-group">
+                <div class="filter-card">
+                    <label>From:</label>
+                    <div class="input-wrapper">
+                        <input id="from-date" type="date" class="filter-input" />
+                    </div>
+                </div>
+                <div class="filter-card">
+                    <label>To:</label>
+                    <div class="input-wrapper">
+                        <input id="to-date" type="date" class="filter-input" />
+                    </div>
+                </div>
+                <div class="filter-card">
+                    <label>Status:</label>
+                    <div class="input-wrapper">
+                        <select id="category" class="filter-input">
+                            <option value="">Select status</option>
+                            <option value="accessory">Paid</option>
+                            <option value="toy">Free</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="search-wrapper ml-auto">
+                    <label>Search:</label>
+                    <div class="search-input-wrapper">
+                        <img src="Image/search.png" alt="Search Icon" class="search-icon" />
+                        <input type="text" placeholder="Search by Provider Name..." class="search-input" />
+                    </div>
+                </div>
+                <!-- <div class="search-wrapper">
+                    <label>Search:</label>
+                    <input type="text" placeholder="Search by Provider Name..." class="search-input" />
+                    <img src="Image/search.png" alt="Search Icon" class="search-icon" />
+                </div> -->
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="coupon-table">
+                <thead>
+                    <tr>
+                        <th>Logo</th>
+                        <th>Created</th>
+                        <th>Valid until</th>
+                        <th>Provider Name</th>
+                        <th>Title</th>
+                        <th>Qty</th>
+                        <th>Stock</th>
+                        <th>Left</th>
+                        <th>Price</th>
+                        <th>After</th>
+                        <th>Discount</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let coupon of coupons">
+                        <td></td>
+                        <td>{{ coupon.created_date }}</td>
+                        <td>{{ coupon.expiration_date }}</td>
+                        <td>{{ coupon.provider.name }}</td>
+                        <td>{{ coupon.title_en }}</td>
+                        <td>{{ coupon.quantity }}</td>
+                        <td>{{ coupon.stock }}</td>
+                        <td>{{ coupon.left }}</td>
+                        <td>{{ coupon.price }}</td>
+                        <td>{{ coupon.price_after }}</td>
+                        <td>{{ coupon.discount }}%</td>
+                        <td>
+                            <label class="switch">
+                                <input type="checkbox" class="sr-only"/>
+                                <div class="slider"></div>
+                                <span class="dot"></span>
+                              </label>
+                        </td>
+                        <td>
+                            <div class="actions">
+                                <img src="biin.png" alt="Delete" (click)="deleteCoupon(coupon)" class="action-icon" />
+                                <img src="edit-pic.png" alt="Edit" (click)="showEditPopup(coupon)"
+                                    class="action-icon" />
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+
+                <ng-template #noData>
+                    <tr>
+                        <td colspan="13" class="no-data">No data available</td>
+                    </tr>
+                </ng-template>
+            </table>
+        </div>
+
+        <div class="pagination-wrapper">
+            <div class="pagination-buttons">
+                <button class="arrow-button">
+                    <img src="Image/left-arrow.svg" alt="arrow left" /> Previous
+                </button>
+
+                <button class="pagination-button active">1</button>
+                <button class="pagination-button">2</button>
+                <button class="pagination-button">3</button>
+                <button class="pagination-button">4</button>
+
+                <button class="arrow-button">
+                    Next <img src="Image/right-arrow.svg" alt="arrow right" />
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,259 @@
+<div class="wrapper">
+  <h1>Welcome to Sama Pet Care</h1>
+
+  <!-- Buttons moved to the top -->
+  <section class="flex flex-wrap gap-4 mb-6 right animate-fade-in delay-300">
+    <button class="btn-action bg-purple-600 hover:bg-purple-700">Register Card</button>
+    <button class="btn-action bg-pink-600 hover:bg-pink-700">Register Provider</button>
+    <button class="btn-action bg-blue-600 hover:bg-blue-700">Go to Coupons</button>
+  </section>
+  <!-- Sales Overview -->
+  <section class="section-container full-width">
+    <div class="section-header">
+      <h2 class="section-title">Today Sales Overview</h2>
+    </div>
+    <div class="dashboard-grid">
+      <div class="dashboard-card animate-slide-up">
+        <span>Membership</span>
+        <strong>1,250 BD</strong>
+        <p class="card-subtext">15 sales today</p>
+      </div>
+      <div class="dashboard-card animate-slide-up delay-100">
+        <span>Orders</span>
+        <strong>3,400 BD</strong>
+        <p class="card-subtext">42 sales today</p>
+      </div>
+      <div class="dashboard-card animate-slide-up delay-200">
+        <span>Collars</span>
+        <strong>950 BD</strong>
+        <p class="card-subtext">10 sales today</p>
+      </div>
+      <div class="dashboard-card animate-slide-up delay-300">
+        <span>Coupons</span>
+        <strong>430 BD</strong>
+        <p class="card-subtext">5 redemptions today</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Users & Pets -->
+  <section class="section-container full-width">
+    <div class="section-header">
+      <h2 class="section-title">Users & Pets</h2>
+    </div>
+    <div class="dashboard-grid">
+      <div class="dashboard-card animate-slide-up">
+        <span>Website Visitors</span>
+        <strong>12,500</strong>
+      </div>
+      <div class="dashboard-card animate-slide-up delay-100">
+        <span>Accounts Created</span>
+        <strong>6,300</strong>
+      </div>
+      <div class="dashboard-card animate-slide-up delay-200">
+        <span>Pets w/ Membership</span>
+        <strong>4,020</strong>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-row">
+    <!-- Memberships -->
+    <section class="section-container grid-item section-color-1">
+      <div class="section-header">
+        <h2 class="section-title">Memberships</h2>
+        <button class="toggle-btn" (click)="toggleSection('memberships')">
+          {{ isSectionOpen('memberships') ? '−' : '+' }}
+        </button>
+      </div>
+
+      <!-- Always visible Pending status -->
+      <div class="dashboard-grid">
+        <div class="status-card bg-yellow-100 text-yellow-700">
+          <span>Pending</span>
+          <strong>300</strong>
+          <p class="card-subtext">1,200 BD</p>
+        </div>
+      </div>
+
+      <!-- Toggle-visible statuses -->
+      <div *ngIf="isSectionOpen('memberships')" class="dashboard-grid mt-4">
+        <div class="status-card bg-green-100 text-green-700">
+          <span>Active</span>
+          <strong>1,500</strong>
+          <p class="card-subtext">8,900 BD</p>
+        </div>
+        <div class="status-card bg-blue-100 text-blue-700">
+          <span>Renewal</span>
+          <strong>400</strong>
+          <p class="card-subtext">2,500 BD</p>
+        </div>
+        <div class="status-card bg-red-100 text-red-700">
+          <span>Expired</span>
+          <strong>280</strong>
+          <p class="card-subtext">950 BD</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Orders -->
+    <section class="section-container grid-item section-color-2">
+      <div class="section-header">
+        <h2 class="section-title">Order Insights</h2>
+        <button class="toggle-btn" (click)="toggleSection('orders')">
+          {{ isSectionOpen('orders') ? '−' : '+' }}
+        </button>
+      </div>
+
+      <!-- Always visible Pending Carts -->
+      <div class="dashboard-grid">
+        <div class="status-card bg-yellow-50 text-yellow-700">
+          <span>Pending Carts</span>
+          <strong>82</strong>
+          <p class="card-subtext">2,050 BD</p>
+        </div>
+      </div>
+
+      <!-- Toggle-visible order details -->
+      <div *ngIf="isSectionOpen('orders')" class="dashboard-grid mt-4">
+        <div class="status-card bg-blue-50 text-blue-700">
+          <span>Today’s Orders</span>
+          <strong>42</strong>
+          <p class="card-subtext">1,100 BD</p>
+        </div>
+        <div class="status-card bg-purple-50 text-purple-700">
+          <span>Total Orders</span>
+          <strong>1,200</strong>
+          <p class="card-subtext">28,400 BD</p>
+        </div>
+        <div class="status-card bg-red-50 text-red-700">
+          <span>Refunds</span>
+          <strong>15</strong>
+          <p class="card-subtext">280 BD</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Collars -->
+    <section class="section-container grid-item section-color-3">
+      <div class="section-header">
+        <h2 class="section-title">Collars</h2>
+        <button class="toggle-btn" (click)="toggleSection('collars')">
+          {{ isSectionOpen('collars') ? '−' : '+' }}
+        </button>
+      </div>
+
+      <!-- Always visible Pending status -->
+      <div class="dashboard-grid">
+        <div class="status-card bg-yellow-100 text-yellow-700">
+          <span>Pending</span>
+          <strong>10</strong>
+          <p class="card-subtext">300 BD</p>
+        </div>
+      </div>
+
+      <!-- Toggle-visible statuses -->
+      <div *ngIf="isSectionOpen('collars')" class="dashboard-grid mt-4">
+        <div class="status-card bg-indigo-50 text-indigo-700">
+          <span>Today’s Collars</span>
+          <strong>22</strong>
+          <p class="card-subtext">660 BD</p>
+        </div>
+        <div class="status-card bg-green-100 text-green-700">
+          <span>Total</span>
+          <strong>550</strong>
+          <p class="card-subtext">15,500 BD</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Providers -->
+    <section class="section-container grid-item section-color-4">
+      <div class="section-header">
+        <h2 class="section-title">Providers</h2>
+        <button class="toggle-btn" (click)="toggleSection('providers')">
+          {{ isSectionOpen('providers') ? '−' : '+' }}
+        </button>
+      </div>
+
+      <!-- Always visible Pending -->
+      <div class="dashboard-grid">
+        <div class="status-card bg-yellow-50 text-yellow-800">
+          <span>Pending</span>
+          <strong>25</strong>
+          <p class="card-subtext">12,000 BD</p>
+        </div>
+      </div>
+
+      <!-- Toggle-visible provider details -->
+      <div *ngIf="isSectionOpen('providers')" class="dashboard-grid mt-4">
+        <div class="status-card bg-blue-50 text-blue-800">
+          <span>Total</span>
+          <strong>300</strong>
+          <p class="card-subtext">145,000 BD</p>
+        </div>
+        <div class="status-card bg-green-50 text-green-800">
+          <span>Active</span>
+          <strong>240</strong>
+          <p class="card-subtext">120,000 BD</p>
+        </div>
+        <div class="status-card bg-red-50 text-red-800">
+          <span>Expired</span>
+          <strong>35</strong>
+          <p class="card-subtext">8,750 BD</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Adoption -->
+    <section class="section-container grid-item section-color-5">
+      <div class="section-header">
+        <h2 class="section-title">Adoption</h2>
+      </div>
+      <div class="dashboard-grid">
+        <div class="status-card bg-yellow-100 text-yellow-700">Pending<br><strong>8</strong></div>
+        <div class="status-card bg-pink-100 text-pink-700">Total Adopted<br><strong>62</strong></div>
+      </div>
+    </section>
+
+    <!-- Lost -->
+    <section class="section-container grid-item section-color-6">
+      <div class="section-header">
+        <h2 class="section-title">Lost Pets</h2>
+      </div>
+      <div class="dashboard-grid">
+        <div class="status-card bg-yellow-100 text-yellow-700">Pending<br><strong>3</strong></div>
+        <div class="status-card bg-yellow-200 text-yellow-800">Total Lost<br><strong>12</strong></div>
+      </div>
+    </section>
+
+    <!-- Sell -->
+    <section class="section-container grid-item section-color-7">
+      <div class="section-header">
+        <h2 class="section-title">Pets for Sale</h2>
+      </div>
+      <div class="dashboard-grid">
+        <div class="status-card bg-yellow-100 text-yellow-700">Pending<br><strong>5</strong></div>
+        <div class="status-card bg-red-200 text-red-800">Total for Sale<br><strong>28</strong></div>
+      </div>
+    </section>
+
+    <!-- Mating -->
+    <section class="section-container grid-item section-color-8">
+      <div class="section-header">
+        <h2 class="section-title">Mating Requests</h2>
+      </div>
+      <div class="dashboard-grid">
+        <div class="status-card bg-yellow-100 text-yellow-700">Pending<br><strong>2</strong></div>
+        <div class="status-card bg-purple-100 text-purple-800">Total Mating<br><strong>17</strong></div>
+      </div>
+    </section>
+
+
+  </div>
+
+</div>

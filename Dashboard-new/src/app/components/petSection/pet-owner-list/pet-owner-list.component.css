@@ -1,0 +1,269 @@
+.wrapper {
+    margin-left: 230px;
+    padding: 1.5rem;
+    background-color: #f9fafb;
+    min-height: 100vh;
+    height: 100vh;
+    overflow-y: auto;
+    position: relative;
+}
+  .mainhead {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .head-left {
+    width: 70%;
+  }
+  .head-right {
+    width: 30%;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+  }
+  
+  
+  .title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #5E17EB;
+  }
+  
+  .count-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    margin-top: 5rem;
+  }
+  
+  .count {
+    padding: 0.5rem 1rem;
+    color: white;
+    border-radius: 9999px;
+  }
+  
+  .count.blue { background-color: #3b82f6; }
+  .count.orange { background-color: #f97316; }
+  .count.yellow { background-color: #fde047; }
+  
+
+  .add-button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+  }
+  
+  .add-button {
+    background-color: #ef4444;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s;
+  }
+  
+  .add-button:hover {
+    background-color: #dc2626;
+  }
+  
+  .filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 80%;
+  }
+  
+  .filter-label {
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+    display: block;
+  }
+  
+  .filter-input {
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    font-size: 0.875rem;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .export-buttons .export {
+    background-color: #22c55e;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s;
+    margin-left: 20px;
+  }
+  
+  .export:hover {
+    background-color: #16a34a;
+  }
+  
+  .search-wrapper {
+    position: relative;
+  }
+  
+  .search-input {
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem 0.5rem 2rem;
+    width: 16rem;
+    font-size: 0.875rem;
+  }
+  
+  .search-icon {
+    position: absolute;
+    top: 0.875rem;
+    left: 0.625rem;
+    height: 0.875rem;
+  }
+  
+  .table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .data-table {
+    width: 100%;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+  .table-head .tableheadrow th {
+    padding: 10px 14px;
+    color: white;
+    text-align: center;
+    background-color: #2563eb;
+  }
+  
+  .checkbox {
+    height: 1rem;
+    width: 1rem;
+    color: #2563eb;
+    border-radius: 0.25rem;
+    accent-color: #2563eb;
+  }
+  /* .table-head tr{
+    padding: 10px 14px;
+    color: white;
+    text-align: center;
+    background-color: #2563eb;
+  }
+  .tableheadrow{
+    padding: 10px 14px;
+    color: white;
+    text-align: center;
+    background-color: #2563eb;
+  }
+  .checkbox {
+    height: 1rem;
+    width: 1rem;
+    border-radius: 0.25rem;
+  }
+   */
+   /* Make every owner row exactly 60px tall */
+.owner-row {
+    height: 60px;
+  }
+  
+  /* Ensure the cells inside respect that height */
+  .owner-row td {
+    height: 60px;
+    padding: 0.75rem;       /* adjust for breathing room */
+    vertical-align: middle; /* center content vertically */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+  }
+  
+  /* Apply hover effect to the whole row */
+  .owner-row:hover {
+    background-color: #f9fafb;
+  }
+  
+  .owner-img {
+    width: 4rem;
+    margin: auto;
+    border-radius: 0.5rem;
+  }
+  
+  .owner-link {
+    cursor: pointer;
+  }
+  
+  .owner-link:hover {
+    text-decoration: underline;
+  }
+  
+  .status-button {
+    border-radius: 9999px;
+    padding: 0.75rem;
+    width: 100%;
+    color: white;
+    font-size: 0.875rem;
+  }
+  
+  .status-active { background-color: #1DD73F; }
+  .status-pending { background-color: #FFB922; }
+  .status-completed { background-color: #1814F3; }
+  
+/* Pagination */
+.pagination-wrapper {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.pagination-buttons {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 1.25rem;
+}
+
+.pagination-button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.pagination-button.active {
+  background-color: #5E17EB;
+  color: white;
+}
+
+.pagination-button:not(.active):hover {
+  background-color: #5E17EB;
+  color: white;
+}
+
+.arrow-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #5E17EB;
+  font-size: 0.75rem;
+  font-weight: 400;
+  transition: color 0.5s;
+}
+
+.arrow-button:hover {
+  color: black;
+}
+
+  
