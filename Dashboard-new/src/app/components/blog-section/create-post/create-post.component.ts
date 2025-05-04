@@ -1,10 +1,10 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common'; // Import CommonModule
-
+import { ToastrService } from 'ngx-toastr';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BlogsService } from '../services/blogs.service';
-import { IBlog } from '../../models/blog.interface'; // Shared interface
+import { IBlog } from '../models/blog.interface'; // Shared interface
 
 @Component({
   selector: 'app-create-post',
@@ -30,7 +30,8 @@ export class CreatePostComponent implements OnInit {
     private fb: FormBuilder,
     private blogService: BlogsService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private toastr: ToastrService
   ) {
     this.blogForm = this.fb.group({
       title: ['', Validators.required],
@@ -128,17 +129,29 @@ export class CreatePostComponent implements OnInit {
         // Update the blog
         this.blogService.update(blogData).subscribe(response => {
           console.log('Blog updated successfully', response);
+          this.toastr.success("Post has been Updated successfully.", "Congratulations", {
+            timeOut: 3000,
+          });
           this.router.navigate(['/all-blogs']);
         }, error => {
           console.error('Error updating blog', error);
+          this.toastr.error("Failed updating Post.", "Please Try Again", {
+            timeOut: 3000,
+          });
         });
       } else {
         // Create a new blog
         this.blogService.add(blogData).subscribe(response => {
+          this.toastr.success("Post has been Updated successfully.", "Congratulations", {
+            timeOut: 3000,
+          });
           console.log('Blog saved successfully', response);
           this.router.navigate(['/all-blogs']);
         }, error => {
           console.error('Error saving blog', error);
+          this.toastr.error("Failed Saving Post.", "Please Try Again", {
+            timeOut: 3000,
+          });
         });
       }
     }

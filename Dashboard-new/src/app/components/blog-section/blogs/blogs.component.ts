@@ -3,7 +3,8 @@ import { BlogsService } from '../services/blogs.service';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
-import { IBlog } from '../../models/blog.interface'; // Shared interface
+import { ToastrService } from 'ngx-toastr';
+import { IBlog } from '../models/blog.interface'; // Shared interface
 
 @Component({
   selector: 'app-blogs',
@@ -15,7 +16,7 @@ import { IBlog } from '../../models/blog.interface'; // Shared interface
 export class BlogsComponent implements OnInit {
   public blogs: IBlog[] = []; // Initialize as an empty array
 
-  constructor(private router: Router, private service: BlogsService) { }
+  constructor(private router: Router, private service: BlogsService, private toastr: ToastrService) { }
 
   // Method to navigate to the CreatePostComponent
   navigateToCreatePost() {
@@ -59,6 +60,9 @@ export class BlogsComponent implements OnInit {
           console.log('Delete response:', response);
           this.getBlogList(); // Refresh the blog list after deletion
           this.closeModal(); // Close the modal
+          this.toastr.success("A Post has been deleted successfully.", "Congratulations", {
+            timeOut: 3000,
+          });
         },
         error => {
           console.error('Error deleting blog:', error);

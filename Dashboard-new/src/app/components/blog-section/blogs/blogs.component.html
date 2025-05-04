@@ -12,7 +12,7 @@
       <ul class="categories-color">
           <li>
               <label for="">Category</label>
-              <select name="category" id="">
+              <select name="category" id="" required>
                   <option value="" selected>Choose Option....</option>
                   <option value="">Cat</option>
                   <option value="">rabbit</option>
@@ -38,14 +38,23 @@
           <li>
               <label for="">Search</label>
               <div class="space-between">
-                  <input type="search" class="search" placeholder="Search...">
-                  <button>Search</button>
+                <input type="search" class="search" placeholder="Search..." [(ngModel)]="searchTerm">
+                <button (click)="onSearch()">Search</button>
+
+                <ul>
+                  <li *ngFor="let item of filteredItems">{{ item }}</li>
+                </ul>
               </div>
           </li>
       </ul>
   </div>
   <!--section displaying blogs-->
+  <div *ngIf="blogs.length === 0" class="no-posts">
+    <!-- k<img src="path/to/your/no-posts-image.png" alt="No Posts" class="no-posts-image"> -->
+    <h2 class="empty">No posts yet</h2>
+</div>
   <div class="blog-posts">
+
       <div class="post" *ngFor="let blog of blogs">
           <img [src]="blog.image || 'Image/cat.png'" alt="Blog Image">
           <ul>

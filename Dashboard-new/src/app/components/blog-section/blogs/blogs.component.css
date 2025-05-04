@@ -264,3 +264,9 @@ Copy
 .btn-delete:hover {
     background-color: #dc2626;
 }
+
+.empty{
+  text-align: center;
+  font-size: 20px;
+  color: #888;
+}
