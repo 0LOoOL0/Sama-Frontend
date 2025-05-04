@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<div class="confirm-container">
+    <h2>Confirm information</h2>
+    <p>Ensure your beloved pet never gets lost by equipping them with a smart collar featuring a QR tag.</p>
+  
+    <!-- Pet Information -->
+    <div class="info" *ngFor="let pet of pets">
+      <div class="info-row">
+        <span class="label">Pet Name</span>
+        <span class="value">{{pet?.name}}</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Breed</span>
+        <span class="value">{{pet?.breed}}</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Gender</span>
+        <span class="value">{{pet?.gender == 'f' ? 'Female' : pet?.gender == 'm' ? 'Male' : "Unknown"}}</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Owner Name</span>
+        <span class="value">{{first}}</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Phone number</span>
+        <span class="value">{{phone}}</span>
+      </div>
+      <div class="saperater"></div>
+    </div>
+  
+    <!-- Continue Button -->
+    <button class="continue-btn" (click)="continue()">Continue</button>
+  </div>

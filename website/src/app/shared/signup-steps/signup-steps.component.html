@@ -1,0 +1,61 @@
+<div class="progress-bar">
+    <div class="step completed">
+      <div class="circle">
+        <img src="assets/done.svg" class="progress-done" alt="Done">
+      </div>
+      <div class="step-content">
+        <h3>Sign up</h3>
+        <p>Create a new account by providing your basic information and setting a secure password</p>
+      </div>
+    </div>
+  
+    <div class="step" [class.completed]="progress > 1" [class.current]="progress === 1">
+      <div class="circle">
+        <img *ngIf="progress > 1" src="assets/done.svg" class="progress-done" alt="Done">
+      </div>
+      <div class="step-content">
+        <h3>Create Account</h3>
+        <p>Enter your information and choosing a secure password</p>
+      </div>
+    </div>
+  
+    <div class="step" [class.completed]="progress > 2" [class.current]="progress === 2">
+      <div class="circle">
+        <img *ngIf="progress > 2" src="assets/done.svg" class="progress-done" alt="Done">
+      </div>
+      <div class="step-content">
+        <h3>Wait for approval</h3>
+        <p>The application is currently under review. We appreciate your patience.</p>
+      </div>
+    </div>
+  
+    <div class="step" [class.completed]="progress > 3" [class.current]="progress === 3">
+      <div class="circle">
+        <img *ngIf="progress > 3" src="assets/done.svg" class="progress-done" alt="Done">
+      </div>
+      <div class="step-content">
+        <h3>Profile setup</h3>
+        <p>Complete your profile details to fully activate your account.</p>
+      </div>
+    </div>
+  
+    <div class="step" [class.completed]="progress > 4" [class.current]="progress === 4">
+      <div class="circle">
+        <img *ngIf="progress > 4" src="assets/done.svg" class="progress-done" alt="Done">
+      </div>
+      <div class="step-content">
+        <h3>Wait for approval</h3>
+        <p>The application is currently under review. We appreciate your patience.</p>
+      </div>
+    </div>
+  
+    <div class="step" [class.completed]="progress > 5" [class.current]="progress === 5">
+      <div class="circle">
+        <img *ngIf="progress > 5" src="assets/done.svg" class="progress-done" alt="Done">
+      </div>
+      <div class="step-content">
+        <h3>Success!</h3>
+        <p>Congratulations, your Profile has been approved and is now active.</p>
+      </div>
+    </div>
+  </div>

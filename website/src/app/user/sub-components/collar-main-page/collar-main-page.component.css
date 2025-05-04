@@ -1,0 +1,275 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #F9F9F9;
+    color: #333;
+    line-height: 1.6;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 0 40px 0;
+    background: linear-gradient(#f0f4f8, #F9F9F9);
+    position: relative;
+}
+
+.left-side, .right-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+.right-side {
+    justify-content: center;
+    margin-right: -20px;
+}
+
+.left-side {
+    justify-content: flex-start;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.dog-collar {
+    position: absolute;
+    left: 0;
+    margin: 0;
+    width: 125%;
+    height: auto;
+}
+
+.mobile-collar {
+    width: 175%;
+    height: auto;
+}
+
+.center-content {
+    flex: 2;
+    text-align: center;
+    margin: 80px;
+}
+
+.header h1 {
+    font-size: 32px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+.header p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+.header .price {
+    font-size: 24px;
+    color: #6200EA;
+    font-weight: bold;
+}
+.header .buttons {
+    margin-top: 20px;
+}
+.header .btn{
+    background-color: #6200EA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.same-row {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; 
+}
+
+.collar-left, .collar-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+    margin-top: 40px;
+}
+
+.collar-left img, .collar-right img {
+    width: 60%;
+    height: auto;
+}
+
+.collar-left {
+    justify-content: flex-start;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.collar-left img {
+    transform: rotate(-20deg);
+}
+
+.collar-right img {
+    transform: rotate(5deg);
+}
+
+.collar-right {
+    justify-content: flex-end;
+    margin-right: 0;
+}
+
+.figma-banner {
+    flex: 2;
+    display: flex;
+    justify-content: center; 
+    text-align: center;
+    margin: 0 20px;
+}
+
+.figma-banner img {
+    width: 100%;
+    max-width: 500px;
+}
+
+.how-to-order, .how-it-works {
+    padding: 40px 20px;
+    text-align: center;
+}
+.how-to-order h2, .how-it-works h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+.steps {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+.step {
+    width: 250px;
+    padding: 20px;
+}
+.step img {
+    width: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+}
+
+.file {
+    border: 2px solid #6200EA;
+    background: #6200EA;
+    box-shadow: 4px 4px 10px #6200ea66;
+}
+
+.qr {
+    border: 2px solid #4DDFFD;
+    background: #4DDFFD;
+    box-shadow: 4px 4px 10px #4de0fd6b;
+}
+
+.collar {
+    border: 2px solid #F2B8EC;
+    background: #F2B8EC;
+    box-shadow: 4px 4px 10px #f2b8ecbf;
+}
+.step p {
+    font-size: 0.8rem;
+}
+
+.lines {
+    width: auto;
+    height: 8px;
+    margin-top: 40px;
+}
+
+.paw {
+    width: 15px;
+    height: 20px;
+    justify-content: left;
+}
+
+.step button {
+    background-color: #6200EA;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.how-it-works .icons {
+    display: flex;
+    justify-content: space-around;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.icon-box {
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+}
+.icon-box img {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.icons h5 {
+    color: #E4A321
+}
+
+.icons p {
+    font-size: 0.6rem;
+    color: grey;
+}
+
+
+.footer {
+    background-color: #7C58D3;
+    color: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 10px;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cat {
+    position: absolute; 
+    left: 1.5px; 
+    margin: 0; 
+    padding: 0;
+    width: 25%;
+    top: 70px;
+    border-radius: 20px;
+}
+
+.dog {
+    position: absolute; 
+    right: 1.5px;
+    margin: 0; 
+    padding: 0; 
+    width: 15%; 
+    top: 0px; 
+    border-radius: 20px
+}
+
+.footer h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.footer button {
+    background-color: #FFD700;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}

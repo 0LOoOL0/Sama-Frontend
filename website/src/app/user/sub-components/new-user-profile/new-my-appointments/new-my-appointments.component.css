@@ -1,0 +1,148 @@
+.container {
+  padding: 10px;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.reminder-card {
+    background-color: #dfdfdf;
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    /* box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); */
+    position: relative;
+  }
+  
+  .reminder-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  
+  .reminder-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+
+  ul {
+    padding: 0;
+    width: 60%;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  .provider-img {
+    height: 200px;
+    padding-left: 20px;
+    border-radius: 50%;
+  }
+
+  h4 {
+    color:#5a31f4;
+  }
+
+  .reminder-icons span {
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  
+  .reminder-info {
+    font-size: 1.1rem;
+    color: #777;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .calendar-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  
+  .reminder-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #5a31f4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .more-buttons {
+    width: 15%;
+    padding: 15px;
+    font-size: 20px;
+    height: 50px;
+    background-color: #ED5F1E;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    align-items: flex-end;
+  }
+  
+  .more-buttons img {
+    width: 25px;
+    margin-left: 8px;
+  }
+
+  .popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+}
+
+.popup h2, p{
+    text-align: center;
+}
+
+.popup button {
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    border: none;
+    background-color: #5E17EB;
+    color: white;
+    margin: 20px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    width: 30em;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+}

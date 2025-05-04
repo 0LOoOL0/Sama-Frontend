@@ -1,0 +1,17 @@
+<div class="admin-dashboard">
+  <div *ngIf="isSidebarVisible">
+  <nav class="admin-sidebar">
+    <ul>
+      <div>
+        <button></button>
+      </div>      
+      <li *ngFor="let route of childRoutes">
+        <a (click)="navigateTo(route.path)">{{ route.path }}</a>
+      </li>
+    </ul>
+  </nav>
+  </div>
+  <div class="admin-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

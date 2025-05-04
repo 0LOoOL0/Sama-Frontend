@@ -1,0 +1,33 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 20px;
+    background-color: white;
+}
+
+.service-card {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.service-card img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.service-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.service-card button {
+    background-color:purple;
+    color: yellow;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}

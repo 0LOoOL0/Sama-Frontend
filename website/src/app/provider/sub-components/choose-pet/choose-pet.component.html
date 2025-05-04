@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<div class="display">
+    
+        <div class="container">
+            <app-signup-steps [progress]="pg"></app-signup-steps>
+            <div class="products-grid">
+                <div class="product-item" *ngFor="let product of products" >
+                    <img [src]="product.images && product.images.length > 0 ? product.images[0] : './assets/dog.svg'" alt="Product Image">
+                <p>{{ product.name || 'Product' }}</p>
+                    <button class="edit-btn">✎</button>
+                </div>
+                
+            </div>
+    
+            <!-- Buttons -->
+            <div class="buttons">
+                <button class="add-more" (click)="navigateToProductUpload()">+ Add More</button>
+                <button class="continue">Continue</button>
+            </div>
+        </div>
+    
+
+</div>
+<!-- <div class="icon-container"></div>
+    <div class="icons whatsapp">
+        <img src="assets/whatsapp.svg">
+    </div>
+    <div class="icons arrow">
+        <img src="assets/arrow-up.svg">
+    </div>
+</div> -->
+

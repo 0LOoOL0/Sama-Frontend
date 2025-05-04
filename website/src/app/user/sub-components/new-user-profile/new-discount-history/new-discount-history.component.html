@@ -1,0 +1,48 @@
+<div class="history">
+
+  <div class="filter">
+    <ul>
+      <li>
+        <input type="text">
+        <button>search</button>
+      </li>
+    </ul>
+  </div>
+  
+  <div *ngFor="let item of discountHistory" class="order-item">
+
+    <div class="content">
+      <div class="header">
+        <p>{{item.date}} ID:{{item.id}}</p>
+      </div>
+
+
+      <div class="display">
+        <div class="service-image">
+          <img src="/assets/pfp.png" alt="">
+          <!-- <img [src]="item.image" [alt]="item.service"> -->
+        </div>
+
+        <div class="space-between">
+          <div class="service-details">
+            <h3>{{item.service}}</h3>
+            <div class="price-details">
+              <p>Original price</p>
+              <p>You Saved</p>
+              <p>You Paid</p>
+            </div>
+            <a (click)="navigateToDetails()" class="view-details">View details</a>
+          </div>
+
+          <div class="price-info">
+            <p class="items">{{item.items}} items</p>
+            <p class="strikethrough">BHD {{item.originalPrice.toFixed(3)}}</p>
+            <p class="saved">BHD {{item.savedAmount.toFixed(3)}}</p>
+            <p class="paid">BHD {{item.finalPrice.toFixed(3)}}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

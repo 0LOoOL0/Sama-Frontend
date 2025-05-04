@@ -1,0 +1,76 @@
+<!-- this one is with typeScript -->
+
+<!-- <div class="history">
+  <div class="order-item" *ngFor="let item of orderHistory | reverse; let i = index">
+    <div class="content"></div>
+    <div class="order-header">
+      <span class="date-id">ID:{{item.id}}</span>
+      <span class="status"
+        [ngClass]="{'pending': item.status === 'pending', 'delivered': item.status === 'delivered', 'failed': item.status === 'failed'}">
+        {{item.status}}
+      </span>
+    </div>
+    <span class="date-id">{{ item.order_date | date: 'yyyy-MM-dd HH:mm:ss' }}</span>
+
+    <div class="service-details">
+      <h3>{{item.service}}</h3>
+      <div class="price-details">
+        <p>Total: BHD {{item.amount}}</p>
+        <p *ngIf="item.discount_amount > 0">You Paid: BHD {{item.discount_amount}}</p>
+
+        <p *ngIf="item.discount_amount > 0" class="paid">BHD {{item.discount_amount}}</p>
+      </div>
+      <a class="view-details" (click)="viewDetail(i)">View details</a>
+    </div>
+    <button class="order-again" (click)="orderAgain(i)">Order Again</button>
+  </div>
+</div> -->
+
+<div class="content">
+  <!-- <div *ngFor="let item of discountHistory" class="order-item"> -->
+  <div class="header">
+    <div class="id-date">
+      <span class="date-id">Date: 12 2 2025</span>
+    </div>
+    <span class="status">pending</span>
+  </div>
+  <!-- <div *ngFor="let item of discountHistory" class="order-item"> -->
+
+  <div class="display">
+
+    <div class="space-between">
+      <div class="service-details">
+        <h3>Cat Grooming Services</h3>
+        <div class="price-details">
+          <p>Total</p>
+          <p>You Saved</p>
+          <p>You Paid</p>
+        </div>
+        <a href="javascript:void(0)" (click)="toggleDetails()"> {{ showDetails ? 'Show less' : 'View details' }}</a>
+      </div>
+
+      <div class="price-info">
+        <p class="items">3 items</p>
+        <p class="strikethrough">7.000 BHD </p>
+        <p class="saved">3.000 BHD</p>
+        <p class="paid">5.000 BHD</p>
+      </div>
+      <button class="order-again" (click)="orderAgain(i)">Order Again</button>
+    </div>
+
+  </div>
+
+  <div *ngIf="showDetails" class="details-content">
+    <div class="view-details">
+      <div>
+        <p class="items">{{ details.items.length }} items</p>
+        <p *ngFor="let item of details.items">{{ item }}</p>
+      </div>
+      <div>
+        <p class="items">price</p>
+        <p *ngFor="let price of details.prices">{{ price }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>

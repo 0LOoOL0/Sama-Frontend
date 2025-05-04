@@ -1,0 +1,265 @@
+.owner-profile-page {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 30px;
+    }
+  
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+  
+      .search-input {
+        flex: 1;
+        padding: 10px;
+        border-radius: 50px;
+        border: 1px solid #ddd;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+      }
+  
+      .header-actions {
+        display: flex;
+        gap: 15px;
+        
+        .btn {
+          padding: 10px 20px;
+          border-radius: 50px;
+          border: none;
+          color: #fff;
+          cursor: pointer;
+        }
+  
+        .red-btn {
+          background-color: #ff4d4d;
+        }
+      }
+    }
+  
+    .profile-info {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+      background-color: #6a1b9a;
+      padding: 20px;
+      border-radius: 10px;
+      color: white;
+  
+      .profile-picture {
+        flex: 1;
+        text-align: center;
+  
+        img {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+  
+      .profile-details {
+        flex: 3;
+  
+        .row {
+          display: flex;
+          gap: 15px;
+          margin-bottom: 15px;
+  
+          input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 50px;
+            border: 1px solid #ddd;
+          }
+        }
+  
+        input {
+          width: 100%;
+          padding: 10px;
+          border-radius: 50px;
+          border: 1px solid #ddd;
+        }
+      }
+    }
+  
+    .membership-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+  
+      .btn {
+        flex: 1;
+        padding: 10px 15px;
+        margin-right: 10px;
+        border-radius: 50px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        text-align: center;
+      }
+  
+      .green-btn {
+        background-color: #28a745;
+      }
+  
+      .orange-btn {
+        background-color: #f0ad4e;
+      }
+  
+      .blue-btn {
+        background-color: #007bff;
+      }
+  
+      .btn:last-child {
+        margin-right: 0;
+      }
+    }
+  
+    .profile-tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 30px;
+  
+      .tab-btn {
+        padding: 10px 20px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        background-color: #eee;
+        color: #555;
+      }
+  
+      .tab-btn.active {
+        background-color: #6a1b9a;
+        color: white;
+      }
+    }
+  
+    .my-pets-section {
+      margin-bottom: 30px;
+  
+      h2 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+  
+      .pets-grid {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 20px;
+  
+        .pet-card {
+          flex: 1;
+          text-align: center;
+          padding: 15px;
+          background-color: #f9f9f9;
+          border-radius: 10px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+          border: 2px solid transparent;
+  
+          &.selected {
+            border-color: #6a1b9a;
+          }
+  
+          input[type="checkbox"] {
+            margin-bottom: 10px;
+          }
+  
+          img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+          }
+        }
+      }
+  
+      .pet-actions {
+        display: flex;
+        justify-content: space-around;
+  
+        .btn {
+          padding: 10px 20px;
+          border-radius: 50px;
+          border: none;
+          color: white;
+          cursor: pointer;
+          text-align: center;
+        }
+  
+        .purple-btn {
+          background-color: #6a1b9a;
+        }
+      }
+    }
+  
+    .membership-invoice-section {
+      margin-bottom: 30px;
+  
+      h2 {
+        margin-bottom: 20px;
+        color: #333;
+      }
+  
+      table {
+        width: 100%;
+        border-collapse: collapse;
+  
+        th, td {
+          padding: 10px;
+          border: 1px solid #ddd;
+          text-align: center;
+        }
+  
+        th {
+          background-color: #f9f9f9;
+        }
+  
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+  
+        select, input[type="date"], input[type="number"] {
+          padding: 5px;
+          border-radius: 5px;
+          border: 1px solid #ddd;
+        }
+      }
+  
+      .invoice-actions {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+  
+        .btn {
+          padding: 10px 20px;
+          border-radius: 50px;
+          border: none;
+          color: white;
+          cursor: pointer;
+          text-align: center;
+        }
+  
+        .green-btn {
+          background-color: #28a745;
+        }
+  
+        .btn:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  

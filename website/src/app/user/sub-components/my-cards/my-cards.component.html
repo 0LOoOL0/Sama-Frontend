@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- hero section -->
+    <section class="heroSection vetClinicHeroSection">
+        <img src="./assets/img/vet-clinic-hero-bg.png" alt="hero-bg" class="heroSectionBg">
+        <div class="container-3xl">
+            <div class="hero-container">
+                <div class="heroLinkContainer ">
+                    <a href="home" class="hero-link active">Home</a>
+                    <div class="heroDot"></div>
+                    <a href="/user-main-component/my-cards" class="hero-link  ">My cards</a>
+                </div>
+                <h1 class="hero-heading">My Cards</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- my cards   section -->
+    <section class="productListingSection myCardCouponsSection">
+        <div class="productListingContainer">
+            <div class="grid-layout-2">
+                <div class="grid-col-6">
+                    <div class="myCardCardItem">
+                        <div class="flex row-between">                            
+                            <select class="cardDropDwon" (change)="onPetChange($event.target.value)">
+                                <option [value]="i" *ngFor="let pet of pets; let i = index" >                                    
+                                    <h1 class="mdHeading">{{pet.name}}</h1>
+                                </option>
+                            </select>                            
+                        </div>
+
+                        <div class="cardImageContainer" style="background-color: orange;" *ngIf="pet?.memberShip; else notMember">
+                            <h1 class="mdHeading">{{pet?.name}}</h1>
+                            <h1 class="mdHeading">Breed: {{pet?.breed}}</h1>
+                            <h1 class="mdHeading">Gender: {{pet?.gender == 'f'? 'Female' : pet?.gender == 'm' ? 'Male' : 'Unknown'}}</h1>
+                            <h1 class="mdHeading">Owner Name: {{prof?.first_name}} {{prof?.last_name}}</h1>
+                            <h1 class="mdHeading">expiration_date: {{pet?.end_date | date:'dd-MM-yyyy'}}</h1>
+                        </div>
+                        <ng-template #notMember>
+                            <h1 class="mdHeading" style="background-color: red;">{{pet?.name}} is not a member</h1>
+                        </ng-template>
+
+                        <div class="cardBtnContainer flex row-center">
+                            <a href="#" class="main-btn">Order Physical Card</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-col-6">
+                    <div class="couponsCardItem">
+                        <div class="couponsCardHeader flex row-between">
+                            <h1 class="mdHeading">Coupons</h1>
+                            <a href="#" class="main-btn">BUY MORE COUPONS</a>
+                        </div>
+                        <div class="coupusownerItem">
+                            <h2 class="smHeading">Owned</h2>
+                            <div class="ownerCard flex gap-1" *ngFor="let owned of coupon">
+                                <img [src]="owned.image" alt="coupon img" class="ownerCardImg">
+                                <div class="ownerCardText flex-1">
+                                    <h1 class="mdHeading">{{ getProviderNameById(owned.provider_id) }}</h1>
+                                    <p class="mainText">{{owned.title}}</p>
+                                    <div class="ownerCardBtnContainer flex row-between">
+                                        <a class="cardBtn">{{owned.code}}</a>
+                                        <p class="mainText">{{owned.expiration_date | date:'dd-MM-yyyy'}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="coupusownerItem">
+                            <h2 class="smHeading">Used</h2>
+                            <div class="ownerCard flex gap-1 disable" *ngFor="let used of usedCoupon">
+                                <img [src]="used.image" alt="card img" class="ownerCardImg">
+                                <div class="ownerCardText flex-1">
+                                    <h1 class="mdHeading">{{getProviderNameById(used.provider_id)}}</h1>
+                                    <p class="mainText">{{used.title}}</p>
+                                    <div class="ownerCardBtnContainer flex row-between">
+                                        <a class="cardBtn">{{used.code}}</a>
+                                        <p class="mainText">{{used.expiration_date | date:'dd-MM-yyyy'}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- membership section -->
+    <section class="membershipSection cardPageMemberShipSection">
+        <div class="container-2xl">
+            <div class="membershipContainer">
+                <div class="flex-col-6 col-md mx-auto">
+                    <h1 class="mdHeading">Your Pets Deserve the Best,
+                        Be a member!</h1>
+                    <p class="mainText">Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum. Ligula
+                        ullamcorper malesuada proin libero nunc consequat interdum varius sit.</p>
+                    <a href="/user-main-component/subscribe" class="main-btn">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

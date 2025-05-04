@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<div class="header">
+    <h1>Be a Partner</h1>
+</div>
+<section class="features">
+    <h2>Features of Partners</h2>
+    <div class="feature-item">
+        <img src="assets/images/feature1.jpg" alt="Feature 1">
+        <h3>Exclusive Discounts</h3>
+        <p>Partners receive exclusive pricing on products, with the discounted prices prominently marked next to the original.</p>
+        <button>Learn More</button>
+    </div>
+    <div class="feature-item">
+        <img src="assets/images/feature2.jpg" alt="Feature 2">
+        <h3>Product Listings</h3>
+        <p>To ensure a seamless listing experience, products are presented with high-quality photos, descriptions, and partner-only tools.</p>
+        <button>Learn More</button>
+    </div>
+</section>
+<section class="package-plan">
+    <h2>Package Plan</h2>
+    <div class="package">
+        <div class="price">$20 / month</div>
+        <p>Starter</p>
+        <button (click)="choosePlan('Starter')">Choose Plan</button>
+    </div>
+    <div class="package">
+        <div class="price">$100 / month</div>
+        <p>Pro</p>
+        <button (click)="choosePlan('Pro')">Choose Plan</button>
+    </div>
+    <div class="package">
+        <div class="price">$200 / month</div>
+        <p>Enterprise</p>
+        <button (click)="choosePlan('Enterprise')">Choose Plan</button>
+    </div>
+</section>
+<footer class="footer">
+    <p>&copy; 2024 Sama Pet Care. All Rights Reserved.</p>
+</footer>

@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="space-between">
+        <h2>Today</h2>
+        <button class="more-buttons" type="button" (click)="addReminder()">Reminder</button>
+    </div>
+    <div class="reminder-card" *ngFor="let reminder of reminders">
+        <div class="reminder-details">
+            <div class="reminder-header">
+                <img class="provider-img" src="/assets/pfp.png" alt="provider-img">
+                <ul>
+                    <li><h4>{{ reminder.provider }}</h4></li>
+                    <li><h2>{{ reminder.title }}</h2></li>
+                    <li><p class="reminder-info">
+                        <img src="/assets/img/calendarIcon.jpeg" alt="Calendar" class="calendar-icon" />
+                        <span class="date">{{ reminder.date }}</span> | <span class="doctor">{{ reminder.doctor }}</span>
+                        </p>
+                    </li>
+                </ul>
+                <div class="reminder-icons">
+                    <span class="edit" (click)="editReminder()">✏</span>
+                    <span class="delete" (click)="openPopup()">🗑</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="popup" *ngIf="isPopupVisible">
+    <div class="popup-content">
+        <h2>Delete appointment?</h2>
+        <p>Are you sure you want to delete this appointment?</p>
+        <div class="action-buttons">
+            <button (click)="closePopup()">Confirm</button>
+            <button style="background-color: red;" (click)="closePopup()">Cancel</button>
+        </div>
+    </div>
+</div>

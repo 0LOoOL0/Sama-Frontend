@@ -1,0 +1,159 @@
+.page{
+    justify-content: center;
+    align-items: center;
+}
+
+.membership-container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+    background-color: #f8f8fc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: auto;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 25px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 50px;
+    width: 90%;
+    max-width: 1000px;
+    max-height:1000px;
+}
+
+.membership-container h1 {
+    font-size: 20px;
+    color: #333;
+}
+
+.membership-container p {
+    font-size: 1.5vw;
+    color: #777;
+    margin-bottom: 2vh;
+}
+
+.image-container {
+    align-items: center;
+    width: 200px;
+    max-width: 300px;
+    background-image: url(../../../../assets/person-sitting.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.promo-coupon-buttons {
+    margin-bottom: 100px;
+}
+
+.plans-container {
+    display: flex;
+    margin-top: 100px;
+}
+
+.plans {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: #6236ff;
+    color: white;
+    border: none;
+    padding: 20px 10px;
+    border-radius: 5px;
+    width: 45%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 20px;
+}
+
+.plans:hover {
+    background-color: #5329e1;
+}
+
+.plans h2 {
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+}
+
+.plans p {
+    font-size: 15px;
+    color: #FFEA50;
+    text-align: left;
+    margin: 10px;
+}
+
+.price {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #FFEA50;
+}
+
+.plan .content {
+    text-align: left;
+}
+
+a {
+    font-size: 15px;
+    color: #6236ff;
+    display: block;
+}
+
+#adPromotionButton, #couponDiscountButton {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+    background-color: #6236ff;
+    border-radius: 20px 0 0 20px;
+}
+
+#couponDiscountButton {
+    background-color: #ccc;
+    border-radius: 0 20px 20px 0;
+}
+
+.popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup-content {
+    background-color: white;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    width: 80%;
+    max-width: 500px;
+}
+
+.popup-content h2 {
+    color: #6236ff;
+    margin-bottom: 10px;
+}
+
+.popup-content ul {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.popup-content button {
+    background-color: #6236ff;
+    color: white;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}

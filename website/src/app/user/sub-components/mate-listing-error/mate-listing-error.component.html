@@ -1,0 +1,118 @@
+<app-navbar></app-navbar>
+<div class="container">
+  
+    <!-- Main Content -->
+    <main class="main-content">
+      <section class="banner">
+        <h2>Matting</h2>
+        <img src="puppy-image.png" alt="Puppy" class="banner-image" />
+      </section>
+  
+      <section class="search-section">
+        <input
+          type="text"
+          placeholder="Search"
+          [(ngModel)]="searchTerm"
+          (input)="filterPets()"
+        />
+        <button class="search-btn" (click)="filterPets()">Search</button>
+      </section>
+  
+      <aside class="filter-section">
+        <div class="filter-category">
+          <h4>Pet Type</h4>
+          <label *ngFor="let type of petTypes">
+            <input
+              type="checkbox"
+              [value]="type"
+              (change)="onTypeFilterChange(type, $event.target.checked)"
+            />
+            {{ type }}
+          </label>
+        </div>
+  
+        <div class="filter-category">
+          <h4>Gender</h4>
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              value="Male"
+              (change)="onGenderFilterChange('Male')"
+            />
+            Male
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              value="Female"
+              (change)="onGenderFilterChange('Female')"
+            />
+            Female
+          </label>
+        </div>
+  
+        <div class="filter-category">
+          <h4>Age</h4>
+          <input
+            type="range"
+            min="0"
+            max="12"
+            [(ngModel)]="ageRange"
+            (change)="filterPets()"
+          />
+          <span>{{ ageRange }}+ years</span>
+        </div>
+  
+        <div class="filter-category">
+          <h4>Distance (km)</h4>
+          <input
+            type="range"
+            min="0"
+            max="50"
+            [(ngModel)]="distanceRange"
+            (change)="filterPets()"
+          />
+          <span>{{ distanceRange }} km</span>
+        </div>
+      </aside>
+  
+      <!-- Card Section / Empty State -->
+      <section class="card-section">
+        <div *ngIf="filteredPets.length === 0" class="empty-state">
+          <img src="not-found-image.png" alt="No results" />
+          <p>Sorry we couldn’t find what you’re looking for!</p>
+        </div>
+  
+        <div class="card" *ngFor="let pet of filteredPets">
+          <img src="cat-image.png" alt="Cat" />
+          <h3>{{ pet.name }}</h3>
+          <p>{{ pet.description }}</p>
+          <button class="view-btn">View</button>
+        </div>
+      </section>
+    </main>
+  
+    <!-- Footer Section -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h4>Sama Pet Care</h4>
+          <p>Tristique nulla aliquet enim tortor at auctor urna nunc...</p>
+        </div>
+        <div class="working-hours">
+          <h4>Working Hours</h4>
+          <p>Mon - Fri: 7am - 6pm</p>
+          <p>Saturday: 9am - 4pm</p>
+          <p>Sunday: Closed</p>
+        </div>
+        <div class="newsletter">
+          <h4>Newsletter</h4>
+          <input type="email" placeholder="Enter your email" />
+          <button>Subscribe</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+  

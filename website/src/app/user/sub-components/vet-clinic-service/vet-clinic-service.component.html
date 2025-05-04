@@ -1,0 +1,201 @@
+
+
+    <!-- hero section -->
+    <section class="heroSection groomingHeroSection">
+        <img src="./assets/img/grooming-hero-bg.png" alt="hero-bg" class="heroSectionBg">
+        <div class="container-3xl">
+            <div class="hero-container">
+                <div class="heroLinkContainer ">
+                    <a href="home" class="hero-link active">Home</a>
+                    <div class="heroDot"></div>
+                    <a href="our-services" class="hero-link active">Service</a>
+                    <div class="heroDot"></div>
+                    <a href="/user-main-component/providers" class="hero-link active">Providers</a>
+                    <div class="heroDot"></div>
+                </div>
+                <h1 class="hero-heading">{{provider?.provider_name_en}}</h1>
+                <a class="locationLink flex gap-half">
+                    <img src="./assets/icons/location-icon.svg" alt="location" class="locationIcon">
+                    {{provider?.block}},{{provider?.road}},{{provider?.city}}
+
+
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- clinic details section -->
+    <section class="clinicDetailsSection">
+        <div class="grid-layout-2">
+            <div class="grid-col-5 col-xl">
+                <div class="clientDeatailTextContent">
+                    <div class="clientDeatailTextHeading">
+                        <p class="mainText">Providing compassionate, comprehensive care for your beloved pets. Our
+                            experienced team of veterinarians and support staff are dedicated to keeping your furry (or
+                            feathery, or scaly!) friends happy and healthy. From preventative checkups to emergency
+                            services, we offer the latest treatments in a warm, welcoming environment.</p>
+
+                        <div class="clientDeatailTabsInfo flex row-between flex-wrap">
+                            <div class="detailTab flex gap-half flex-col-6 col-sm">
+                                <img src="./assets/img/clinec-detail-1.png" alt="location" class="detailTabIcon">
+                                <h1 class="mdHeading">Companionship</h1>
+                            </div>
+                            <div class="detailTab flex gap-half flex-col-6 col-sm">
+                                <img src="./assets/img/clinec-detail-2.png" alt="location" class="detailTabIcon">
+                                <h1 class="mdHeading">Warm and inviting environment</h1>
+                            </div>
+                            <div class="detailTab flex gap-half flex-col-6 col-sm">
+                                <img src="./assets/img/clinec-detail-3.png" alt="location" class="detailTabIcon">
+                                <h1 class="mdHeading">Fresh water and food</h1>
+                            </div>
+                            <div class="detailTab flex gap-half flex-col-6 col-sm">
+                                <img src="./assets/img/clinec-detail-4.png" alt="location" class="detailTabIcon">
+                                <h1 class="mdHeading">Lots of love and snuggles</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeTableContainer">
+                        <h1 class="mdHeading">Availability time</h1>
+                        <div class="timeTableBtnWrpper flex gap-half f">
+                            <button class="timeTableBtn ">M</button>
+                            <button class="timeTableBtn active">T</button>
+                            <button class="timeTableBtn">W</button>
+                            <button class="timeTableBtn active">T</button>
+                            <button class="timeTableBtn">F</button>
+                            <button class="timeTableBtn">S</button>
+                            <button class="timeTableBtn active">S</button>
+                        </div>
+                        <h5 class="subHeading">
+                            <span>Hours:</span> 
+                            {{ time?.start | amPmTime }} - {{ time?.end | amPmTime }}
+                          </h5>
+                          
+                    </div>
+                </div>
+            </div>
+            <div class="grid-col-7 col-xl">
+                <div class="clientImageContainer flex gap-1 row-between">
+                    <a class="clientImageLink">
+                        <img [src]="provider?.profile_image" alt="client-image" class="clinicDogImage">
+                    </a>
+                    <!-- <a href="#" class="clientImageLink">
+                        <img src="./assets/img/clinic-dog-2.png" alt="client-image" class="clinicDogImage">
+                    </a>
+                    <a href="#" class="clientImageLink">
+                        <img src="./assets/img/clinic-dog-3.png" alt="client-image" class="clinicDogImage">
+                    </a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="servicebyproduct w-full ">
+        <app-item-by-provider></app-item-by-provider>
+    </div>
+
+    <!-- get service section -->
+    <section class="getServiceSection">
+        <div class="container-3xl">
+            <div class="grid-layout-2">
+                <div class="grid-col-7 col-xl">
+                    <div class="getServiceTextContainer">
+                        <h1 class="mdHeading">Want To Get a Service?</h1>
+                        <p class="mainText">Consequat nisl vel pretium lectus quam id leo in. Quis viverra nibh cras
+                            pulvinar
+                            mattis. Quis hendrerit dolor magna eget est lorem ipsum dolor</p>
+
+                        <div class="socialMediaContainer flex row-between gap-3">
+                            <a href="#" class="socialMediaLink"><img src="./assets/img/apple-store-icon.png"
+                                    alt="apple-store" class="socialMediaIcon"></a>
+                            <a href="#" class="socialMediaLink"><img src="./assets/img/google-play-icon.png"
+                                    alt="google-play" class="socialMediaIcon"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-col-5 col-xl">
+                    <div class="getServiceImgContainer">
+                        <img src="./assets/img/sama-phone-1.png" alt="get-service" class="getServiceImg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- other services section -->
+    <section class="otherServicesSection">
+        <div class="container-2xl">
+            <h4 class="subHeading">Our Services</h4>
+            <h1 class="mdHeading">All Pet Care Services</h1>
+
+            <div class="grid-layout ">
+                <div class="grid-col">
+                    <div class="productCard">
+                        <img src="./assets/img/other-servics-img-1.png" alt="dog" class="othersevicesCardImg">
+                        <h5 class="smText">Vet Clinic</h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="productCard">
+                        <img src="./assets/img/other-servics-img-2.png" alt="dog" class="othersevicesCardImg">
+                        <h5 class="smText">Pet Store</h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="productCard">
+                        <img src="./assets/img/other-servics-img-3.png" alt="dog" class="othersevicesCardImg">
+                        <h5 class="smText">Grooming</h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="productCard">
+                        <img src="./assets/img/other-servics-img-4.png" alt="dog" class="othersevicesCardImg">
+                        <h5 class="smText">Sama Store</h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="productCard">
+                        <img src="./assets/img/other-servics-img-5.png" alt="dog" class="othersevicesCardImg">
+                        <h5 class="smText">Pet Training</h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="productCard">
+                        <img src="./assets/img/other-servics-img-6.png" alt="dog" class="othersevicesCardImg">
+                        <h5 class="smText">Marketplace</h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="productCard">
+                        <img src="./assets/img/other-servics-img-7.png" alt="dog" class="othersevicesCardImg">
+                        <h5 class="smText">Accommodation </h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="productCard">
+                        <img src="./assets/img/other-servics-img-8.png" alt="dog" class="othersevicesCardImg">
+                        <h5 class="smText">Collar</h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="productCard">
+                        <img src="./assets/img/other-servics-img-9.png" alt="dog"
+                            class="othersevicesCardImg magnifierImg">
+                        <h5 class="smText">Lost pet</h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="productCard">
+                        <img src="./assets/img/other-servics-img-10.png" alt="dog" class="othersevicesCardImg">
+                        <h5 class="smText">Apdoption</h5>
+                    </div>
+                </div>
+                <div class="grid-col">
+                    <div class="productCard">
+                        <img src="./assets/img/other-servics-img-11.png" alt="dog" class="othersevicesCardImg">
+                        <h5 class="smText">Matting</h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>

@@ -1,0 +1,51 @@
+<div class="add-user-container">
+    <h1>Add Admin</h1>
+  
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Enter name" class="form-control" [(ngModel)]="name" name="name" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter email" class="form-control" [(ngModel)]="email" name="email" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="contact">Contact</label>
+        <input type="text" id="contact" placeholder="Enter contact number" class="form-control" [(ngModel)]="contact" name="contact" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="adminRole">Admin Role</label>
+        <select id="adminRole" class="form-control" [(ngModel)]="adminRole" name="adminRole" required>
+          <option *ngFor="let role of allRoles">{{ role }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select id="status" class="form-control" [(ngModel)]="status" name="status" required>
+          <option>Active</option>
+          <option>Inactive</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" class="form-control" [(ngModel)]="password" name="password" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" placeholder="Confirm password" class="form-control" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+      </div>
+  
+      <div class="form-actions">
+        <button type="submit" class="btn-save">Submit</button>
+        <button type="button" class="btn-cancel" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+  

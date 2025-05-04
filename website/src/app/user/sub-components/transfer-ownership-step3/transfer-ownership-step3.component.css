@@ -1,0 +1,135 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    width: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  .header {
+    background-color: #ffe600;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  /* Main Content */
+  .main-content {
+    display: flex;
+    padding: 20px;
+    gap: 30px;
+  }
+  
+  /* User Profile Section */
+  .user-profile {
+    width: 25%;
+  }
+  
+  .profile-card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+  }
+  
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .user-id {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .join-date {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  /* Transfer Ownership Section */
+  .transfer-ownership {
+    width: 70%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .transfer-ownership h2 {
+    font-size: 24px;
+    color: #4a4a4a;
+    margin-bottom: 10px;
+  }
+  
+  .progress-bar {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  .step {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ddd;
+  }
+  
+  .step.completed {
+    background-color: #6a0dad;
+  }
+  
+  .confirmation-box {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon {
+    font-size: 50px;
+    color: #6a0dad;
+    margin-bottom: 10px;
+  }
+  
+  .check-mark {
+    font-size: 50px;
+    color: #6a0dad;
+  }
+  
+  .confirmation-box h3 {
+    font-size: 20px;
+    color: #4a4a4a;
+  }
+  

@@ -1,0 +1,70 @@
+<div class="services-page" *ngIf="!showHospitalServices">
+  <!-- Banner Section -->
+  <div class="banner">
+    <p>Add Banner size</p>
+  </div>
+
+  <!-- Action Buttons -->
+  <div class="action-buttons">
+    <button class="btn add-service-btn" (click)="goToServiceForm()">Add Service</button>
+    <button class="btn import-services-btn">Import Services</button>
+    <button class="btn download-template-btn">Download Template</button>
+    <button class="btn export-services-btn">Export Services</button>
+    <button class="btn delete-all-services-btn" (click)="deleteAllServices()">Delete All Services</button>
+  </div>
+
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <input 
+      type="text" 
+      placeholder="Search services..." 
+      [(ngModel)]="searchQuery" 
+      (input)="filterServices()" 
+    />
+  </div>
+
+  <!-- Services Table -->
+  <div class="services-table">
+    <table>
+      <thead>
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>Service Name (En)</th>
+          <th>Service Name (Ar)</th>
+          <th>Service Description (En)</th>
+          <th>Service Description (Ar)</th>
+          <th>Price</th>
+          <th>Offer %</th>
+          <th>Status</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let service of filteredServices">
+          <td><input type="checkbox" /></td>
+          <td>{{ service.title }}</td>
+          <td>{{ service.titleAr }}</td>
+          <td>{{ service.short_description }}</td>
+          <td>{{ service.short_descriptionAr }}</td>
+          <td>\${{ service.new_price }}</td>
+          <td>{{ service.percentage }}</td>
+          <td><span class="status-indicator" [ngClass]="service.status === 'active' ? 'online' : 'offline'"></span> {{ service.status }}</td>
+          <td><button class="edit-btn">✎</button></td>
+          <td><button class="delete-btn" (click)="deleteService(service.id)">🗑</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+  
+  <!-- Hospital Services Component 
+  <app-hospital-services 
+    *ngIf="showHospitalServices" 
+    [service]="editingService" 
+    (close)="closeHospitalServices()" 
+    (save)="saveHospitalService($event)">
+  </app-hospital-services>
+  -->

@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+<div class="marketplace-page">
+    <!-- Search Bar -->
+    <div class="search-container">
+      <input type="text" class="search-input" placeholder="Search">
+      <button class="search-btn">Search</button>
+    </div>
+    
+    <!-- Showing Results -->
+    <p class="results-info">Showing 1-9 of 20 results</p>
+    
+    <!-- Main Content -->
+    <div class="content-section">
+      <!-- Filter Section -->
+      <div class="filters">
+        <h3>Pet Type</h3>
+        <div class="filter-group">
+          <button>Cats</button>
+          <button>Dogs</button>
+          <button>Fish</button>
+          <button>Birds</button>
+          <button>Tortoise</button>
+          <button>Horse</button>
+          <button>Hamsters</button>
+          <button>Rabbits</button>
+          <button>Camels</button>
+          <button>Livestock</button>
+          <button>Reptiles</button>
+          <button>Others</button>
+        </div>
+  
+        <h3>Gender</h3>
+        <div class="gender-filter">
+          <label><input type="radio" name="gender" value="Male"> Male</label>
+          <label><input type="radio" name="gender" value="Female"> Female</label>
+        </div>
+  
+        <h3>Breed/Type</h3>
+        <select>
+          <option>Select Breed</option>
+        </select>
+  
+        <h3>Age</h3>
+        <input type="range" min="1" max="12" value="1">
+  
+        <h3>Kilometer</h3>
+        <input type="range" min="0" max="30" value="10">
+  
+        <h3>Price range</h3>
+        <input type="range" min="5" max="355" value="80">
+        <p>Range: $5 - $355</p>
+        <button class="apply-filter-btn">Apply Filter</button>
+      </div>
+  
+      <!-- Product Grid Section -->
+      <div class="product-list">
+        <div class="product-item" *ngFor="let product of products">
+          <img [src]="product.image" alt="Product Image">
+          <h4>{{ product.name }}</h4>
+          <p>{{ product.price }}</p>
+          <div class="product-icons">
+            <i class="heart-icon">❤️</i>
+            <i class="cart-icon">➕</i>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Pagination -->
+    <div class="pagination">
+      <button>1</button>
+      <button>2</button>
+      <button>3</button>
+    </div>
+  </div>

@@ -1,0 +1,160 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    border: 1px solid black;
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content {
+    width: 100%;
+}
+
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+
+.icon-button {
+    align-items: end;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #007bff;
+    margin-left: 70%;
+}
+
+
+.coupon-section {
+    margin-top: 20px;
+}
+
+.coupon-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.coupon-field label {
+    flex: 1;
+}
+
+.coupon-field input {
+    flex: 2;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.payment-section {
+    margin-top: 20px;
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.payment-options label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.card {
+    padding: 10px;
+    width: 95%;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.address-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 5px;
+
+}
+
+.address-details h4 {
+    margin: 5px 0;
+
+}
+
+.address-details p {
+    margin: 0;
+
+    font-size: 0.9rem;
+
+    line-height: 1.2;
+
+}
+
+.add {
+    width: 98%
+}
+
+.adder {
+    padding: 10px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 95%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.summary-section {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 95%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.summary-item.total {
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.summary-item span {
+    display: inline-block;
+}

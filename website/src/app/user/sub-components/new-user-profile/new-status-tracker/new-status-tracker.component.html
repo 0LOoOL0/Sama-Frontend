@@ -1,0 +1,43 @@
+<div class="container">
+
+  <ul class="search">
+    <li>
+      <input type="text">
+      <button>Search</button>
+    </li>
+  </ul>
+  <!-- navigation filters -->
+  <div class="nav">
+    <ul class="tabs">
+      <li class="tab-item" *ngFor="let tab of tabs" (click)="selectTab(tab)" [class.active]="activeTab === tab">
+        <span>{{ tab }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- displaying items -->
+  <div class="items">
+    <ul class="detail" *ngFor="let item of filteredItems">
+      <li class="status">{{item.approval}}</li>
+      <li><img [src]="item.image" alt="{{ item.title }}"></li>
+      <li>
+        <h3>{{ item.title }}</h3>
+      </li>
+      <li>
+        <button>{{ item.status }}</button>
+        <button class ="delete" (click)="openPopup()">Delete</button>
+      </li>
+    </ul>
+  </div>
+
+  <!-- popup window -->
+<div class="popup" *ngIf="isPopupVisible">
+  <div class="popup-content">
+      <h2>remove pet?</h2>
+      <p>Are you sure you want to remove this pet?</p>
+      <div class="action-buttons">
+          <button (click)="closePopup()">Confirm</button>
+          <button style="background-color: red;" (click)="closePopup()">Cancel</button>
+      </div>
+  </div>
+</div>

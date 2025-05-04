@@ -1,0 +1,24 @@
+
+<table class="navbar">
+    <td>
+        <a routerLink="./new-my-profile" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }"> My Profile</a>
+    </td>
+    <td>
+        <a routerLink="./new-my-pets" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: false }"> My Pets </a>
+    </td>
+    <td>
+        <a routerLink="./new-my-orders" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }"> My Orders</a>
+    </td>
+    <td>
+        <a routerLink="./new-my-appointments" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }"> My Appointments</a>
+    </td>
+    <td>
+        <a routerLink="./new-discount-history" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }"> Discount History</a>
+    </td>
+    <td>
+        <a routerLink="./new-status-tracker" routerLinkActive="active-tab" [routerLinkActiveOptions]="{ exact: true }"> Status tracker</a>
+    </td>
+</table>
+<div class="main-content">
+    <router-outlet></router-outlet>
+</div>

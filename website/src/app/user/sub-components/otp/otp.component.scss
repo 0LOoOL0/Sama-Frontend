@@ -1,0 +1,141 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background Styling */
+.background {
+  position: relative;
+  height: 100vh;
+  background-image: url('./../../../../assets/cat-bg.png'); /* Ensure this path is correct */
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+}
+
+/* OTP Wrapper */
+.otp-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-left: 6%;
+  transform: translateY(-50%);
+  background-color: white;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 400px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+/* Title Section */
+.title-container h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+}
+
+.title-container p {
+  font-size: 0.9em;
+  color: #888;
+  margin: 5px 0 20px;
+}
+
+/* OTP Input Container */
+.otp-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.otp-inputs input {
+  width: 120px; /* Increased width */
+  height: 50px;
+  margin: 5px;
+  text-align: center;
+  font-size: 1.2em;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+}
+
+.otp-inputs input:focus {
+  border-color: #6a0dad;
+  outline: none;
+}
+
+/* Countdown Timer */
+.countdown {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #6a0dad;
+}
+
+#resend {
+  color: #6a0dad;
+  text-decoration: none;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+#resend:hover {
+  text-decoration: underline;
+}
+
+/* Verify Button */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  font-size: 1em;
+  color: white;
+  background-color: #6a0dad;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+  background-color: #5a0ca0;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center; 
+  flex-direction: column;
+  position: fixed;
+  margin-left: 75%;
+  bottom: 20px;
+  width: 100%; 
+  z-index: 10; 
+}
+
+.icons {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.icons img {
+  width: 30%;
+  height: 30%;
+}
+
+.whatsapp {
+  background-color: white;
+}
+
+.arrow {
+  background-color: white;
+}

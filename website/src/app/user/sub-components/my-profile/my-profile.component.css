@@ -1,0 +1,132 @@
+.profile-container {
+    display: flex;
+    background-color: #f1f1f1;
+    font-family: 'Nunito', sans-serif;
+    padding: 20px;
+  }
+  
+  .sidebar {
+    width: 320px;
+    padding: 40px;
+    background-color: #f1f1f1;
+    box-shadow: 8px 8px 14.4px rgba(94, 23, 235, 0.2);
+    text-align: center;
+  }
+  
+  .profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    border: 20px solid #f1f1f1;
+  }
+  
+  .profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profile-id {
+    font-size: 18px;
+    color: #0E081E;
+    margin-bottom: 10px;
+  }
+  
+  .profile-name {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0E081E;
+    margin-bottom: 10px;
+  }
+  
+  .join-date {
+    font-size: 18px;
+    color: #0E081E;
+  }
+  
+  .main-content {
+    flex: 1;
+    margin-left: 20px;
+  }
+  
+  .profile-nav {
+    margin-bottom: -1px;
+  }
+  
+  .profile-nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .profile-nav li {
+    margin-right: 10px;
+  }
+  
+  .profile-nav a {
+    text-decoration: none;
+    color: #0E081E;
+    font-size: 18px;
+    display: block;
+    position: relative;
+    padding: 10px 20px;
+    background-color: #f1f1f1;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .profile-nav li.active a {
+    background-color: #FFB8FF;
+    font-weight: bold;
+  }
+  
+  
+  .profile-details {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 0 10px 10px 10px;
+    border: 28px solid #FFB8FF;
+    box-shadow: 8px 8px 14.4px rgba(94, 23, 235, 0.2);
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .header h2 {
+    font-size: 24px;
+    color: #232323;
+    text-decoration: underline;
+  }
+  
+  .edit-link {
+    font-size: 18px;
+    color: #232323;
+    text-decoration: underline;
+  }
+  
+  .detail-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    font-weight: 500;
+    font-size: 18px;
+    color: #232323;
+  }
+  
+  .value {
+    font-size: 16px;
+    color: #535353;
+  }
+  
+  .value i {
+    margin-left: 10px;
+  }

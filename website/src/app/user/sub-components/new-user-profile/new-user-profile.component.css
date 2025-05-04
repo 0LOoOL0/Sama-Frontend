@@ -1,0 +1,34 @@
+
+.centering {
+    display: flex;
+    justify-content: center;
+    font-family: 'Nunito', sans-serif;
+    padding-top: 50px;
+    padding-bottom: 5em;
+}
+
+.side-profile {
+    width: 25em;
+    padding: 50px 10px 60px 10px;
+    background-color: #f1f1f1;
+    box-shadow: 8px 8px 14.4px rgba(94, 23, 235, 0.2);
+    text-align: center;
+}
+
+.navigation {
+    width: 75em;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+img {
+    margin-top: 50px;
+    border-radius: 50px;
+    height: 250px;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+

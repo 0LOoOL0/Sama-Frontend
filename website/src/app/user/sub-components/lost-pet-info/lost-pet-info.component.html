@@ -1,0 +1,56 @@
+
+<!-- top header -->
+<app-navbar></app-navbar>
+
+
+<div *ngIf="isLoading">Loading...</div>
+
+<div class="pet-details-container" *ngIf="!isLoading">
+
+  <div class="pet-profile">
+    <img [src]="pet.image || 'path/to/default-image.jpg'" alt="Pet" class="pet-photo">
+    <h2 class="pet-name">{{ pet.name }}</h2>
+  </div>
+
+  <div class="pet-description">
+    <p>{{ pet.description || "I'm scared and just want to find my way back home to my owner." }}</p>
+  </div>
+
+  <h3 class="section-title">Pet Inormation</h3>
+  <div class="pet-info">
+    <div class="info-card">Gender<br><span>{{ pet.gender === 'm' ? 'Male' : 'Female' }}</span></div>
+    <div class="info-card">Breed<br><span>{{ pet.breed }}</span></div>
+    <div class="info-card">Age<br><span>{{ pet.age }} Years</span></div>
+    <div class="info-card">Vaccinated<br><span>{{ pet.is_vaccinated }}</span></div>
+    <div class="info-card">Microchipped<br><span>{{ pet.is_microchipped}}</span></div>
+    <div class="info-card">Neutered<br><span>{{ pet.is_neutered }}</span></div>
+  </div>
+
+  <h3 class="section-title">Owner's Information</h3>
+  <div class="owner-info">
+    <p class="owner-name">{{ profile.first_name}} {{profile.last_name}}</p>
+    <div class="contact-buttons">
+      <button class="whatsapp-btn">
+        <img src="path/to/whatsapp-icon.png" alt="WhatsApp">
+      </button>
+      <button class="call-btn">
+        <a [href]="'tel:+973' + profile.phone"> <!-- Assuming owner has a phone property -->
+          <img src="path/to/call-icon.png" alt="Call">
+          {{profile.phone}}
+        </a>
+      </button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <img src="path/to/sama-logo.png" alt="Sama Pet Care Logo" class="footer-logo">
+    <div class="social-icons">
+      <a href="#"><img src="path/to/facebook-icon.png" alt="Facebook"></a>
+      <a href="#"><img src="path/to/instagram-icon.png" alt="Instagram"></a>
+      <a href="#"><img src="path/to/twitter-icon.png" alt="Twitter"></a>
+      <a href="#"><img src="path/to/whatsapp-icon.png" alt="WhatsApp"></a>
+    </div>
+    <p>© Sama Pet Store All rights reserved Copyrights 2024</p>
+  </footer>
+</div>
+

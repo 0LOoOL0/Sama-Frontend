@@ -1,0 +1,204 @@
+:host {
+  display: block;
+  background-color: #FFFFFF;
+  font-family: 'Nunito', sans-serif;
+}
+
+.profile-container {
+  display: flex;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.sidebar {
+  width: 320px;
+  padding: 40px;
+  background-color: #f1f1f1;
+  box-shadow: 8px 8px 14.4px rgba(94, 23, 235, 0.2);
+  text-align: center;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 20px;
+  border: 20px solid #f1f1f1;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-id {
+  font-size: 18px;
+  color: #0E081E;
+  margin-bottom: 10px;
+}
+
+.profile-name {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0E081E;
+  margin-bottom: 10px;
+}
+
+.join-date {
+  font-size: 18px;
+  color: #0E081E;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.profile-nav {
+  margin-bottom: -1px;
+}
+
+.profile-nav ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-nav li {
+  margin-right: 5px;
+}
+
+.profile-nav a {
+  text-decoration: none;
+  color: #0E081E;
+  font-size: 18px;
+  display: block;
+  position: relative;
+  padding: 10px 20px;
+  background-color: #f1f1f1;
+  border-radius: 5px 5px 0 0;
+}
+
+.profile-nav li.active a {
+  background-color: #FFB8FF;
+  font-weight: bold;
+}
+
+.pet-info-content {
+  background-color: #f1f1f1;
+  padding: 30px;
+  border-radius: 0 10px 10px 10px;
+  border: 28px solid #FFB8FF;
+  box-shadow: 8px 8px 14.4px rgba(94, 23, 235, 0.2);
+}
+
+.pet-selection {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.pet-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.pet-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5E17EB;
+}
+
+.pet-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.add-icon {
+  font-size: 48px;
+  color: #FFFFFF;
+}
+
+.vip-badge {
+  color: #E59700;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+.info-tabs {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tab-button {
+  padding: 10px 20px;
+  border: 1px solid #5E17EB;
+  background-color: #FFFFFF;
+  color: #5E17EB;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 35px;
+}
+
+.tab-button.active {
+  background-color: #5E17EB;
+  color: #FFFFFF;
+}
+
+.edit-link {
+  margin-left: auto;
+  color: #232323;
+  text-decoration: underline;
+}
+  
+  .add-button {
+    padding: 10px 30px;
+    background-color: #5E17EB;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: -530px;
+  }
+  
+  .edit-link {
+    color: #232323;
+    text-decoration: underline;
+  }
+  
+  .health-concerns {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .concern-item {
+    margin-bottom: 20px;
+  }
+  
+  .concern-item h3 {
+    color: #5E17EB;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .concern-item p {
+    color: #535353;
+    font-size: 16px;
+    line-height: 1.5;
+  }

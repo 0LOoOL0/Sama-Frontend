@@ -1,0 +1,384 @@
+/* Discount Header */
+.discount-header {
+    background-color: #8bd4e1; /* Light blue background */
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+  }
+  
+  /* Breadcrumb Navigation */
+  .breadcrumb {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .breadcrumb a {
+    text-decoration: none;
+    color: #3c3c3c;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .breadcrumb span {
+    color: #ff4c98; /* Dots in the navigation */
+  }
+  
+  /* Header Content */
+  .header-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header-content h1 {
+    font-size: 48px;
+    color: #2c2c7a;
+    margin-right: 20px;
+  }
+  
+  /* Dog Image */
+  .header-dog-image {
+    max-width: 200px;
+    max-height: 150px;
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    transform: translateY(50%);
+  }
+
+  
+/* Free Coupons Container */
+.free-coupons-container {
+    font-family: 'Arial, sans-serif';
+    margin: 20px;
+  }
+  
+  /* Coupons Header */
+  .coupons-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .coupons-header h2 {
+    font-size: 24px;
+  }
+  
+  .profile-selector {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  select {
+    padding: 5px;
+    font-size: 16px;
+  }
+  
+  /* Coupons Grid */
+  .coupons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two cards per row */
+    gap: 20px;
+  }
+  
+  /* Coupon Card */
+  .coupon-card {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  .coupon-card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .discount-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #f39c12;
+    color: #fff;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+  
+  .coupon-card h3 {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  .coupon-card p {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #555;
+  }
+  
+  /* Timer */
+  .timer {
+    display: flex;
+    gap: 5px;
+    font-weight: bold;
+    color: #3c3c3c;
+  }
+  
+  /* See More Link */
+  .see-more {
+    display: inline-block;
+    margin-top: 20px;
+    color: #0073e6;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* Container */
+.discount-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  /* Discount Info Section */
+  .discount-info {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .discount-tag {
+    background-color: #6658d3; /* Adjust the color to match your design */
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  
+  .discount-info h2 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #2c2c7a; /* Adjust to your preferred heading color */
+  }
+  
+  .discount-info p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #7a7a7a;
+  }
+  
+  .subscribe-button {
+    background-color: #6658d3;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .subscribe-button:hover {
+    background-color: #503cb0; /* Darken color for hover */
+  }
+  
+  /* Image Section */
+  .discount-image {
+    flex: 1;
+  }
+  
+  .discount-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+  
+
+  /* Membership Banner */
+.membership-banner {
+    background-color: #8c4ef8; /* Adjust as per your color scheme */
+    padding: 20px;
+    border-radius: 15px;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .banner-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  .banner-text {
+    max-width: 600px;
+  }
+  
+  .banner-text h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+  }
+  
+  .banner-text p {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .subscribe-button {
+    background-color: #f7b32b; /* Button color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .subscribe-button:hover {
+    background-color: #e09b24; /* Darken on hover */
+  }
+  
+  .banner-images img {
+    max-width: 200px;
+    border-radius: 15px;
+  }
+  
+  .cat-image {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+  
+  .dog-image {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  /* Footer Section */
+  .footer-section {
+    background-color: #472ea3; /* Footer background color */
+    padding: 40px 20px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+  }
+  
+  /* Company Info */
+  .company-info {
+    flex: 1;
+    max-width: 250px;
+  }
+  
+  .company-info h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  
+  .phone-number {
+    font-weight: bold;
+    margin-top: 15px;
+  }
+  
+  /* Working Hours */
+  .working-hours {
+    flex: 1;
+    max-width: 150px;
+  }
+  
+  .working-hours h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Useful Links */
+  .useful-links {
+    flex: 1;
+    max-width: 150px;
+  }
+  
+  .useful-links h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .useful-links ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .useful-links ul li {
+    margin-bottom: 5px;
+  }
+  
+  .useful-links ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .useful-links ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Newsletter */
+  .newsletter {
+    flex: 1;
+    max-width: 250px;
+  }
+  
+  .newsletter h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .newsletter form {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .newsletter input {
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    flex: 1;
+  }
+  
+  .newsletter button {
+    background-color: #f7b32b;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .newsletter button:hover {
+    background-color: #e09b24;
+  }

@@ -1,0 +1,78 @@
+<app-navbar></app-navbar>
+<div class="main-container">
+    <!-- Calendar Section -->
+    <div class="calendar-section">
+      <div class="calendar-header">
+        <button (click)="previousMonth()">←</button>
+        <h4>{{ currentMonthYear }}</h4>
+        <button (click)="nextMonth()">→</button>
+      </div>
+      
+      <!-- Calendar Table -->
+      <table class="calendar-table">
+        <thead>
+          <tr>
+            <th *ngFor="let day of weekdays">{{ day }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let week of calendarDays">
+            <td *ngFor="let day of week" [ngClass]="{'empty-cell': day === 0}">
+              <span *ngIf="day !== 0">{{ day }}</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <!-- Reminders Section -->
+    <div class="reminders-section">
+      <div class="reminder-card" *ngFor="let reminder of reminders">
+        <h4>Today</h4>
+        <div class="reminder-details">
+          <h5>{{ reminder.title }}</h5>
+          <p><span class="date">{{ reminder.date }}</span> | <span class="doctor">{{ reminder.doctor }}</span></p>
+          <div class="reminder-icons">
+            <span class="edit">✏️</span>
+            <span class="delete">🗑️</span>
+          </div>
+        </div>
+        <button class="reminder-btn">Reminder</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-about">
+        <img src="logo.png" alt="Sama Pet Care" class="footer-logo">
+        <p>Tristique nulla aliquet enim tortor at auctor urna nunc. Massa enim nec dui nunc mattis enim ut tellus.</p>
+        <p><strong>+973 77690000</strong><br>Got Questions? Call us 24/7</p>
+      </div>
+      <div class="footer-working-hours">
+        <h4>Working Hours</h4>
+        <p>Mon - Fri: <strong>7am - 6pm</strong></p>
+        <p>Saturday: <strong>9am - 4pm</strong></p>
+        <p>Sunday: <strong>Closed</strong></p>
+      </div>
+      <div class="footer-links">
+        <h4>Useful Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <p>Be first in the queue! Get our latest news straight to your inbox.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Email">
+          <button>→</button>
+        </div>
+      </div>
+    </div>
+  </footer>

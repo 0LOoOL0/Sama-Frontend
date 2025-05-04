@@ -1,0 +1,60 @@
+<app-navbar> </app-navbar>
+
+<div class="profile-container">
+    <div class="sidebar">
+      <div class="profile-image">
+        <img src="assets/sarah-newland.jpg" alt="Sarah Newland">
+      </div>
+      <p class="profile-id">#1234</p>
+      <h2 class="profile-name">Sarah Newland</h2>
+      <p class="join-date">Joined: 22/06/2023</p>
+    </div>
+  
+    <div class="main-content">
+      <nav class="profile-nav">
+        <ul>
+          <li><a href="user-main-component/my-profile">My Profile</a></li>
+          <li class="active"><a href="/user-main-component/pet-info">My Pets</a></li>
+          <li><a href="/user-main-component/my-orders">My Orders</a></li>
+          <li><a href="/user-main-component/discount-history">Discount History</a></li>
+          <li><a href="/user-main-component/status-tracker">Status Tracker</a></li>
+        </ul>
+      </nav>
+      
+  
+      <div class="pet-info-content">
+        <div class="pet-selection">
+          <div class="pet-item add-pet" (click)="addPet()">
+            <div class="pet-image">
+              <span class="add-icon">+</span>
+            </div>
+            <p>Add New Pet</p>
+          </div>
+          <div *ngFor="let pet of pets" class="pet-item" [class.active]="pet.name === selectedPet.name">
+            <div class="pet-image">
+              <img [src]="pet.image" [alt]="pet.name">
+            </div>
+            <p>{{ pet.name }}</p>
+            <span *ngIf="pet.isVip" class="vip-badge">★</span>
+          </div>
+        </div>
+  
+        <div class="pet-details">
+          <div class="info-tabs">
+            <button class="tab-button" (click)="info()">Pet Information</button>
+            <button class="tab-button active" (click)="health()">Health Concern</button>
+            <button class="tab-button" (click)="document()">Document</button>
+            <button class="add-button">+ Add</button>
+            <a href="#" class="edit-link">Edit</a>
+          </div>
+  
+          <div class="health-concerns">
+            <div *ngFor="let concern of healthConcerns" class="concern-item">
+              <h3>{{ concern.type }}</h3>
+              <p>{{ concern.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,57 @@
+<body>
+    <div class="pet-details">
+        <div class="pet-selection">
+            <div class="pet-item add-pet" (click)="addPet()">
+                <div class="pet-image">
+                    <span class="add-icon">+</span>
+                </div>
+                <p>Add New Pet</p>
+            </div>
+            <div *ngFor="let pet of pets; let i = index" class="pet-item"
+                [class.active]="pet.name === selectedPet.name">
+                <div class="pet-image" (click)="displaySelected(i)">
+                    <img [src]="pet.image" [alt]="pet.name">
+                </div>
+                <p>{{ pet?.name }}</p>
+                <span *ngIf="pet.membership" class="vip-badge">★</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="info-tabs">
+        <button [class.active]="activeTab === 'info'" (click)="navigateToInfo()">Pet Information</button>
+        <button [class.active]="activeTab === 'health'" (click)="navigateToHealth()">Health Concern</button>
+        <button [class.active]="activeTab === 'document'" (click)="navigateToDocument()">Document</button>
+        <div class="action">
+            <button class="transfer" (click)="openPopup()">Transfer Pet</button>
+            <button class="edit-link" (click)="edit(selectedPet?.id)">Edit</button>
+        </div>
+
+    </div>
+    <div class="pet-info">
+        <router-outlet></router-outlet>
+    </div>
+
+</body>
+
+<div class="popup" *ngIf="isPopupVisible">
+    <div class="popup-content">
+        <span class="close" (click)="closePopup()">&times;</span>
+        <h2>Transfer Pet</h2>
+        <ul>
+            <li>
+                <label for="name">Transfer to:</label>
+                <input type="text" placeholder="type name...">
+            </li>
+            <li>
+                <label for="email">Email:</label>
+                <input type="text" placeholder="type email...">
+            </li>
+        </ul>
+        <p>Are you sure you want to transfer this pet? <span style="color: red;">there is no turning back!</span></p>
+        <div class="buttons">
+            <button (click)="closePopup()">Confirm</button>
+            <button style="background-color: red;" (click)="closePopup()">Cancel</button>
+        </div>
+    </div>
+</div>

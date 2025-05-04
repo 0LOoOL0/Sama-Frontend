@@ -1,0 +1,161 @@
+<!-- top header -->
+<app-navbar></app-navbar>
+
+<!-- hero section -->
+<section class="heroSection">
+    <img src="./assets/img/updated-vet-clinic-hero-bg.png" alt="hero-bg" class="heroSectionBg">
+    <div class="container-3xl">
+        <div class="hero-container">
+            <div class="heroLinkContainer">
+                <a href="/home" class="hero-link active">Home</a>
+                <div class="heroDot"></div>
+                <a href="/our-services" class="hero-link active">Service</a>
+                <div class="heroDot"></div>
+                <a href="#" class="hero-link">All Providers</a>
+            </div>
+            <h1 class="hero-heading1">{{ heroHeading }}</h1> <!-- Dynamic Heading -->
+            <p class="mainText1" [innerHTML]="heroText"></p> <!-- Dynamic Text -->
+
+        </div>
+    </div>
+</section>
+
+<!-- product Listing section -->
+<section class="productListingSection vetClinicProductListingSection">
+    <div class="container-2xl">
+        <div class="productListingContainer">
+            <div class="grid-layout-2">
+                <div class="grid-col-9">
+                    <div class="productListContainer">
+                        <div class="productSearchInputContainer flex row-between gap-1-5 width-full">
+                            <div class="inputHolder flex flex-1 row-between gap-1">
+                                <img src="assets/icons/search.svg" alt="search" class="searchIcon">
+                                <input type="text" class="inputArea flex-1" placeholder="Search" (input)="onSearch($event.target.value)">
+                            </div>
+                        </div>
+                        <div class="grid-layout-2">
+                            <div class="grid-col-4 col-sm" *ngFor="let provider of getDisplayedProviders()">
+                                <div class="productListItemCard" (click)="viewProvider(provider.id)">
+                                    <img [src]="provider.profile_image ? provider.profile_image : 'assets/default-image.png'" alt="{{provider.provider_name_en}} profile image" class="productListItemImage">
+                                    <div class="productCardBody">
+                                        <h4 class="mdHeading">{{ provider.provider_name_en }}</h4>
+                                        <h4 class="inputArea flex-1">{{ provider.type_en || 'No Type Available' }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="paginationContainer">
+                            <button class="paginationBtn" [class.active]="page == currentPage" *ngFor="let page of pages" (click)="changePage(page)">
+                                {{ page }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-col-3">
+                    <div class="productFilterContainer vetClinicProductFilterContainer">
+                        <div class="productFilterCard">
+                            <h3 class="mdHeading flex row-between">Our services</h3>
+                            <div class="filterBtnContainer">
+                                <button class="main-btn" (click)="applyFilter('groomer')" [class.active]="isFilterSelected('groomer')">Groomer</button>
+                                <button class="main-btn" (click)="applyFilter('vet clinic')" [class.active]="isFilterSelected('vet clinic')">Pet Clinic</button>
+                                <button class="main-btn" (click)="applyFilter('pet shop')" [class.active]="isFilterSelected('pet shop')">Pet Shop</button>
+                                <button class="main-btn" (click)="applyFilter('trainer')" [class.active]="isFilterSelected('trainer')">Pet Training</button>
+                                <button class="main-btn" (click)="applyFilter('doctor')" [class.active]="isFilterSelected('doctor')">Doctor</button>
+                                <button class="main-btn" (click)="clearFilters()">Clear Filters</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- footer section -->
+<footer class="footerSection">
+    <div class="container-2xl">
+        <div class="footerContainer">
+            <div class="grid-layout-2">
+                <div class="grid-col-3 footerCol-lg">
+                    <div class="footerCard">
+                        <img src="./assets/img/brand-logo-1.png" alt="logo" class="footerLogo">
+                        <p class="mainText">Sama Pet is a comprehensive platform dedicated to enhancing pet care.
+                            From finding trusted service providers to managing pet profiles,
+                            memberships, and exclusive discounts, 
+                            Sama Pet ensures everything you need for your furry friend is just a click away!</p>
+
+                        <div class="footerContactInfo flex gap-1">
+                            <img src="./assets/icons/call-icon.svg" alt="call" class="footerContactIcon">
+                            <div class="footerContactText">
+                                <a href="tel:+97377690000" class="mdHeading">(973) 77690000</a>
+                                <a href="#" class="smText">Got Questions? Call us 24/7</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-col-3 footerCol-lg"></div>
+                <div class="grid-col-3">
+                    <div class="footerLinksCard">
+                        <h3 class="mdHeading">Quick Links</h3>
+                        <ul class="footerLinksList">
+                            <li class="footerLinksItem"><a href="#" class="smText">Home</a></li>
+                            <li class="footerLinksItem"><a href="#" class="smText">About</a></li>
+                            <li class="footerLinksItem"><a href="#" class="smText">Services</a></li>
+                            <li class="footerLinksItem"><a href="#" class="smText">Sama store</a></li>
+                            <li class="footerLinksItem"><a href="#" class="smText">Be a partner</a></li>
+                            <li class="footerLinksItem"><a href="#" class="smText">FAQ</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footerLinksCard">
+                        <h3 class="mdHeading">Working Hours</h3>
+                        <p class="smText">Sunday - Thursday: <span>9am – 4pm</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- social media icons -->
+            <div class="footerSocialMediaContainer flex row-between">
+                <div class="footerSocialMediaLeft flex gap-1-5">
+                    <a href="#" class="social-icon-link"><img src="./assets/icons/facebook-white-icon.svg"
+                            alt="facebook" class="social-icon"></a>
+                    <a href="#" class="social-icon-link"><img src="./assets/icons/instagram-white-icon.svg"
+                            alt="instagram" class="social-icon"></a>
+                    <a href="#" class="social-icon-link"><img src="./assets/icons/twitter-white-icon.svg"
+                            alt="twitter" class="social-icon"></a>
+                    <a href="#" class="social-icon-link"><img src="./assets/icons/whatsapp-white-icon.svg"
+                            alt="whatsapp" class="social-icon"></a>
+                </div>
+                <div class="footerSocialMediaRight flex gap-2 row-end">
+                    <a href="tel:+97337749339" class="social-icon-link flex gap-half"><img
+                            src="./assets/icons/call-white-icon.svg" alt="call" class="social-icon">+973 - 37749339</a>
+                    <a href="mailto:SamaPet.bhgmail.com" class="social-icon-link flex gap-half"><img
+                            src="./assets/icons/email-white-icon.svg" alt="email"
+                            class="social-icon">SamaPet.bh&#64;gmail.com</a>
+                </div>
+            </div>
+
+            <!-- footer copy Wirte -->
+            <div class="footerCopyWrite">
+                <p class="smText"> © Sama Pet Care All rights reserved Copyrights 2025</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    function toggleSideMenu() {
+        let sideMenu = document.querySelector(".side-menu");
+        let hambergerIcon = document.querySelector(".hamberger-icon");
+        let closeIcon = document.querySelector(".close-icon");
+
+        hambergerIcon.addEventListener("click", () => {
+            sideMenu.classList.add("show");
+        })
+        closeIcon.addEventListener("click", () => {
+            sideMenu.classList.remove("show");
+        })
+    }
+    toggleSideMenu(); // sider menu toggle
+</script>

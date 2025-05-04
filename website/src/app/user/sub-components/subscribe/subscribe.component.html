@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div class="container">    
+    <!-- Main Content -->
+    <main class="main-content">
+      <section class="membership-section">
+        <h2>Become a Member Today</h2>
+        <p>
+          Unlock exclusive benefits, discounts, and premium content by subscribing to
+          our membership program and enhance your experience.
+        </p>
+  
+        <div class="illustration">
+          <img src="illustration-image.png" alt="Membership Illustration" />
+        </div>
+  
+        <!-- Membership Options -->
+        <div class="membership-options">
+          <div class="option-card" (click)="choose('free')">
+            <span class="icon">🔆</span>
+            <h3>Free Trial</h3>
+            <p>Get a free trial for a week</p>
+          </div>
+          <div class="option-card" (click)="choose('one')">
+            <span class="icon">⚡</span>
+            <h3>One Year</h3>
+            <p>+10 BD Per Additional Pet</p>
+            <div class="price">20 BD</div>
+          </div>
+        </div>
+  
+        <button class="benefits-btn">Benefits & Features</button>
+        <button class="skip-btn">Skip</button>
+      </section>
+    </main>
+  </div>
+  

@@ -1,0 +1,50 @@
+ 
+<div class="categories-container">
+    <h2>Add Category</h2>
+  
+    <div class="category-form">
+      <div class="category-image">
+        <img src="path/to/cat-image.jpg" alt="Category Image" class="category-img">
+      </div>
+  
+      <div class="category-details">
+        <div class="form-group">
+          <label for="category-name">Name</label>
+          <input type="text" id="category-name" class="form-control">
+        </div>
+  
+        <div class="form-group">
+          <label for="total-stock">Total Stock</label>
+          <input type="number" id="total-stock" class="form-control">
+        </div>
+  
+        <div class="form-group">
+          <label>Status</label>
+          <div class="status-options">
+            <label><input type="radio" name="status" value="active"> Active</label>
+            <label><input type="radio" name="status" value="non-active"> Non-Active</label>
+          </div>
+        </div>
+  
+        <div class="form-group">
+          <label for="list">List</label>
+          <select id="list" class="form-control">
+            <option value="accessories">Accessories</option>
+            <option value="shampoo">Shampoo</option>
+            <!-- Add more options as needed -->
+          </select>
+        </div>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-control"></textarea>
+    </div>
+  
+    <div class="form-actions">
+      <button class="btn btn-add">Add</button>
+      <button class="btn btn-delete">Delete</button>
+    </div>
+  </div>
+  

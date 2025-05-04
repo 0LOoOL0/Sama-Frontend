@@ -1,0 +1,274 @@
+/* General Page Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+  }
+  
+  /* Header Styling */
+  /* Add your header styling here */
+  
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Add this for vertical alignment */
+    width: 100%;
+    height: 100vh;
+    background-image: url("./../../../../assets/bluewave.svg");
+    background-size: cover;
+    background-position: center;
+    font-family: outfit;
+  }
+  /* Coupon Container */
+  .coupon-container {
+    box-shadow: 10px 8px 18px rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    width: 70%;
+    max-width: 45vw;
+    height: 98vh;
+    padding: 2rem;
+    margin: 2% auto; /* Centers the container with some space on top/bottom */
+    background-color: white;
+    overflow-y: auto;
+  }
+  
+  .back-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: black;
+    font-weight: 400;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  .upload-section {
+    margin-bottom: 20px;
+  }
+
+  .upload-section label {
+    align-items: left;
+  }
+  
+  .upload-box {
+    background-color: #ffffff;
+    border: 2px dashed #5E17EB;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    text-align: center;
+    color: #5E17EB;
+  }
+  
+  .upload-box img {
+    width: 40px;
+    margin-bottom: 10px;
+  }
+  
+  .upload-box span {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .upload-box p {
+    font-size: 12px;
+    color: #a0a0a0;
+  }
+
+  .file-type{
+    font-family: outfit;
+    font-size: 12px;
+    color: #9e9e9e;
+    margin: 5px 0;
+  }
+
+  .max-size{
+    font-family: outfit;
+    font-size: 12px;
+    color: #9e9e9e;
+    margin: 5px 0;
+    margin-left: 54%;
+  }
+
+  .error-message{
+    color: rgb(206, 0, 0);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    font-family: outfit;
+  }
+
+  .quantity-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .quantity-container input {
+    width: 10%;
+    margin: 0 1%;
+  }
+  
+  .quantity-container button {
+    width: 30px;
+    height: 30px;
+    background-color: #5E17EB;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 18%;
+  }
+  
+  .quantity-container span {
+    margin: 0 10px;
+    font-size: 18px;
+  }
+
+  #couponLayout{
+    margin-bottom: 20px;
+  }
+
+  .price-section {
+    display: flex;
+    align-items: center; /* Vertically align items in the middle */
+    gap: 160px; /* Add spacing between radio buttons */
+  }
+  
+  .price-section div {
+    display: flex;
+    align-items: center; /* Keep the radio button and label inline */
+  }
+  
+  .price-section label {
+    margin-left: 10px; /* Add a little space between the radio button and its label */
+    margin-top: 5px;
+  }
+  
+  .price-section input[type="number"] {
+    margin-left: 10px; /* Space the custom price input from its label */
+    padding: 5px;
+    width: 100px; /* Adjust the width as needed */
+  }
+  
+  /* Style the form group */
+.form-group.expiry-date {
+  margin-bottom: 20px;
+}
+
+/* Style for the dropdown container */
+.date-selectors {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Style the select dropdown */
+.date-selectors select {
+  width: 30%; /* Ensures all dropdowns take up equal space */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  appearance: none; /* Removes the default arrow in some browsers */
+  background-image: url("./../../../../assets/arrow-down.svg"); /* Replace with your arrow icon */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+/* Change border color on focus */
+.date-selectors select:focus {
+  outline: none;
+  border-color: #5E17EB; /* Your custom purple border */
+}
+
+/* Adjust the padding for better arrow alignment */
+.date-selectors select::-ms-expand {
+  display: none; /* Remove arrow for IE/Edge */
+}
+
+/* Style options */
+.date-selectors option {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+}
+
+/* Styling for disabled and placeholder options */
+.date-selectors option[value=""] {
+  color: #a0a0a0; /* Placeholder color */
+}
+
+
+  
+  .submit-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #5E17EB;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .submit-btn:hover {
+    background-color: #4311a8;
+  }
+  
+  /* Floating Icons */
+  .floating-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .floating-icons a {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;   /* Set explicit width and height for the container */
+    height: 50px;  /* Set explicit height */
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .floating-icons img {
+    width: 24px;   /* Control the size of the icon */
+    height: 24px;  /* Control the size of the icon */
+    transition: transform 0.3s;
+  }
+  
+  .floating-icons img:hover {
+    transform: scale(1.1);
+  }
+  

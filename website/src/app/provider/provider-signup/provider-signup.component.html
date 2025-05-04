@@ -1,0 +1,106 @@
+<link href="https://fonts.googleapis.com/css?family=Outfit" rel="stylesheet" />
+
+<div class="page">
+  <div class="login-container">
+    <p>Provider sign up</p>
+
+    <div class="signwith">
+      <button class="btn btn-with" (click)="signupWithGoogle()">
+        <img class="icon" src="../../../assets/Google-icon.svg" />
+        Sign up with Google
+      </button>
+      <button class="btn btn-with" (click)="signupWithFacebook()">
+        <img class="icon" src="../../../assets/Facebook-icon.svg" />
+        Sign up with Facebook
+      </button>
+    </div>
+
+    <div class="svg-container">
+      <!-- SVG content here -->
+    </div>
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <br />
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          class="form-control"
+        />
+        <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+          <p class="text-danger" *ngIf="signupForm.get('email')?.errors?.['required']">
+            Email is required.
+          </p>
+          <p class="text-danger" *ngIf="signupForm.get('email')?.errors?.['email']">
+            Invalid email format.
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <br />
+        <label for="password">Password:</label>
+        <br />
+        <input
+          id="password"
+          formControlName="password"
+          type="password"
+          class="form-control"
+        />
+        <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+          <p class="text-danger" *ngIf="signupForm.get('password')?.errors?.['required']">
+            Password is required.
+          </p>
+          <p class="text-danger" *ngIf="signupForm.get('password')?.errors?.['minlength']">
+            Password must be at least 8 characters long.
+          </p>
+          <p class="text-danger" *ngIf="signupForm.get('password')?.errors?.['pattern']">
+            Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.
+          </p>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <br />
+        <label for="confirmpassword">Confirm Password:</label>
+        <br />
+        <input
+          id="confirmpassword"
+          formControlName="confirmpassword"
+          type="password"
+          class="form-control"
+        />
+        <div *ngIf="signupForm.errors?.['mismatch'] && signupForm.get('confirmpassword')?.touched">
+          <p class="text-danger">Passwords do not match.</p>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="signupForm.invalid"
+      >Sign up
+      </button>
+
+      <div *ngIf="errorMessage" class="error-message">
+        <p class="text-danger">{{ errorMessage }}</p>
+      </div>
+      <div *ngIf="successMessage" class="success-message">
+        <p class="text-success">{{ successMessage }}</p>
+      </div>
+    </form>
+
+    <div class="alternative">
+      <p class="log">
+        Are you a User?
+        <a href="#">Sign Up as a user</a>
+      </p>
+      <p class="log">
+        You already have an account?
+        <a href="#">Log in as a Provider</a>
+      </p>
+    </div>
+  </div>
+</div>

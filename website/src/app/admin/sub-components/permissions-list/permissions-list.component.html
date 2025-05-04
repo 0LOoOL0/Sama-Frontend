@@ -1,0 +1,39 @@
+<div class="permissions-container">
+    <h1>List of Permissions</h1>
+  
+    <div class="search-add">
+      <input type="text" placeholder="Search" class="search-box" (input)="onSearchInput($event)" />
+      <button class="add-permission-button">Add Permission</button>
+    </div>
+  
+    <table>
+      <thead>
+        <tr>
+          <th>Name (Permission)</th>
+          <th>Assigned to</th>
+          <th>Create Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let permission of shownPermissions">
+          <td>{{ permission.name }}</td>
+          <!-- <td>
+            <span *ngFor="let role of permission.assignedTo" class="role-badge">{{ role }}</span>
+          </td> -->
+          <td>{{ permission.createDate }}</td>
+          <td>
+            <button (click)="deletePermission(permission)" class="action-btn delete-btn">🗑</button>
+            <button (click)="editPermission(permission)" class="action-btn edit-btn">✎</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="pagination">
+      <button class="prev">Previous</button>
+      <span class="page-number">1</span>
+      <button class="next">Next</button>
+    </div>
+  </div>
+  

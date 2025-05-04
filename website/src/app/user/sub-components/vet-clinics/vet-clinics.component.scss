@@ -1,0 +1,126 @@
+.body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.filter-div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+
+}
+.filter-container {
+    display: flex;
+    flex-direction: column;
+}
+.filter-button {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.clinic-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-template-rows: repeat(3, auto); /* 3 rows */
+    gap: 20px;
+    width: 75%;
+    margin-left: 20px;
+}
+
+.clinic-card {
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.clinic-card img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.clinic-card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+}
+
+.star-rating img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.pagination button:hover {
+    background-color: #ddd;
+}
+
+.pagination button:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+}
+
+.filter-button.selected {
+    background-color: #4CAF50; /* Green background color */
+    color: white; /* White text color */
+}
+
+
+
+

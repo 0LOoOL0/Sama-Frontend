@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile and Store</title>
+</head>
+<body>
+    <app-navbar></app-navbar>
+    <div class="profile-store-container">
+        <!-- Left Profile Section -->
+        <aside class="profile-section">
+            <div class="profile-card">
+                <img src="profile-pic.jpg" alt="Profile Picture" class="profile-picture">
+                <h2 class="profile-id">#1234</h2>
+                <h3 class="profile-name">Sarah Newland</h3>
+                <p class="profile-date">Joined: 22/06/2023</p>
+            </div>
+        </aside>
+
+        <!-- Right Store Section -->
+        <section class="store-section">
+            <!-- Search bar -->
+            <div class="search-filter-section">
+                <input type="text" placeholder="Search" class="search-input">
+                <button class="search-btn">Search</button>
+            </div>
+            
+            <!-- Pet Listings -->
+            <div class="pet-listings">
+                <div class="pet-card">
+                    <img src="bagle-cat.jpg" alt="Bagle Cat" class="pet-image">
+                    <h3 class="pet-name">Bagle Cat</h3>
+                    <p class="pet-price">BHD 80</p>
+                </div>
+                <!-- Repeat pet-card for other listings -->
+            </div>
+
+            <!-- Filters -->
+            <div class="filter-section">
+                <h3>Filter by:</h3>
+                <label for="pet-type">Pet Type</label>
+                <select id="pet-type">
+                    <option>Cat</option>
+                    <option>Dog</option>
+                </select>
+
+                <label for="breed-type">Breed/Type</label>
+                <select id="breed-type">
+                    <option>Select Breed</option>
+                </select>
+
+                <label for="age-range">Age</label>
+                <input type="range" id="age-range" min="1" max="12">
+                <span id="age-range-value">1</span> years
+
+                <label for="price-range">Price Range</label>
+                <input type="range" id="price-range" min="5" max="365">
+                <span id="price-range-value">$5 - $365</span>
+                <button class="apply-filter-btn">Apply Filter</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-info">
+            <p>Working Hours:</p>
+            <p>Sunday - Thursday: 9am - 4pm</p>
+            <p>Friday: Closed | Saturday: Closed</p>
+        </div>
+        <div class="footer-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+        <div class="newsletter">
+            <h4>Newsletter</h4>
+            <input type="email" placeholder="Email">
+            <button>Subscribe</button>
+        </div>
+    </footer>
+</body>
+</html>

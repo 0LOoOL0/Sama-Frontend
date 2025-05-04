@@ -1,0 +1,34 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px;
+  }
+
+.card-content {
+    position: relative;
+    width: 100%;
+  }  
+  
+.card-image {
+    width: 100%;
+    height: auto;
+  }
+
+.card-overlay {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    color: black;
+    text-align: left;
+    font-size: 16px;
+  }
+
+.card-overlay h3 {
+    font-size: 24px;
+    margin: 0;
+  }
+
+.card-overlay p {
+    margin: 5px 0;
+  }

@@ -1,0 +1,56 @@
+<div class="header">
+    <button class="header-btn">Add Notification</button>
+    <button class="header-btn">Filter</button>
+    <input type="text" placeholder="Search..." class="search-input" />
+</div>
+
+<div class="box-section">
+    <div class="box" *ngFor="let item of boxes">
+        <div class="box-header">
+            <h3>{{ item.title }}</h3>
+            <div>
+                <button class="edit-btn">✎</button>
+                <button class="delete-btn">🗑</button>
+            </div>
+        </div>
+        <p>{{ item.content }}</p>
+    </div>
+</div>
+
+<div class="line-container">
+    <div class="line"></div>
+    <div class="section-title">This Month</div>
+    <div class="line"></div>
+</div>
+
+<div class="box-section">
+    <div class="box" *ngFor="let item of monthlyBoxes">
+        <div class="box-header">
+            <h3>{{ item.title }}</h3>
+            <div>
+                <button class="edit-btn">✎</button>
+                <button class="delete-btn">🗑</button>
+            </div>
+        </div>
+        <p>{{ item.content }}</p>
+    </div>
+</div>
+
+<div class="line-container">
+    <div class="line"></div>
+    <div class="section-title">All</div>
+    <div class="line"></div>
+</div>
+
+<div class="box-section">
+    <div class="box" *ngFor="let item of allBoxes">
+        <div class="box-header">
+            <h3>{{ item.title }}</h3>
+            <div>
+                <button class="edit-btn">✎</button>
+                <button class="delete-btn">🗑</button>
+            </div>
+        </div>
+        <p>{{ item.content }}</p>
+    </div>
+</div>

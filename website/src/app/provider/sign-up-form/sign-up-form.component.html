@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up form</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Progress Bar -->
+        <div>
+            <app-signup-steps></app-signup-steps>
+        </div>
+
+        <!-- Business Information Form -->
+        <div class="business-form">
+            <h2>Business Information</h2>
+            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+              <div class="business-types">
+                <label class="business-type">
+                  <input type="radio" name="businessType" value="petStore" (change)="onBusinessTypeChange('pet shop')" />
+                  <span class="business-label">Pet Store</span>
+                  <span class="business-description">Pro</span>
+                </label>
+                <label class="business-type">
+                  <input type="radio" name="businessType" value="trainer" (change)="onBusinessTypeChange('trainer')" />
+                  <span class="business-label">Trainer</span>
+                  <span class="business-description">Lorem ipsum dolor sit amet</span>
+                </label>
+                <label class="business-type">
+                  <input type="radio" name="businessType" value="doctor" (change)="onBusinessTypeChange('doctor')" />
+                  <span class="business-label">Doctor</span>
+                  <span class="business-description">Lorem ipsum dolor sit amet</span>
+                </label>
+                <label class="business-type">
+                  <input type="radio" name="businessType" value="accommodation" (change)="onBusinessTypeChange('accommodation')" />
+                  <span class="business-label">Accommodation</span>
+                  <span class="business-description">Lorem ipsum dolor sit amet</span>
+                </label>
+                <label class="business-type">
+                  <input type="radio" name="businessType" value="vetClinic" (change)="onBusinessTypeChange('vetClinic')" />
+                  <span class="business-label">Vet Clinic</span>
+                  <span class="business-description">Lorem ipsum dolor sit amet</span>
+                </label>
+                <label class="business-type">
+                  <input type="radio" name="businessType" value="groomer" (change)="onBusinessTypeChange('groomer')" />
+                  <span class="business-label">Groomer</span>
+                  <span class="business-description">Lorem ipsum dolor sit amet</span>
+                </label>
+              </div>
+
+                <label>Business Name</label>
+                <input type="text" formControlName="name" placeholder="Enter Your Name">
+
+                <div class="form-group">
+                  <label for="contact_no">Phone Number</label>
+                  <input type="number" id="contact_no" formControlName="contact_no" placeholder="Enter Your Phone Number" />
+                </div>
+
+                <label>Location</label>
+                <div class="location-select">
+                    <label><input type="radio" name="location-type" (change)="adressType('House')"> House</label>
+                    <label><input type="radio" name="location-type" (change)="adressType('Flat')"> Apartment</label>
+                    <label><input type="radio" name="location-type" (change)="adressType('Office')"> Office</label>
+                </div>
+                <div formGroupName="address">
+                  <div class="location-inputs">
+                      <input type="text" formControlName="house" [placeholder]="addressType">
+                      <input type="text" formControlName="road" placeholder="Road">
+                      <input type="text" formControlName="block" placeholder="Block">
+                      <input type="text" formControlName="area" placeholder="Area">
+                  </div>
+              </div>
+
+                <!-- Conditional Fields based on selected provider type -->
+       <div *ngIf="selectedProviderType === 'doctor'">
+        <div class="form-group">
+          <label for="years_of_experience">Years of Experience</label>
+          <input type="number" id="years_of_experience" formControlName="years_of_experience" placeholder="Enter Your Experience" />
+        </div>
+        <div class="form-group">
+          <label for="medical_degree_and_specialization">Medical Degree and Specialization</label>
+          <input type="text" id="medical_degree_and_specialization" formControlName="medical_degree_and_specialization" placeholder="Enter Your Specialization" />
+        </div>
+      </div>
+      
+      <div *ngIf="selectedProviderType === 'trainer'">
+        <div class="form-group">
+          <label for="trainer_experience">Trainer Experience</label>
+          <input type="number" id="trainer_experience" formControlName="trainer_experience" placeholder="Enter Your Experience" />
+        </div>
+        <div class="form-group">
+          <label for="medical_degree_and_specialization">Medical Degree and Specialization</label>
+          <input type="text" id="medical_degree_and_specialization" formControlName="medical_degree_and_specialization" placeholder="Enter Your Specialization" />
+        </div>
+      </div>
+                <!-- Authorized Contact Profile -->
+                <h2>Authorized Contact Profile</h2>
+                <p>Please provide the information for up to 5 profiles</p>                
+                <!-- <div class="contact-profile">
+                  <h3>Staff</h3>
+                  <button type="button" (click)="addStaff()">Add Staff</button>
+                  <div formArrayName="staff">
+                    <div *ngFor="let st of staff.controls; let i = index" [formGroupName]="i">
+                      <div class="form-group">
+                        <label for="st_name_{{i}}">Name</label>
+                        <input id="st_name_{{i}}" formControlName="name" type="text" placeholder="Enter Name" />
+                      </div>
+                
+                      <div class="form-group">
+                        <label for="st_email_{{i}}">Email</label>
+                        <input id="st_email_{{i}}" formControlName="email" type="email" placeholder="Enter Email" />
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="st_title_{{i}}">Job Title</label>
+                        <input id="st_title_{{i}}" formControlName="title" type="text" placeholder="Enter Job Title" />
+                      </div> 
+                      
+                      <div class="form-group">
+                        <label for="st_phone_{{i}}">Phone Number</label>
+                        <input id="st_phone_{{i}}" formControlName="phone" type="number" placeholder="Enter Phone Number" />
+                      </div>  
+
+                      <button type="button" (click)="removeStaff(i)">Remove Staff</button>
+                    </div>
+                  </div>
+                </div> -->
+                <button type="submit" class="submit-btn">Next</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

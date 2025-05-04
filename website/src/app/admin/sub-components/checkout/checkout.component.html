@@ -1,0 +1,89 @@
+<div class="container">
+    <h1>Checkout</h1>
+    <div class="content">
+        <div class="address">
+            <div class="header-wrapper">
+                <h3>Delivery Address</h3>
+                <button class="icon-button" onclick="editAddress()">
+                    edit
+                </button>
+            </div>
+            <div class="adder">
+                <ul class="address-list">
+                    <li class="address-item">
+                        <div class="address-details">
+                            <h4>Address 1</h4>
+                            <p>2715 Ash Dr. San Jose, South Dakota 83475</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="adder">
+                <ul class="address-list">
+                    <li class="address-item">
+                        <div class="address-details">
+                            <h4>Address 2</h4>
+                            <p>1234 Elm St. Chicago, Illinois 60616</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <button class="btn primary add" onclick="addAddress()">+ Add Address</button>
+        <div class="coupon-section">
+            <h3>Coupon</h3>
+            <div class="card">
+                <div class="form-field coupon-field">
+                    <label for="coupon">Enter Coupon code here</label>
+                    <input id="coupon" type="text">
+                    <button class="btn primary" onclick="applyCoupon()">Apply</button>
+                </div>
+            </div>
+        </div>
+        <div class="payment-section">
+            <h3>Payment</h3>
+            <div class="card">
+                <div class="payment-options">
+                    <label>
+                        <input type="radio" name="payment" value="credit" checked> Credit Card
+                    </label>
+                    <label>
+                        <input type="radio" name="payment" value="debit"> Debit Card
+                    </label>
+                    <label>
+                        <input type="radio" name="payment" value="paypal"> PayPal
+                    </label>
+                    <label>
+                        <input type="radio" name="payment" value="cash"> Cash on Delivery
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="summary-section">
+            <div class="summary-item">
+                <span>Subtotal</span>
+                <span>$39.99</span>
+            </div>
+            <div class="summary-item">
+                <span>Delivery</span>
+                <span>Free</span>
+            </div>
+            <div class="summary-item">
+                <span>Tax & Fee</span>
+                <span>$3</span>
+            </div>
+            <div class="summary-item">
+                <span>Discount</span>
+                <span>-$3</span>
+            </div>
+            <div class="summary-item total">
+                <span>Total</span>
+                <span>$40.99</span>
+            </div>
+        </div>
+        <div>
+            <button class="add">CheckOut</button>
+        </div>
+    </div>
+
+</div>

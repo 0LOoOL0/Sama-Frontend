@@ -1,0 +1,31 @@
+<div class="background">
+  <div class="otp-wrapper">
+    <div class="title-container">
+      <h2>Verify Your Email</h2>
+      <p>Please enter the 6 digit code sent to Youremail</p>
+    </div>
+    <form (ngSubmit)="verifyOtp()" [formGroup]="verifyForm">
+      <div class="otp-container">
+        <div class="otp-inputs">
+          <input formControlName="verificationCode" type="number" maxlength="1">
+        </div>
+        <div class="countdown">
+          <span id="timer">01:00</span>
+          <a href="#" id="resend">Send Again</a>
+        </div>
+      </div>
+      <div>
+        <button type="submit" [disabled]="verifyForm.invalid">Verify</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="icon-container">
+    <div class="icons whatsapp">
+        <img src="./../../../../assets/whatsapp.svg">
+    </div>
+    <div class="icons arrow">
+        <img src="./../../../../assets/arrow-up.svg">
+    </div>
+</div>
+</div>

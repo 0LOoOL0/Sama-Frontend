@@ -1,0 +1,131 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    width: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  .header {
+    background-color: #ffe600;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  .contact-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .login-btn {
+    background-color: #6a0dad;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  /* Main Content */
+  .main-content {
+    background-color: #4a0da5;
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .membership-section {
+    background-color: white;
+    border-radius: 15px;
+    padding: 40px;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .membership-section h2 {
+    font-size: 24px;
+    color: #4a4a4a;
+  }
+  
+  .membership-section p {
+    font-size: 16px;
+    color: #888;
+    margin: 10px 0 30px;
+  }
+  
+  .illustration {
+    margin: 20px 0;
+  }
+  
+  .illustration img {
+    width: 200px;
+    height: auto;
+  }
+  
+  /* Membership Options */
+  .membership-options {
+    display: flex;
+    justify-content: space-around;
+    gap: 15px;
+    margin: 30px 0;
+  }
+  
+  .option-card {
+    background-color: #4a0da5;
+    color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 45%;
+    text-align: center;
+    position: relative;
+  }
+  
+  .icon {
+    font-size: 24px;
+  }
+  
+  .option-card h3 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .option-card p {
+    font-size: 14px;
+  }
+  
+  .price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* Benefits & Skip Buttons */
+  .benefits-btn, .skip-btn {
+    border: none;
+    background: transparent;
+    color: #4a0da5;
+    font-size: 16px;
+    padding: 10px 0;
+    cursor: pointer;
+  }
+  
+  .skip-btn {
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  

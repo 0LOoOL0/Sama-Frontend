@@ -1,0 +1,26 @@
+.concern-item {
+  margin-bottom: 20px;
+}
+
+.concern-item h3 {
+  color: #5E17EB;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.concern-item p {
+  color: #535353;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.edit {
+    cursor: pointer;
+    background-color: #5E17EB;
+    border-radius: 10px;
+    padding: 20px;
+    color:white;
+    border: none;
+    margin: 10px;
+    width: 150px;
+}

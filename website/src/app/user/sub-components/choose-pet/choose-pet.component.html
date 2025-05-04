@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<div class="container">
+    <h2>Choose your pet</h2>
+    <p>Ensure your beloved pet never gets lost by equipping them with a smart collar featuring a QR tag.</p>
+  
+    <!-- Pet List -->
+    <div *ngFor="let pet of pets" class="pet-card">
+      <div class="pet-details">
+        <input type="checkbox" [value]="pet.id" [disabled]="isCheckboxDisabled(pet.id)" (change)="onPetSelect(pet.id, $event.target.checked)">
+        <img [src]="pet.image" alt="Pet Photo" class="pet-photo" />
+        <span class="pet-name">{{ pet.name }}</span>
+      </div>
+      <button class="edit-btn" (click)="editPet(pet.id)">✏️</button> <!-- Updated with pencil emoji -->
+    </div>
+    <p *ngIf="selectionLimitReached" style="color: red;">You have reached the maximum selection limit for pets.</p>
+  
+    <!-- Add More Pets Button -->
+    <button class="add-more-btn" (click)="addPet()">+ Add More Pets</button>
+  
+    <!-- Continue Button -->
+    <button class="continue-btn" (click)="next()">Continue</button>
+  </div>

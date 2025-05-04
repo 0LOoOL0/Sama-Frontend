@@ -1,0 +1,135 @@
+<div class="pet-care-form">
+  <h2>Pet Care</h2>
+
+  <!-- Application Status -->
+  <div class="status-buttons">
+    <button class="btn application">Application</button>
+    <button class="btn waiting">Waiting</button>
+    <button class="btn preapproval">Preapproval</button>
+    <button class="btn confirmed">Confirmed</button>
+    <button class="btn approved">Approved</button>
+  </div>
+
+  <!-- Profile Section -->
+  <div class="tabs">
+    <button class="tab">Profile</button>
+    <button class="tab">Services</button>
+    <button class="tab">Products</button>
+    <button class="tab">Booking</button>
+  </div>
+
+  <form>
+    <!-- Profile Information -->
+    <div class="profile-info">
+      <div class="profile-pic">
+        <img src="path-to-image" alt="Profile Picture" />
+        <button class="btn edit-btn">Edit</button>
+      </div>
+
+      <div class="profile-details">
+        <label>Provider Name (EN)</label>
+        <input type="text" name="providerNameEn" />
+
+        <label>Provider Name (AR)</label>
+        <input type="text" name="providerNameAr" dir="rtl" />
+
+        <label>Start Date</label>
+        <input type="date" name="startDate" />
+
+        <label>Expiry Date</label>
+        <input type="date" name="expiryDate" />
+
+        <label>CR No</label>
+        <input type="text" name="crNo" />
+
+        <button class="btn upload-btn">Upload Contract/download</button>
+      </div>
+    </div>
+
+    <!-- Provider Contact Details -->
+    <h3>Provider Contact Details</h3>
+    <div class="contact-details">
+      <input type="text" placeholder="Contact 1" name="contact1" />
+      <input type="text" placeholder="Contact 2" name="contact2" />
+      <input type="email" placeholder="Email" name="email" />
+      <input type="text" placeholder="Address" name="address" />
+      <input type="text" placeholder="Place" name="place" />
+      <input type="text" placeholder="Country" name="country" />
+      <input type="url" placeholder="Website" name="website" />
+      <input type="text" placeholder="Instagram" name="instagram" />
+    </div>
+
+    <!-- Authorized Contact Details -->
+    <h3>Authorized Contact Details</h3>
+    <div class="authorized-contact">
+      <input
+        type="text"
+        placeholder="Contact Person Name"
+        name="contactPersonName"
+      />
+      <input type="text" placeholder="Position" name="position" />
+      <input type="text" placeholder="Contact" name="contactPersonPhone" />
+      <input
+        type="email"
+        placeholder="Contact Person Email"
+        name="contactPersonEmail"
+      />
+      <button class="btn add-btn">Add</button>
+    </div>
+
+    <!-- Provider Details -->
+    <h3>Provider Details</h3>
+    <div class="provider-details">
+      <div class="english-details">
+        <label>Provider Type</label>
+        <select name="providerTypeEn">
+          <option value="">Select Type</option>
+        </select>
+
+        <label>Provider Category</label>
+        <select name="providerCategoryEn">
+          <option value="">Select Category</option>
+        </select>
+
+        <label>Description</label>
+        <textarea name="descriptionEn"></textarea>
+      </div>
+
+      <div class="arabic-details" dir="rtl">
+        <label>نوع المزود</label>
+        <select name="providerTypeAr">
+          <option value="">اختر النوع</option>
+        </select>
+
+        <label>فئة المزود</label>
+        <select name="providerCategoryAr">
+          <option value="">اختر الفئة</option>
+        </select>
+
+        <label>وصف</label>
+        <textarea name="descriptionAr"></textarea>
+      </div>
+    </div>
+
+    <!-- Banner Upload Section -->
+    <div class="banner-upload">
+      <label>Banner Ad (put the size)</label>
+      <button class="btn upload-btn">Upload</button>
+    </div>
+
+    <!-- Doctors Section -->
+    <div class="doctors-section">
+      <h3>My Doctors</h3>
+      <div class="doctor-cards">
+        <div class="doctor-card">Dr Name</div>
+        <div class="doctor-card">Dr Name</div>
+        <!-- Add more doctor cards as needed -->
+      </div>
+    </div>
+
+    <!-- Submit Section -->
+    <div class="submit-section">
+      <button type="submit" class="btn save-btn">Save</button>
+    </div>
+  </form>
+</div>

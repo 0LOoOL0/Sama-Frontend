@@ -1,0 +1,35 @@
+<div class="admin-dashboard">
+  <nav class="admin-sidebar">
+    <ul>
+      <div>
+        <button></button>
+      </div>
+      <li *ngFor="let route of childRoutes">
+        <a (click)="navigateTo(route.path)">{{ route.path }}</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="admin-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- <nav>
+  <ul>
+   <li><a [routerLink]="'/provider/Login'">Login </a></li>
+   <li><a [routerLink]="'/provider/denied'">Denied Page</a></li>
+   <li><a [routerLink]="'/provider/check-out'">check out Page</a></li>
+   <li><a [routerLink]="'/provider/wait-approval'">Wait Approval Page</a></li>
+   <li><a [routerLink]="'/provider/ad-approval'">Add/Coupon Approval Page</a></li>
+   <li><a [routerLink]="'/provider/ad-promo'">Ad promotion </a></li>
+   <li><a [routerLink]="'/provider/coupon-dis'">Coupon Discount </a></li>
+   <li><a [routerLink]="'/provider/verification'">Verification </a></li>
+   <li><a [routerLink]="'/provider/setup'">Setup </a></li>
+   <li><a [routerLink]="'/provider/profile'">Profile </a></li>
+   <li><a [routerLink]="'/provider/product-details'">Product Details </a></li>
+   <li><a [routerLink]="'/provider/show-product'">Show Products</a></li>
+
+  </ul>
+</nav> -->
+<router-outlet></router-outlet>
+

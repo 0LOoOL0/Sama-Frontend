@@ -1,0 +1,227 @@
+<app-navbar></app-navbar>
+
+<body class="bg-image-page">
+  <main class="content">
+
+    <!-- Title -->
+    <div class="title">
+      <label class="title-font">Add Pet</label>
+    </div>
+    <br />
+
+    <!-- Form Inputs -->
+    <form [formGroup]="petForm" (ngSubmit)="savePetProfile()">
+      <!-- Image -->
+      <div class="profile">
+        <img src="/assets/img/dog-img.png" alt="profile" />
+        <img src="/assets/img/edit-pic.png" alt="edit icon" class="edit-icon" />
+      </div>
+
+      <!-- Pet Name -->
+      <div id="pet-name">
+        <label class="body-font">Pet Name</label>
+        <input class="body-font text-gray" type="text" placeholder="Enter pet name" formControlName="petName" />
+        <div class="body-font small-font" *ngIf="petForm.get('petName')?.invalid && petForm.get('petName')?.touched">
+          <span class="error-text">Pet name is required</span>
+        </div>
+      </div>
+
+      <!-- Type & Breed -->
+      <div class="pet-form-container">
+        <div id="pet-type" class="form-group">
+          <label class="body-font">Pet Type</label>
+          <input class="body-font text-gray" type="text" placeholder="Enter pet type"
+            formControlName="selectedPetType" />
+          <div class="body-font small-font"
+            *ngIf="petForm.get('selectedPetType')?.invalid && petForm.get('selectedPetType')?.touched">
+            <span class="error-text">Pet type is required</span>
+          </div>
+        </div>
+
+        <div id="breed" class="form-group">
+          <label class="body-font">Breed/Type</label>
+          <input class="body-font text-gray" type="text" placeholder="Enter pet breed"
+            formControlName="selectedBreed" />
+          <div class="body-font small-font"
+            *ngIf="petForm.get('selectedBreed')?.invalid && petForm.get('selectedBreed')?.touched">
+            <span class="error-text">Breed is required</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Age & Color -->
+      <div class="pet-form-container">
+        <div id="age" class="form-group">
+          <label class="body-font">Date of Birth</label>
+          <input class="body-font text-gray" type="date" formControlName="age" />
+          <div class="body-font small-font" *ngIf="petForm.get('age')?.invalid && petForm.get('age')?.touched">
+            <span class="error-text">Age is required</span>
+          </div>
+        </div>
+
+        <div id="color" class="form-group">
+          <label class="body-font">Color</label>
+          <input class="body-font text-gray" type="text" placeholder="Enter pet color" formControlName="color" />
+          <div class="body-font small-font" *ngIf="petForm.get('color')?.invalid && petForm.get('color')?.touched">
+            <span class="error-text">Color is required</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weight & Height -->
+      <div id="size" class="size-container">
+        <div class="make-it-one-line">
+          <label class="body-font">Weight</label>
+          <input class="body-font text-gray" type="number" placeholder="Enter pet weight" formControlName="weight" />
+          <div class="body-font small-font" *ngIf="petForm.get('weight')?.invalid && petForm.get('weight')?.touched">
+            <span class="error-text">Weight is required and must be a positive number</span>
+          </div>
+        </div>
+        <div class="make-it-one-line">
+          <label class="body-font">Height</label>
+          <input class="body-font text-gray" type="number" placeholder="Enter pet height" formControlName="height" />
+          <div class="body-font small-font" *ngIf="petForm.get('height')?.invalid && petForm.get('height')?.touched">
+            <span class="error-text">Height is required and must be a positive number</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gender & Vaccine -->
+      <div class="pet-form-container">
+        <div id="gender" class="form-group">
+          <label class="body-font">Gender</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" formControlName="gender" value="m" [checked]="petForm.value.gender == 'm'" /> Male
+            </label>
+            <label>
+              <input type="radio" formControlName="gender" value="f" [checked]="petForm.value.gender == 'f'" /> Female
+            </label>
+          </div>
+          <div class="body-font small-font" *ngIf="petForm.get('gender')?.invalid && petForm.get('gender')?.touched">
+            <span class="error-text">Gender is required</span>
+          </div>
+        </div>
+
+        <div id="vaccinated" class="form-group">
+          <label class="body-font">Vaccinated</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" formControlName="vaccinated" value="Yes"
+                [checked]="petForm.value.vaccinated == 'yes'" /> Yes
+            </label>
+            <label>
+              <input type="radio" formControlName="vaccinated" value="No"
+                [checked]="petForm.value.vaccinated == 'no'" /> No
+            </label>
+            <label>
+              <input type="radio" formControlName="vaccinated" value="I don't know"
+                [checked]="petForm.value.vaccinated == 'I don\'t know'" /> I don't know
+            </label>
+          </div>
+          <div class="body-font small-font"
+            *ngIf="petForm.get('vaccinated')?.invalid && petForm.get('vaccinated')?.touched">
+            <span class="error-text">Vaccinated status is required</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Michrohipped & Neutured -->
+      <div class="pet-form-container">
+        <div id="microchipped" class="form-group">
+          <label class="body-font">Microchipped</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" formControlName="microchipped" value="Yes"
+                [checked]="petForm.value.microchipped == 'yes'" /> Yes
+            </label>
+            <label>
+              <input type="radio" formControlName="microchipped" value="No"
+                [checked]="petForm.value.microchipped == 'no'" /> No
+            </label>
+            <label>
+              <input type="radio" formControlName="microchipped" value="I don't know"
+                [checked]="petForm.value.microchipped == 'I don\'t know'" /> I don't know
+            </label>
+          </div>
+          <div class="body-font small-font"
+            *ngIf="petForm.get('microchipped')?.invalid && petForm.get('microchipped')?.touched">
+            <span class="error-text">Microchipped status is required</span>
+          </div>
+        </div>
+
+        <div id="neutered" class="form-group">
+          <label class="body-font">Neutered</label>
+          <div class="radio-group">
+            <label>
+              <input type="radio" formControlName="neutered" value="Yes" [checked]="petForm.value.neutered == 'yes'" />
+              Yes
+            </label>
+            <label>
+              <input type="radio" formControlName="neutered" value="No" [checked]="petForm.value.neutered == 'no'" /> No
+            </label>
+            <label>
+              <input type="radio" formControlName="neutered" value="I don't know"
+                [checked]="petForm.value.neutered == 'I don\'t know'" /> I don't know
+            </label>
+          </div>
+          <div class="body-font small-font"
+            *ngIf="petForm.get('neutered')?.invalid && petForm.get('neutered')?.touched">
+            <span class="error-text">Neutered status is required</span>
+          </div>
+        </div>
+      </div>
+      <!-- Form Inputs -->
+      <form [formGroup]="petForm" (ngSubmit)="savePetProfile()">
+        <!-- Action buttons -->
+        <div class="button-container">
+          <button class="filled-buttons" type="button" (click)="selectService('sell')">Sell</button>
+          <button class="filled-buttons" type="button" (click)="selectService('mate')">Mate</button>
+          <button class="filled-buttons" type="button" (click)="selectService('lost')">Lost</button>
+        </div>
+        <!-- When Sell Clicked -->
+        <div id="size" class="size-container" *ngIf="selectedService === 'sell'">
+          <div class="make-it-one-line">
+            <label class="body-font">Price</label>
+            <input class="body-font text-gray" type="number" placeholder="Enter Pet Price" formControlName="weight" />
+            <div class="body-font small-font" *ngIf="petForm.touched">
+              <span class="error-text">Pet Price is required and must be a positive number</span>
+            </div>
+          </div>
+        </div>
+        <!-- When Mate Clicked -->
+        <div id="size" class="size-container" *ngIf="selectedService === 'mate'">
+          <div class="make-it-one-line">
+            <label class="body-font">Add Req for Mating</label>
+          </div>
+        </div>
+        <!-- When Lost Clicked -->
+        <div id="size" class="size-container" *ngIf="selectedService === 'lost'">
+          <div class="form-group">
+            <label class="body-font">Are you the Founder or Owner?</label>
+            <div class="radio-group">
+              <label>
+                <input type="checkbox" formControlName="microchipped" value="Founder"
+                  [checked]="petForm.value.microchipped == 'yes'" /> Founder
+              </label>
+              <label>
+                <input type="checkbox" formControlName="microchipped" value="Owner"
+                  [checked]="petForm.value.microchipped == 'no'" /> Owner
+              </label>
+            </div>
+            <div class="body-font small-font" *ngIf="petForm.touched">
+              <span class="error-text">Please select one of the options. This field is required.</span>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <!-- Buttons -->
+      <div class="button-container">
+        <button class="filled-buttons" [disabled]="petForm.invalid" type="submit">Next</button>
+        <button class="filled-buttons" type="button" (click)="skip()">Skip</button>
+      </div>
+    </form>
+  </main>
+
+</body>

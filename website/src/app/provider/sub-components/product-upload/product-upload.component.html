@@ -1,0 +1,61 @@
+<div class="display">
+  <div class="container">
+    <div class="form-section scrollable-form">
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <h2 id="add-cover-picture" class="first-h2">{{ isEditMode ? 'Edit' : 'Add' }} Cover Picture</h2>
+        <p class="import-text">Want To Import Product Sheet? <a href="#">Contact Us</a></p>
+
+        <div class="upload-box" (click)="triggerFileInput()">
+          <img [src]="coverImagePreview || 'assets/OIP.jpeg'" alt="Upload">
+          <span>Add Product image</span>
+          <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/jpeg,image/png,application/vnd.openxmlformats-officedocument.wordprocessingml.document" style="display: none;">
+        </div>
+
+        <p class="file-types">Accepted File Types: JPG, PNG, Docx</p>
+        <p class="max-size">Max size: 2 MB</p>
+
+        <h2>Upload Your Services Picture</h2>
+        <div class="upload-box" (click)="triggerServiceFileInput()">
+          <img src="assets/camra.svg" alt="Upload" class="camera-img">
+          <span class="camra-text">Add Product image</span>
+          <input type="file" #serviceFileInput (change)="onServiceFileSelected($event)" accept="image/jpeg,image/png,application/vnd.openxmlformats-officedocument.wordprocessingml.document" style="display: none;">
+        </div>
+
+        <p class="file-types">Accepted File Types: JPG, PNG, Docx</p>
+        <p class="max-size">Max size: 2 MB</p>
+
+        <div class="form-group">
+          <label for="serviceName">Service Name</label>
+          <input type="text" id="serviceName" formControlName="serviceName">
+
+          <label for="description">Description</label>
+          <textarea id="description" formControlName="description"></textarea>
+
+          <label for="petType">Pet Type</label>
+          <input type="text" id="petType" formControlName="petType">
+
+          <label>Price</label>
+          <div class="price-options">
+            <button type="button" (click)="setPriceType('beforeAfter')" [class.active]="priceType === 'beforeAfter'">Before & After</button>
+            <button type="button" (click)="setPriceType('percentage')" [class.active]="priceType === 'percentage'">Percentage</button>
+          </div>
+
+          <div class="price-inputs" *ngIf="priceType === 'beforeAfter'">
+            <input type="number" formControlName="beforePrice" placeholder="Before Price">
+            <input type="number" formControlName="afterPrice" placeholder="After Price">
+          </div>
+
+          <div class="price-inputs" *ngIf="priceType === 'percentage'">
+            <input type="number" formControlName="beforePrice" placeholder="Before Price">
+            <input type="number" formControlName="percentageDiscount" placeholder="Percentage Discount">
+          </div>
+        </div>
+
+        <div class="form-buttons">
+          <button type="submit" class="next-button">{{ isEditMode ? 'Update' : 'Next' }}</button>
+          <button type="button" class="cancel-button" (click)="onCancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

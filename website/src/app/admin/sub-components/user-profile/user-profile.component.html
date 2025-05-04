@@ -1,0 +1,1208 @@
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User profile list</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-[#F5F5F9]">
+    <!-- side menu -->
+    <div
+      class="flexSide p-3 py-6 xl:flex flex-col fixed left-0 top-0 justify-start items-center gap-6 w-fit h-screen bg-white border-r-2 border-[#EFEFEF] hidden"
+    >
+      <img src="./img/logo-iocn.svg" alt="s logo" />
+      <button
+        class="p-4 bg-[#F5F5F5] rounded-[16px] cursor-pointer duration-1000 ease-out border-2 border-transparent hover:border-[#1814F3]"
+      >
+        <img src="./img/search-icon.svg" alt="" />
+      </button>
+    </div>
+
+    <!-- header -->
+    <header
+      class="flex items-center justify-between py-4 xl:px-8 px-6 xl:ps-40 bg-white"
+    >
+      <h1 class="text-black font-bold public-Sans text-[16px]">
+        Pet Owner Profile
+      </h1>
+      <div class="sm:flex justify-end items-center gap-4 hidden">
+        <div
+          class="flex justify-between gap-2 bg-[#F5F7FA] rounded-[40px] px-6"
+        >
+          <img src="./img/search-icon-2.svg" alt="search" />
+          <input
+            type="text"
+            placeholder="Search for something"
+            class="flex-1 text-[#8BA3CB] bg-transparent inter font-normal outline-none px-2 py-2"
+          />
+        </div>
+
+        <div class="flex gap-3 justify-end items-center">
+          <a
+            href="#"
+            class="w-10 h-10 rounded-full flex justify-center items-center cursor-pointer duration-500 bg-[#F5F7FA] hover:bg-[#ced1d6d8]"
+          >
+            <img src="./img/setting-icon.svg" alt="setting icon" />
+          </a>
+          <a
+            href="#"
+            class="w-10 h-10 rounded-full flex justify-center items-center cursor-pointer duration-500 bg-[#F5F7FA] hover:bg-[#ced1d6d8]"
+          >
+            <img src="./img/bell-icon.svg" alt="setting icon" />
+          </a>
+          <a
+            href="#"
+            class="w-10 h-10 rounded-full overflow-hidden flex justify-center items-center cursor-pointer duration-500 bg-[#F5F7FA] hover:bg-[#ced1d6d8]"
+          >
+            <img
+              src="./img/profile-img.png"
+              alt="setting icon"
+              class="w-full h-full object-cover"
+            />
+          </a>
+        </div>
+      </div>
+
+      <div class="sm:hidden flex items-center justify-end gap-4">
+        <a
+          href="#"
+          class="w-10 h-10 rounded-full flex justify-center items-center cursor-pointer duration-500 bg-[#F5F7FA] hover:bg-[#ced1d6d8]"
+        >
+          <img src="./img/bell-icon.svg" alt="setting icon" />
+        </a>
+        <button class="cursor-pointer" id="hamberger">
+          <img
+            src="./img/hamberger-icon.svg"
+            alt="hamberger"
+            class="w-8 h-auto cursor-pointer"
+          />
+        </button>
+      </div>
+    </header>
+
+    <!-- side bar -->
+    <section
+      class="sidebar w-full h-screen bg-white fixed z-10 top-0 py-5 px-3 -left-[100%] block sm:hidden transition-all duration-1000 ease-linear"
+      id="sideBar"
+    >
+      <button
+        class="close cursor-pointer absolute right-2 top-5"
+        id="closeSide"
+      >
+        <img src="./img/close-icon.svg" alt="close" class="w-7 h-auto" />
+      </button>
+      <div class="flex justify-start items-start flex-col gap-4">
+        <div class="flex gap-3 justify-start items-center flex-wrap">
+          <a
+            href="#"
+            class="w-10 h-10 rounded-full flex justify-center items-center cursor-pointer duration-500 bg-[#F5F7FA] hover:bg-[#ced1d6d8]"
+          >
+            <img src="./img/setting-icon.svg" alt="setting icon" />
+          </a>
+          <a
+            href="#"
+            class="w-10 h-10 rounded-full overflow-hidden flex justify-center items-center cursor-pointer duration-500 bg-[#F5F7FA] hover:bg-[#ced1d6d8]"
+          >
+            <img
+              src="./img/profile-img.png"
+              alt="setting icon"
+              class="w-full h-full object-cover"
+            />
+          </a>
+        </div>
+
+        <div
+          class="flex justify-between gap-2 bg-[#F5F7FA] rounded-[40px] px-6"
+        >
+          <img src="./img/search-icon-2.svg" alt="search" />
+          <input
+            type="text"
+            placeholder="Search for something"
+            class="flex-1 text-[#8BA3CB] bg-transparent inter font-normal outline-none px-2 py-2"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- content container -->
+    <div class="w-full xl:pr-10 py-5 xl:px-0 px-4">
+      <div class="xl:w-11/12 bg-white rounded-[30px] xl:p-8 px-4 py-6 ms-auto">
+        <!-- btn -->
+        <div class="flex justify-between flex-wrap gap-3">
+          <div class="flex items-center justify-start md:gap-3 gap-2 flex-wrap">
+            <button
+              class="md:py-3 md:px-10 py-1.5 px-4 bg-[#ED5F1E] duration-500 hover:bg-[#bd6035] text-black hover:text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]"
+            >
+              Member No. 20
+            </button>
+            <button
+              class="md:py-3 md:px-10 py-1.5 px-4 bg-[#4FC8DC] duration-500 hover:bg-[#2f8392] hover:text-white text-black font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]"
+            >
+              Non Member No. 30
+            </button>
+            <button
+              class="md:py-3 md:px-10 py-1.5 px-4 bg-[#FFEA50] duration-500 hover:bg-[#9b8f37] text-black hover:text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]"
+            >
+              Free Trail No. 10
+            </button>
+          </div>
+
+          <button
+            class="md:py-3 md:px-10 py-1.5 px-4 bg-[#5E17EB] duration-500 hover:bg-[#5729b4] text-white hover:text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]"
+          >
+            Add Member
+          </button>
+        </div>
+
+        <!-- filter -->
+        <div class="my-5">
+          <h1 class="inter font-bold text-[1rem] text-black mb-5">Filter</h1>
+          <div class="grid grid-cols-12 gap-4">
+            <div class="xl:col-span-2 sm:col-span-4 col-span-12">
+              <div class="fillterCard">
+                <label class="font-normal text-[15px] text-[#232323] block mb-1"
+                  >Filter From:</label
+                >
+                <div
+                  class="border-[1px] border-[#CED1D5] px-3 py-2 rounded-[20px] w-full"
+                >
+                  <input
+                    class="w-full text-xs text-[#718EBF] font-normal outline-none"
+                    type="date"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="xl:col-span-2 sm:col-span-4 col-span-12">
+              <div class="fillterCard">
+                <label class="font-normal text-[15px] text-[#232323] block mb-1"
+                  >To:</label
+                >
+                <div
+                  class="border-[1px] border-[#CED1D5] px-3 py-2 rounded-[20px] w-full"
+                >
+                  <input
+                    class="w-full text-xs text-[#718EBF] font-normal outline-none"
+                    type="date"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="xl:col-span-2 sm:col-span-4 col-span-12">
+              <div class="fillterCard">
+                <label class="font-normal text-[15px] text-[#232323] block mb-1"
+                  >Type of User:</label
+                >
+                <div
+                  class="border-[1px] border-[#CED1D5] px-3 py-2 rounded-[20px] w-full"
+                >
+                  <select
+                    class="w-full text-xs text-[#718EBF] font-normal outline-none"
+                  >
+                    <option value="#">Member</option>
+                    <option value="#">Non Member</option>
+                    <option value="#">Free Trial</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="xl:col-span-2 sm:col-span-4 col-span-12">
+              <div class="fillterCard">
+                <label class="font-normal text-[15px] text-[#232323] block mb-1"
+                  >Type of Pet:</label
+                >
+                <div
+                  class="border-[1px] border-[#CED1D5] px-3 py-2 rounded-[20px] w-full"
+                >
+                  <select
+                    class="w-full text-xs text-[#718EBF] font-normal outline-none"
+                  >
+                    <option value="#">Cat</option>
+                    <option value="#">Dog</option>
+                    <option value="#">Rabit </option>
+                    <option value="#">bird </option>
+                    <option value="#">Other</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="xl:col-span-2 sm:col-span-4 col-span-12">
+              <div class="fillterCard">
+                <label class="font-normal text-[15px] text-[#232323] block mb-1"
+                  >Place:</label
+                >
+                <div
+                  class="border-[1px] border-[#CED1D5] px-3 py-2 rounded-[20px] w-full"
+                >
+                  <select
+                    class="w-full text-xs text-[#718EBF] font-normal outline-none"
+                  >
+                    <option value="#">Enter City</option>
+                    <option value="#">Enter City</option>
+                    <option value="#">Enter City</option>
+                    <option value="#">Enter City</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="xl:col-span-2 sm:col-span-4 col-span-12">
+              <div class="fillterCard">
+                <label class="font-normal text-[15px] text-[#232323] block mb-1"
+                  >Status:</label
+                >
+                <div
+                  class="border-[1px] border-[#CED1D5] px-3 py-2 rounded-[20px] w-full"
+                >
+                  <select
+                    class="w-full text-xs text-[#718EBF] font-normal outline-none"
+                  >
+                    <option value="#">Active</option>
+                    <option value="#">Non Active</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- btn -->
+        <div
+          class="tabContent flex items-center justify-start md:gap-3 gap-2 flex-wrap my-8"
+        >
+          <button
+            data-tab="CVC"
+            class="tabBtn md:py-3 md:px-10 py-1.5 px-4 bg-[#1814F3] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]"
+          >
+            CVC
+          </button>
+          <button
+            data-tab="Dashboard"
+            class="tabBtn md:py-3 md:px-10 py-1.5 px-4 bg-[#1814F3] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]"
+          >
+            Dashboard
+          </button>
+          <button
+            data-tab="Export"
+            class="tabBtn md:py-3 md:px-10 py-1.5 px-4 bg-[#1814F3] text-white font-normal inter md:text-[15px] text-xs btn-shadow rounded-[50px]"
+          >
+            Export
+          </button>
+        </div>
+
+        <div class="tabsContainer">
+          <div class="tabContent hidden" id="CVC">
+            <!-- Membership & Invoices -->
+            <div class="bg-[#F5F5F9] lg:p-4 p-2 rounded-[20px] w-full">
+              <!-- table -->
+              <div
+                class="tableWrperr xl:w-full xl:overflow-visible overflow-x-scroll"
+              >
+                <table class="xl:w-full w-[1200px]">
+                  <thead>
+                    <tr>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB] rounded-l-2xl"
+                      >
+                        Start Date
+                      </th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      >
+                        Owner Name
+                      </th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      >
+                        Contact Number
+                      </th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      >
+                        No. Of Pets
+                      </th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      >
+                        Issue Date
+                      </th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      >
+                        Expiry Date
+                      </th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      >
+                        image
+                      </th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      >
+                        Type of pet
+                      </th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      >
+                        Period
+                      </th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      >
+                        Amount
+                      </th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB] rounded-r-2xl"
+                      >
+                        Status
+                      </th>
+                    </tr>
+                  </thead>
+
+                  <tbody class="text-center">
+                    <tr class="py-3 px-1 border-b-2 border-[#E6EFF5]">
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+
+                      <td class="font-normal text-sm text-[#232323]">
+                        Mobile Service
+                      </td>
+
+                      <td class="font-normal text-sm text-[#232323]">
+                        3300 0000
+                      </td>
+                      <td class="font-normal text-sm text-[#232323]">12</td>
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+                      <td class="py-3">
+                        <img
+                          src="./img/car-img.png"
+                          alt="cat img"
+                          class="w-16 h-auto mx-auto rounded-lg"
+                        />
+                      </td>
+
+                      <td class="px-2">
+                        <button
+                          class="bg-[#ED5F1E] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-sm"
+                        >
+                          Member
+                        </button>
+                      </td>
+
+                      <td class="font-normal text-sm text-[#232323]">1 Yr</td>
+                      <td class="font-normal text-sm text-[#232323]">Bd 3</td>
+                      <td class="px-2">
+                        <button
+                          class="bg-[#1DD73F] rounded-[50px] py-3 w-full text-white btn-shadow font-normal text-sm"
+                        >
+                          Active
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr class="py-3 px-1 border-b-2 border-[#E6EFF5]">
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+
+                      <td class="font-normal text-sm text-[#232323]">Wilson</td>
+
+                      <td class="font-normal text-sm text-[#232323]">
+                        0000 0000
+                      </td>
+                      <td class="font-normal text-sm text-[#232323]">12</td>
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+                      <td class="py-3">
+                        <img
+                          src="./img/car-img.png"
+                          alt="cat img"
+                          class="w-16 h-auto mx-auto rounded-lg"
+                        />
+                      </td>
+
+                      <td class="px-2">
+                        <button
+                          class="bg-[#4FC8DC] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-sm"
+                        >
+                          Member
+                        </button>
+                      </td>
+
+                      <td class="font-normal text-sm text-[#232323]">2 Yr</td>
+                      <td class="font-normal text-sm text-[#232323]"></td>
+                      <td class="px-2">
+                        <button
+                          class="bg-[#FFB922] rounded-[50px] py-3 w-full text-white btn-shadow font-normal text-sm"
+                        >
+                          Pending
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr class="py-3 px-1 border-b-2 border-[#E6EFF5]">
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+
+                      <td class="font-normal text-sm text-[#232323]">Emilly</td>
+
+                      <td class="font-normal text-sm text-[#232323]">
+                        1111 1111
+                      </td>
+                      <td class="font-normal text-sm text-[#232323]">12</td>
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+                      <td class="py-3">
+                        <img
+                          src="./img/car-img.png"
+                          alt="cat img"
+                          class="w-16 h-auto mx-auto rounded-lg"
+                        />
+                      </td>
+
+                      <td class="px-2">
+                        <button
+                          class="bg-[#FFEA50] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-sm"
+                        >
+                          Free Trail
+                        </button>
+                      </td>
+
+                      <td class="font-normal text-sm text-[#232323]">1 Yr</td>
+                      <td class="font-normal text-sm text-[#232323]">Bd 0</td>
+                      <td class="px-2">
+                        <button
+                          class="bg-[#1814F3] rounded-[50px] py-3 w-full text-white btn-shadow font-normal text-sm"
+                        >
+                          Completed
+                        </button>
+                      </td>
+                    </tr>
+
+                    <tr class="py-3 px-1 border-b-2 border-[#E6EFF5]">
+                      <td class="font-normal py-6 text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+
+                      <td class="font-normal text-sm text-[#232323]"></td>
+
+                      <td class="font-normal text-sm text-[#232323]">
+                        2222 2222
+                      </td>
+                      <td class="font-normal text-sm text-[#232323]">12</td>
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+                    </tr>
+
+                    <tr class="py-3 px-1 border-b-2 border-[#E6EFF5]">
+                      <td class="font-normal py-6 text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+
+                      <td class="font-normal text-sm text-[#232323]"></td>
+
+                      <td class="font-normal text-sm text-[#232323]">
+                        3555 5555
+                      </td>
+                      <td class="font-normal text-sm text-[#232323]">12</td>
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Membership  -->
+          </div>
+
+          <!-- dashboard tab -->
+          <div class="tabContent" id="Dashboard">
+            <!-- Membership & Invoices -->
+            <div class="bg-[#F5F5F9] lg:p-4 p-2 rounded-[20px] w-full">
+              <!-- table -->
+              <div
+                class="tableWrperr xl:w-full xl:overflow-visible overflow-x-scroll"
+              >
+                <table class="xl:w-full w-[1200px]">
+                  <colgroup>
+                    <col width="5%" />
+                    <col width="10%" />
+                    <col width="10%" />
+                    <col width="10%" />
+                    <col width="10%" />
+                    <col width="10%" />
+                    <col width="10%" />
+                    <col width="10%" />
+                    <col width="15%" />
+                    <col width="10%" />
+                  </colgroup>
+
+                  <thead>
+                    <tr>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB] rounded-l-2xl"
+                      ></th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      >
+                        Start Date
+                      </th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      >
+                        Owner Name
+                      </th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      >
+                        Contact Number
+                      </th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      >
+                        No. Of Pets
+                      </th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      ></th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      ></th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      ></th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      ></th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB]"
+                      ></th>
+                      <th
+                        class="font-bold text-[1rem] text-white py-4 px-1 bg-[#5E17EB] rounded-r-2xl"
+                      ></th>
+                    </tr>
+                  </thead>
+
+                  <tbody class="text-center">
+                    <tr
+                      class="py-3 px-1 border-b-2 border-[#E6EFF5] cursor-pointer"
+                    >
+                      <td class="px-3 py-6">
+                        <div
+                          class="toggle-accordion w-7 h-7 flex items-center justify-center bg-[#5E17EB] text-white rounded-full text-xl cursor-pointer"
+                        >
+                          +
+                        </div>
+                      </td>
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+
+                      <td class="font-normal text-sm text-[#232323]">
+                        Mobile Service
+                      </td>
+
+                      <td class="font-normal text-sm text-[#232323]">
+                        3300 0000
+                      </td>
+                      <td class="font-normal text-sm text-[#232323]">3</td>
+                    </tr>
+
+                    <!-- accordian row -->
+                    <tr class="accordion-content border-b-2 border-[#E6EFF5]">
+                      <td class="text-left px-6 py-4"></td>
+                      <td colspan="8" class="py-4">
+                        <table class="w-full bg-white p-5 rounded-lg">
+                          <thead>
+                            <tr>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB] rounded-l-2xl"
+                              >
+                                image
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB]"
+                              >
+                                Type of pet
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB]"
+                              >
+                                Pet Name
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB]"
+                              >
+                                Issue Date
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB]"
+                              >
+                                Expiry Date
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB]"
+                              >
+                                Period
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB]"
+                              >
+                                Amount
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB]"
+                              >
+                                Packages
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB] rounded-r-2xl"
+                              >
+                                Status
+                              </th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr>
+                              <td class="py-1">
+                                <img
+                                  src="./img/car-img.png"
+                                  alt="cat img"
+                                  class="w-12 h-auto mx-auto rounded-lg"
+                                />
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#ED5F1E] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Member
+                                </button>
+                              </td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                Emilly
+                              </td>
+                              <td class="font-normal text-xs text-[#718EBF]">
+                                25 January 2023
+                              </td>
+                              <td class="font-normal text-xs text-[#718EBF]">
+                                25 January 2023
+                              </td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                1 Yr
+                              </td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                Bd 3
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#FFD21F] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Gold
+                                </button>
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#1DD73F] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Active
+                                </button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="py-1">
+                                <img
+                                  src="./img/car-img.png"
+                                  alt="cat img"
+                                  class="w-12 h-auto mx-auto rounded-lg"
+                                />
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#4FC8DC] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Non Member
+                                </button>
+                              </td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                Soso
+                              </td>
+                              <td
+                                class="font-normal text-xs text-[#718EBF]"
+                              ></td>
+                              <td
+                                class="font-normal text-xs text-[#718EBF]"
+                              ></td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                2 Yr
+                              </td>
+                              <td
+                                class="font-normal text-xs text-[#232323]"
+                              ></td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#BDB8AE] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Silver
+                                </button>
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#FFB922] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Pending
+                                </button>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td class="py-1">
+                                <img
+                                  src="./img/car-img.png"
+                                  alt="cat img"
+                                  class="w-12 h-auto mx-auto rounded-lg"
+                                />
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#FFEA50] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Free Trail
+                                </button>
+                              </td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                Lala
+                              </td>
+                              <td class="font-normal text-xs text-[#718EBF]">
+                                25 January 2023
+                              </td>
+                              <td class="font-normal text-xs text-[#718EBF]">
+                                25 January 2023
+                              </td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                1 Yr
+                              </td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                Bd 0
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#D2996C] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Bronze
+                                </button>
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#1814F3] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Completed
+                                </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td class="align-top py-8">
+                        <h2
+                          class="text-xs font-normal text-[#232323]"
+                          style="margin-bottom: 2.2rem"
+                        >
+                          Mobi
+                        </h2>
+                        <h2
+                          class="text-xs font-normal text-[#232323]"
+                          style="margin-bottom: 2.2rem"
+                        >
+                          Kobi
+                        </h2>
+                        <h2
+                          class="text-xs font-normal text-[#232323]"
+                          style="margin-bottom: 2.2rem"
+                        >
+                          Kobi
+                        </h2>
+                      </td>
+                    </tr>
+
+                    <tr
+                      class="py-3 px-1 border-b-2 border-[#E6EFF5] cursor-pointer"
+                    >
+                      <td class="px-3 py-6">
+                        <div
+                          class="toggle-accordion w-7 h-7 flex items-center justify-center bg-[#5E17EB] text-white rounded-full text-xl cursor-pointer"
+                        >
+                          +
+                        </div>
+                      </td>
+                      <td class="font-normal text-sm text-[#718EBF]">
+                        25 January 2023
+                      </td>
+
+                      <td class="font-normal text-sm text-[#232323]">Wilson</td>
+
+                      <td class="font-normal text-sm text-[#232323]">
+                        0000 0000
+                      </td>
+                      <td class="font-normal text-sm text-[#232323]">2</td>
+                    </tr>
+
+                    <!-- accordian row -->
+                    <tr
+                      class="accordion-content hidden border-b-2 border-[#E6EFF5]"
+                    >
+                      <td class="text-left px-6 py-4"></td>
+                      <td colspan="8" class="py-4">
+                        <table class="w-full bg-white p-5 rounded-lg">
+                          <thead>
+                            <tr>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB] rounded-l-2xl"
+                              >
+                                image
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB]"
+                              >
+                                Type of pet
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB]"
+                              >
+                                Pet Name
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB]"
+                              >
+                                Issue Date
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB]"
+                              >
+                                Expiry Date
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB]"
+                              >
+                                Period
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB]"
+                              >
+                                Amount
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB]"
+                              >
+                                Packages
+                              </th>
+                              <th
+                                class="font-bold text-[1rem] text-white py-2 px-5 bg-[#5E17EB] rounded-r-2xl"
+                              >
+                                Status
+                              </th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr>
+                              <td class="py-1">
+                                <img
+                                  src="./img/car-img.png"
+                                  alt="cat img"
+                                  class="w-16 h-auto mx-auto rounded-lg"
+                                />
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#ED5F1E] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Member
+                                </button>
+                              </td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                Emilly
+                              </td>
+                              <td class="font-normal text-xs text-[#718EBF]">
+                                25 January 2023
+                              </td>
+                              <td class="font-normal text-xs text-[#718EBF]">
+                                25 January 2023
+                              </td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                1 Yr
+                              </td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                Bd 3
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#FFD21F] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Gold
+                                </button>
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#1DD73F] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Active
+                                </button>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td class="py-1">
+                                <img
+                                  src="./img/car-img.png"
+                                  alt="cat img"
+                                  class="w-16 h-auto mx-auto rounded-lg"
+                                />
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#4FC8DC] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Non Member
+                                </button>
+                              </td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                Soso
+                              </td>
+                              <td
+                                class="font-normal text-xs text-[#718EBF]"
+                              ></td>
+                              <td
+                                class="font-normal text-xs text-[#718EBF]"
+                              ></td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                2 Yr
+                              </td>
+                              <td
+                                class="font-normal text-xs text-[#232323]"
+                              ></td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#BDB8AE] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Silver
+                                </button>
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#FFB922] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Pending
+                                </button>
+                              </td>
+                            </tr>
+
+                            <tr>
+                              <td class="py-1">
+                                <img
+                                  src="./img/car-img.png"
+                                  alt="cat img"
+                                  class="w-16 h-auto mx-auto rounded-lg"
+                                />
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#FFEA50] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Free Trail
+                                </button>
+                              </td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                Lala
+                              </td>
+                              <td class="font-normal text-xs text-[#718EBF]">
+                                25 January 2023
+                              </td>
+                              <td class="font-normal text-xs text-[#718EBF]">
+                                25 January 2023
+                              </td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                1 Yr
+                              </td>
+                              <td class="font-normal text-xs text-[#232323]">
+                                Bd 0
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#D2996C] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Bronze
+                                </button>
+                              </td>
+                              <td class="px-2">
+                                <button
+                                  class="bg-[#1814F3] rounded-[50px] duration-500 hover:text-white py-3 w-full text-black font-normal text-xs"
+                                >
+                                  Completed
+                                </button>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                      <td class="align-top py-8">
+                        <h2
+                          class="text-xs font-normal text-[#232323]"
+                          style="margin-bottom: 2.2rem"
+                        >
+                          Mobi
+                        </h2>
+                        <h2
+                          class="text-xs font-normal text-[#232323]"
+                          style="margin-bottom: 2.2rem"
+                        >
+                          Kobi
+                        </h2>
+                        <h2
+                          class="text-xs font-normal text-[#232323]"
+                          style="margin-bottom: 2.2rem"
+                        >
+                          Kobi
+                        </h2>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Membership  -->
+          </div>
+          <div class="tabContent hidden" id="Export">Other</div>
+        </div>
+
+        <div class="mt-12 flex justify-end flex-wrap gap-3">
+          <div
+            class="flex items-center sm:justify-end sm:gap-6 gap-3 px-5 justify-center"
+          >
+            <button
+              class="flex items-center justify-center gap-2 cursor-pointer text-[#5E17EB] text-xs font-normal hover:text-black duration-500"
+            >
+              <img src="./img/left-arrow.svg" alt="arrow left" />
+              Previous
+            </button>
+
+            <!-- painagation -->
+            <div class="flex items-center">
+              <button
+                class="sm:py-3 sm:px-4 px-2 py-1 rounded-lg text-white font-normal text-xs bg-[#5E17EB] hover:bg-[#5E17EB] hover:text-white duration-1000"
+              >
+                1
+              </button>
+              <button
+                class="sm:py-3 sm:px-4 px-2 py-1 rounded-lg text-black font-normal text-xs hover:bg-[#5E17EB] hover:text-white duration-1000"
+              >
+                2
+              </button>
+              <button
+                class="sm:py-3 sm:px-4 px-2 py-1 rounded-lg text-black font-normal text-xs hover:bg-[#5E17EB] hover:text-white duration-1000"
+              >
+                3
+              </button>
+              <button
+                class="sm:py-3 sm:px-4 px-2 py-1 rounded-lg text-black font-normal text-xs hover:bg-[#5E17EB] hover:text-white duration-1000"
+              >
+                4
+              </button>
+            </div>
+
+            <button
+              class="flex items-center justify-center gap-2 cursor-pointer text-[#5E17EB] text-xs font-normal hover:text-black duration-500"
+            >
+              Next
+              <img src="./img/right-arrow.svg" alt="arrow right" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    function toggleHeaderMenu() {
+    const hamberger = document.querySelector("#hamberger")
+    const sideBar = document.querySelector("#sideBar")
+    const closeSide = document.querySelector("#closeSide")
+
+    hamberger.addEventListener("click", () => {
+        sideBar.classList.remove("-left-[100%]")
+    })
+
+    closeSide.addEventListener("click", () => {
+        sideBar.classList.add("-left-[100%]")
+    })
+}
+toggleHeaderMenu(); // call the header menu small devices
+
+
+
+function tabToggle(){ 
+    // Select all the tab buttons and tab contents
+    const tabButtons = document.querySelectorAll('.tabBtn');
+    const tabContents = document.querySelectorAll('.tabsContainer .tabContent');
+    
+    // Add click event listener to each tab button
+    tabButtons.forEach((button) => {
+        button.addEventListener('click', () => { 
+          const targetTab = button.getAttribute('data-tab');
+      
+          // Remove the active class from all tab buttons and hide all tab contents
+          tabButtons.forEach((btn) => btn.classList.remove('tabBtnActive'));
+          tabContents.forEach((content) => content.classList.add('hidden'));
+      
+          // Add the active class to the clicked button and show the corresponding tab content
+          button.classList.add('tabBtnActive');
+          const targetContent = document.getElementById(targetTab);
+          if (targetContent) {
+            targetContent.classList.remove('hidden');
+          }
+        });
+      });
+   } 
+   tabToggle();
+
+
+   document.querySelectorAll('.toggle-accordion').forEach(button => {
+    button.addEventListener('click', function () {
+      // Find the next sibling row (accordion content)
+      const accordionContent = this.closest('tr').nextElementSibling;
+  
+      // Toggle visibility of accordion content
+      if (accordionContent) {
+        accordionContent.classList.toggle('hidden');
+      }
+  
+      // Optionally toggle the "+" icon to "-" icon
+      this.textContent = accordionContent.classList.contains('hidden') ? '+' : '-';
+    });
+  });
+  </script>
+
+</html>

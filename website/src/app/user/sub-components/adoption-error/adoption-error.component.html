@@ -1,0 +1,66 @@
+<!-- Updated HTML Template (adoption-error.component.html) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adoption Center - Error</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <app-navbar></app-navbar>
+    <div class="header">
+      <h1>Adoption Center</h1>
+      <p>HOME > ADOPTION</p>
+      <img src="assets/cat.png" alt="Cat Image">
+    </div>
+
+    <div class="search-section">
+      <input type="text" class="search-input" placeholder="Search..." [formControl]="searchControl">
+      <button class="search-btn" (click)="applyFilters()">Search</button>
+    </div>
+
+    <div class="not-found-section">
+      <img src="assets/not_found.png" alt="Not Found Image">
+      <p class="not-found-text">Sorry we couldn't find what you looking for!</p>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-title">Pet Type</div>
+      <div class="filter-group">
+        <button *ngFor="let petType of petTypes" (click)="selectedPetType = petType"> {{ petType }} </button>
+      </div>
+      <div class="filter-title">Gender</div>
+      <div class="filter-group">
+        <label><input type="radio" name="gender" value="Male" (change)="gender = 'Male'"> Male</label>
+        <label><input type="radio" name="gender" value="Female" (change)="gender = 'Female'"> Female</label>
+      </div>
+      <div class="filter-title">Breed/Type</div>
+      <select [(ngModel)]="breed">
+        <option value="">Select Breed</option>
+        <option *ngFor="let breed of ['Breed 1', 'Breed 2', 'Breed 3']">{{ breed }}</option>
+      </select>
+      <div class="filter-title">Age</div>
+      <input type="range" min="0" max="12" step="1" [(ngModel)]="age">
+      <div class="filter-title">Kilometer</div>
+      <input type="range" min="0" max="45" step="5" [(ngModel)]="kilometer">
+    </div>
+
+    <div class="footer">
+      <div class="contact-info">
+        <p>Got Questions? Call us 24/7</p>
+        <p>(973) 77690000</p>
+      </div>
+      <div class="newsletter">
+        <p>Be first in the queue! Get our latest news straight to your inbox.</p>
+        <input type="email" placeholder="Email"><button>Subscribe</button>
+      </div>
+    </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

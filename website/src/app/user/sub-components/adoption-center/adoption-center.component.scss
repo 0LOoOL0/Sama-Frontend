@@ -1,0 +1,503 @@
+input,
+select {
+  border-radius: 10px;
+  border: 1px solid #dbdbdb;
+  height: 50px;
+  padding: 5px;
+  width: 100%;
+  margin: 40px 0px;
+}
+
+button {
+  margin: 10px 0px;
+  height: 50px;
+  width: 100%;
+  background-color: #5e17eb;
+  color: white;
+  border: 1px solid #5e17eb;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: white;
+    color: #5e17eb;
+  }
+}
+
+.sized-button {
+  width: 200px;
+  margin-top: 0;
+}
+
+.space-between {
+  gap: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+// hero section
+.heroSection {
+  background-image: url('/assets/img/updated-adoption-hero-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 30px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    font-family: 'Nunito', sans-serif;
+    height: 30em;
+
+
+.heroDot {
+  width: 10px;
+  height: 10px;
+  background: #ff47a2;
+  border-radius: 50%;
+  }
+
+  .heroBackground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin-left: 80px;
+  }
+
+  .heroLinkContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #4b0082;
+  }
+
+  .hero-link {
+    text-transform: uppercase;
+    color: #4b0082;
+    text-decoration: none;
+  }
+
+  .hero-link.active {
+    color: #ff47a2;
+  }
+
+  /* Heading */
+.hero-heading {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #000;
+  margin-top: 10px;
+  }
+
+  /* Description */
+.hero-description {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  max-width: 520px;
+  }
+
+  .heroImage {
+    max-width: 370px;
+    height:auto;
+  }
+  
+  .heroImageContainer {
+    position:absolute;
+    right: 14%;
+    bottom: -100px;
+  }
+  
+  
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  .breadcrumb a {
+    text-decoration: none;
+    color: #5a31f4;
+  }
+  
+  /* Media Query for devices less than 768px wide */
+  @media (max-width: 768px) {
+    .hero-container,
+    .heroLinkContainer {
+        text-align: center;
+        margin: 0 auto;
+        padding: 0 20px; /* Add some padding on the sides */
+    }
+  
+    .hero-container {
+        max-width: 100%; /* Use 100% of the container width */
+    }
+  
+    .hero-heading {
+        font-size: 2.5rem; /* Adjust font size for small screens */
+    }
+  
+    .hero-description {
+        max-width: 100%; /* Allow description to fill the container */
+        padding: 0 10px; /* Add padding to maintain layout */
+    }
+  
+    .heroImageContainer {
+        position: relative; /* Change positioning to relative */
+        right: auto; /* Reset right positioning */
+        bottom: auto; /* Reset bottom positioning */
+        margin: 20px auto 0; /* Add margin for spacing */
+        display: block; /* Ensure it is a block to center below the text */
+    }
+  
+    .heroImage {
+        width: 80%; /* Adjust image width to be responsive */
+        max-width: 350px; /* Limit maximum width to ensure it looks good */
+        margin-left: 40px;
+    }
+  
+    .cta-btn {
+        display: block; /* Make button a block to fill width */
+        width: 50%; /* Adjust button width to 50% for better accessibility */
+        margin: 20px auto; /* Center button horizontally and add vertical spacing */
+    }
+  
+    .heroLinkContainer {
+        flex-direction: column; /* Stack links vertically */
+        gap: 5px; /* Reduce gap size */
+    }
+  }
+  
+  /* Media Query for devices less than 480px wide */
+  @media (max-width: 480px) {
+    .hero-heading {
+        font-size: 2rem; /* Further reduce font size for very small screens */
+    }
+  
+    .hero-description {
+        font-size: 0.9rem; /* Reduce font size for descriptions */
+    }
+  
+    .cta-btn {
+        width: 60%; /* Increase button width for smaller devices */
+    }
+  }
+  
+
+  a {
+    color: #5e17eb;
+    text-decoration: none;
+  }
+
+  .navigation {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    gap: 20px;
+  }
+
+}
+
+.heroSection::before {
+  content: '';
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.4);
+  position: absolute;
+  border-radius: 50%;
+  top: -100px;
+  animation: floatBubble 20s infinite linear;
+}
+
+.heroSection::after {
+  content: '';
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  border-radius: 50%;
+  top: -150px;
+  left: 50%;
+  animation: floatBubble 25s infinite linear;
+}
+
+@keyframes floatBubble {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+
+  50% {
+    transform: translateY(500px) translateX(50px);
+  }
+
+  100% {
+    transform: translateY(0) translateX(-50px);
+  }
+}
+
+// the main content section
+.main-content {
+  padding: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .search-content {
+    margin-top: 20px;
+    display: flex;
+    background-color: #ccc;
+    border-radius: 10px;
+    height: 50px;
+
+    img {
+      height: 40px;
+    }
+  }
+
+  .left-side {
+    width: 60%;
+    padding: 20px;
+    box-sizing: border-box;
+
+    .navigation-content {
+      ul {
+        display: flex;
+        gap: 20px;
+        text-align: center;
+      }
+
+      li {
+        cursor: pointer;
+        padding: 20px;
+        height: 50px;
+        width: 150px;
+        border-radius: 10px;
+        background-color: #ccc;
+        color: white;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+          background-color: #5e17eb;
+          color: white;
+          border: 1px solid white;
+        }
+      }
+
+      li.active {
+        background-color: #5e17eb;
+        color: white;
+        border: 1px solid white;
+      }
+
+    }
+
+    .no-pets {
+      display: flex;
+      justify-content: center;
+
+      img {
+        height: auto;
+        width: auto;
+        max-height: 40em;
+      }
+    }
+  }
+
+  .right-side {
+    width: 40em;
+    padding: 20px;
+    box-sizing: border-box;
+
+    .pet-filter {
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid #ccc;
+
+      ul {
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+      }
+
+      li {
+        cursor: pointer;
+        border-radius: 10px;
+        padding: 10px 20px;
+        margin: 5px;
+        border: 1px solid #ccc;
+        background-color: white;
+      }
+
+      li:hover {
+        cursor: pointer;
+        background-color: #5e17eb;
+        color: white;
+        border: 1px solid #5e17eb;
+      }
+
+      li.active {
+        background-color: #5e17eb;
+        color: white;
+        border: 1px solid white;
+      }
+    }
+
+    .filter-content {
+      margin: 40px 0 20px 0;
+    }
+
+    .gender-content {
+      display: flex;
+      gap: 40px;
+      margin: 20px 0 40px 0;
+    }
+
+
+    .slider {
+      -webkit-appearance: none;
+      background: #fdd835;
+      width: 100%;
+      height: 10px;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    .slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 30px;
+      height: 30px;
+      background: #fdd835;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .ranges {
+      padding-bottom: 20px;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+}
+
+.blogs {
+
+  .post {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+
+    ul {
+      padding: 0px;
+    }
+
+    li {
+      list-style-type: none;
+
+    }
+
+    .tag {
+      background-color: #fdd835;
+      padding: 10px;
+    }
+
+    .date {
+      color: #ccc;
+    }
+
+    a {
+      text-decoration: none;
+      color: #5e17eb;
+    }
+  }
+
+}
+
+
+/* MEMBERSHIP BANNER */
+.membership-banner {
+  background-image: url('/assets/img/memBannerbg.png');
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  border-radius: 15px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  height: 350px;
+  overflow: visible;
+  margin: 50px 0 50px 0;
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.banner-text {
+  max-width: 600px;
+  width: 100%;
+}
+
+.banner-text h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.banner-text p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.subscribe-button {
+  background-color: #f7b32b;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.subscribe-button:hover {
+  background-color: #e09b24;
+}
+
+.banner-images img {
+  max-width: 450px;
+  border-radius: 15px;
+}
+
+.cat-image {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+}
+
+.dog-image {
+  position: absolute;
+  top: 85px;
+  right: -60px;
+  transform: translateY(0);
+  height: auto;
+}

@@ -1,0 +1,16 @@
+.profile-details {
+    padding: 10px;
+}
+
+a {
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: #5E17EB;
+    padding: 20px;
+    color: white;
+}
+
+.space-between{
+    margin: 30px;
+    font-size: 30px;
+}

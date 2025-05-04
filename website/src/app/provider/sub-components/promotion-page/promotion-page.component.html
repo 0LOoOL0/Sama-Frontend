@@ -1,0 +1,42 @@
+<div class="header">
+  <app-navbar></app-navbar>
+</div>
+
+<div class="promotion-container">
+  <div class="toggle-buttons">
+    <button class="toggle-btn" [class.active]="activeSection === 'ad'" (click)="setActiveSection('ad')">Ad Promotion</button>
+    <button class="toggle-btn" [class.active]="activeSection === 'coupon'" (click)="setActiveSection('coupon')">Coupon Discount</button>
+  </div>
+
+  <div *ngIf="activeSection === 'ad'">
+    <h2>Choose how fast you want to sell your products on Sama Pet Store</h2>
+    <img src="path_to_ad_promotion_image" alt="Ad Promotion Illustration" class="illustration-image">
+
+    <div class="promotion-options">
+      <div class="option-card" (click)="navigateToReadyToLaunch()">
+        <h3>20BD</h3>
+        <h4>Ready-to-Launch Promotion</h4>
+        <p>Instantly boost your business for a marketing boost with your already made advertisements.</p>
+      </div>
+
+      <div class="option-card" (click)="navigateToCustomAdDesign()">
+        <h3>20BD</h3>
+        <h4>Custom Ad Design Promotion</h4>
+        <p>Our design experts will create a tailored ad campaign to showcase your pet store's products and services.</p>
+      </div>
+    </div>
+
+    <a href="#" class="benefits-link">Benefits & Features</a>
+  </div>
+
+  <div *ngIf="activeSection === 'coupon'">
+    <h2>Choose how fast you want to sell your products on Sama Pet Store</h2>
+    <img src="path_to_coupon_discount_image" alt="Coupon Discount Illustration" class="illustration-image">
+    <button class="submit-btn" (click)="navigateToCouponDiscount()">Next</button>
+    <a href="#" class="benefits-link">Benefits & Features</a>
+  </div>
+</div>
+
+<div class="floating-icons">
+  <!-- Floating icons content -->
+</div>

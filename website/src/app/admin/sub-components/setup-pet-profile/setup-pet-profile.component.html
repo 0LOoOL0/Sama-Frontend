@@ -1,0 +1,233 @@
+<div>
+  <div class="progress-container">
+    <!-- Sign Up (Completed) -->
+    <div class="circle-container">
+      <div class="circle completed">1</div>
+      <div class="label">Sign Up</div>
+      <div class="text">
+        <p>
+          Create a new account
+          <br />
+          by providing your basic
+          <br />
+          information and setting
+          <br />
+          a secure password.
+        </p>
+      </div>
+    </div>
+
+    <!-- Line after Sign Up (Completed) -->
+    <div class="line completed"></div>
+
+    <!-- Verify Email (Completed) -->
+    <div class="circle-container">
+      <div class="circle completed">2</div>
+      <div class="label">Verify Email</div>
+      <div class="text">
+        <p>
+          Confirm your identity by
+          <br />
+          entering the verification
+          <br />
+          code sent to your
+          <br />
+          registered email.
+        </p>
+      </div>
+    </div>
+
+    <!-- Line after Verify Email (Completed) -->
+    <div class="line completed"></div>
+
+    <!-- Setup My Profile (Completed) -->
+    <div class="circle-container">
+      <div class="circle completed">3</div>
+      <div class="label">Setup My Profile</div>
+      <div class="text">
+        <p>
+          Complete your profile
+          <br />
+          details with information
+          <br />
+          like name, contact info.
+        </p>
+      </div>
+    </div>
+
+    <!-- Line after Setup My Profile (Active) -->
+    <div class="line active"></div>
+
+    <!-- Setup Pet Profile (Current Step) -->
+    <div class="circle-container">
+      <div class="circle active">4</div>
+      <div class="label">Setup Pet Profile</div>
+      <div class="text">
+        <p>
+          Easily create a detailed
+          <br />
+          profile for your pet, including
+          <br />
+          photos, medical info, and
+          <br />
+          personalized details.
+        </p>
+      </div>
+    </div>
+
+    <!-- Remaining Steps -->
+    <div class="line"></div>
+
+    <div class="circle-container">
+      <div class="circle">5</div>
+      <div class="label">Success!</div>
+      <div class="text">
+        <p>
+          Congratulations, your
+          <br />
+          profile has been
+          <br />
+          approved and is now
+          <br />
+          active.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="profile-setup-container">
+    <!-- Pet Photo Upload -->
+    <div class="profile-photo-upload">
+      <div class="round-picture-container">
+        <img
+          id="previewImage"
+          src="../../assets/pet.svg"
+          class="round-image"
+          alt="Pet Photo Preview"
+        />
+        <input
+          type="file"
+          id="fileInput"
+          accept="image/*"
+          (change)="onFileSelected($event)"
+        />
+
+        <div
+          class="edit-container"
+          onclick="document.getElementById('fileInput').click()"
+        >
+          <img class="file-button" src="../../assets/edit.svg" alt="edit" />
+        </div>
+      </div>
+      <p class="profile-subtitle">Add Pet Photo</p>
+    </div>
+    <!-- Pet Profile Form -->
+    <div class="pet-profile-form-container">
+      <form>
+        <div class="pet-form-group">
+          <label for="petName">Pet Name</label>
+          <input type="text" id="petName" placeholder="Enter pet name" />
+        </div>
+
+        <div class="pet-form-group">
+          <label for="petAge">Pet Age</label>
+          <input type="number" id="petAge" placeholder="Enter pet age" />
+        </div>
+
+        <div class="pet-form-group">
+          <label for="petType">Pet Type</label>
+          <select id="petType">
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="bird">Bird</option>
+          </select>
+        </div>
+
+        <div class="pet-form-group">
+          <label for="petBreed">Pet Breed</label>
+          <input type="text" id="petBreed" placeholder="Enter pet breed" />
+        </div>
+
+        <div class="pet-form-group">
+          <label for="petColor">Color</label>
+          <input type="text" id="petColor" placeholder="Enter pet color" />
+        </div>
+
+        <div class="pet-form-group">
+          <label for="petGender">Gender</label>
+          <select id="petGender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+        <div class="pet-form-group">
+          <label for="petVaccinated">Vaccinated</label>
+          <select id="petVaccinated">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <div class="pet-form-group">
+          <label for="petMicrochipped">Microchipped</label>
+          <select id="petMicrochipped">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <div class="pet-form-group">
+          <label for="petNeutered">Neutered</label>
+          <select id="petNeutered">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <div class="pet-form-group">
+          <label for="petWeight">Weight (kg)</label>
+          <input type="number" id="petWeight" placeholder="Enter pet weight" />
+        </div>
+
+        <div class="pet-form-group">
+          <label for="petHeight">Height (cm)</label>
+          <input type="number" id="petHeight" placeholder="Enter pet height" />
+        </div>
+        <!-- Pet Documents Upload -->
+        <div class="pet-form-group">
+          <label for="petDocuments">Upload Pet Documents</label>
+          <input
+            type="file"
+            id="petDocuments"
+            accept=".pdf,.doc,.docx,.jpg,.png"
+            multiple
+            placeholder="../../assets/camera.svg"
+          />
+          <small>Accepted File Types: JPG, PNG, Docx</small>
+          <small>Max size: 2 MB</small>
+        </div>
+        <!-- Health Concerns -->
+        <div class="pet-form-group">
+          <label for="healthConcernTitle">Health Concern Title</label>
+          <input
+            type="text"
+            id="healthConcernTitle"
+            placeholder="Enter health concern title"
+          />
+        </div>
+
+        <div class="pet-form-group">
+          <label for="healthConcernDescription">
+            Health Concern Description
+          </label>
+          <textarea
+            id="healthConcernDescription"
+            placeholder="Enter health concern description"
+            rows="4"
+          ></textarea>
+        </div>
+        <div class="form-group">
+          <button type="submit">Update</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

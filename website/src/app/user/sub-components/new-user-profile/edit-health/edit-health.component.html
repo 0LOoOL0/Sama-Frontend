@@ -1,0 +1,16 @@
+<button class="return" (click)="goBack()">Back</button>
+  
+<body>
+    <div class="edit-health-concerns">
+        <h2>Edit Health Conditions</h2>
+  
+        <div *ngFor="let condition of healthConditions; let i = index" class="health-condition">
+          <input type="text" [(ngModel)]="condition.type" placeholder="Condition Type">
+          <textarea [(ngModel)]="condition.description" placeholder="Description"></textarea>
+        </div>
+
+        <button class="update-button" (click)="updateHealthConditions()">Update</button>
+      </div>
+</body>  
+      
+

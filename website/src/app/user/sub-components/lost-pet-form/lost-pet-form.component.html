@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- hero section -->
+    <section class="heroSection lostPetHeroSection">
+        <img src="./assets/img/pet-from-hero-img.png" alt="hero-bg" class="heroSectionBg">
+        <div class="container-3xl">
+            <div class="hero-container">
+                <div class="heroLinkContainer ">
+                    <a href="home" class="hero-link active">Home</a>
+                    <div class="heroDot"></div>
+                    <a href="our-services" class="hero-link active">Service</a>
+                    <div class="heroDot"></div>
+                    <a href="/user-main-component/lost-pet-form" class="hero-link">Lost Pet</a>
+                </div>
+                <h1 class="hero-heading">Lost Pet</h1>
+            </div>
+        </div>
+    </section>
+    <section class="lostPetFormSection">
+        <div class="container-3xl">
+            <h1 class="mdHeading">Pet Form</h1>
+            <div class="lostPetFormContainer">
+                <div class="inputConatiner">
+                    <label class="petFomLable">Import a High Quality Picture of your Pet</label>
+                    <div class="petFormImageContainer" (click)="fileInput.click()">
+                        <input type="file" accept="image/*" (change)="displayImage($event)" hidden #fileInput/>
+                        <img *ngIf="!selectedImage" src="./assets/icons/upload-image-icon.svg" alt="upload-icon" class="uploadIcon">
+                        <img *ngIf="selectedImage" [src]="selectedImage" class="selectedImage">
+                        <p class="smText">Add Pet image</p>
+                    </div>
+                
+                    <div class="petUploadInfo">
+                        <h5 class="smText">Accepted File Types: JPG, PNG, Docx</h5>
+                        <button *ngIf="selectedImage" (click)="clearImage()">Clear Image</button>
+                        <h5 class="smText">Max File Size: 2MB</h5>
+                    </div>
+                </div>
+
+                <form [formGroup]="lostPetForm" (ngSubmit)="onSubmit()" class="lostPetForm">
+                    <div class="inputConatiner">
+                        <label class="petFomLable">Pet Name</label>
+                        <input type="text" class="inputArea" formControlName="petName" placeholder="Enter Pet Name">
+                    </div>
+
+                    <div class="gridContainer">
+                        <div class="gridItem">
+                            <div class="inputConatiner">
+                                <label class="petFomLable">Pet Type</label>
+                                <input type="text" class="inputArea" placeholder="Enter pet type" formControlName="petType">
+                            </div>
+                        </div>
+                        <div class="gridItem">
+                            <div class="inputConatiner">
+                                <label class="petFomLable">Pet Breed</label>
+                                <input type="text" class="inputArea" placeholder="Enter pet breed" formControlName="petBreed">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inputConatiner">
+                        <label class="petFomLable">Color</label>
+                        <input type="text" class="inputArea" placeholder="Enter pet color" formControlName="color">
+                    </div>
+
+                    <div class="genderForm flex row-between">
+                        <label class="petFomLable">Gender</label>
+                        <div class="genderFormContainer flex row-end gap-2">
+                            <div class="genderFormItem flex gap-half">
+                                <input type="radio" name="gender" id="male" value="m" formControlName="gender" class="genderInput">
+                                <label for="male">Male</label>
+                            </div>
+                            <div class="genderFormItem flex gap-half">
+                                <input type="radio" name="gender" id="female" value="f" formControlName="gender" class="genderInput">
+                                <label for="female">Female</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="inputConatiner">
+                        <label class="petFomLable">Contact number</label>
+                        <input type="number" class="inputArea" placeholder="Enter Your Contact Number">
+                    </div> -->
+                    <div class="inputConatiner">
+                        <label class="petFomLable">Description</label>
+                        <textarea type="text" class="inputArea" placeholder="Enter Description" formControlName="bio"></textarea>
+                    </div>
+
+
+                    <div class="formBtnContainer">
+                        <button type="submit" class="main-btn" [disabled]="lostPetForm.invalid">submit</button>
+                        <button type="button" class="main-btn cancelBtn" (click)="onCancel()">Cancel</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

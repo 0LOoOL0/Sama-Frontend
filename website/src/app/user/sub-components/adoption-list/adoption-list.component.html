@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adoption List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+  <app-navbar></app-navbar>
+  <div class="header">
+    <div class="description">
+      <div class="navigation"> <a href="#">HOME</a> <span class="dot">.</span> ADOPTION</div>
+      <h1>Adoption Center</h1>
+      <p>Discreption about adoption Discreption about adoption Discreption about adoption Discreption about adoption
+        Discreption about adoption Discreption about adoption</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="space-between">
+
+      <div class="left-side">
+
+       <div class="space-between">
+        <div class="navigation-section">
+          <ul>
+            <li>Adoption</li>
+            <li>Lost Pet</li>
+            <li>Mating</li>
+          </ul>
+        </div>
+        <button style="margin-top: 30px;" class="button">Adopt</button>
+       </div>
+
+        <div class="search-section">
+          <input type="text" placeholder="Search for pets..." [formControl]="searchControl" />
+          <button class="button">Search</button>
+        </div>
+
+        <div class="list-section">
+          <div class="list">
+            <ul>
+              <li><img src="assets/img/adoption-card-cat-img.png" alt=""></li>
+              <li><h3>Cats</h3></li>
+              <li><p>discription</p></li>
+              <li><button>View</button></li>
+            </ul>
+          </div>
+          <div class="list">
+            <ul>
+              <li><img src="assets/img/adoption-card-cat-img.png" alt=""></li>
+              <li><h3>Cats</h3></li>
+              <li><p>discription</p></li>
+              <li><button>View</button></li>
+            </ul>
+          </div>
+          <div class="list">
+            <ul>
+              <li><img src="assets/img/adoption-card-cat-img.png" alt=""></li>
+              <li><h3>Cats</h3></li>
+              <li><p>discription</p></li>
+              <li><button>View</button></li>
+            </ul>
+          </div>
+          <div class="list">
+            <ul>
+              <li><img src="assets/img/adoption-card-cat-img.png" alt=""></li>
+              <li><h3>Cats</h3></li>
+              <li><p>discription</p></li>
+              <li><button>View</button></li>
+            </ul>
+          </div>
+          <div class="list">
+            <ul>
+              <li><img src="assets/img/adoption-card-cat-img.png" alt=""></li>
+              <li><h3>Cats</h3></li>
+              <li><p>discription</p></li>
+              <li><button>View</button></li>
+            </ul>
+          </div>
+          <div class="adoption-list">
+            <div class="adoption-card" *ngFor="let pet of filteredPets">
+              <img [src]="pet.image" alt="Pet Image">
+              <h3>{{ pet.name }}</h3>
+              <p>{{ pet.description }}</p>
+              <button class="view-btn">View</button>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="navigation-pages">
+          <ul>
+            <li>Previous</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>Next</li>
+          </ul>
+        </div> -->
+      </div>
+
+      <div class="right-side">
+
+        <div class="pet-filter">
+          <h2>Pets</h2>
+          <ul>
+            <li>Dogs</li>
+            <li>Cats</li>
+            <li>Birds</li>
+            <li>Fish</li>
+            <li>Tortoise</li>
+            <li>Horse</li>
+            <li>Hamsters</li>
+            <li>livestock</li>
+            <li>Rabbit</li>
+            <li>Cammel</li>
+            <li>Others</li>
+          </ul>
+        </div>
+
+        <div class="gender-filter">
+          <h2>Gender</h2>
+          <ul class="gender">
+            <li style="padding-top: 20px;"><label> Male </label></li>
+            <li><input  style="height: 50px;" type="radio" name="pet_gender" value="Male"></li>
+            <li style="padding-top: 20px;"><label> Female </label></li>
+            <li><input  style="height: 50px;" type="radio" name="pet_gender" value="Male"></li>
+          </ul>
+          <ul>
+            <li>
+              <h2>Breed Type:</h2>
+              <select name="tpes" id="" style="height: 55px;">
+                <option value="" selected>choose option...</option>
+                <option value="">1</option>
+                <option value="">2</option>
+              </select>
+            </li>
+            <li>
+              <label for="slider">
+                <h3>Age:</h3>
+              </label>
+              <input type="range" class="slider" name="slider_value" min="0" max="100" value="50">
+              <div class="ranges">
+                <span class="sliderValue">1M</span>
+
+                <span class="sliderValue">12+</span>
+              </div>
+            </li>
+            <li>
+              <label for="slider">
+                <h3>kilometer:</h3>
+              </label>
+              <input type="range" class="slider" name="slider_value" min="0" max="100" value="50">
+              <div class="ranges">
+                <span class="sliderValue">0</span>
+                <span class="sliderValue">10</span>
+                <span class="sliderValue">15</span>
+                <span class="sliderValue">20</span>
+                <span class="sliderValue">25</span>
+                <span class="sliderValue">30</span>
+                <span class="sliderValue">35</span>
+                <span class="sliderValue">40</span>
+                <span class="sliderValue">45</span>
+              </div>
+            </li>
+            <li>
+              <button type="submit">Submit</button>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

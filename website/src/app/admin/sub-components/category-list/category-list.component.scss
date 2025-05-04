@@ -1,0 +1,131 @@
+.category-list-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f5f7;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    width: 300px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .search-bar:focus {
+    border-color: #6a0dad;
+    box-shadow: 0 0 8px rgba(106, 13, 173, 0.3);
+    outline: none;
+  }
+  
+  .btn-export, .btn-add-category {
+    background-color: #6a0dad;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-export {
+    background-color: #ccc;
+    color: #333;
+    margin-right: 10px;
+  }
+  
+  .btn-add-category {
+    background-color: #28a745;
+  }
+  
+  .btn-export:hover, .btn-add-category:hover {
+    opacity: 0.9;
+  }
+  
+  .category-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .category-table th, .category-table td {
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 16px;
+    vertical-align: middle;
+  }
+  
+  .category-table th {
+    background-color: #6a0dad;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 2px solid #5400a5;
+  }
+  
+  .category-table td {
+    background-color: #fff;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .category-table tr:hover td {
+    background-color: #f1f1f1;
+  }
+  
+  .category-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .category-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .icon-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    background-color: transparent;
+    transition: transform 0.3s ease;
+  }
+  
+  .icon-btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .edit-btn {
+    color: #6a0dad;
+    margin-right: 8px;
+  }
+  
+  .delete-btn {
+    color: #dc3545;
+  }
+  

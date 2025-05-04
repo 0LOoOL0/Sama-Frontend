@@ -1,0 +1,113 @@
+// fonts
+h2, p{
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+h2{
+  margin: 30px 40px;
+}
+
+h2, .title{
+  color: var(--Main-Two);
+
+  &.title{
+    font-weight: bold;
+  }
+}
+
+p{
+  margin: 10px;
+}
+
+.desc{
+  font-size: small;
+}
+
+// big container
+.bigContainer{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: end;
+}
+
+// the container
+.container{
+  max-width: 350px;
+  max-height: 634px;
+  width: 40%;
+  height: 60%;
+  margin-right: 10%;
+  margin-top: 1%;
+  border-radius: 30px;
+  padding:16px;
+
+  background-color: #CDC6E1;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+}
+
+// show the notification
+.show {
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease;
+}
+
+// Hide notification
+.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+// notifications
+.notifBorder{
+  width: 100%;
+  height: 80px;
+  padding: 3px;
+  margin-bottom: 10px;
+
+  border-radius: 16px;
+
+  background: linear-gradient(to right, #CDC6E1, #E7E4F0);
+
+}
+
+.notif{
+  width: 100%;
+  height: 80px;
+
+  border:3px solid transparent linear-gradient(to right, #CDC6E1, #FFFFFF);
+  border-radius: 16px;
+
+  background: linear-gradient(to right, #CDC6E1, #a693d5);
+}
+
+.circle{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 5px;
+  background: linear-gradient(to right, #DB78C1, #E99EA9);
+
+  img{
+    width: 24px;
+    height: 24px;
+  }
+}
+
+// button
+button{
+  padding: 10px 0px;
+  width: 50%;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--White);
+  background: linear-gradient(to bottom, #D5CEE5, #ECE9F2);
+
+}

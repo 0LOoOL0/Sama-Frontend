@@ -1,0 +1,62 @@
+<div class="email-verification-container">
+  <div class="verification-form">
+    <h2>Verify Your Email</h2>
+    <p>
+      Please enter the 6 digit code sent to
+      <strong>{{ userEmail }}</strong>
+    </p>
+
+    <!-- Input Boxes for OTP -->
+    <div class="otp-inputs">
+      <input
+        type="text"
+        maxlength="1"
+        [(ngModel)]="otp[0]"
+        (keyup)="focusNext($event, 0)"
+      />
+      <input
+        type="text"
+        maxlength="1"
+        [(ngModel)]="otp[1]"
+        (keyup)="focusNext($event, 1)"
+      />
+      <input
+        type="text"
+        maxlength="1"
+        [(ngModel)]="otp[2]"
+        (keyup)="focusNext($event, 2)"
+      />
+      <input
+        type="text"
+        maxlength="1"
+        [(ngModel)]="otp[3]"
+        (keyup)="focusNext($event, 3)"
+      />
+      <input
+        type="text"
+        maxlength="1"
+        [(ngModel)]="otp[4]"
+        (keyup)="focusNext($event, 4)"
+      />
+      <input
+        type="text"
+        maxlength="1"
+        [(ngModel)]="otp[5]"
+        (keyup)="focusNext($event, 5)"
+      />
+    </div>
+
+    <!-- Timer and Resend Section -->
+    <div class="timer">
+      <a *ngIf="!isTimerActive" (click)="resendCode()">Send again</a>
+    </div>
+
+    <!-- Verify Button -->
+    <button (click)="verifyOtp()">Verify</button>
+  </div>
+
+  <!-- Side Image -->
+  <div class="image-section">
+    <img src="assets/your-cat-image.jpg" alt="cat" />
+  </div>
+</div>

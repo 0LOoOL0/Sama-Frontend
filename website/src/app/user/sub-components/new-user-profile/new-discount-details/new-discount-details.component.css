@@ -1,0 +1,95 @@
+.return{
+    cursor: pointer;
+    background-color: #5E17EB;
+    border-radius: 10px;
+    padding: 20px;
+    color:white;
+    border: none;
+    margin: 10px;
+}
+
+.discount-details {
+    padding: 30px;
+}
+
+.discount-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.discount-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.order-id {
+    font-size: 18px;
+}
+
+.discount-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.info-group {
+    font-size: 18px;
+}
+
+.service-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.service-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.service-info h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.order-items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.order-items th,
+.order-items td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.order-items th {
+    font-weight: bold;
+    background-color: #f9f9f9;
+}
+
+.price-summary {
+    text-align: right;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.price-summary .total {
+    font-size: 24px;
+    font-weight: bold;
+    color: #5E17EB;
+}

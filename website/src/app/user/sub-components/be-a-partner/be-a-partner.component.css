@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+}
+a {
+    text-decoration: none;
+    color: #5E17EB;
+}
+/* Header Section */
+.header {
+    background-color: #5E17EB;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+/* Features Section */
+.features {
+    text-align: center;
+    padding: 50px 20px;
+}
+.features h2 {
+    margin-bottom: 30px;
+}
+.feature-item {
+    display: inline-block;
+    width: 45%;
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+}
+.feature-item img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+.feature-item button {
+    background-color: #5E17EB;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Package Plan Section */
+.package-plan {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f0f0f0;
+}
+.package-plan h2 {
+    margin-bottom: 30px;
+}
+.package {
+    display: inline-block;
+    width: 28%;
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+}
+.package .price {
+    font-size: 24px;
+    font-weight: bold;
+}
+.package button {
+    background-color: #5E17EB;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Footer Section */
+.footer {
+    background-color: #5E17EB;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+.footer a {
+    color: white;
+}

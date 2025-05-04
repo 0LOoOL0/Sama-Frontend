@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Collar Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<app-navbar></app-navbar>
+<body>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="overlay"></div>
+        <div class="left-side">
+            <img src="assets\dog-collar.png" alt="Dog with Collar" class="dog-collar"> 
+        </div>
+        <div class="center-content">
+            <h1>"Never lose your furry friend again—our lost pet collar brings them home safely!"</h1>
+            <p class="price">0.00BD</p>
+            <p>Our pet tag is a creative and simple solution to keep your pets safe. Just scan the QR code and connect to the owner!</p>
+            <div class="buttons">
+                <button class="btn" (click)="buy()">
+                    <img src="assets\paw.png">
+                    Buy Now
+                </button>
+                <button class="btn" (click)="scrollToHowToOrder()">
+                    <img src="assets\paw.png">
+                    How to Order
+                </button>
+            </div>
+        </div>
+        <div class="right-side">
+            <img src="assets\mobile-collar.png" alt="Mobile Application" class="mobile-collar">
+        </div>
+    </header>
+
+    <div class="same-row">
+        <div class="collar-left">
+            <img src="assets\clip-two.png">
+        </div>
+    
+        <!-- Figma Banner -->
+        <center><div class="figma-banner">
+            <img src="assets\YouTube-Player.png" alt="Figma Banner">
+        </div></center>
+    
+        <div class="collar-right">
+            <img src="assets\clip-one.png">
+        </div>
+    </div>
+
+    <!-- How to Order Section -->
+    <section class="how-to-order" id="how-to-order">
+        <h2>How to Order?</h2>
+        <div class="steps">
+            <div class="step">
+                <img src="assets\file.png" alt="Register" class="file">
+                <h4>Register</h4>
+                <p>Create an account and provide basic information about yourself and your pet.</p>
+                <button (click)="register()">
+                    <!-- <img src="assets\paw.png"> -->
+                    Register Now!
+                </button>
+            </div>
+            <img src="assets\line-1.png" class="lines">
+            <div class="step">
+                <img src="assets\qr-icon.png" alt="QR Code" class="qr">
+                <h4>Generate QR code</h4>
+                <p>The application automatically generates a unique QR code for your pet's profile that will be stored in our system.</p>
+                <button (click)="howWork()">
+                    <!-- <img src="assets\paw.png" class="paw"> -->
+                    For More Info!
+                </button>
+            </div>
+            <img src="assets\line-2.png" class="lines">
+            <div class="step">
+                <img src="assets\pet-collar.png" alt="Attach Tag" class="collar">
+                <h4>Attach Tag</h4>
+                <p>Once you buy the tag, you can attach the tag with the QR code to you pet's collar or harness.</p>
+                <button (click)="buy()">
+                    <!-- <img src="assets\paw.png" class="paw"> -->
+                    Buy Now!
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section class="how-it-works" id="how-work">
+        <h2>How it Works?</h2>
+        <h2>"Ensure your pet's safety in style-our <br> tags make them just a scan away!</h2>
+        <div class="icons">
+            <div class="icon-box">
+                <img src="assets\bone.png" alt="Missing Pet">
+                <h5>If Your Pet Goes Missing</h5>
+                <p>In the unfortunate event that your pet is lost, a finder can scan the QR code on the tag.
+                    They will gain instant access to your pet's profile, which includes important information about your pet.</p>
+            </div>
+            <div class="icon-box">
+                <img src="assets\plate.png" alt="Alert">
+                <h5>Alert the Owner</h5>
+                <p>The finder can easily click a button on the profile to alert you, the pet owner, that your pet has been found.</p>
+            </div>
+            <div class="icon-box">
+                <img src="assets\house.png" alt="Contact Options">
+                <h5>Contact Options</h5>
+                <p>The finder can contact you directly through the provided WhatsApp link or phone number listed in the profile for immediate communication</p>
+            </div>
+            <div class="icon-box">
+                <img src="assets\care.png" alt="Care Guidelines">
+                <h5>Access Care Guidelines</h5>
+                <p>The profile also contains care guidelines that the finder can view, ensuring they know how to properly care for your pet while waiting for you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+        <center><footer class="footer">
+            <img src="assets\left-cat.png" class="cat">
+            <img src="assets\right-dog.png" class="dog">
+            <h3>Your Pets Deserve the Best. Be a Member!</h3>
+            <p>Join our exclusive membership for special offers and updates.</p>
+            <br>
+            <button (click)="sub()">Subscribe</button>
+        </footer></center>
+
+        <br>
+</body>
+</html>

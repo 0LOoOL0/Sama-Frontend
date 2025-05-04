@@ -1,0 +1,72 @@
+.booking-service {
+    
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.service-details {
+    width:50%
+}
+
+.price {
+
+}
+
+.buy-button {
+
+}
+
+.emergency-description {
+    padding: 400px;
+    border-radius: 20px;
+    border: 1px;
+}
+
+.tabs {
+
+}
+
+.tabs button {
+    margin: 20px;
+    margin-left:0px;
+    
+}
+
+.tab-active {
+
+}
+
+.tab {
+
+}
+
+
+.tab-content {
+
+}
+
+.top-services {
+    display: flex;
+    justify-content: center;
+}
+
+.services-list {
+    display: flex;
+    align-items: center;
+}
+
+.service-item {
+    padding: 20px;
+    margin: 20px;
+    width: 20%;
+
+}
+
+
+
+
+
+

@@ -1,0 +1,421 @@
+/* Sidebar Section */
+.sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar-section {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-section h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.sidebar-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-section ul li {
+  cursor: pointer;
+  margin-bottom: 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.sidebar-section ul li:hover {
+  text-decoration: underline;
+}
+
+/* Tags Styling */
+.tags a {
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+/* Calendar Styling */
+#calendar {
+  padding: 10px;
+  text-align: center;
+}
+
+// hero section
+.heroSection {
+  background-image: url('/assets/img/vlog-lizard-hero.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 30px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    font-family: 'Nunito', sans-serif;
+
+.heroDot {
+  width: 10px;
+  height: 10px;
+  background: #ff47a2;
+  border-radius: 50%;
+  }
+
+  .heroBackground {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+  }
+
+  .hero-container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin-left: 80px;
+  }
+
+  .heroLinkContainer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #4b0082;
+  }
+
+  .hero-link {
+    text-transform: uppercase;
+    color: #4b0082;
+    text-decoration: none;
+  }
+
+  .hero-link.active {
+    color: #ff47a2;
+  }
+
+  /* Heading */
+.hero-heading {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #000;
+  margin-top: 10px;
+  }
+
+  /* Description */
+.hero-description {
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  max-width: 520px;
+  }
+
+  .heroImage {
+    max-width: 500px;
+    padding: 20px;
+    height:auto;
+  }
+
+  .space-between {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .heroImageContainer {
+    position:absolute;
+    right: 14%;
+    bottom: -100px;
+  }
+
+
+  .breadcrumb {
+    font-size: 0.9rem;
+    color: #333;
+  }
+
+  .breadcrumb a {
+    text-decoration: none;
+    color: #5a31f4;
+  }
+
+  /* Media Query for devices less than 768px wide */
+  @media (max-width: 768px) {
+    .hero-container,
+    .heroLinkContainer {
+        text-align: center;
+        margin: 0 auto;
+        padding: 0 20px; /* Add some padding on the sides */
+    }
+
+    .hero-container {
+        max-width: 100%; /* Use 100% of the container width */
+    }
+
+    .hero-heading {
+        font-size: 2.5rem; /* Adjust font size for small screens */
+    }
+
+    .hero-description {
+        max-width: 100%; /* Allow description to fill the container */
+        padding: 0 10px; /* Add padding to maintain layout */
+    }
+
+    .heroImageContainer {
+        position: relative; /* Change positioning to relative */
+        right: auto; /* Reset right positioning */
+        bottom: auto; /* Reset bottom positioning */
+        margin: 20px auto 0; /* Add margin for spacing */
+        display: block; /* Ensure it is a block to center below the text */
+    }
+
+    .heroImage {
+        width: 80%; /* Adjust image width to be responsive */
+        max-width: 350px; /* Limit maximum width to ensure it looks good */
+        margin-left: 40px;
+    }
+
+    .cta-btn {
+        display: block; /* Make button a block to fill width */
+        width: 50%; /* Adjust button width to 50% for better accessibility */
+        margin: 20px auto; /* Center button horizontally and add vertical spacing */
+    }
+
+    .heroLinkContainer {
+        flex-direction: column; /* Stack links vertically */
+        gap: 5px; /* Reduce gap size */
+    }
+  }
+
+  /* Media Query for devices less than 480px wide */
+  @media (max-width: 480px) {
+    .hero-heading {
+        font-size: 2rem; /* Further reduce font size for very small screens */
+    }
+
+    .hero-description {
+        font-size: 0.9rem; /* Reduce font size for descriptions */
+    }
+
+    .cta-btn {
+        width: 60%; /* Increase button width for smaller devices */
+    }
+  }
+
+
+  a {
+    color: #5e17eb;
+    text-decoration: none;
+  }
+
+  .navigation {
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    gap: 20px;
+  }
+
+  p {
+    font-size: 20px;
+  }
+
+}
+
+
+.heroSection::before {
+  content: '';
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.4);
+  position: absolute;
+  border-radius: 50%;
+  top: -100px;
+  animation: floatBubble 20s infinite linear;
+}
+
+.heroSection::after {
+  content: '';
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.3);
+  position: absolute;
+  border-radius: 50%;
+  top: -150px;
+  left: 50%;
+  animation: floatBubble 25s infinite linear;
+}
+
+@keyframes floatBubble {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+
+  50% {
+    transform: translateY(500px) translateX(50px);
+  }
+
+  100% {
+    transform: translateY(0) translateX(-50px);
+  }
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: 'Nunito', sans-serif;
+  padding-top: 50px;
+}
+
+.blogs {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 60em ;
+  .post {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    position: relative;
+    margin: 15px;
+    height: 500px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    .tag {
+      background-color: #fdd835;
+      padding: 10px;
+      max-width: 100px;
+      text-align: center;
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    width: 26em;
+
+    ul {
+      padding: 0px;
+
+      img {
+        height: 250px;
+        width: 100%;
+      }
+    }
+
+    li {
+      list-style-type: none;
+
+    }
+
+    .date {
+      color: gray;
+    }
+
+    button {
+      text-decoration: none;
+      color: #5e17eb;
+      border: none;
+      border-radius: 5px;
+      padding: 10px;
+      cursor: pointer;
+    }
+  }
+
+}
+
+.filters {
+  padding: 40px;
+
+  .sidebar-section {
+    margin-bottom: 20px;
+    width: 25em;
+    height: 20em;
+  }
+}
+
+/* MEMBERSHIP BANNER */
+.membership-banner {
+  background-image: url('/assets/img/memBannerbg.png');
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  border-radius: 15px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  height: 350px;
+  overflow: visible;
+  margin: 50px 0 50px 0;
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.banner-text {
+  max-width: 600px;
+  width: 100%;
+}
+
+.banner-text h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.banner-text p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.subscribe-button {
+  background-color: #f7b32b;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.subscribe-button:hover {
+  background-color: #e09b24;
+}
+
+.banner-images img {
+  max-width: 450px;
+  border-radius: 15px;
+}
+
+.cat-image {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+}
+
+.dog-image {
+  position: absolute;
+  top: 85px;
+  right: -60px;
+  transform: translateY(0);
+  height: auto;
+}

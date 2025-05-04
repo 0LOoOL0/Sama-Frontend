@@ -1,0 +1,251 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Main Container */
+  .container {
+    display: flex;
+    gap: 40px;
+    padding: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Calendar Section */
+  .calendar-section {
+    width: 35%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .calendar-header {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .calendar-header h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #5a31f4;
+  }
+  
+  .month-btn {
+    background: #5a31f4;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .month-btn:hover {
+    background: #4b27c1;
+  }
+  
+  .calendar-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .calendar-table th,
+  .calendar-table td {
+    width: 14.2%;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+    font-size: 1.1rem;
+  }
+  
+  .calendar-table th {
+    background-color: #e9e9f1;
+    color: #5a31f4;
+  }
+  
+  .calendar-table td {
+    transition: background-color 0.3s;
+  }
+  
+  .calendar-table td:hover {
+    background-color: #f5f5ff;
+  }
+  
+  .calendar-table td.empty-cell {
+    background-color: #f9f9f9;
+    color: #aaa;
+    cursor: not-allowed;
+  }
+  
+  /* Reminder Form Section */
+  .form-section {
+    width: 65%;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-section  h4 {
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+    color: #5a31f4;
+  }
+  
+  .form-section label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+    color: #5a31f4;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input-field:focus {
+    border-color: #5a31f4;
+  }
+  
+  .tags {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .tag {
+    background-color: #5a31f4;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .tag:hover {
+    background-color: #4b27c1;
+  }
+  
+  .time-inputs {
+    display: flex;
+    gap: 15px;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  textarea:focus {
+    border-color: #5a31f4;
+  }
+  
+  .book-btn {
+    background-color: #5a31f4;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .book-btn:hover {
+    background-color: #4b27c1;
+  }
+  
+  /* Footer Section */
+  footer {
+    background-color: #5a31f4;
+    color: white;
+    padding: 50px 60px;
+    margin-top: 60px;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .footer-about,
+  .footer-working-hours,
+  .footer-links,
+  .footer-newsletter {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .footer-logo {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+  
+  .footer-links ul {
+    list-style: none;
+  }
+  
+  .footer-links ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-links ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links ul li a:hover {
+    color: #ffcc00;
+  }
+  
+  .footer-newsletter .newsletter-form {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .newsletter-form input {
+    padding: 10px;
+    flex: 1;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+  }
+  
+  .newsletter-form button {
+    background-color: #ffcc00;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .newsletter-form button:hover {
+    background-color: #e6b800;
+  }

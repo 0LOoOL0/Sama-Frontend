@@ -1,0 +1,13 @@
+<body>
+    <app-navbar></app-navbar>
+    <div>
+        <p>
+            {{order?.id}}<br/>
+            {{order?.order_date | date: 'yyyy-MM-dd HH:mm:ss'}}<br/>
+            {{order?.amount}}<br/>
+            {{order?.discount_amount}}<br/>
+            {{order?.status}}<br/>
+            {{order?.metadata | json}}<br/>
+        </p>
+    </div>
+</body>

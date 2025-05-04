@@ -1,0 +1,206 @@
+.container {
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    max-width: 1200px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hero {
+    margin: 0;
+    padding: 10px;
+    font-family: 'Nunito', sans-serif;
+    background-color: #ebebeb;
+    
+    .heroDot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: #ff47a2;
+      margin-top: 20px;
+    }
+  
+  
+    a {
+      color: #5e17eb;
+      text-decoration: none;
+    }
+  
+    .navigation {
+      font-size: 20px;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+  
+    p {
+      font-size: 20px;
+      cursor: pointer;
+    }
+  
+  }
+
+.post {
+    .header-image {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: 450px;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        object-fit: cover; 
+    }
+
+    span {
+        color: gray;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .share {
+        li {
+            list-style-type: none;
+            display: inline;
+            margin-right: 20px;
+        }
+        img {
+            height: 20px;
+        }
+    }
+
+    .blog-meta {
+        span {
+            padding-right: 20px;
+        }
+    }
+
+    .lists {
+        display: flex;
+        ul {
+            list-style: none;
+            padding: 0;
+            li {
+                position: relative;
+                padding-left: 20px;
+                color: black;
+            }
+    
+            li::before {
+                content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 10px;
+            width: 10px;
+            background-color: #5E17EB;
+            border-radius: 50%;
+            }
+        }
+    }
+
+    blockquote {
+        background-color: rgb(231, 227, 247);
+        padding: 50px 30px 50px 30px;
+        margin: 50px 0 50px 0;
+        font-size: 20px;
+    }
+
+    .images {
+        padding-top:50px;
+        display: flex;
+        justify-content: space-between;
+        img {
+            padding: 20px;
+            height: 300px;
+            width: 500px;
+            object-fit: cover; 
+        }
+    }
+}
+/* MEMBERSHIP BANNER */
+.membership-banner {
+  background-image: url('/assets/img/memBannerbg.png');
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  border-radius: 15px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  height: 350px;
+  overflow: visible;
+  margin: 50px 0 50px 0;
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  width: 100%;
+}
+
+.banner-text {
+  max-width: 600px;
+  width: 100%;
+}
+
+.banner-text h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.banner-text p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.subscribe-button {
+  background-color: #f7b32b;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.subscribe-button:hover {
+  background-color: #e09b24;
+}
+
+.banner-images img {
+  max-width: 450px;
+  border-radius: 15px;
+}
+
+.cat-image {
+  position: absolute;
+  top: 50px;
+  left: 0px;
+}
+
+.dog-image {
+  position: absolute;
+  top: 85px;
+  right: -60px;
+  transform: translateY(0);
+  height: auto;
+}
+

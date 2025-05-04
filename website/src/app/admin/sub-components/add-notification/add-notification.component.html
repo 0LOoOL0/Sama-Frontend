@@ -1,0 +1,63 @@
+<div class="add-notification">
+    <div class="header">
+      <h2>Add New Notification</h2>
+      <div class="status-buttons">
+        <button class="status-btn active">Active</button>
+        <button class="status-btn offline">Offline</button>
+        <button class="status-btn add-more">Add More</button>
+      </div>
+    </div>
+  
+    <div class="form-section">
+      <div class="form-group">
+        <label for="english-subject">English</label>
+        <input type="text" id="english-subject" placeholder="Subject">
+        <textarea id="english-description" placeholder="Description"></textarea>
+      </div>
+  
+      <div class="form-group">
+        <label for="arabic-subject">Arabic</label>
+        <input type="text" id="arabic-subject" placeholder="Subject">
+        <textarea id="arabic-description" placeholder="Description"></textarea>
+      </div>
+    </div>
+  
+    <div class="form-section">
+      <div class="form-group">
+        <label for="date-from">Duration Date</label>
+        <input type="date" id="date-from" placeholder="From">
+        <input type="date" id="date-to" placeholder="To">
+        <div class="automatic-option">
+          <input type="checkbox" id="automatic">
+          <label for="automatic">Automatic</label>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label>Select Type of Audience</label>
+        <div class="audience-options">
+          <div><input type="checkbox" id="member"><label for="member">Member</label></div>
+          <div><input type="checkbox" id="non-member"><label for="non-member">Non-member</label></div>
+          <div><input type="checkbox" id="free-trial"><label for="free-trial">Free Trial</label></div>
+          <div><input type="checkbox" id="all-downloaders"><label for="all-downloaders">All Downloaders</label></div>
+          <div><input type="checkbox" id="caller"><label for="caller">Caller</label></div>
+          <div><input type="checkbox" id="add-cart"><label for="add-cart">Add Cart</label></div>
+          <div><input type="checkbox" id="provider"><label for="provider">Provider</label></div>
+          <div><input type="checkbox" id="doctors"><label for="doctors">Doctors</label></div>
+          <div><input type="checkbox" id="trainer"><label for="trainer">Trainer</label></div>
+          <div><input type="checkbox" id="booking"><label for="booking">Booking</label></div>
+          <div><input type="checkbox" id="renewal"><label for="renewal">Renewal</label></div>
+          <div><input type="checkbox" id="expired"><label for="expired">Expired</label></div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="form-footer">
+      <p>Note: There will be fixed dates. Automatic messages for welcome, renewal will be sent before 1 week. For add cart pending after 3 days.</p>
+      <div class="action-buttons">
+        <button class="submit-btn">Submit</button>
+        <button class="cancel-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,113 @@
+.pet-care-form {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .status-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .btn.application { background-color: #fbc02d; }
+  .btn.waiting { background-color: #6a1b9a; }
+  .btn.preapproval { background-color: #673ab7; }
+  .btn.confirmed { background-color: #303f9f; }
+  .btn.approved { background-color: #388e3c; }
+  
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .tab {
+    background-color: #e0e0e0;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+  }
+  
+  .tab.active {
+    background-color: #673ab7;
+    color: white;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  .profile-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-pic img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .profile-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-left: 20px;
+  }
+  
+  .contact-details, .authorized-contact, .provider-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .provider-details .english-details, .provider-details .arabic-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  textarea {
+    resize: none;
+    height: 100px;
+  }
+  
+  .banner-upload {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .doctors-section {
+    margin-top: 20px;
+  }
+  
+  .doctor-cards {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .doctor-card {
+    width: 150px;
+    height: 150px;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+  }

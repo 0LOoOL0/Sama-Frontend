@@ -1,0 +1,27 @@
+<div class="header">
+  <app-navbar></app-navbar>
+</div>
+
+<div class="container">
+  <div class="progress-bar">
+    <div class="step completed">Sign up</div>
+    <div class="step completed">Create Account</div>
+    <div class="step completed">Wait for approval</div>
+    <div class="step active">Profile setup</div>
+    <div class="step">Wait for approval</div>
+    <div class="step">Success!</div>
+  </div>
+
+  <div class="product-list">
+    <div *ngFor="let product of products" class="product-item">
+      <img [src]="product.image" alt="Product Image" />
+      <div class="product-details">
+        <span class="product-name">{{ product.name }}</span>
+        <button class="edit-icon" (click)="editProduct(product)">✏️</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="add-more" (click)="addProduct()">+ Add More</button>
+  <button class="continue" (click)="continue()">Continue</button>
+</div>

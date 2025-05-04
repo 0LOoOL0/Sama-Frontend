@@ -1,0 +1,9 @@
+
+<button class="edit" (click)="navigateToEdit()">Edit Health</button>
+
+<div class="health-concerns">
+    <div *ngFor="let concern of healthConcerns" class="concern-item">
+        <h3>{{ concern.type }}</h3>
+        <p>{{ concern.description }}</p>
+    </div>
+</div>

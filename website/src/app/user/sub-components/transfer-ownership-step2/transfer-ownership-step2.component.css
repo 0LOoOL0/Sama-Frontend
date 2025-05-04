@@ -1,0 +1,123 @@
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #f7f7f7;
+    }
+
+    .header {
+      background: #ffeb3b;
+      padding: 20px;
+      color: #333;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header img {
+      max-width: 50px;
+    }
+
+    .header h1 {
+      margin: 0;
+    }
+
+    .profile-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 300px;
+      text-align: center;
+      margin: 40px;
+      float: left;
+    }
+
+    .profile-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .profile-card h2 {
+      margin: 10px 0;
+    }
+
+    .profile-card p {
+      color: #777;
+    }
+
+    .transfer-section {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin: 40px;
+      width: calc(100% - 400px);
+      float: right;
+    }
+
+    .transfer-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .progress-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .progress-bar div {
+      width: 30%;
+      height: 10px;
+      background: #ddd;
+      border-radius: 5px;
+    }
+
+    .progress-bar .completed {
+      background: #6c63ff;
+    }
+
+    .progress-bar .in-progress {
+      background: #6c63ff;
+    }
+
+    .select-pets {
+      margin-bottom: 20px;
+    }
+
+    .select-pets table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .select-pets table, .select-pets th, .select-pets td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    .select-pets th {
+      background: #f7f7f7;
+    }
+
+    .next-step-btn {
+      background: #6c63ff;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      float: right;
+      margin-top: 20px;
+    }
+
+    .next-step-btn:hover {
+      background: #5845c3;
+    }

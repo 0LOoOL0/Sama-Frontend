@@ -1,0 +1,127 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container {
+    width: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  .header {
+    background-color: #ffe600;
+    padding: 10px;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+  }
+  
+  .contact-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .login-btn {
+    background-color: #6a0dad;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  /* Banner */
+  .banner {
+    background-color: #a8e3e7;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .banner-image {
+    width: 100px;
+    height: auto;
+  }
+  
+  /* Search Section */
+  .search-section {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+  
+  .search-btn {
+    background-color: #6a0dad;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Card Section */
+  .card-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 20px;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .view-btn {
+    background-color: #ccc;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 50px;
+  }
+  
+  .empty-state img {
+    width: 150px;
+    margin-bottom: 20px;
+  }
+  
+  .empty-state p {
+    font-size: 18px;
+    color: #888;
+  }
+  
+  /* Filter Section */
+  .filter-section {
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #3c0970;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .newsletter input {
+    padding: 5px;
+    margin-right: 5px;
+  }
+  

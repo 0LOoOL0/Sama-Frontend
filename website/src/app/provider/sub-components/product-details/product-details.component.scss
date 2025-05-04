@@ -1,0 +1,143 @@
+// Colors
+:root {
+  --Main-One: #ED5F1E;
+  --Main-Two: #5E17EB;
+  --Main-Two-Shadow: rgb(94, 23, 235, 0.5);
+  --Accent-One: #FFEA50;
+  --Accent-Two: #4FC8DC;
+  --GrayColor:  #9da4aa;
+  --Backup-Pink: #FFB8FF;
+  --background-color: #dfe3e7;
+  --Black: #000000;
+  --White: #ffffff;
+}
+
+// general elements
+p{
+  margin: 0;
+}
+
+.flex{
+  display: flex;
+}
+
+// sections
+#top{
+  height: 90vh;
+}
+
+#bottom{
+  height: 80vh;
+}
+
+// sec 1
+.container{
+  height: 80%;
+  width: 75%;
+}
+
+#pictures{
+  width: 20px;
+  height: 100px;
+  flex-wrap: wrap;
+  align-content: space-between;
+  background-size: cover;
+}
+
+.smallPictures{
+  width: 100px;
+  height: 25px;
+  background-size: cover;
+}
+
+#pic1{
+  background: url(/assets/Tabpanel.svg);
+  background-size: cover;
+  background-position: center;
+}
+
+#pic2{
+  background: url(/assets/mat1.svg);
+  background-size: cover;
+  background-position: center;
+}
+
+#pic3{
+  background: url(/assets/mat2.svg);
+  background-size: cover;
+  background-position: center;
+}
+
+#bigPicture{
+  width: 35%;
+  margin: 0 20px;
+  background: url(/assets/Tabpanel.svg);
+  background-size: cover;
+  background-position: center;
+}
+
+#desc{
+  width: 45%;
+  height: 100%;
+  padding: 16px;
+}
+
+#reviews{
+  margin: 15px 0;
+}
+
+#starContainer{
+  margin-right: 10px;
+}
+
+#prices{
+  height: 30px;
+}
+
+#prices p{
+  font-weight: bold;
+}
+
+#priceBefore{
+  margin-right: 10px;
+  color: var(--GrayColor);
+  text-decoration:line-through;
+}
+
+#priceAfter{
+  color: var(--Main-Two);
+  font-size: large;
+}
+
+// sec 2
+#bottomContainer{
+  border: 2px solid var(--GrayColor);
+  margin: auto;
+  border-radius: 10px;
+  padding: 30px;
+  width: 75%;
+}
+
+#bottomContainer p{
+  margin-bottom: 10px;
+}
+
+#buttons{
+  display: flex;
+}
+
+button{
+  height: 50px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  border: none;
+  background-color: var(--Main-Two);
+  border-radius: 10px;
+  color: var(--White);
+  min-width: 100px;
+}
+
+.buttonNotChosen {
+  background-color: var(--White);
+  color: var(--GrayColor);
+}
