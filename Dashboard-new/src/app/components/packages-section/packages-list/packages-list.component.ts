@@ -75,14 +75,14 @@ export class PackagesListComponent implements OnInit {
       }
     );
   }
-  
-  
+
+
   get activePackages(): Package[] {
     return this.packages.filter(pkg => pkg.status_user);
   }
-  
 
-  
-  
-  
+
+
+
+
 }
