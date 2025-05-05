@@ -21,6 +21,10 @@
     text-align: left;
 }
 
+.coupon-table tbody td {
+  text-align: center;
+}
+
 .add-provider-btn {
     background-color: #ef4444;
     color: white;
@@ -28,7 +32,7 @@
     border-radius: 0.5rem;
     transition: background 0.3s;
 }
-  
+
 .add-provider-btn:hover {
     background-color: #dc2626;
 }
@@ -72,7 +76,7 @@
     padding: 10px;
     margin: 0 0 0 0px;
     color: black;
-       
+
 }
 
 .header-content {
@@ -124,7 +128,7 @@
 
 .button-container {
     margin-left: 20px;
-    
+
 }
 
 .button-container img {
@@ -152,7 +156,7 @@
     text-align: end;
 }
 
-.add-btn { 
+.add-btn {
     background-color: #5E17EB;
     padding: 10px 30px;
     border-radius: 10px;
@@ -161,12 +165,13 @@
 
 .add-btn:hover {
     background-color: #4c12be;
-    
+
 }
 
 .package-types {
     padding-top: 30px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 50px;
 }
@@ -183,6 +188,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    color:white
 }
 
 .package-content h1 {
@@ -214,7 +220,7 @@
 
 .packages-table {
     width: 100%;
-    margin: 20px auto; 
+    margin: 20px auto;
     text-align: center;
     border-radius: 10px;
     overflow: hidden;
@@ -257,7 +263,7 @@
 }
 
 .navigation li {
-    
+
     color: #5E17EB;
     border-radius: 5px;
     padding: 10px;
@@ -265,7 +271,7 @@
 }
 
 .navigation li:hover {
-    
+
     background-color: #5E17EB;
     color: white;
     cursor: pointer;
@@ -276,7 +282,7 @@
     align-items: center;
     cursor: pointer;
   }
-  
+
   .slider {
     width: 2.6rem;
     height: 1.25rem;
@@ -284,11 +290,11 @@
     border-radius: 9999px;
     transition: background-color 0.3s;
   }
-  
+
   input:checked+.slider {
     background-color: #22c55e;
   }
-  
+
   .dot {
     position: absolute;
     top: 0.25rem;
@@ -299,7 +305,7 @@
     border-radius: 1rem;
     transition: transform 0.3s;
   }
-  
+
   input:checked+.slider+.dot {
     transform: translateX(1.35rem);
     background-color: #bbf7d0;

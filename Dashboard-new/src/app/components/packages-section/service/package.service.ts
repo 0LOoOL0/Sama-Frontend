@@ -6,12 +6,17 @@ import { catchError } from 'rxjs/operators';
 export interface Package {
   id: number;
   title: string;
+  title_ar: string;
   description: string;
+  description_ar: string;
   price: number;
   duration: string;
   second_price: number;
   status_user: boolean;
   status_staff: boolean;
+  default_delivery: number;
+  apply_first_offer: number;
+  apply_second_offer: number;
   // Add other fields as needed
 }
 

@@ -21,7 +21,7 @@
         <!-- Display the package title in the middle -->
         <h1>{{ pkg.title }}</h1>
         <!-- For now, show 1 Month as fixed text -->
-        <h2>1 Month</h2>
+        <h2>{{pkg.duration}}</h2>
       </div>
       <button (click)="editPackage(pkg)">Edit</button>
     </div>

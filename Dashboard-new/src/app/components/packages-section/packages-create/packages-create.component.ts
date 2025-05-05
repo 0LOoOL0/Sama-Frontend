@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { PackageService } from '../service/package.service';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-packages-create',
   standalone: true,
@@ -21,12 +21,15 @@ export class PackagesCreateComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private packageService: PackageService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     // Initialize the reactive form with validators
     this.packageForm = this.fb.group({
       title: ['', Validators.required],
+      title_ar: [''],
       description: ['', Validators.required],
+      description_ar: [''],
       price: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
       duration: ['', Validators.required],
       second_price: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
@@ -38,10 +41,8 @@ export class PackagesCreateComponent implements OnInit {
       default_delivery: [''],
       apply_first_offer: [''],
       apply_second_offer: [''],
-      title_ar: [''],
-      description_ar: ['']
     });
-    
+
   }
 
   ngOnInit(): void {
@@ -61,7 +62,7 @@ export class PackagesCreateComponent implements OnInit {
         status_user: packageData.status_user,
         status_staff: packageData.status_staff,
         start_date: packageData.start_date ? this.formatDate(new Date(packageData.start_date)) : '',
-      end_date: packageData.end_date ? this.formatDate(new Date(packageData.end_date)) : '',
+        end_date: packageData.end_date ? this.formatDate(new Date(packageData.end_date)) : '',
         default_delivery: packageData.default_delivery,
         apply_first_offer: packageData.apply_first_offer,
         apply_second_offer: packageData.apply_second_offer,
@@ -70,23 +71,36 @@ export class PackagesCreateComponent implements OnInit {
       });
     }
   }
-  
+
 
   onSubmit(): void {
     this.submitted = true;
+
+    // Check if the form is invalid
     if (this.packageForm.invalid) {
-      return;
+      // Show toaster notification for empty fields
+      this.toastr.warning('Please fill in all required fields.', 'Form Error', {
+        timeOut: 3000,
+      });
+      return; // Exit the function if the form is invalid
     }
+
     if (this.isEditMode && this.packageId) {
       // Update existing package
       this.packageService.updatePackage(this.packageId, this.packageForm.value).subscribe(
         (response: any) => {
           console.log('Package updated:', response);
+          this.toastr.success("Package has been updated successfully.", "Congratulations", {
+            timeOut: 3000,
+          });
           this.router.navigate(['/packages-list']);
         },
         (error: any) => {
           console.error('Error updating package:', error);
           this.errorMessage = 'Error updating package. Please try again.';
+          this.toastr.error("Failed updating package.", "Please Try Again", {
+            timeOut: 3000,
+          });
         }
       );
     } else {
@@ -94,11 +108,17 @@ export class PackagesCreateComponent implements OnInit {
       this.packageService.addPackage(this.packageForm.value).subscribe(
         (response: any) => {
           console.log('Package created:', response);
+          this.toastr.success("Package has been added successfully.", "Congratulations", {
+            timeOut: 3000,
+          });
           this.router.navigate(['/packages-list']);
         },
         (error: any) => {
           console.error('Error creating package:', error);
           this.errorMessage = 'Error creating package. Please try again.';
+          this.toastr.error("Failed Saving package.", "Please Try Again", {
+            timeOut: 3000,
+          });
         }
       );
     }
@@ -117,5 +137,5 @@ export class PackagesCreateComponent implements OnInit {
     if (day.length < 2) { day = '0' + day; }
     return [year, month, day].join('-');
   }
-  
+
 }
