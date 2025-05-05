@@ -155,6 +155,13 @@ export class CreatePostComponent implements OnInit {
         });
       }
     }
+    else {
+      // Form is invalid, display an error toaster
+      this.toastr.error("Please fill in all required fields.", "Form Error", {
+        timeOut: 3000,
+      });
+      console.error('Form is invalid', this.blogForm.errors);
+    }
   }
 
   navigateToBlog() {
